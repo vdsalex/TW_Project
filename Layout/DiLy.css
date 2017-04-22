@@ -21,3 +21,8 @@ li a {
 li a:hover{
 	background-color:#14f7ff;
 }
+
+#uploadIMG {
+	width:852px;
+	heigth:650px;
+}
