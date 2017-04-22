@@ -26,3 +26,10 @@ li a:hover{
 	width:852px;
 	heigth:650px;
 }
+
+#menu {
+	position:fixed;
+	top:0;
+	left:0;
+	
+}
