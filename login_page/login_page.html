@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 </head>
 <body>
-	<img id="bgImg" alt="Blue Background Image" src="blue-11.jpg">
+	<img id="bgImg" alt="Blue Background Image" src="background/blue-11.jpg">
 	<h1 id="dilyHeader">DiLy.</h1>
 	<div id="loginAndDesc">
 		<p id="description">Store your sentimental information with DiLy.</p>
@@ -15,17 +15,22 @@
 			<button class="tablink" onclick="openTab('loginButton', this, 'loginTab')" id="loginButton">Login</button>
 			<button class="tablink" onclick="openTab('signUpButton', this, 'signUpTab')" id="signUpButton">Sign Up</button>
 			<div id="loginTab" class="tabcontent">
+				<div id="loginWithPanel">
+					<p>Login with:</p>
+					<img id="facebookIcon" class="icon" src="icons/facebook_icon.png" alt="Facebook Icon">
+					<img id="googleIcon" class="icon" src="icons/google_icon.png" alt="Google Icon">
+				</div>
 				<form id="loginForm">
 					<ul>
 						<li>
 							<div id="usernameLoginDiv">
-								<img id="userIcon" alt="User Icon" src="user_icon.png">
+								<img id="userIcon" class="icon" alt="User Icon" src="icons/user_icon.png">
 								<input class="loginTextFields" type="text" name="username" placeholder="Username">
 							</div>
 						</li>
 						<li>
 							<div id="passwordLoginDiv">
-								<img id="passwordIcon" alt="Password Icon" src="password_icon.png">
+								<img id="passwordIcon" class="icon" alt="Password Icon" src="icons/password_icon.png">
 								<input class="loginTextFields" type="password" name="password" placeholder="Password">
 							</div>
 						</li>
@@ -45,7 +50,7 @@
 				<form id="signUpForm">
 					<div id="aboutYouDiv">
 						<p id="aboutYou">About You</p>
-						<img id="aboutYouIcon" src="personal_details.png" alt="Personal Details">
+						<img id="aboutYouIcon" class="icon" src="icons/personal_details.png" alt="Personal Details">
 					</div>
 					<ul>
 						<li>
@@ -56,20 +61,22 @@
 					</ul>
 					<div id="userDetDiv">
 						<p id="userDetails">User Details</p>
-						<img id="userDetIcon" src="user_details.png" alt="User Details">
+						<img id="userDetIcon" class="icon" src="icons/user_details.png" alt="User Details">
 					</div>
-					<ul>
-						<li>
-							<input class="userDetFields" type="text" name="username" placeholder="Username">
-							<input class="userDetFields" type="text" name="e-mail" placeholder="Email"><br>
-						</li>
-					</ul>
-					<ul>
-						<li>
-							<input class="userDetFields" type="password" name="password" placeholder="Password">
-							<input class="userDetFields" type="password" name="confirmPassword" placeholder="Confirm Password">
-						</li>
-					</ul>
+					<div id="userDetFields">
+						<ul>
+							<li>
+								<input type="text" name="username" placeholder="Username">
+								<input type="text" name="e-mail" placeholder="Email"><br>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<input type="password" name="password" placeholder="Password">
+								<input type="password" name="confirmPassword" placeholder="Confirm Password">
+							</li>
+						</ul>
+					</div>
 				</form>
 				<button id="submitButton">Submit</button>
 			</div>
