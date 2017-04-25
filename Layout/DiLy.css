@@ -1,4 +1,6 @@
-ul {
+
+ul
+{
 	list-style-type:none;
 	margin:0;
 	padding:0;
@@ -6,11 +8,18 @@ ul {
 	background-color:#0752f8;
 }
 
-li 	{
+li 
+{
 	float:left;
 }
 
-li a {
+li:first-child
+{
+	float:center;
+}
+
+li a
+{
 	display:block;
 	color:white;
 	text-align:center;
@@ -18,18 +27,15 @@ li a {
 	text-decoration:none;
 }
 
-li a:hover{
+li a:hover
+{
 	background-color:#14f7ff;
 }
 
-#uploadIMG {
-	width:852px;
-	heigth:650px;
-}
 
-#menu {
+#menu
+{
 	position:fixed;
 	top:0;
 	left:0;
-	
 }

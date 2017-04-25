@@ -1,0 +1,131 @@
+#bgImg
+{
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 100%;
+
+  /* Set up proportional scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Display image behind the login box */
+  z-index: -1;
+
+  background-size: cover;
+}
+
+ul
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	overflow:hidden;
+	background-color:#0752f8;
+}
+
+li 
+{
+	float:left;
+}
+
+li:first-child
+{
+	float:center;
+}
+
+li a
+{
+	display:block;
+	color:white;
+	text-align:center;
+	padding:16px;
+	text-decoration:none;
+}
+
+li a:hover
+{
+	background-color:#14f7ff;
+}
+
+#uploadIMG
+{
+	width:852px;
+	height:650px;
+}
+
+#menu
+{
+	position:fixed;
+	top:0;
+	left:0;
+}
+
+#static1
+{
+	box-shadow: 1px 12px 18px 0px MidnightBlue;
+
+	margin: 20px;
+}
+
+#static1:hover
+{
+	display: none;
+}
+
+#animatie1
+{
+
+}
+
+#static2
+{	
+	box-shadow: 1px 12px 18px 0px MidnightBlue;
+
+	margin: 20px;
+}
+
+#static2:hover
+{
+	display: none;
+}
+
+#static3
+{
+	box-shadow: 1px 12px 18px 0px MidnightBlue;
+
+	margin: 20px;
+}
+
+#static3:hover
+{
+	display: none;
+}
+
+#static4
+{
+	box-shadow: 1px 12px 18px 0px MidnightBlue;
+
+	margin: 20px;
+}
+
+#static4:hover
+{
+	display: none;
+}
+
+#static5
+{
+	box-shadow: 1px 12px 18px 0px MidnightBlue;
+
+	margin: 20px;
+}
+
+#static5:hover
+{
+	display: none;
+}
