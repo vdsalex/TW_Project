@@ -5,8 +5,9 @@
 	<title>DiLy</title>
 	<link rel="stylesheet" type="text/css" href="login_page.css">
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body onresize="onResize()">
 	<img id="bgImg" alt="Blue Background Image" src="background/blue-11.jpg">
 	<h1 id="dilyHeader">DiLy.</h1>
 	<div id="loginAndDesc">
@@ -18,7 +19,7 @@
 				<div id="loginWithPanel">
 					<p>Login with:</p>
 					<img id="facebookIcon" class="icon" src="icons/facebook_icon.png" alt="Facebook Icon">
-					<img id="googleIcon" class="icon" src="icons/google_icon.png" alt="Google Icon">
+					<img id="gmailIcon" class="icon" src="icons/gmail_icon.png" alt="GMail Icon">
 				</div>
 				<form id="loginForm">
 					<ul>
@@ -52,13 +53,15 @@
 						<p id="aboutYou">About You</p>
 						<img id="aboutYouIcon" class="icon" src="icons/personal_details.png" alt="Personal Details">
 					</div>
-					<ul>
-						<li>
-							<input class="aboutYouFields" type="text" name="lastName" placeholder="Last Name">
-							<input class="aboutYouFields" type="text" name="firstName" placeholder="First Name">
-							<input class="aboutYouFields" type="text" name="address" placeholder="Address">
-						</li>
-					</ul>
+                    <div id="aboutYouFieldsDiv">
+                        <ul>
+                            <li>
+                                <input class="aboutYouFields" type="text" name="lastName" placeholder="Last Name">
+                                <input class="aboutYouFields" type="text" name="firstName" placeholder="First Name">
+                                <input class="aboutYouFields" type="text" name="address" placeholder="Address">
+                            </li>
+                        </ul>
+                    </div>
 					<div id="userDetDiv">
 						<p id="userDetails">User Details</p>
 						<img id="userDetIcon" class="icon" src="icons/user_details.png" alt="User Details">
@@ -85,7 +88,7 @@
 	</div>
 
 	<footer>
-		<p>&copy; 2017 Copyright. All Rights Reserved.</p>
+		<p>&copy; 2017 DiLy Team. All Rights Reserved.</p>
 	</footer>
 </body>
 </html>
