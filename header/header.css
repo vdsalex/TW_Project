@@ -1,0 +1,415 @@
+.container
+{
+    margin-top: 80px;
+}
+ul.dropdown-menu
+{
+    z-index: 40;
+}
+
+#main-nav.affix
+{
+    background-color: #272727;
+}
+
+#bg-img
+{
+    min-width: 100%;
+    min-height: 100%;
+
+    width: 100%;
+    height: auto;
+
+    background-size: cover;
+
+    z-index: -1;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+}
+
+#dropdownMenu1
+{
+    display: none;
+
+    width: 160px;
+    height: 30px;
+
+    position: relative;
+    margin-top: 0;
+}
+
+#leftNavbar ul li
+{
+    margin: 1px;
+}
+
+#main-nav
+{
+    border-color: rgba(0,0,0,0.25);
+    background-color: rgba(0,0,0, 0.2);
+    box-shadow: 0 3px 5px rgba(100, 100, 100, 0.49);
+}
+
+.glyphicon-exclamation-sign
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 5px;
+
+    color: white;
+
+    font-size: 15px;
+
+    text-shadow: 1px 1px 3px black;
+}
+
+#DBrand
+{
+    width: 100px;
+    height: 50px;
+}
+
+#DBrand span:first-child
+{
+    margin-left: 6px;
+    color: white;
+
+    font-family: "Comic Sans MS", sans-serif;
+    text-shadow: 1px 1px 3px black;
+}
+
+.navbar-header
+{
+    margin-top: 13px;
+}
+
+#leftNavbar
+{
+    margin-top: 19px;
+    border: none;
+    position: absolute;
+
+    left: 13%;
+}
+
+#leftNavbar ul li:nth-child(3)
+{
+    margin-left: 8em;
+}
+
+#leftNavbar ul li:nth-child(2)
+{
+    margin-left: 3em;
+}
+
+#leftNavbar ul li:last-child
+{
+    margin-left: 2em;
+}
+
+#uploadText, #MyMemText, #advSearchText
+{
+    height: 25px;
+    border-radius: 4px;
+
+    padding: 3px 10px 4px;
+
+    margin-top: 5px;
+
+    font-family: "Lucida Console", Monaco, monospace;
+
+    font-size: 12pt;
+
+    color: white;
+
+    text-shadow: 1px 1px 3px black;
+}
+
+#uploadText:hover, #MyMemText:hover, #advSearchText:hover
+{
+    border-radius: 4px;
+    background-color: rgba(255,255,255, 0.2);
+}
+
+#search
+{
+    border: none;
+    background: transparent;
+    color: white;
+
+    width: 220px;
+    height: 35px;
+
+    padding-left: 25px;
+    padding-right: 2px;
+
+    white-space: nowrap;
+
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+#search::placeholder
+{
+    color: lightgray;
+}
+
+#search:focus
+{
+    box-shadow: none;
+}
+
+.glyphicon-search
+{
+    color: white;
+
+    position: absolute;
+    margin-top: 1px;
+}
+
+.input-group button
+{
+    height: 35px;
+    width: 32px;
+
+    border: none;
+
+    background: transparent;
+
+    margin-right: 1px;
+}
+
+div.input-group
+{
+    background-color: rgba(0,0,0,0.2);
+
+    border-radius: 4px;
+
+    height: 35px;
+
+    margin-top: 0;
+}
+
+.input-group button:hover
+{
+    background: none;
+}
+
+.input-group button:focus
+{
+    outline: none;
+    background: none;
+}
+
+.input-group button:active:focus
+{
+    outline: none;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+#pf-photo
+{
+    width: 60px;
+    height: 55px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgray;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 1px 1px dimgray;
+}
+
+form.navbar-right
+{
+    height: 56px;
+    width: 250px;
+
+    margin-right: 40px;
+}
+
+form.navbar-right span
+{
+    color: white;
+
+    position: absolute;
+    top: 15px;
+    right: 95px;
+
+    font-size: 10pt;
+}
+
+form.navbar-right span a
+{
+    color: white;
+}
+
+form.navbar-right span a:hover
+{
+    text-decoration: none;
+
+    color: #cccccc;
+}
+
+form.navbar-right span a:focus
+{
+    text-decoration: none;
+}
+
+/*              Pentru afisarea fotografiei de profil.         */
+.modal
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 9em; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content
+{
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+}
+
+#caption
+{
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+span.close
+{
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+span.close:hover,
+span.close:focus
+{
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*             Media rules               */
+
+@media screen and (max-width: 767px)
+{
+    .navbar-header, .input-group, #leftNavbar ul
+    {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1430px)
+{
+    #leftNavbar
+    {
+        left: 18%;
+    }
+
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 10em;
+    }
+}
+
+@media screen and (min-width: 1515px)
+{
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 12em;
+    }
+
+    #leftNavbar ul li:nth-child(2)
+    {
+        margin-left: 3em;
+    }
+
+    #leftNavbar ul li:last-child
+    {
+        margin-left: 3em;
+    }
+}
+
+@media screen and (min-width: 1761px)
+{
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 20em;
+    }
+
+    #leftNavbar ul li:last-child
+    {
+        margin-left: 5em;
+    }
+}
+
+@media screen and (max-width: 1319px)
+{
+    div.dropdown
+    {
+        display: block;
+    }
+
+    #leftNavbar ul li:first-child, #leftNavbar ul li:nth-child(2), div.dropdown ul li:last-child
+    {
+        display: none;
+    }
+
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 1em;
+    }
+
+    #leftNavbar
+    {
+        background-color: red;
+        width: 500px;
+    }
+
+    form.navbar-right
+    {
+        background-color: darkorange;
+        position: relative;
+    }
+
+    form.navbar-right span
+    {
+        right: 40px;
+        top: inherit;
+    }
+
+    #dropdownMenu1
+    {
+        display: block;
+
+        background-color: aqua;
+    }
+
+}
