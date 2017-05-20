@@ -1,0 +1,17 @@
+#bg-img
+{
+    min-width: 100%;
+    min-height: 100%;
+
+    width: 100%;
+    height: auto;
+
+    background-size: cover;
+
+    z-index: -1;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+}
