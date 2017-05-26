@@ -22,22 +22,19 @@
 }
 
 #categorySidenav a {
-    position: absolute; /* Position them relative to the browser window */
-    /* Position them outside of the screen */
-    transition: 0.3s; /* Add transition on hover */
-    padding: 15px; /* 15px padding */
-    width: auto ;/* Set a specific width */
-    text-decoration: none; /* Remove underline */
-    font-size: 20px; /* Increase font size */
-    color: white; /* White text color */
-    border-radius: 0 5px 5px 0; /* Rounded corners on the top right and bottom right side */
+    position: fixed;
+    transition: 0.3s;
+    padding: 15px;
+    width: auto ;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
 }
 
 #categorySidenav a:hover {
-    left: 0; /* On mouse-over, make the elements appear as they should */
+    left: 0;
 }
-
-/* The about link: 20px from the top with a green background */
 
 #all {
     left: -130px;
@@ -49,34 +46,34 @@
 #images {
     left: -80px;
     top: 160px;
-    background-color: #2196F3; /* Blue */
+    background-color:#795548;
     text-align-all: center;
 }
 
 #videos {
     left: -75.1px;
     top: 220px;
-    background-color: #f44336; /* Red */
+    background-color: #f44336;
     text-align: center;
 }
 
 #letters {
     left: -76px;
     top: 280px;
-    background-color: #555; /* Light Black */
+    background-color: #4A148C;
     text-align: center;
 }
 
 #artefacts {
     left: -93.5px;
     top: 340px;
-    background-color: #555; /* Light Black */
+    background-color: #FFC107;
     text-align: center;
 }
 
 #documents {
     left: -115.8px;
     top: 400px;
-    background-color: #555 ;/* Light Black */
+    background-color: #555 ;
     text-align: center;
 }
