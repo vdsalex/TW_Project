@@ -20,3 +20,68 @@
     top: 0;
     left: 0;
 }
+
+.jumbotron{
+    background-color:#EEE8AA !important;
+    color:black;
+    width:100%;
+    text-align:center;
+
+    position: relative;
+    margin-top:25px !important;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    box-shadow: 5px 5px 9px blue;
+
+}
+
+
+.profile-photo
+{
+    width: 50px;
+    height: 46px;
+    float: left;
+    border-style: solid;
+    border-color: darkgray;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 1px 1px dimgray;
+
+}
+.img-rounded{
+    width: 400px;
+    box-shadow: 5px 5px 9px black;
+
+}
+.buttons_paragraph{
+    float: right;
+    padding-top: 0px !important;
+}
+.modal-backdrop {
+
+    background-color: rgba(0,0,0,.0001) !important;
+}
+.video{
+    width: 500px;
+}
+.paragraph{
+    color: red;
+    text-align: left;
+}
+
+.my-img a {
+    display: inline-block;
+    margin: 10px;
+    border: 2px solid #CCC;
+}
+.my-img a:hover {
+    border: 2px solid #45AFFF;
+}
+.modal-lg {
+    width: 86%;
+}
+.modal-body {
+    overflow: auto;
+    max-height: auto;
+}
