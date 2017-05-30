@@ -11,32 +11,46 @@
 |
 */
 
-View::addExtension('html','php');
+Route::group(['middleware'=> ['web']],function(){
 
-Route::get('/', function () {
-    return view('pages/home');
-});
 
-Route::get('/profile', function () {
-    return view('pages/profile');
-});
+    Route::post('/signup',[
+        'uses' => 'UserController@postSignUp',
+            'as' => 'signup'
+        ]);
 
-Route::get('/my_memories',function(){
-   return view('pages/my_memories');
-});
-Route::get('/search', function () {
-   return view('pages/advanced_search');
-});
+    Route::post('/signin',[
+        'uses' => 'UserController@postSignIn',
+        'as' => 'signin'
+    ]);
 
-Route::get('/login', function () {
-   return view('pages/login');
-});
 
-Route::get('/upload', function () {
-    return view('pages/upload');
-});
+    Route::get('/home',[
+        'uses' => 'UserController@getHome',
+        'as' => 'home'
+    ]);
 
-Route::get('/welcome', function () {
-    return view('welcome');
+    Route::get('/profile', function () {
+        return view('pages/profile');
+    });
+
+    Route::get('/my_memories',function(){
+        return view('pages/my_memories');
+    });
+    Route::get('/search', function () {
+        return view('pages/advanced_search');
+    });
+
+    Route::get('/login', function () {
+        return view('pages/login');
+    });
+
+    Route::get('/upload', function () {
+        return view('pages/upload');
+    });
+
+    Route::get('/welcome', function () {
+        return view('welcome');
+    });
 });
 

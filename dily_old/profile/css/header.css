@@ -1,0 +1,729 @@
+#leftNavbar ul li
+{
+    margin: 1px;
+}
+
+#main-nav
+{
+    border-color: rgba(0,0,0,0.25);
+    background-color: #272727;
+    box-shadow: 0 3px 5px rgba(100, 100, 100, 0.49);
+}
+
+#dropdown1
+{
+    display: none;
+}
+
+.glyphicon-exclamation-sign
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 5px;
+
+    color: white;
+
+    font-size: 15px;
+
+    text-shadow: 1px 1px 3px black;
+}
+
+#DBrand
+{
+    width: 100px;
+    height: 50px;
+}
+
+#DBrand span:first-child
+{
+    margin-left: 6px;
+    color: white;
+
+    font-family: "Comic Sans MS", sans-serif;
+    text-shadow: 1px 1px 3px black;
+}
+
+.navbar-header
+{
+    margin-top: 13px;
+}
+
+#leftNavbar
+{
+    margin-top: 19px;
+    border: none;
+    position: absolute;
+
+    left: 13%;
+}
+
+#leftNavbar ul.navbar-nav li:nth-child(3)
+{
+    margin-left: 8em;
+}
+
+#leftNavbar ul.navbar-nav li:nth-child(2)
+{
+    margin-left: 3em;
+}
+
+#leftNavbar ul.navbar-nav li:last-child
+{
+    margin-left: 2em;
+}
+
+#uploadText,
+#MyMemText,
+#advSearchText
+{
+    height: 25px;
+    border-radius: 4px;
+
+    padding: 3px 10px 4px;
+
+    margin-top: 5px;
+
+    font-family: "Lucida Console", Monaco, monospace;
+
+    font-size: 12pt;
+
+    color: white;
+
+    text-shadow: 1px 1px 3px black;
+}
+
+#uploadText:hover,
+#MyMemText:hover,
+#advSearchText:hover
+{
+    border-radius: 4px;
+    background-color: rgba(255,255,255, 0.2);
+}
+
+#search
+{
+    border: none;
+    background: transparent;
+    color: white;
+
+    width: 220px;
+    height: 35px;
+
+    padding-left: 25px;
+    padding-right: 2px;
+
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+#search:focus
+{
+    box-shadow: none;
+}
+
+.glyphicon-search
+{
+    color: white;
+
+    position: absolute;
+    margin-top: 1px;
+}
+
+.input-group button
+{
+    height: 35px;
+    width: 32px;
+
+    border: none;
+
+    background: transparent;
+
+    margin-right: 1px;
+}
+
+div.input-group
+{
+    background-color: rgba(0,0,0,0.2);
+
+    border-radius: 4px;
+
+    height: 35px;
+
+    margin-top: 0;
+}
+
+.input-group button:hover
+{
+    background: none;
+}
+
+.input-group button:focus
+{
+    outline: none;
+    background: none;
+}
+
+.input-group button:active:focus
+{
+    outline: none;
+    border: none;
+    background: none;
+    box-shadow: none;
+}
+
+#pf-photo
+{
+    width: 60px;
+    height: 55px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: darkgray;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 1px 1px dimgray;
+}
+
+form.navbar-right
+{
+    height: 56px;
+    width: 250px;
+
+    margin-right: 20px;
+}
+
+form.navbar-right span
+{
+    color: white;
+
+    position: absolute;
+    top: 15px;
+    right: 75px;
+
+    font-size: 10pt;
+}
+
+form.navbar-right span a
+{
+    color: skyblue;
+}
+
+form.navbar-right span a:hover
+{
+    text-decoration: none;
+
+    color: #cccccc;
+}
+
+form.navbar-right span a:focus
+{
+    text-decoration: none;
+}
+
+/*              Pentru afisarea fotografiei de profil.         */
+.modal
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 7em; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+.modal-content
+{
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+}
+
+#caption
+{
+    margin: auto;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+span.close
+{
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+span.close:hover,
+span.close:focus
+{
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*             Media rules               */
+
+@media screen and (max-width: 767px)
+{
+    .navbar-header,
+    .input-group,
+    #leftNavbar ul
+    {
+        margin-top: 0;
+    }
+}
+
+@media screen and (min-width: 1430px)
+{
+    #leftNavbar
+    {
+        left: 18%;
+    }
+
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 10em;
+    }
+}
+
+@media screen and (min-width: 1515px)
+{
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 12em;
+    }
+
+    #leftNavbar ul li:nth-child(2)
+    {
+        margin-left: 3em;
+    }
+
+    #leftNavbar ul li:last-child
+    {
+        margin-left: 3em;
+    }
+}
+
+@media screen and (min-width: 1761px)
+{
+    #leftNavbar ul li:nth-child(3)
+    {
+        margin-left: 20em;
+    }
+
+    #leftNavbar ul li:last-child
+    {
+        margin-left: 5em;
+    }
+}
+
+@media screen and (max-width: 1319px)
+{
+    #leftNavbar ul.navbar-nav li:first-child,
+    #leftNavbar ul.navbar-nav li:nth-child(2)
+    {
+        display: none;
+    }
+
+    #dropdown1 ul li:nth-child(5),
+    #dropdown1 ul li:nth-child(4),
+    #dropdown1 ul li:nth-child(6),
+    #dropdown1 ul li:nth-child(7)
+    {
+        display: none;
+    }
+
+    #leftNavbar ul.navbar-nav li:nth-child(3)
+    {
+        margin-left: 5.5em;
+    }
+
+    #leftNavbar
+    {
+        width: 560px;
+    }
+
+    #dropdown1
+    {
+        display: block;
+
+        width: 32px;
+        height: 26px;
+
+        position: absolute;
+
+        top: 6px;
+        left: 0;
+    }
+
+    #dropdown1 > span
+    {
+        width: 60px;
+
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 12pt;
+        color: white;
+        text-shadow: 1px 1px 3px black;
+
+        position: absolute;
+        bottom: 2px;
+
+        padding-left: 11px;
+
+        border-radius: 4px;
+    }
+
+    #dropdown1 span:hover
+    {
+        background-color: rgba(255,255,255, 0.2);
+    }
+
+    #dropdown1 ul
+    {
+        background-color: #393939;
+    }
+
+    #dropdown1 ul li a
+    {
+        font-family: "Times New Roman", sans-serif;
+        color: white;
+    }
+}
+
+@media screen and (max-width: 959px)
+{
+    #leftNavbar ul.navbar-nav li:last-child
+    {
+        display: none;
+    }
+
+    #leftNavbar ul.navbar-nav li:nth-child(3)
+    {
+        margin-left: 76px;
+    }
+
+    #leftNavbar
+    {
+        width: 360px;
+
+        margin-left: 6em;
+    }
+
+    #dropdown1 ul li:nth-child(5),
+    #dropdown1 ul li:nth-child(4)
+    {
+        display: block;
+    }
+}
+
+@media screen and (max-width: 884px)
+{
+    #leftNavbar
+    {
+        margin-left: 3em;
+    }
+}
+
+@media screen and (max-width: 822px)
+{
+    #leftNavbar
+    {
+        margin-left: 2em;
+    }
+}
+
+@media screen and (max-width: 811px)
+{
+    #dropdown1 ul li:nth-child(6),
+    #dropdown1 ul li:nth-child(7)
+    {
+        display: block;
+    }
+
+    #dropdown1 ul
+    {
+        width: 292px;
+    }
+
+    #searchDropdwn
+    {
+        border: none;
+        background: darkorange;
+        color: white;
+
+        width: 220px;
+        height: 35px;
+
+        padding-left: 25px;
+        padding-right: 10px;
+
+        font-family: "Comic Sans MS", sans-serif;
+    }
+
+    #searchDropdwn:focus
+    {
+        box-shadow: none;
+    }
+
+    ul.dropdown-menu li:last-child div.input-group button
+    {
+        height: 35px;
+        width: 43px;
+
+        border: none;
+
+        position: absolute;
+        right: 0;
+
+        margin-right: 1px;
+
+        background-color: darkorange;
+
+        box-shadow: none !important;
+    }
+
+    ul.dropdown-menu li:last-child div.input-group button span
+    {
+        font-size: 15px !important;
+
+        color: #393939;
+    }
+
+    ul.dropdown-menu li:last-child div.input-group
+    {
+        border-radius: 4px;
+
+        height: 35px;
+
+        margin-top: 0;
+    }
+
+    ul.dropdown-menu li:last-child div.input-group button:hover
+    {
+        background: none;
+    }
+
+    ul.dropdown-menu li:last-child div.input-group button:focus
+    {
+        outline: none;
+        background: none;
+    }
+
+    ul.dropdown-menu li:last-child div.input-group button:active:focus
+    {
+        outline: none;
+        border: none;
+        background: none;
+        box-shadow: none;
+    }
+
+    #dropdown1 ul li:last-child div.input-group
+    {
+        width: 261px;
+        margin-left: 1em;
+        margin-top: 5px;
+    }
+
+    #leftNavbar
+    {
+        width: 60px;
+        height: 37px;
+
+        margin-left: 7em;
+
+        box-shadow: none !important;
+    }
+
+    #leftNavbar ul.navbar-nav li:nth-child(3) div.input-group
+    {
+        display: none;
+    }
+
+    form.navbar-right
+    {
+        margin-right: 75px;
+    }
+
+    form.navbar-right span
+    {
+        right: 130px;
+    }
+}
+
+@media screen and (max-width: 693px)
+{
+    form.navbar-right
+    {
+        margin-right: 35px;
+    }
+
+    form.navbar-right span
+    {
+        right: 90px;
+    }
+}
+
+@media screen and (max-width: 587px)
+{
+    form.navbar-right
+    {
+        margin-right: 0;
+    }
+
+    form.navbar-right span
+    {
+        right: 55px;
+    }
+}
+
+@media screen and (max-width: 535px)
+{
+    #leftNavbar
+    {
+        margin-left: 5em;
+    }
+}
+
+@media screen and (max-width: 475px)
+{
+    header
+    {
+        height: 70px;
+    }
+
+    #main-nav
+    {
+        height: 140px;
+    }
+
+    .container-fluid
+    {
+        height: 140px;
+    }
+
+    form.navbar-right
+    {
+        position: absolute;
+        right: 20px;
+        bottom: 3px;
+    }
+
+    form.navbar-right span
+    {
+        right: 24px;
+        top: 5px;
+
+        font-size: 11pt;
+    }
+
+    form.navbar-right img
+    {
+        top: 0;
+    }
+
+    #leftNavbar
+    {
+        position: absolute;
+        bottom: 13px;
+        left: 5px;
+    }
+
+    div.navbar-header
+    {
+        position: absolute;
+        top: 7px;
+        left: calc(50% - 50px);
+    }
+}
+
+@media screen and (max-width: 458px)
+{
+    #leftNavbar
+    {
+        left: 0;
+    }
+}
+
+@media screen and (max-width: 438px)
+{
+    #leftNavbar
+    {
+        left: -10px;
+    }
+}
+
+@media screen and (max-width: 430px)
+{
+    #leftNavbar
+    {
+        left: -20px;
+    }
+}
+
+@media screen and (max-width: 407px)
+{
+    #leftNavbar
+    {
+        top: -6px;
+        left: 0;
+    }
+
+    div.navbar-header
+    {
+        top: 6px;
+        position: absolute;
+        left: calc(75% - 50px);
+    }
+
+    form.navbar-right
+    {
+        left: calc(50% - 105px);
+    }
+
+    #dropdown1 ul.dropdown-menu
+    {
+        position: relative;
+        left: -50px;
+    }
+}
+
+/*          Prevent navbar from collapsing        */
+
+@media (max-width: 768px)
+{
+    .navbar-header
+    {
+        position: absolute;
+        bottom: 9px;
+
+        float: left;
+    }
+
+    .navbar-right
+    {
+        float: right !important;
+        border-style: none !important;
+        box-shadow: none !important;
+    }
+
+    .navbar-right img
+    {
+        position: absolute;
+        bottom: 9px;
+    }
+}

@@ -22,7 +22,7 @@
             "database"
         ],
         "psr-4": {
-            "DiLy\\": "app/"
+            "App\\": "app/"
         }
     },
     "autoload-dev": {

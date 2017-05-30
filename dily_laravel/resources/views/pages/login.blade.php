@@ -23,7 +23,7 @@
 					<img id="facebookIcon" class="icon" src="icons/facebook_icon.png" alt="Facebook Icon">
 					<img id="gmailIcon" class="icon" src="icons/gmail_icon.png" alt="GMail Icon">
 				</div>
-				<form id="loginForm">
+				<form id="loginForm" action="{{route('signin')}}" method="POST">
 					<ul>
 						<li>
 							<div id="usernameLoginDiv">
@@ -35,6 +35,7 @@
 							<div id="passwordLoginDiv">
 								<img id="passwordIcon" class="icon" alt="Password Icon" src="icons/password_icon.png">
 								<input class="loginTextFields" type="password" name="password" placeholder="Password">
+								<input type="hidden" name="_token" value="{{Session::token()}}">
 							</div>
 						</li>
 					</ul>
@@ -46,11 +47,12 @@
 							Forgot Your Password?
 						</label>
 					</div>
+					<button type="submit" id="loginToAccountButton">Login to your Account</button>
 				</form>
-				<button id="loginToAccountButton">Login to your Account</button>
+
 			</div>
 			<div id="signUpTab" class="tabcontent">
-				<form id="signUpForm">
+				<form id="signUpForm" action="{{route('signup')}}" method="POST">
 					<div id="aboutYouDiv">
 						<p id="aboutYou">About You</p>
 						<img id="aboutYouIcon" class="icon" src="icons/personal_details.png" alt="Personal Details">
@@ -79,11 +81,13 @@
 							<li>
 								<input type="password" name="password" placeholder="Password">
 								<input type="password" name="confirmPassword" placeholder="Confirm Password">
+								<input type="hidden" name="_token" value="{{Session::token()}}">
 							</li>
 						</ul>
 					</div>
+					<button type="submit" id="submitButton">Submit</button>
 				</form>
-				<button id="submitButton">Submit</button>
+
 			</div>
 		</div>
 	</div>

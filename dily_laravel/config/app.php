@@ -38,7 +38,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' =>'true',
 
     /*
     |--------------------------------------------------------------------------
@@ -172,11 +172,11 @@ return [
         /*
          * Application Service Providers...
          */
-        DiLy\Providers\AppServiceProvider::class,
-        DiLy\Providers\AuthServiceProvider::class,
-        // DiLy\Providers\BroadcastServiceProvider::class,
-        DiLy\Providers\EventServiceProvider::class,
-        DiLy\Providers\RouteServiceProvider::class,
+        App\Providers\AppServiceProvider::class,
+        App\Providers\AuthServiceProvider::class,
+        // App\Providers\BroadcastServiceProvider::class,
+        App\Providers\EventServiceProvider::class,
+        App\Providers\RouteServiceProvider::class,
         
         Yajra\Oci8\Oci8ServiceProvider::class,
         
