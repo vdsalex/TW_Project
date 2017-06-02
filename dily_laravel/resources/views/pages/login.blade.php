@@ -1,4 +1,5 @@
 {!! Html::style('css/login.css') !!}
+{!! Html::style("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css") !!}
 
 
 <!DOCTYPE html>
@@ -12,6 +13,17 @@
 <body onresize="onResize()">
 	<img id="bgImg" alt="Blue Background Image" src="content/blue-11.jpg">
 	<h1 id="dilyHeader">DiLy.</h1>
+	@if (count($errors)>0)
+		<div class="row">
+			<div class="col-md-6">
+				<ul>
+					@foreach($errors->all() as $error)
+						<li>{{$error}}</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
+	@endif
 	<div id="loginAndDesc">
 		<p id="description">Store your sentimental information with DiLy.</p>
 		<div id="loginBox">
@@ -28,13 +40,13 @@
 						<li>
 							<div id="usernameLoginDiv">
 								<img id="userIcon" class="icon" alt="User Icon" src="icons/user_icon.png">
-								<input class="loginTextFields" type="text" name="username" placeholder="Username">
+								<input class="loginTextFields" type="text" name="username" placeholder="Username" value="{{\Illuminate\Support\Facades\Request::old('username')}}">
 							</div>
 						</li>
 						<li>
 							<div id="passwordLoginDiv">
 								<img id="passwordIcon" class="icon" alt="Password Icon" src="icons/password_icon.png">
-								<input class="loginTextFields" type="password" name="password" placeholder="Password">
+								<input class="loginTextFields" type="password" name="password" placeholder="Password" value="{{\Illuminate\Support\Facades\Request::old('password')}}">
 								<input type="hidden" name="_token" value="{{Session::token()}}">
 							</div>
 						</li>

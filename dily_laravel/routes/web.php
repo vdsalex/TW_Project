@@ -27,27 +27,38 @@ Route::group(['middleware'=> ['web']],function(){
 
     Route::get('/home',[
         'uses' => 'UserController@getHome',
-        'as' => 'home'
+        'as' => 'home',
+        'middleware' => 'auth'
     ]);
 
-    Route::get('/profile', function () {
-        return view('pages/profile');
-    });
+    Route::get('/profile',[
+        'uses' => 'UserController@getProfile',
+        'as' => 'profile',
+        'middleware' => 'auth'
+    ]);
 
-    Route::get('/my_memories',function(){
-        return view('pages/my_memories');
-    });
-    Route::get('/search', function () {
-        return view('pages/advanced_search');
-    });
+    Route::get('/memories',[
+        'uses' => 'UserController@getMyMemories',
+        'as' => 'my_memories',
+        'middleware' => 'auth'
+    ]);
 
-    Route::get('/login', function () {
-        return view('pages/login');
-    });
+    Route::get('/search',[
+        'uses' => 'UserController@getAdvancedSearch',
+        'as' => 'advanced_search',
+        'middleware' => 'auth'
+    ]);
 
-    Route::get('/upload', function () {
-        return view('pages/upload');
-    });
+    Route::get('/login',[
+        'uses' => 'UserController@getLogin',
+        'as' => 'login'
+    ]);
+
+    Route::get('/upload',[
+        'uses' => 'UserController@getUpload',
+        'as' => 'upload',
+        'middleware' => 'auth'
+    ]);
 
     Route::get('/welcome', function () {
         return view('welcome');
