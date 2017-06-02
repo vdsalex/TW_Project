@@ -51,7 +51,7 @@ Route::group(['middleware'=> ['web']],function(){
 
     Route::get('/login',[
         'uses' => 'UserController@getLogin',
-        'as' => 'login'
+        'as' => 'login',
     ]);
 
     Route::get('/upload',[
@@ -60,8 +60,15 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
-    Route::get('/welcome', function () {
-        return view('welcome');
-    });
+    Route::get('/',[
+        'uses' => 'UserController@getHome',
+        'as' => 'baseRoute',
+        'middleware' => 'auth'
+    ]);
+
+    Route::get('/logout',[
+       'uses' => 'UserController@getLogout',
+        'as' => 'logout'
+    ]);
 });
 

@@ -57,7 +57,7 @@
 				<span>
 					Welcome, <a href="#">handsome</a>
 					<br>
-					<a href="../login_page/login_page.html">Logout</a>
+					<a href={{route('logout')}}>Logout</a>
 				</span>
 			</form>
 		</div>
