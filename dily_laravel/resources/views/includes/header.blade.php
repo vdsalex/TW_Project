@@ -55,7 +55,7 @@
 			<form class="navbar-form navbar-right">
 				<img src="content/fat-frumos.jpg" alt="Profile Photo" id="pf-photo">
 				<span>
-					Welcome, <a href="#">handsome</a>
+					Welcome, <a href={{route('profile')}}>handsome</a>
 					<br>
 					<a href={{route('logout')}}>Logout</a>
 				</span>

@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function getProfile()
     {
-        return view('pages/profile');
+        return view('pages/profile',['user'=> Auth::user()]);
     }
     public function getAdvancedSearch()
     {
@@ -82,4 +82,5 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('home');
     }
+
 }
