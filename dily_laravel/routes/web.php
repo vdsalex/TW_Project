@@ -75,5 +75,10 @@ Route::group(['middleware'=> ['web']],function(){
         'uses' => 'UserController@postSaveAccount',
         'as' => 'account.save'
     ]);
+
+    Route::get('userimage/{filename}',[
+        'uses' => 'UserController@getUserImage',
+        'as' => 'account.image'
+    ]);
 });
 

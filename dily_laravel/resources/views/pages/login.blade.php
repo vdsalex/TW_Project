@@ -72,8 +72,8 @@
                     <div id="aboutYouFieldsDiv">
                         <ul>
                             <li>
-                                <input class="aboutYouFields" type="text" name="lastName" placeholder="Last Name">
-                                <input class="aboutYouFields" type="text" name="firstName" placeholder="First Name">
+                                <input class="aboutYouFields" type="text" name="last_name" placeholder="Last Name">
+                                <input class="aboutYouFields" type="text" name="first_name" placeholder="First Name">
                                 <input class="aboutYouFields" type="text" name="address" placeholder="Address">
                             </li>
                         </ul>
@@ -86,7 +86,7 @@
 						<ul>
 							<li>
 								<input type="text" name="username" placeholder="Username">
-								<input type="text" name="e-mail" placeholder="Email"><br>
+								<input type="text" name="e_mail" placeholder="Email"><br>
 							</li>
 						</ul>
 						<ul>

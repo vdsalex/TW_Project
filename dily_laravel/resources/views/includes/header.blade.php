@@ -54,9 +54,14 @@
 				</ul>
 			</div>
 			<form class="navbar-form navbar-right">
-				<img src="content/fat-frumos.jpg" alt="Profile Photo" id="pf-photo">
+				@if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
+					<img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" alt="Profile image" id="pf-photo">
+				@else
+					<img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" alt="Profile image" id="pf-photo">
+				@endif
+
 				<span>
-					Welcome, <a href={{route('profile')}}>handsome</a>
+					Welcome, <a href={{route('profile')}}>{{$user->first_name . ' ' . $user->last_name}}</a>
 					<br>
 					<a href={{route('logout')}}>Logout</a>
 				</span>
@@ -66,9 +71,14 @@
 
     <div id="myModal" class="modal">
         <span class="close">×</span>
-        <img src="content/fat-frumos.jpg" class="modal-content" id="pf-pht" alt="Profile Photo">
+		@if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
+        <img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
+		@else
+			<img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
+		@endif
         <div id="caption"></div>
     </div>
 </body>
 </html>
+{!! Html::script('js/header.js') !!}
 {!! Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
