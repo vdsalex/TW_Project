@@ -276,5 +276,4 @@
 
 </body>
 </html>
-{!! Html::script('https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js') !!}
 {!! Html::script('js/my_memories.js') !!}

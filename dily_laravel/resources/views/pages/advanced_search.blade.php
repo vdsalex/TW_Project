@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>DiLy</title>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
  
 </head>
 <body>

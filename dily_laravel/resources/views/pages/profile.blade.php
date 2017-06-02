@@ -5,7 +5,6 @@
 <head>
     <meta charset="UTF-8">
     <title>DiLy</title>
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
   
 </head>
 <body>
@@ -33,13 +32,18 @@
                     </form>
                 </div>
             </section>
-            @if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
+
                 <section class="row new-post">
                     <div class="col-md-6 col-md-offset-3">
-                        <img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" alt="" class="img-responsive">
+                        @if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
+                            <img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" alt="Profile image" class="img-responsive">
+                        @else
+                            <img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" alt="Profile image" class="img-responsive">
+                        @endif
+
                     </div>
                 </section>
-            @endif
+
     </div>
 
 </body>
