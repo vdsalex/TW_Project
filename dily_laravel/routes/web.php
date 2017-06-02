@@ -39,13 +39,13 @@ Route::group(['middleware'=> ['web']],function(){
 
     Route::get('/memories',[
         'uses' => 'UserController@getMyMemories',
-        'as' => 'my_memories',
+        'as' => 'memories',
         'middleware' => 'auth'
     ]);
 
     Route::get('/search',[
         'uses' => 'UserController@getAdvancedSearch',
-        'as' => 'advanced_search',
+        'as' => 'search',
         'middleware' => 'auth'
     ]);
 
@@ -69,6 +69,11 @@ Route::group(['middleware'=> ['web']],function(){
     Route::get('/logout',[
        'uses' => 'UserController@getLogout',
         'as' => 'logout'
+    ]);
+
+    Route::post('/updateaccount',[
+        'uses' => 'UserController@postSaveAccount',
+        'as' => 'account.save'
     ]);
 });
 

@@ -1,4 +1,5 @@
 {!! Html::style('css/header.css') !!}
+{!! Html::style('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') !!}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
 	<nav class="navbar navbar-default navbar-fixed-top" id="main-nav" data-spy="affix" data-offset-top="14">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#" id="DBrand">
+				<a class="navbar-brand" href={{route('home')}} id="DBrand">
 					<span>DiLy.</span>
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				</a>
@@ -39,8 +40,8 @@
 					</ul>
 				</div>
 				<ul class="nav navbar-nav">
-					<li><a href="#" id="uploadText">UPLOAD</a></li>
-					<li><a href="#" id="MyMemText">MY MEMORIES</a></li>
+					<li><a href={{route('upload')}} id="uploadText">UPLOAD</a></li>
+					<li><a href={{route('memories')}} id="MyMemText">MY MEMORIES</a></li>
 					<li>
 						<div class="input-group">
 							<input spellcheck="false" type="text" id="search" class="form-control" placeholder="Search for..">
@@ -49,7 +50,7 @@
 							</button>
 						</div>
 					</li>
-					<li><a href="#" id="advSearchText">ADVANCED SEARCH</a></li>
+					<li><a href={{route('search')}} id="advSearchText">ADVANCED SEARCH</a></li>
 				</ul>
 			</div>
 			<form class="navbar-form navbar-right">
@@ -68,6 +69,6 @@
         <img src="content/fat-frumos.jpg" class="modal-content" id="pf-pht" alt="Profile Photo">
         <div id="caption"></div>
     </div>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
+{!! Html::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
