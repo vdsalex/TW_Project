@@ -32,8 +32,9 @@
 			<div id="loginTab" class="tabcontent">
 				<div id="loginWithPanel">
 					<p>Login with:</p>
-					<img id="facebookIcon" class="icon" src="icons/facebook_icon.png" alt="Facebook Icon">
-					<img id="gmailIcon" class="icon" src="icons/gmail_icon.png" alt="GMail Icon">
+					<a href="{{route('provider.auth','facebook')}}"> <img id="facebookIcon" class="icon" src="icons/facebook_icon.png" alt="Facebook Icon"></a>
+					<a href="{{route('provider.auth','google')}}"> <img id="gmailIcon" class="icon" src="icons/gmail_icon.png" alt="GMail Icon"></a>
+
 				</div>
 				<form id="loginForm" action="{{route('signin')}}" method="POST">
 					<ul>

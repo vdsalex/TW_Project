@@ -26,8 +26,6 @@ body
 
 #loginAndDesc
 {
-	/*background: black;*/
-
 	width: 600px;
 	height: 400px;
 
@@ -179,10 +177,9 @@ input[type="text"], input[type="password"]
 
 #signUpForm
 {
-	/*background: green;*/
 	
 	width: 600px;
-	height: 210px;
+	height: 276px;
 
 	position: absolute;
 	left: 0;
@@ -220,7 +217,7 @@ input[type="text"], input[type="password"]
     text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
 
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
     right: 0;
     left: 0;
     margin: auto;
@@ -308,7 +305,7 @@ input[type="text"], input[type="password"]
 	height: 90px;
 
 	position: absolute;
-	bottom: 0;
+	bottom: 70px;
 	left: 0;
 	right: 0;
 	margin: auto;
@@ -324,9 +321,8 @@ input[type="text"], input[type="password"]
 
 #loginForm
 {
-
 	width: 100%;
-	height: 55%;
+	height: calc(55% + 80px);
 
 	position: absolute;
 
@@ -427,8 +423,6 @@ input[type="text"], input[type="password"]
 
 #usernameLoginDiv
 {
-
-
 	position: absolute;
 	top: 20px;
 	left: 0;
@@ -444,7 +438,7 @@ input[type="text"], input[type="password"]
 	position: absolute;
 	left: 0;
 	right: 0;
-	bottom: 40px;
+	bottom: 120px;
 
 	/*background-color: yellow;*/
 	height: 2.5em;
@@ -523,7 +517,7 @@ input[type="text"], input[type="password"]
 
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 90px;
 	margin: auto;
 }
 
@@ -567,7 +561,6 @@ input[type="text"], input[type="password"]
 	#loginBox
 	{
 		width: 400px;
-		height: 400px;
 
 		min-height: 400px;
 	}
@@ -586,7 +579,7 @@ input[type="text"], input[type="password"]
 
 		position: absolute;
 
-		top: 270px;
+        top: 262px;
 		left: 0;
 		right: 0;
 		margin: auto;
@@ -619,7 +612,8 @@ input[type="text"], input[type="password"]
 		left: 70px;
 	}
 
-	#usernameLoginDiv, #passwordLoginDiv
+	#usernameLoginDiv,
+    #passwordLoginDiv
 	{
         /*background-color: green;*/
 		height: 60px;
@@ -632,7 +626,7 @@ input[type="text"], input[type="password"]
 
     #passwordLoginDiv
     {
-        bottom: 60px;
+        bottom: 160px;
     }
 
 	.loginTextFields
@@ -655,7 +649,7 @@ input[type="text"], input[type="password"]
 
     #loginForm
     {
-        height: 220px;
+        height: 320px;
         /*background-color: red;*/
     }
 
@@ -663,6 +657,7 @@ input[type="text"], input[type="password"]
     {
         width: 230px;
         font-size: 14pt;
+        bottom: 0;
     }
 
     #remMePasswdLabels
@@ -672,7 +667,7 @@ input[type="text"], input[type="password"]
         width: 340px;
         height: 40px;
 
-        bottom: 0;
+        bottom: 110px;
     }
 
     #remMePasswdLabels label
@@ -692,7 +687,7 @@ input[type="text"], input[type="password"]
 
     #aboutYouFieldsDiv input[type="text"]
     {
-        margin-left: 0px;
+        margin-left: 0;
         line-height: 28px;
     }
 
@@ -729,7 +724,7 @@ input[type="text"], input[type="password"]
         /*background-color: deeppink;*/
 
         width: 400px;
-        height: 280px;
+        height: 350px;
     }
 
     #userDetDiv
@@ -737,13 +732,18 @@ input[type="text"], input[type="password"]
         /*background-color: pink;*/
 
         position: absolute;
-        top: 65px;
+        top: 58px;
     }
 
     #userDetDiv p
     {
         top: 90px;
     }
+
+	#submitButton
+	{
+		bottom: 0;
+	}
 }
 
 @media screen and (max-width: 444px)
@@ -756,7 +756,7 @@ input[type="text"], input[type="password"]
     #loginAndDesc
     {
         width: 290px;
-        height: 550px;
+        height: 570px;
     }
 
     #loginBox
@@ -764,10 +764,12 @@ input[type="text"], input[type="password"]
 		top: 0;
 
         width: 290px;
-        height: 420px;
+
+		min-height: 420px;
     }
 
-    #usernameLoginDiv, #passwordLoginDiv
+    #usernameLoginDiv,
+    #passwordLoginDiv
     {
         /*background-color: black;*/
 
@@ -777,10 +779,11 @@ input[type="text"], input[type="password"]
 
     #passwordLoginDiv
     {
-        margin-bottom: 10px;
+        margin-bottom: 40px;
     }
 
-    #usernameLoginDiv input[type="text"], #passwordLoginDiv input[type="password"]
+    #usernameLoginDiv input[type="text"],
+    #passwordLoginDiv input[type="password"]
     {
         height: 33px;
         font-size: 13pt;
@@ -800,7 +803,7 @@ input[type="text"], input[type="password"]
     {
         /*background-color: aqua;*/
         width: 290px;
-        height: 230px;
+        height: 350px;
     }
 
     #remMePasswdLabels
@@ -808,7 +811,7 @@ input[type="text"], input[type="password"]
         /*background-color: red;*/
 
         position: absolute;
-        bottom: 0;
+        bottom: 132px;
 
         height: 60px;
         width: 200px;
@@ -839,14 +842,14 @@ input[type="text"], input[type="password"]
     #loginWithPanel
     {
         /*background-color: darkorange;*/
-        bottom: 53px;
+        bottom: 60px;
     }
 
 	#signUpForm
 	{
 		/*background-color: aqua;*/
 
-		height: 410px;
+		height: 476px;
 		width: 100%;
 	}
 

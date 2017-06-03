@@ -81,7 +81,14 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'account.image'
     ]);
 
-    Route::get('auth/{provider}', 'Auth\RegisterController@redirectToProvider');
-    Route::get('auth/{provider}/callback', 'Auth\RegisterController@handleProviderCallback');
+    Route::get('/auth/{provider}', [
+        'uses' => 'Auth\RegisterController@redirectToProvider',
+        'as' => 'provider.auth'
+    ]);
+
+    Route::get('/auth/{provider}/callback', [
+        'uses'=> 'Auth\RegisterController@handleProviderCallback',
+        'as' => 'provider.callback'
+    ]);
 });
 

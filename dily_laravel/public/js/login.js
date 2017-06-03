@@ -60,8 +60,38 @@ function onResize()
 {
     if(window.screen.width >= 660)
     {
-        if(currentButton.localeCompare("loginButton") === 0)loginBox.style.height = "300px";
-        else loginBox.style.height = "330px";
+        if(currentButton.localeCompare("loginButton") === 0)
+        {
+            loginBox.style.height = "300px";
+        }
+        else
+        {
+            loginBox.style.height = "330px";
+        }
+    }
+
+    if(window.screen.width < 660 && window.screen.width >= 445)
+    {
+        if(currentButton.localeCompare("loginButton") === 0)
+        {
+            loginBox.style.height = "400px";
+        }
+        else
+        {
+            loginBox.style.height = "430px";
+        }
+    }
+
+    if(window.screen.width < 445)
+    {
+        if(currentButton.localeCompare("loginButton") === 0)
+        {
+            loginBox.style.height = "420px";
+        }
+        else
+        {
+            loginBox.style.height = "550px";
+        }
     }
 }
 

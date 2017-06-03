@@ -70,7 +70,9 @@ class UserController extends Controller
             'username' => 'required'
         ]);
 
-        if (Auth::attempt(['username'=>$request['username'],'password'=>$request['password']]))
+        $remember=$request->has('rememberMeCBox');
+
+        if (Auth::attempt(['username'=>$request['username'],'password'=>$request['password']],$remember))
         {
             return redirect()->route('home');
         }
