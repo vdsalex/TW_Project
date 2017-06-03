@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\SocialProvider;
 use App\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Laravel\Socialite\Facades\Socialite;
 
 class RegisterController extends Controller
 {
@@ -67,5 +70,49 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+    }
+
+    /**
+     * Redirect the user to the provider authentication page.
+     *
+     * @return Response
+     */
+    public function redirectToProvider($provider)
+    {
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * Obtain the user information from provider.
+     *
+     * @return Response
+     */
+    public function handleProviderCallback($provider)
+    {
+        try
+        {
+            $socialUser = Socialite::driver($provider)->user();
+        }
+        catch (\Exception $e)
+        {
+            return redirect()->route('home');
+        }
+
+        //check if user already logged in with social provider
+        $socialProvider=SocialProvider::where('provider_id',$socialUser->getId())->first();
+        if (!$socialProvider)
+        {
+            //create user
+            $user=User::firstOrCreate(
+                ['email' => $socialUser->getEmail()],
+                ['first_name'=>$socialUser->getName()]);
+            $user -> socialProviders() ->create(
+                ['provider_id' => $socialUser->getId(),'provider' => $provider]);
+        }
+        else $user=$socialProvider->user;
+
+        Auth::login($user);
+
+        return redirect()->route('home');
     }
 }
