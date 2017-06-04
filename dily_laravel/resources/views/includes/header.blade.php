@@ -20,11 +20,11 @@
 				<div class="dropdown" id="dropdown1">
 					<span id="menuSpan" data-toggle="dropdown" aria-expanded="true" role="menu">MENU</span>
 					<ul class="dropdown-menu" aria-labelledby="menuSpan">
-						<li><a href="#">UPLOAD</a></li>
+						<li><a href="{{route('upload')}}">UPLOAD</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">MY MEMORIES</a></li>
+						<li><a href="{{route('memories')}}">MY MEMORIES</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="#">ADVANCED SEARCH</a></li>
+						<li><a href="{{route('search')}}">ADVANCED SEARCH</a></li>
 						<li role="separator" class="divider"></li>
 						<li>
 							<div class="input-group">
