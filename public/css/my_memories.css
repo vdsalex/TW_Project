@@ -1,0 +1,144 @@
+#bg-img
+{
+    min-width: 100%;
+    min-height: 100%;
+
+    width: 100%;
+    height: auto;
+
+    background-size: cover;
+
+    z-index: -1;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+}
+
+#categorySidenav a {
+    position: fixed;
+    transition: 0.3s;
+    padding: 15px;
+    width: auto ;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+}
+
+#categorySidenav a:hover {
+    left: 0;
+}
+
+#all {
+    left: -130px;
+    top: 100px;
+    background-color: #4CAF50;
+    text-align: center ;
+}
+
+#iimages {
+    left: -80px;
+    top: 160px;
+    background-color:#795548;
+    text-align-all: center;
+}
+
+#videos {
+    left: -75.1px;
+    top: 220px;
+    background-color: #f44336;
+    text-align: center;
+}
+
+#letters {
+    left: -76px;
+    top: 280px;
+    background-color: #4A148C;
+    text-align: center;
+}
+
+#artefacts {
+    left: -93.5px;
+    top: 340px;
+    background-color: #FFC107;
+    text-align: center;
+}
+
+#documents {
+    left: -115.8px;
+    top: 400px;
+    background-color: #555 ;
+    text-align: center;
+}
+
+#mainContainer
+{
+    margin-top: 80px;
+}
+
+.jumbotron{
+    background-color:#EEE8AA !important;
+    color:black;
+    width:100%;
+    text-align:center;
+
+    position: relative;
+    margin-top:25px !important;
+    padding-top:10px !important;
+    padding-bottom:10px !important;
+    box-shadow: 5px 5px 9px blue;
+
+}
+
+
+.profile-photo
+{
+    width: 50px;
+    height: 46px;
+    float: left;
+    border-style: solid;
+    border-color: darkgray;
+
+    cursor: pointer;
+
+    box-shadow: 0 0 1px 1px dimgray;
+
+}
+.img-rounded{
+    width: 400px;
+    box-shadow: 5px 5px 9px black;
+
+}
+.buttons_paragraph{
+    float: right;
+    padding-top: 0px !important;
+}
+.modal-backdrop {
+
+    background-color: rgba(0,0,0,.0001) !important;
+}
+.video{
+    width: 500px;
+}
+.paragraph{
+    color: red;
+    text-align: left;
+}
+
+.my-img a {
+    display: inline-block;
+    margin: 10px;
+    border: 2px solid #CCC;
+}
+.my-img a:hover {
+    border: 2px solid #45AFFF;
+}
+.modal-lg {
+    width: 86%;
+}
+.modal-body {
+    overflow: auto;
+    max-height: auto;
+}

@@ -1,0 +1,923 @@
+body
+{
+    margin: 0px;
+}
+
+#bgImg
+{
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 100%;
+
+  /* Set up proportional scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  /* Display image behind the login box */
+  z-index: -1;
+
+  background-size: cover;
+}
+
+#loginAndDesc
+{
+	width: 600px;
+	height: 400px;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+#dilyHeader
+{
+	width: 85pt;
+
+	text-align: center;
+
+	position: absolute;
+
+    top: 5px;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+	border-style: solid;
+	border-color: rgb(255,146,10);
+	border-width: 3px;
+	border-radius: 10px;
+
+	box-shadow: 0px 1px 3px 3px grey;
+
+	font-size: 30pt;
+	font-family: "Comic Sans MS";
+	color:  rgb(255,146,10);
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+
+#description
+{
+	width: 400px;
+
+	/*background: red;*/
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+
+	margin: auto;
+
+	/*color: rgb(255,146,10);*/
+	color: midnightblue;
+	font-family: "Comic Sans MS";
+	font-size: 14pt;
+
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+
+#loginBox
+{
+	background: linear-gradient(135deg, rgba(73,155,234,1) 0%, rgba(12,73,138,1) 100%);
+	color: black;
+
+	text-align: center;
+
+	display: inline-block;
+
+	width: 600px;
+
+	box-shadow: 1px 12px 18px 0px MidnightBlue;
+
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+}
+
+.tablink
+{
+    background-color: rgb(12,73,138);
+    color: rgb(22, 16, 108);
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 16px;
+    font-size: 17px;
+    font-family: "Comic Sans MS";
+
+    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+    width: 50%;
+    height: 45px;
+}
+
+.tablink:hover
+{
+    background-color: rgb(73,85,255);
+}
+
+.tabcontent
+{
+    color: blue;
+    padding: 10px;
+    text-align: center;
+    width: auto;
+    height: 77%;
+    margin-top: 39px;
+}
+
+footer
+{
+	width: 200pt;
+    font-size: 12pt;
+
+	/*background-color: pink;*/
+
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+
+	text-align: center;
+}
+
+ul
+{
+	list-style: none;
+}
+
+input[type="text"], input[type="password"]
+{
+	font-family: "Comic Sans MS";
+	font-size: 14px;
+	padding-left: 10px;
+    border-radius: 4px;
+}
+
+/*
+-------------------------------------------
+			  	Sign Up Tab
+-------------------------------------------
+*/
+
+#signUpForm ul
+{
+	padding-left: 0;
+}
+
+#signUpForm
+{
+	
+	width: 600px;
+	height: 276px;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 54px;
+	margin: auto;
+}
+
+.aboutYouFields
+{
+	width: 100pt;
+}
+
+.aboutYouFields:last-child
+{
+	width: 150pt;
+}
+
+#submitButton
+{
+	border: none;
+    outline: none;
+    cursor: pointer;
+
+	background: linear-gradient(135deg, rgba(37,148,199,1) 0%, rgba(69,166,168,1) 69%, rgba(69,166,168,1) 100%);
+
+    color: rgb(22, 16, 108);
+    font-family: "Comic Sans MS";
+    font-size: 1em;
+
+    width: 200px;
+    height: 40px;
+
+    box-shadow: 1px 1px 5px 1px MidnightBlue;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+
+    position: absolute;
+    bottom: 15px;
+    right: 0;
+    left: 0;
+    margin: auto;
+
+}
+
+#submitButton:hover
+{
+	box-shadow: 1px 1px 10px 2px MidnightBlue;
+}
+
+#aboutYou
+{
+	/*background-color: black;*/
+	width: 80pt;
+
+	color: rgb(52, 46, 138);
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+	font-family: "Comic Sans MS";
+	font-size: 14pt;
+
+	/*
+	border-style: none none solid none;
+	border-width: 1px;*/
+
+	position: absolute;
+
+	top: 0;
+	left: 56px;
+
+	margin: 2px 0;
+}
+
+#userDetails
+{
+	/*background-color: yellow;*/
+	width: 90pt;
+/*
+	border-style: none none solid none;
+	border-width: 1px;
+*/
+	color: rgb(52, 46, 138);
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+	font-family: "Comic Sans MS";
+	font-size: 14pt;
+
+	position: absolute;
+
+	left: 55px;
+	margin-top: 0;
+}
+
+#aboutYouIcon
+{
+	position: absolute;
+	left: 28px;
+	top: 3px;
+}
+
+#userDetIcon
+{
+	position: absolute;
+	left: 23px;
+	top: 89px;
+}
+
+#aboutYouDiv
+{
+	/*background: red;*/
+
+	height: 30px;
+	width: 180px;
+}
+
+#userDetDiv
+{
+	/*background: yellow;*/
+
+	width: 180px;
+}
+
+#userDetFields
+{
+	width: 480px;
+	height: 90px;
+
+	position: absolute;
+	bottom: 70px;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+
+
+/*
+-----------------------------------------
+		    	Login Tab
+-----------------------------------------
+*/
+
+#loginForm
+{
+	width: 100%;
+	height: calc(55% + 80px);
+
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#loginForm ul li
+{
+	margin-top: 1em;
+}
+
+.icon
+{
+	width: 24px;
+	height: 24px;
+}
+
+#loginWithPanel
+{
+
+	width: 120px;
+	height: 115px;
+
+	position: absolute;
+
+	top: 60px;
+	right: 10px;
+
+	z-index: 1;
+}
+
+#loginWithPanel *
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+#loginWithPanel p
+{
+	font-family: "Comic Sans MS";
+	font-size: 12pt;
+	color: rgb(22, 16, 108);
+
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+
+	top: 0;
+}
+
+#loginWithPanel img
+{
+	box-shadow: 1px 1px 5px 1px MidnightBlue;
+}
+
+#facebookIcon
+{
+	top: 35px;
+}
+
+#gmailIcon
+{
+	top: 75px;
+
+	border-style: none;
+	border-radius: 4px;
+}
+
+#loginWithPanel img:hover
+{
+	cursor: pointer;
+	box-shadow: 1px 1px 10px 1px MidnightBlue;
+}
+
+.loginTextFields
+{
+	width: 230px;
+    line-height: 23px;
+}
+
+#userIcon
+{
+	position: absolute;
+
+	left: 23px;
+	top: 3px;
+}
+
+#passwordIcon
+{
+	position: absolute;
+
+	left: 25px;
+	top: 4px;
+}
+
+#usernameLoginDiv
+{
+	position: absolute;
+	top: 20px;
+	left: 0;
+	right: 0;
+
+	height: 2.5em;
+	width: 350px;
+	margin: auto;
+}
+
+#passwordLoginDiv
+{
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 120px;
+
+	/*background-color: yellow;*/
+	height: 2.5em;
+	width: 350px;
+	margin: auto;
+}
+
+#loginToAccountButton
+{
+	background: linear-gradient(135deg, rgba(37,148,199,1) 0%, rgba(69,166,168,1) 69%, rgba(69,166,168,1) 100%);
+	border: none;
+    outline: none;
+    cursor: pointer;
+
+    color: rgb(22, 16, 108);
+    font-family: "Comic Sans MS";
+    font-size: 1em;
+
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 15px;
+	margin: auto;
+
+    width: 45%;
+    height: 16%;
+
+    box-shadow: 1px 1px 5px 1px MidnightBlue;
+    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+
+#loginToAccountButton:hover
+{
+	box-shadow: 1px 1px 10px 2px MidnightBlue;
+}
+
+#rememberMeLabel
+{
+	margin-right: 2em;
+	font-size: 85%;
+	font-family: "Comic Sans MS";
+	color: black;
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+
+#rememberMe
+{
+	position: relative;
+
+	top: 1px;
+
+	margin-left: 0;
+	margin-right: 5px;
+}
+
+#fgtPasswdLabel
+{
+	font-family: "Comic Sans MS";
+	font-size: 85%;
+	color: black;
+	text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+}
+
+#fgtPasswdLabel:hover
+{
+	color: rgb(3,15,200);
+	cursor: pointer;
+}
+
+#remMePasswdLabels
+{
+	/*background-color: teal;*/
+	width: 50%;
+
+	position: absolute;
+
+	left: 0;
+	right: 0;
+	bottom: 90px;
+	margin: auto;
+}
+
+/*
+----------------------------------------
+		 	  Media rules
+----------------------------------------
+*/
+
+@media screen and (max-height: 646px)
+{
+	body
+	{
+		min-height: 630px;
+	}
+
+	#loginAndDesc
+	{
+		position: relative;
+		top: 110px;
+	}
+
+	footer
+	{
+		position: relative;
+		top: 190px;
+	}
+}
+
+
+@media screen and (max-width: 659px)
+{
+	#loginAndDesc
+	{
+		/*background-color: black;*/
+
+		width: 400px;
+		height: 500px;
+	}
+
+	#loginBox
+	{
+		width: 400px;
+
+		min-height: 400px;
+	}
+
+	#loginToAccountButton
+	{
+		height: 13%;
+	}
+
+	#loginWithPanel
+	{
+        /*background-color: pink;*/
+
+		width: 200px;
+		height: 40px;
+
+		position: absolute;
+
+        top: 262px;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+
+	#loginWithPanel p
+	{
+		font-size: 15pt;
+
+		/*background-color: yellow;*/
+		width: 105px;
+
+		position: absolute;
+
+		right: 90px;
+		top: 7px;
+	}
+
+	#gmailIcon
+	{
+		position: absolute;
+		top: 7px;
+		left: 155px;
+	}
+
+	#facebookIcon
+	{
+		position: absolute;
+		top: 7px;
+		left: 70px;
+	}
+
+	#usernameLoginDiv,
+    #passwordLoginDiv
+	{
+        /*background-color: green;*/
+		height: 60px;
+	}
+
+    input[type="text"], input[type="password"]
+    {
+        font-size: 13pt;
+    }
+
+    #passwordLoginDiv
+    {
+        bottom: 160px;
+    }
+
+	.loginTextFields
+	{
+		height: 35px;
+        margin-top: 7px;
+	}
+
+	.icon
+	{
+		width: 30px;
+		height: 30px;
+	}
+
+    #loginForm .icon
+    {
+        top: 13px;
+        left: 15px;
+    }
+
+    #loginForm
+    {
+        height: 320px;
+        /*background-color: red;*/
+    }
+
+    #loginToAccountButton
+    {
+        width: 230px;
+        font-size: 14pt;
+        bottom: 0;
+    }
+
+    #remMePasswdLabels
+    {
+        /*background-color: blue;*/
+
+        width: 340px;
+        height: 40px;
+
+        bottom: 110px;
+    }
+
+    #remMePasswdLabels label
+    {
+        font-size: 12pt;
+    }
+
+    #aboutYouFieldsDiv
+    {
+        /*background-color: blue;*/
+
+        width: 400px;
+
+        position: absolute;
+        top: 35px;
+    }
+
+    #aboutYouFieldsDiv input[type="text"]
+    {
+        margin-left: 0;
+        line-height: 28px;
+    }
+
+    #aboutYouFieldsDiv input[type="text"]:last-child
+    {
+        margin-top: 15px;
+    }
+
+    #aboutYouFieldsDiv input[type="text"]:nth-child(1),
+    #aboutYouFieldsDiv input[type="text"]:nth-child(2)
+    {
+        width: 160px;
+    }
+
+    #userDetFields
+    {
+        /*background-color: black;*/
+
+        width: 400px;
+        height: 100px;
+
+        position: absolute;
+    }
+
+    #userDetFields input[type="text"], #userDetFields input[type="password"]
+    {
+        width: 175px;
+        line-height: 28px;
+        margin-top: 0;
+    }
+
+    #signUpForm
+    {
+        /*background-color: deeppink;*/
+
+        width: 400px;
+        height: 350px;
+    }
+
+    #userDetDiv
+    {
+        /*background-color: pink;*/
+
+        position: absolute;
+        top: 58px;
+    }
+
+    #userDetDiv p
+    {
+        top: 90px;
+    }
+
+	#submitButton
+	{
+		bottom: 0;
+	}
+}
+
+@media screen and (max-width: 444px)
+{
+    #description
+    {
+        display: none;
+    }
+
+    #loginAndDesc
+    {
+        width: 290px;
+        height: 570px;
+    }
+
+    #loginBox
+    {
+		top: 0;
+
+        width: 290px;
+
+		min-height: 420px;
+    }
+
+    #usernameLoginDiv,
+    #passwordLoginDiv
+    {
+        /*background-color: black;*/
+
+        height: 60px;
+        width: 250px;
+    }
+
+    #passwordLoginDiv
+    {
+        margin-bottom: 40px;
+    }
+
+    #usernameLoginDiv input[type="text"],
+    #passwordLoginDiv input[type="password"]
+    {
+        height: 33px;
+        font-size: 13pt;
+
+        position: absolute;
+        right: 0;
+
+        width: 190px;
+    }
+
+    #loginForm .icon
+    {
+        left: 9px;
+    }
+
+    #loginForm
+    {
+        /*background-color: aqua;*/
+        width: 290px;
+        height: 350px;
+    }
+
+    #remMePasswdLabels
+    {
+        /*background-color: red;*/
+
+        position: absolute;
+        bottom: 132px;
+
+        height: 60px;
+        width: 200px;
+    }
+
+    #remMePasswdLabels label:nth-child(2)
+    {
+        /*background-color: orange;*/
+
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+
+        width: 180px;
+    }
+
+    #remMePasswdLabels label:nth-child(1)
+    {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+    }
+
+    #loginWithPanel
+    {
+        /*background-color: darkorange;*/
+        bottom: 60px;
+    }
+
+	#signUpForm
+	{
+		/*background-color: aqua;*/
+
+		height: 476px;
+		width: 100%;
+	}
+
+	#aboutYouFieldsDiv
+	{
+		/*background-color: orange;*/
+
+		width: 100%;
+		height: 150px;
+	}
+
+	#aboutYouFieldsDiv input[type="text"]
+	{
+		display: block;
+
+		margin: 10px auto 0;
+	}
+
+	#aboutYouFieldsDiv input[type="text"]:nth-child(1),
+	#aboutYouFieldsDiv input[type="text"]:nth-child(2)
+	{
+		width: 190px;
+	}
+
+	#aboutYouFieldsDiv input[type="text"]:last-child
+	{
+		margin-top: 10px;
+
+		width: 250px;
+	}
+
+	#userDetDiv
+	{
+		position: absolute;
+
+		top: 100px;
+	}
+
+	#userDetFields
+	{
+		/*background-color: red;*/
+
+		width: 100%;
+
+		height: 190px;
+	}
+
+	#userDetFields input[type="text"], #userDetFields input[type="password"]
+	{
+		display: block;
+
+		margin: 10px auto 0;
+
+		height: 27px;
+		width: 190px;
+	}
+
+	#userDetFields ul
+	{
+		/*background-color: black;*/
+
+		width: 100%;
+	}
+
+	#userDetFields ul:last-child
+	{
+		position: absolute;
+
+		top: 90px;
+	}
+}
