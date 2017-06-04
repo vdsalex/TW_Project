@@ -58,7 +58,7 @@
 				@endif
 
 				<span>
-					Welcome, <a href={{route('profile')}}>{{$user->first_name . ' ' . $user->last_name}}</a>
+					Welcome, <a href={{route('profile')}}>{{$user->first_name}}</a>
 					<br>
 					<a href={{route('logout')}}>Logout</a>
 				</span>

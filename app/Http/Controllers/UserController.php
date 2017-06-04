@@ -50,13 +50,12 @@ class UserController extends Controller
         ]);
         $username= $request['username'];
         $password= bcrypt($request['password']);
-        $email= $request['e_mail'];
+        $email= $request['email'];
         $first_name= $request['first_name'];
         $last_name= $request['last_name'];
         $address=$request['address'];
 
         $newUser=User::create(['username'=>$username,'password'=>$password,'email'=>$email,'first_name'=>$first_name,'last_name'=>$last_name,'address'=>$address]);
-        dd($newUser);
 
         Auth::login($newUser);
 

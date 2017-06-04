@@ -87,7 +87,7 @@
 						<ul>
 							<li>
 								<input type="text" name="username" placeholder="Username">
-								<input type="text" name="e_mail" placeholder="Email"><br>
+								<input type="text" name="email" placeholder="Email"><br>
 							</li>
 						</ul>
 						<ul>
