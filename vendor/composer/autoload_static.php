@@ -8,29 +8,25 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
+        '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '2c102faa651ef8ea5874edb585946bce' => __DIR__ . '/..' . '/swiftmailer/swiftmailer/lib/swift_required.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
-        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
-        'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
-        '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
-        '8d3b2199cd129cab173c6d6470bfbcb5' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/helper.php',
+        'c65d09b6820da036953a371c8c73a9b1' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/polyfills.php',
         '752af1c2bdb339e8474c3c31b22b7d54' => __DIR__ . '/..' . '/illuminate/html/helpers.php',
         'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
+        'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
+        '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'p' => 
         array (
             'phpDocumentor\\Reflection\\' => 25,
-        ),
-        'Y' => 
-        array (
-            'Yajra\\' => 6,
         ),
         'X' => 
         array (
@@ -60,6 +56,7 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
             'Symfony\\Component\\Debug\\' => 24,
             'Symfony\\Component\\CssSelector\\' => 30,
             'Symfony\\Component\\Console\\' => 26,
+            'SammyK\\LaravelFacebookSdk\\' => 26,
         ),
         'R' => 
         array (
@@ -97,6 +94,7 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'F' => 
         array (
             'Faker\\' => 6,
+            'Facebook\\' => 9,
         ),
         'D' => 
         array (
@@ -122,11 +120,6 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-        ),
-        'Yajra\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/yajra/laravel-pdo-via-oci8/src',
-            1 => __DIR__ . '/..' . '/yajra/laravel-oci8/src',
         ),
         'XdgBaseDir\\' => 
         array (
@@ -196,6 +189,10 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         array (
             0 => __DIR__ . '/..' . '/symfony/console',
         ),
+        'SammyK\\LaravelFacebookSdk\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk',
+        ),
         'Ramsey\\Uuid\\' => 
         array (
             0 => __DIR__ . '/..' . '/ramsey/uuid/src',
@@ -259,6 +256,10 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'Faker\\' => 
         array (
             0 => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker',
+        ),
+        'Facebook\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook',
         ),
         'Dotenv\\' => 
         array (
@@ -348,6 +349,7 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\SocialProvider' => __DIR__ . '/../..' . '/app/SocialProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
@@ -404,6 +406,80 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'Dotenv\\Exception\\ValidationException' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
         'Dotenv\\Loader' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Loader.php',
         'Dotenv\\Validator' => __DIR__ . '/..' . '/vlucas/phpdotenv/src/Validator.php',
+        'Facebook\\Authentication\\AccessToken' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Authentication/AccessToken.php',
+        'Facebook\\Authentication\\AccessTokenMetadata' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Authentication/AccessTokenMetadata.php',
+        'Facebook\\Authentication\\OAuth2Client' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Authentication/OAuth2Client.php',
+        'Facebook\\Exceptions\\FacebookAuthenticationException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookAuthenticationException.php',
+        'Facebook\\Exceptions\\FacebookAuthorizationException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookAuthorizationException.php',
+        'Facebook\\Exceptions\\FacebookClientException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookClientException.php',
+        'Facebook\\Exceptions\\FacebookOtherException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookOtherException.php',
+        'Facebook\\Exceptions\\FacebookResponseException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookResponseException.php',
+        'Facebook\\Exceptions\\FacebookResumableUploadException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookResumableUploadException.php',
+        'Facebook\\Exceptions\\FacebookSDKException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookSDKException.php',
+        'Facebook\\Exceptions\\FacebookServerException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookServerException.php',
+        'Facebook\\Exceptions\\FacebookThrottleException' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Exceptions/FacebookThrottleException.php',
+        'Facebook\\Facebook' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Facebook.php',
+        'Facebook\\FacebookApp' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FacebookApp.php',
+        'Facebook\\FacebookBatchRequest' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FacebookBatchRequest.php',
+        'Facebook\\FacebookBatchResponse' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FacebookBatchResponse.php',
+        'Facebook\\FacebookClient' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FacebookClient.php',
+        'Facebook\\FacebookRequest' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FacebookRequest.php',
+        'Facebook\\FacebookResponse' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FacebookResponse.php',
+        'Facebook\\FileUpload\\FacebookFile' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FileUpload/FacebookFile.php',
+        'Facebook\\FileUpload\\FacebookResumableUploader' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FileUpload/FacebookResumableUploader.php',
+        'Facebook\\FileUpload\\FacebookTransferChunk' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FileUpload/FacebookTransferChunk.php',
+        'Facebook\\FileUpload\\FacebookVideo' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FileUpload/FacebookVideo.php',
+        'Facebook\\FileUpload\\Mimetypes' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/FileUpload/Mimetypes.php',
+        'Facebook\\GraphNodes\\Birthday' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/Birthday.php',
+        'Facebook\\GraphNodes\\Collection' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/Collection.php',
+        'Facebook\\GraphNodes\\GraphAchievement' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphAchievement.php',
+        'Facebook\\GraphNodes\\GraphAlbum' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphAlbum.php',
+        'Facebook\\GraphNodes\\GraphApplication' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphApplication.php',
+        'Facebook\\GraphNodes\\GraphCoverPhoto' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphCoverPhoto.php',
+        'Facebook\\GraphNodes\\GraphEdge' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphEdge.php',
+        'Facebook\\GraphNodes\\GraphEvent' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphEvent.php',
+        'Facebook\\GraphNodes\\GraphGroup' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphGroup.php',
+        'Facebook\\GraphNodes\\GraphList' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphList.php',
+        'Facebook\\GraphNodes\\GraphLocation' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphLocation.php',
+        'Facebook\\GraphNodes\\GraphNode' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphNode.php',
+        'Facebook\\GraphNodes\\GraphNodeFactory' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphNodeFactory.php',
+        'Facebook\\GraphNodes\\GraphObject' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphObject.php',
+        'Facebook\\GraphNodes\\GraphObjectFactory' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphObjectFactory.php',
+        'Facebook\\GraphNodes\\GraphPage' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphPage.php',
+        'Facebook\\GraphNodes\\GraphPicture' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphPicture.php',
+        'Facebook\\GraphNodes\\GraphSessionInfo' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphSessionInfo.php',
+        'Facebook\\GraphNodes\\GraphUser' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/GraphNodes/GraphUser.php',
+        'Facebook\\Helpers\\FacebookCanvasHelper' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Helpers/FacebookCanvasHelper.php',
+        'Facebook\\Helpers\\FacebookJavaScriptHelper' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Helpers/FacebookJavaScriptHelper.php',
+        'Facebook\\Helpers\\FacebookPageTabHelper' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Helpers/FacebookPageTabHelper.php',
+        'Facebook\\Helpers\\FacebookRedirectLoginHelper' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Helpers/FacebookRedirectLoginHelper.php',
+        'Facebook\\Helpers\\FacebookSignedRequestFromInputHelper' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Helpers/FacebookSignedRequestFromInputHelper.php',
+        'Facebook\\HttpClients\\FacebookCurl' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/FacebookCurl.php',
+        'Facebook\\HttpClients\\FacebookCurlHttpClient' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/FacebookCurlHttpClient.php',
+        'Facebook\\HttpClients\\FacebookGuzzleHttpClient' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/FacebookGuzzleHttpClient.php',
+        'Facebook\\HttpClients\\FacebookHttpClientInterface' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/FacebookHttpClientInterface.php',
+        'Facebook\\HttpClients\\FacebookStream' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/FacebookStream.php',
+        'Facebook\\HttpClients\\FacebookStreamHttpClient' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/FacebookStreamHttpClient.php',
+        'Facebook\\HttpClients\\HttpClientsFactory' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/HttpClients/HttpClientsFactory.php',
+        'Facebook\\Http\\GraphRawResponse' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Http/GraphRawResponse.php',
+        'Facebook\\Http\\RequestBodyInterface' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Http/RequestBodyInterface.php',
+        'Facebook\\Http\\RequestBodyMultipart' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Http/RequestBodyMultipart.php',
+        'Facebook\\Http\\RequestBodyUrlEncoded' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Http/RequestBodyUrlEncoded.php',
+        'Facebook\\PersistentData\\FacebookMemoryPersistentDataHandler' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PersistentData/FacebookMemoryPersistentDataHandler.php',
+        'Facebook\\PersistentData\\FacebookSessionPersistentDataHandler' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PersistentData/FacebookSessionPersistentDataHandler.php',
+        'Facebook\\PersistentData\\PersistentDataFactory' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PersistentData/PersistentDataFactory.php',
+        'Facebook\\PersistentData\\PersistentDataInterface' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PersistentData/PersistentDataInterface.php',
+        'Facebook\\PseudoRandomString\\McryptPseudoRandomStringGenerator' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/McryptPseudoRandomStringGenerator.php',
+        'Facebook\\PseudoRandomString\\OpenSslPseudoRandomStringGenerator' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/OpenSslPseudoRandomStringGenerator.php',
+        'Facebook\\PseudoRandomString\\PseudoRandomStringGeneratorFactory' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/PseudoRandomStringGeneratorFactory.php',
+        'Facebook\\PseudoRandomString\\PseudoRandomStringGeneratorInterface' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/PseudoRandomStringGeneratorInterface.php',
+        'Facebook\\PseudoRandomString\\PseudoRandomStringGeneratorTrait' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/PseudoRandomStringGeneratorTrait.php',
+        'Facebook\\PseudoRandomString\\RandomBytesPseudoRandomStringGenerator' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/RandomBytesPseudoRandomStringGenerator.php',
+        'Facebook\\PseudoRandomString\\UrandomPseudoRandomStringGenerator' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/PseudoRandomString/UrandomPseudoRandomStringGenerator.php',
+        'Facebook\\SignedRequest' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/SignedRequest.php',
+        'Facebook\\Url\\FacebookUrlDetectionHandler' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Url/FacebookUrlDetectionHandler.php',
+        'Facebook\\Url\\FacebookUrlManipulator' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Url/FacebookUrlManipulator.php',
+        'Facebook\\Url\\UrlDetectionInterface' => __DIR__ . '/..' . '/facebook/graph-sdk/src/Facebook/Url/UrlDetectionInterface.php',
         'Faker\\Calculator\\Iban' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Iban.php',
         'Faker\\Calculator\\Luhn' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Calculator/Luhn.php',
         'Faker\\DefaultGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/DefaultGenerator.php',
@@ -2755,6 +2831,13 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'Ramsey\\Uuid\\UuidFactory' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactory.php',
         'Ramsey\\Uuid\\UuidFactoryInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactoryInterface.php',
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
+        'SammyK\\LaravelFacebookSdk\\FacebookFacade' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/FacebookFacade.php',
+        'SammyK\\LaravelFacebookSdk\\LaravelFacebookSdk' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/LaravelFacebookSdk.php',
+        'SammyK\\LaravelFacebookSdk\\LaravelFacebookSdkServiceProvider' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/LaravelFacebookSdkServiceProvider.php',
+        'SammyK\\LaravelFacebookSdk\\LaravelPersistentDataHandler' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/LaravelPersistentDataHandler.php',
+        'SammyK\\LaravelFacebookSdk\\LaravelUrlDetectionHandler' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/LaravelUrlDetectionHandler.php',
+        'SammyK\\LaravelFacebookSdk\\LumenUrlDetectionHandler' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/LumenUrlDetectionHandler.php',
+        'SammyK\\LaravelFacebookSdk\\SyncableGraphNodeTrait' => __DIR__ . '/..' . '/sammyk/laravel-facebook-sdk/src/LaravelFacebookSdk/SyncableGraphNodeTrait.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',
@@ -3383,25 +3466,6 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'XdgBaseDir\\Xdg' => __DIR__ . '/..' . '/dnoegel/php-xdg-base-dir/src/Xdg.php',
-        'Yajra\\Oci8\\Auth\\OracleUserProvider' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Auth/OracleUserProvider.php',
-        'Yajra\\Oci8\\Connectors\\OracleConnector' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Connectors/OracleConnector.php',
-        'Yajra\\Oci8\\Eloquent\\OracleEloquent' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Eloquent/OracleEloquent.php',
-        'Yajra\\Oci8\\Oci8Connection' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Oci8Connection.php',
-        'Yajra\\Oci8\\Oci8ServiceProvider' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Oci8ServiceProvider.php',
-        'Yajra\\Oci8\\OracleReservedWords' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/OracleReservedWords.php',
-        'Yajra\\Oci8\\Query\\Grammars\\OracleGrammar' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Query/Grammars/OracleGrammar.php',
-        'Yajra\\Oci8\\Query\\OracleBuilder' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Query/OracleBuilder.php',
-        'Yajra\\Oci8\\Query\\Processors\\OracleProcessor' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Query/Processors/OracleProcessor.php',
-        'Yajra\\Oci8\\Schema\\Comment' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/Comment.php',
-        'Yajra\\Oci8\\Schema\\Grammars\\OracleGrammar' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/Grammars/OracleGrammar.php',
-        'Yajra\\Oci8\\Schema\\OracleAutoIncrementHelper' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/OracleAutoIncrementHelper.php',
-        'Yajra\\Oci8\\Schema\\OracleBlueprint' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/OracleBlueprint.php',
-        'Yajra\\Oci8\\Schema\\OracleBuilder' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/OracleBuilder.php',
-        'Yajra\\Oci8\\Schema\\Sequence' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/Sequence.php',
-        'Yajra\\Oci8\\Schema\\Trigger' => __DIR__ . '/..' . '/yajra/laravel-oci8/src/Oci8/Schema/Trigger.php',
-        'Yajra\\Pdo\\Oci8' => __DIR__ . '/..' . '/yajra/laravel-pdo-via-oci8/src/Pdo/Oci8.php',
-        'Yajra\\Pdo\\Oci8\\Exceptions\\Oci8Exception' => __DIR__ . '/..' . '/yajra/laravel-pdo-via-oci8/src/Pdo/Oci8/Exceptions/Oci8Exception.php',
-        'Yajra\\Pdo\\Oci8\\Statement' => __DIR__ . '/..' . '/yajra/laravel-pdo-via-oci8/src/Pdo/Oci8/Statement.php',
         'phpDocumentor\\Reflection\\DocBlock' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlock.php',
         'phpDocumentor\\Reflection\\DocBlockFactory' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactory.php',
         'phpDocumentor\\Reflection\\DocBlockFactoryInterface' => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src/DocBlockFactoryInterface.php',

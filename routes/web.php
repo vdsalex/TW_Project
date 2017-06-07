@@ -31,6 +31,12 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
+    Route::get('/profile_settings',[
+        'uses' => 'UserController@getProfileSettings',
+        'as' => 'profile_settings',
+        'middleware' => 'auth'
+    ]);
+
     Route::get('/profile',[
         'uses' => 'UserController@getProfile',
         'as' => 'profile',

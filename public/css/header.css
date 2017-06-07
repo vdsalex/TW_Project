@@ -93,6 +93,7 @@
     text-shadow: 1px 1px 3px black;
 }
 
+form.navbar-right > a:hover,
 #uploadText:hover,
 #MyMemText:hover,
 #advSearchText:hover
@@ -152,7 +153,9 @@ div.input-group
     margin-top: 0;
 }
 
-.input-group button:hover
+.input-group button:active:focus,
+.input-group button:hover,
+.input-group button:active:focus
 {
     background: none;
 }
@@ -160,14 +163,12 @@ div.input-group
 .input-group button:focus
 {
     outline: none;
-    background: none;
 }
 
 .input-group button:active:focus
 {
     outline: none;
     border: none;
-    background: none;
     box-shadow: none;
 }
 
@@ -193,7 +194,7 @@ form.navbar-right
     margin-right: 20px;
 }
 
-form.navbar-right span
+form.navbar-right > span
 {
     color: white;
 
@@ -204,21 +205,39 @@ form.navbar-right span
     font-size: 10pt;
 }
 
-form.navbar-right span a
+form.navbar-right > span a
 {
     color: skyblue;
 }
 
-form.navbar-right span a:hover
+form.navbar-right > span a:hover
 {
     text-decoration: none;
 
     color: #cccccc;
 }
 
-form.navbar-right span a:focus
+form.navbar-right span > a:focus
 {
     text-decoration: none;
+}
+
+form.navbar-right > a
+{
+    position: absolute;
+    right: 45px;
+    top: 14px;
+
+    font-size: 12pt;
+    color: white;
+
+    width: 23px;
+    height: 23px;
+
+    text-align: center;
+    padding-top: 4.2px;
+
+    border-radius: 5px;
 }
 
 /*              Pentru afisarea fotografiei de profil.         */
@@ -460,6 +479,11 @@ span.close:focus
         width: 292px;
     }
 
+    form.navbar-right > a
+    {
+        right: 100px;
+    }
+
     #searchDropdwn
     {
         border: none;
@@ -559,7 +583,7 @@ span.close:focus
         margin-right: 75px;
     }
 
-    form.navbar-right span
+    form.navbar-right > span
     {
         right: 130px;
     }
@@ -572,9 +596,14 @@ span.close:focus
         margin-right: 35px;
     }
 
-    form.navbar-right span
+    form.navbar-right > span
     {
         right: 90px;
+    }
+
+    form.navbar-right > a
+    {
+        right: 60px;
     }
 }
 
@@ -585,9 +614,14 @@ span.close:focus
         margin-right: 0;
     }
 
-    form.navbar-right span
+    form.navbar-right > span
     {
         right: 55px;
+    }
+
+    form.navbar-right > a
+    {
+        right: 23px;
     }
 }
 
@@ -623,12 +657,18 @@ span.close:focus
         bottom: 3px;
     }
 
-    form.navbar-right span
+    form.navbar-right > span
     {
-        right: 24px;
+        right: 40px;
         top: 5px;
 
         font-size: 11pt;
+    }
+
+    form.navbar-right > a
+    {
+        right: 10px;
+        top: 4px;
     }
 
     form.navbar-right img

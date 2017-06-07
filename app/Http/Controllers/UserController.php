@@ -30,10 +30,16 @@ class UserController extends Controller
         return view('pages/upload',['user'=> Auth::user()]);
     }
 
+    public function getProfileSettings()
+    {
+        return view('pages/profile_settings',['user'=> Auth::user()]);
+    }
+
     public function getProfile()
     {
         return view('pages/profile',['user'=> Auth::user()]);
     }
+
     public function getAdvancedSearch()
     {
         return view('pages/advanced_search',['user'=> Auth::user()]);

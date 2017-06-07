@@ -1,50 +1,42 @@
 {!! Html::style('css/profile.css') !!}
+{!! Html::style("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css") !!}
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DiLy</title>
-  
 </head>
 <body>
 
-	<img id="bg-img" src="content/blue-gradient.png" alt="Blue Gradient">
+    <img id="bg-img" src="content/blue-gradient.png" alt="Blue Gradient">
 
-    <header></header>
-
-    <div class="container" id="mainContainer">
     @include ('includes.header')
-         <section class="row new-post">
-                <div class="col-md-6 col-md-offset-3">
-                    <header><h3>Your Account</h3></header>
-                    <form action="{{ route('account.save') }}" method="post" enctype="multipart/form-data">
-                        <div class="form-group">
-                            <label for="first_name">First Name</label>
-                            <input type="text" name="first_name" class="form-control" value="{{ $user->first_name }}" id="first_name">
-                        </div>
-                        <div class="form-group">
-                            <label for="image">Image (only .jpg)</label>
-                            <input type="file" name="image" class="form-control" id="image">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Save Account</button>
-                        <input type="hidden" value="{{ Session::token() }}" name="_token">
-                    </form>
-                </div>
-            </section>
 
-                <section class="row new-post">
-                    <div class="col-md-6 col-md-offset-3">
-                        @if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
-                            <img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" alt="Profile image" class="img-responsive">
-                        @else
-                            <img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" alt="Profile image" class="img-responsive">
-                        @endif
+    <div class="container" id="h1AndBtns">
+        <h2>Your Relatives</h2>
+        <div class="relDegree">
+            <button type="button" class="btn btn-default" onclick="displayDg(this)">1st Degree</button>
+        </div>
+        <div class="relDegree">
+            <button type="button" class="btn btn-default" onclick="displayDg(this)">2nd Degree</button>
+        </div>
+        <div class="relDegree">
+            <button type="button" class="btn btn-default" onclick="displayDg(this)">3rd Degree</button>
+        </div>
+        <div class="relDegree">
+            <button type="button" class="btn btn-default" onclick="displayDg(this)">4th Degree</button>
+        </div>
+    </div>
 
-                    </div>
-                </section>
-
+    <div class="member">
+        <img src="icons/mother_icon.png" alt="Member's Photo" id="membersPhoto">
+        <p class="memName">Mother Elizabeth</p>
+        <p class="lived">1936 - 2009</p>
     </div>
 
 </body>
 </html>
+
+{!! Html::script('js/profile.js') !!}

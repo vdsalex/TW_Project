@@ -62,6 +62,7 @@
 					<br>
 					<a href={{route('logout')}}>Logout</a>
 				</span>
+                <a href={{route('profile_settings')}}><span class="glyphicon glyphicon-cog"></span></a>
 			</form>
 		</div>
 	</nav>
