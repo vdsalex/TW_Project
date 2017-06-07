@@ -30,6 +30,7 @@
     26 => 'App\\Providers\\RouteServiceProvider',
     27 => 'Collective\\Html\\HtmlServiceProvider',
     28 => 'Laravel\\Socialite\\SocialiteServiceProvider',
+    29 => 'SammyK\\LaravelFacebookSdk\\LaravelFacebookSdkServiceProvider',
   ),
   'eager' => 
   array (
@@ -47,6 +48,7 @@
     11 => 'App\\Providers\\AuthServiceProvider',
     12 => 'App\\Providers\\EventServiceProvider',
     13 => 'App\\Providers\\RouteServiceProvider',
+    14 => 'SammyK\\LaravelFacebookSdk\\LaravelFacebookSdkServiceProvider',
   ),
   'deferred' => 
   array (
