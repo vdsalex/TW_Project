@@ -13,5 +13,6 @@ Au la final ".blade.php" dar de fapt sunt HMTL si puteti scrie
 Fisierele css si javascript aferente paginilor de mai sus le gasiti in "public/css(sau js)"
 
 In fisierele .blade.php css-urile se includ la inceput, iar fisierele JS la final. Puteti sa va uitati in login/home/memories ca sa vedeti exact cum.
+IMPORTANT: Inainte de a include un css (pentru Bootstrap) sau un JS (pentru JQuery, de exemplu) verificati header.blade.php din folderul includes. El va aparea intotdeuana pe site, deci va avea inclus deja Bootstrap CSS/JS + JQuery si alte chestii.
 
 Spor!
