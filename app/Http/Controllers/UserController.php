@@ -2,10 +2,16 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Facebook\Facebook;
+use Facebook\FacebookRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Laravel\Socialite\Facades\Socialite;
+use SammyK\LaravelFacebookSdk\FacebookFacade;
+use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
+use Illuminate\Support\Facades\Session;
 
 class UserController extends Controller
 {
@@ -20,9 +26,64 @@ class UserController extends Controller
         return view('pages/login',['user'=> Auth::user()]);
     }
 
-    public function getMyMemories()
+    public function getMyMemories(LaravelFacebookSdk $fb)
     {
+        //get all photos
+        $photosArray=array();
+        try
+        {
+            //get albums
+            $response=$fb->get('/'. session('provider_user_id') .'/albums', session('provider_access_token'));
+            $albumEdge=$response->getGraphEdge();
+
+            foreach($albumEdge as $albumNode)
+            {
+                //for each album id
+                $response=$fb->get('/'. $albumNode['id'].'/photos',session('provider_access_token'));
+                $photoEdge=$response->getGraphEdge();
+
+                //get photos in album
+                foreach ($photoEdge as $photoNode)
+                {
+                    //get photos links
+                    $response=$fb->get('/'. $photoNode['id'].'?fields=images,name,place' ,session('provider_access_token'));
+                    $concretePhoto=$response->getGraphNode();
+
+                    //taking only the highest quality photo URL
+
+                    $photoURL=$concretePhoto['images'][0]['source'];
+                    $photoName='';
+
+                    //check if name exists
+                    if ($concretePhoto->getField('name'))
+                        $photoName=$concretePhoto->getField('name');
+
+                    $photoLocation='';
+                    //check if location exists
+                    if ($concretePhoto->getField('place'))
+                       $photoLocation=$concretePhoto->getField('place')['name'];
+
+                    array_push($photosArray, array($photoURL,$photoName,$photoLocation));
+
+                   // Storage::put('testPhoto.jpg', fopen($photoURL, 'r'));
+                }
+            }
+
+            dd($photosArray);
+
+            //get all videos - NOT WORKING??
+            /*$response=$fb->get('/'. session('provider_user_id') .'/videos', session('provider_access_token'));
+            $videosEdge=$response->getGraphEdge();
+
+            dd($videosEdge);
+*/
+        }
+        catch (\Facebook\Exceptions\FacebookSDKException $e)
+        {
+            dd($e->getMessage());
+        }
         return view('pages/my_memories',['user'=> Auth::user()]);
+
     }
 
     public function getUpload()
