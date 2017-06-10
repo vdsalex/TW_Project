@@ -5,7 +5,6 @@ var members;
 var i;
 var relDegreeWidth;
 var modals = document.getElementsByClassName('modal');
-var divPhotoContent;
 var memOptionsId;
 var memOptionsIndex;
 var nameTextfield;
@@ -179,37 +178,25 @@ function displayDefaultPhoto(rdInput)
     }
 }
 
-function getUploadedPhoto(pushedButton)
-{
-    pushedButton.firstElementChild.onchange = function()
-    {
-        var reader = new FileReader();
-
-        reader.onload = function (e)
-        {
-            pushedButton.nextElementSibling.firstElementChild.setAttribute("src", e.target.result);
-        };
-
-        reader.readAsDataURL();
-    };
-}
-
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function (event)
 {
-    if(event.target.className === "modal")
-    {
-        //get memOptionContent element. Then get its index (last char, a digit).
-        memOptionsId = event.target.firstElementChild.getAttribute("id");
-        memOptionsIndex = memOptionsId.substring(memOptionsId.length - 1, memOptionsId.length);
+    closeModal(event.target);
+};
 
-        //set dgContainer's first input element to true.
-        //I used the digit to get the dgContainer.
-        document.getElementById("dgContainer" + memOptionsIndex).firstElementChild.firstElementChild.checked = true;
-        nameTextfield = document.getElementById("nameContainer" + memOptionsIndex).firstElementChild.firstElementChild;
+function closeModal(modal)
+{
+    //get memOptionContent element. Then get its index (last char, a digit).
+    memOptionsId = modal.firstElementChild.getAttribute("id");
+    memOptionsIndex = memOptionsId.substring(memOptionsId.length - 1, memOptionsId.length);
 
-        nameTextfield.value = "";
+    //set dgContainer's first input element to true.
+    //I used the digit to get the dgContainer.
+    document.getElementById("dgContainer" + memOptionsIndex).firstElementChild.firstElementChild.checked = true;
+    nameTextfield = document.getElementById("nameContainer" + memOptionsIndex).firstElementChild.firstElementChild;
 
-        event.target.style.display = "none";
-    }
+    nameTextfield.value = "";
+
+    modal.style.display = "none";
 }
+

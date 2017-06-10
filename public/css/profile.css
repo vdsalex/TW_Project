@@ -21,17 +21,16 @@ div.modal
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 85px; /* Location of the box */
+    padding-top: 35px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
-
 }
 
-div.modal > div.container
+div.modal > form.container
 {
     position: relative;
     background-color: white;
@@ -40,7 +39,7 @@ div.modal > div.container
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-div.modal > div.container
+div.modal > form.container
 {
     width: 600px;
 }
@@ -221,6 +220,10 @@ div.modal > div.container
     font-size: 10pt;
 }
 
+#btnsContainer1 button:hover, #btnsContainer1 span:hover,
+#btnsContainer2 button:hover, #btnsContainer2 span:hover,
+#btnsContainer3 button:hover, #btnsContainer3 span:hover,
+#btnsContainer4 button:hover, #btnsContainer4 span:hover,
 #photoMainContainer1 > label:hover,
 #photoMainContainer2 > label:hover,
 #photoMainContainer3 > label:hover,
@@ -232,6 +235,14 @@ div.modal > div.container
     box-shadow: 0 0 8px black;
 }
 
+#btnsContainer1 *:active:focus,
+#btnsContainer2 *:active:focus,
+#btnsContainer3 *:active:focus,
+#btnsContainer4 *:active:focus,
+#btnsContainer1 *:focus,
+#btnsContainer2 *:focus,
+#btnsContainer3 *:focus,
+#btnsContainer4 *:focus,
 #photoMainContainer1 > label:active:focus,
 #photoMainContainer2 > label:active:focus,
 #photoMainContainer3 > label:active:focus,
@@ -275,6 +286,40 @@ div.modal > div.container
 {
     position: absolute;
     left: 0;
+}
+
+#btnsContainer1,
+#btnsContainer2,
+#btnsContainer3,
+#btnsContainer4
+{
+    width: 80%;
+    height: 70px;
+
+    text-align: center;
+    margin-bottom: 30px;
+
+    padding-top: 17.5px;
+
+    border-top-style: solid;
+    border-width: 1px;
+}
+
+#btnsContainer1 *,
+#btnsContainer2 *,
+#btnsContainer3 *,
+#btnsContainer4 *
+{
+    border-radius: 0;
+    background-color: #2d2d2d;
+    border-style: none;
+
+
+    margin-right: 10px;
+    color: white;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
 }
 
 #memOptionsContent > .container:last-of-type

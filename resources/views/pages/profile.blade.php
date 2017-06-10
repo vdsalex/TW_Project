@@ -34,7 +34,7 @@
     </div>
 
     <div class="modal">
-        <div class="container" id="memOptionsContent1">
+        <form class="container" id="memOptionsContent1">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -62,11 +62,15 @@
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg1">
                 </div>
             </div>
-        </div>
+            <div class="container" id="btnsContainer1">
+                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
+            </div>
+        </form>
     </div>
 
     <div class="modal">
-        <div class="container" id="memOptionsContent2">
+        <form class="container" id="memOptionsContent2">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -96,11 +100,15 @@
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg2">
                 </div>
             </div>
-        </div>
+            <div class="container" id="btnsContainer2">
+                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
+            </div>
+        </form>
     </div>
 
     <div class="modal">
-        <div class="container" id="memOptionsContent3">
+        <form class="container" id="memOptionsContent3">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -132,11 +140,15 @@
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg3">
                 </div>
             </div>
-        </div>
+            <div class="container" id="btnsContainer3">
+                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
+            </div>
+        </form>
     </div>
 
     <div class="modal">
-        <div class="container" id="memOptionsContent4">
+        <form class="container" id="memOptionsContent4" method="post">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -170,7 +182,11 @@
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg4">
                 </div>
             </div>
-        </div>
+            <div class="container" id="btnsContainer4">
+                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
+            </div>
+        </form>
     </div>
 </body>
 </html>
