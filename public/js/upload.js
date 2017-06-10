@@ -5,7 +5,7 @@ function displayPhoto()
     var memOptions = document.getElementById("memoryOptions");
     if (memOptions.style.display === 'none')
         memOptions.style.display = 'inline';
-    memOptions.innerHTML = "<br><input type=\"text\" name=\"picDesc\"> <br><input type=\"text\" name=\"picLoc\"> <br><input type=\"Submit\" name=\"upPic\" value=\"Upload\">";
+    memOptions.innerHTML = "<br>Descriere: <input type=\"text\" name=\"picDesc\"> <br>Locatie:  <input type=\"text\" name=\"picLoc\"> <br><input type=\"Submit\" name=\"upPic\" value=\"Upload\">";
 }
 
 function displayFilm()
