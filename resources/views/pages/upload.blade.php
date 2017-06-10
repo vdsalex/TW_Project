@@ -15,11 +15,11 @@
     <div class="container" id="mainContainer">
     @include ('includes.header')
         <div class="jumbotron" style="width:33%;float:left;">
-            <h2>Ce vrei sa incarci?</h2>
+            <h3>What would you like to upload?</h3>
             <form>
-                <br><input type="radio" name="uploadType" value="Photo" onclick="displayPhoto()">Photo
-                <br><input type="radio" name="uploadType" value="Film" onclick="displayFilm()">Film
-                <br><input type="radio" name="uploadType" value="Scrisoare" onclick="displayScr()">Scrisoare
+                <br><input type="radio" name="uploadType" value="Photo" onclick="displayPhoto()">Picture
+                <br><input type="radio" name="uploadType" value="Film" onclick="displayFilm()">Video
+                <br><input type="radio" name="uploadType" value="Scrisoare" onclick="displayScr()">Letter
                 <br><input type="radio" name="uploadType" value="Artefact" onclick="displayArt()">Artefact
                 <br><input type="radio" name="uploadType" value="Act" onclick="displayAct()">Act
             </form>
