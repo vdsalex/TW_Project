@@ -40,10 +40,8 @@
                         @else
                             <img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" alt="Profile image" class="img-responsive">
                         @endif
-
                     </div>
                 </section>
-
     </div>
 
 </body>

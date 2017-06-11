@@ -16,9 +16,331 @@
     left: 0;
 }
 
+div.modal
+{
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 35px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+}
+
+div.modal > form.container
+{
+    position: relative;
+    background-color: white;
+    margin: auto;
+    padding: 0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+div.modal > form.container
+{
+    width: 600px;
+}
+
+/* The Close Button */
+.close
+{
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus
+{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header
+{
+    padding: 2px 16px;
+    background-color: #4b4b4b;
+    color: white;
+    text-align: center;
+
+    font-family: "Courier New", Courier, monospace;
+}
+
+#dgTitle1,
+#dgTitle2,
+#dgTitle3,
+#dgTitle4
+{
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 14pt;
+
+    margin-bottom: 15px;
+    margin-top: 10px;
+    padding-bottom: 10px;
+
+    text-align: center;
+
+    width: 100%;
+}
+
+#dgTitle1 > span,
+#dgTitle2 > span,
+#dgTitle3 > span,
+#dgTitle4 > span
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    padding: 0 170px 10px;
+}
+
+#dgContainer1,
+#dgContainer2,
+#dgContainer3,
+#dgContainer4
+{
+    text-align: center;
+
+    margin-bottom: 30px;
+
+    width: 100%;
+}
+
+#nameTitle1,
+#nameTitle2,
+#nameTitle3,
+#nameTitle4
+{
+    text-align: center;
+
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 14pt;
+
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    width: 100%;
+}
+
+#nameTitle1 > span,
+#nameTitle2 > span,
+#nameTitle3 > span,
+#nameTitle4 > span
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    padding: 0 205px 5px;
+}
+
+#nameContainer1,
+#nameContainer2,
+#nameContainer3,
+#nameContainer4
+{
+    text-align: center;
+
+    width: 100%;
+
+    margin-bottom: 20px;
+}
+
+#nameContainer1 input[type="text"],
+#nameContainer2 input[type="text"],
+#nameContainer3 input[type="text"],
+#nameContainer4 input[type="text"]
+{
+    text-align: center;
+
+    font-family: "Comic Sans MS", sans-serif;
+}
+
+#photoTitle1,
+#photoTitle2,
+#photoTitle3,
+#photoTitle4
+{
+    width: 100%;
+
+    text-align: center;
+
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 14pt;
+
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+#photoTitle1 > span,
+#photoTitle2 > span,
+#photoTitle3 > span,
+#photoTitle4 > span
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    padding: 0 205px 5px;
+}
+
+#photoMainContainer1,
+#photoMainContainer2,
+#photoMainContainer3,
+#photoMainContainer4
+{
+    width: 100%;
+
+    margin-bottom: 30px;
+    height: 72px;
+
+    text-align: center;
+}
+
+#photoMainContainer1 > label,
+#photoMainContainer2 > label,
+#photoMainContainer3 > label,
+#photoMainContainer4 > label
+{
+    margin-right: 131px;
+
+    position: relative;
+    top: 18px;
+
+    border-radius: 0;
+    background-color: #2d2d2d;
+    border-style: none;
+
+    color: white;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+}
+
+#btnsContainer1 button:hover, #btnsContainer1 span:hover,
+#btnsContainer2 button:hover, #btnsContainer2 span:hover,
+#btnsContainer3 button:hover, #btnsContainer3 span:hover,
+#btnsContainer4 button:hover, #btnsContainer4 span:hover,
+#photoMainContainer1 > label:hover,
+#photoMainContainer2 > label:hover,
+#photoMainContainer3 > label:hover,
+#photoMainContainer4 > label:hover
+{
+    background-color: #2d2d2d;
+    color: white;
+
+    box-shadow: 0 0 8px black;
+}
+
+#btnsContainer1 *:active:focus,
+#btnsContainer2 *:active:focus,
+#btnsContainer3 *:active:focus,
+#btnsContainer4 *:active:focus,
+#btnsContainer1 *:focus,
+#btnsContainer2 *:focus,
+#btnsContainer3 *:focus,
+#btnsContainer4 *:focus,
+#photoMainContainer1 > label:active:focus,
+#photoMainContainer2 > label:active:focus,
+#photoMainContainer3 > label:active:focus,
+#photoMainContainer4 > label:active:focus,
+#photoMainContainer1 > label:focus,
+#photoMainContainer2 > label:focus,
+#photoMainContainer3 > label:focus,
+#photoMainContainer4 > label:focus
+{
+    background-color: #2d2d2d;
+    color: white;
+
+    outline: none !important;
+}
+
+#photoContainer1,
+#photoContainer2,
+#photoContainer3,
+#photoContainer4
+{
+    width: 72px;
+    height: 72px;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: dimgray;
+
+    margin-left: 320px;
+    margin-bottom: 15px;
+
+    justify-content: center;
+}
+
+#photoContainer1 img,
+#photoContainer2 img,
+#photoContainer3 img,
+#photoContainer4 img
+{
+    position: absolute;
+    left: 0;
+}
+
+#btnsContainer1,
+#btnsContainer2,
+#btnsContainer3,
+#btnsContainer4
+{
+    width: 80%;
+    height: 70px;
+
+    text-align: center;
+    margin-bottom: 30px;
+
+    padding-top: 17.5px;
+
+    border-top-style: solid;
+    border-width: 1px;
+}
+
+#btnsContainer1 *,
+#btnsContainer2 *,
+#btnsContainer3 *,
+#btnsContainer4 *
+{
+    border-radius: 0;
+    background-color: #2d2d2d;
+    border-style: none;
+
+
+    margin-right: 10px;
+    color: white;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+}
+
+#memOptionsContent > .container:last-of-type
+{
+    margin: 0 0 15px 0;
+    padding-top: 0;
+}
+
+span.input-group-addon > form > label
+{
+    font-weight: normal;
+}
+
+.radio-inline
+{
+    font-family: "Comic Sans MS", sans-serif;
+}
+
 h2
 {
-    width: 230px;
+    width: 270px;
 
     position: absolute;
     left: 70px;
@@ -29,12 +351,14 @@ h2
     border-width: 1px;
 }
 
+h2 span
+{
+    margin-left: 20px;
+}
 
 #h1AndBtns
 {
     margin-top: 90px;
-
-    background-color: red;
 
     width: 100%;
     height: 500px;
@@ -42,13 +366,41 @@ h2
 
 .relDegree
 {
-    background-color: #2ab27b;
     display: block;
 
     height: 70px;
-    width: 100px;
+    width: 120px;
 
     margin-left: 80px;
+}
+
+.relDegree .member
+{
+    position: absolute;
+}
+
+.relDegree span
+{
+    float: right;
+
+    width: 70px;
+    height: 70px;
+
+    text-align: center;
+    display: none;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding-top: 20px;
+
+    font-size: 20pt;
+}
+
+.relDegree span:hover
+{
+    background-color: rgba(255, 255, 255, 0.25);
+    cursor: pointer;
 }
 
 .relDegree:not(:first-of-type)
@@ -67,12 +419,38 @@ h2
 
     top: 50%;
     transform: translateY(-50%);
+
+    border-radius: 0;
+    background-color: #2d2d2d;
+    border-style: none;
+
+    color: white;
+
+    font-family: "Courier New", Courier, monospace;
+    font-size: 12pt;
 }
 
-#membersPhoto
+.relDegree button:hover
+{
+    background-color: #2d2d2d;
+    color: white;
+
+    box-shadow: 0 0 8px black;
+}
+
+.relDegree button:focus,
+.relDegree button:active:focus
+{
+    background-color: #2d2d2d;
+    color: white;
+}
+
+.membersPhoto
 {
     width: 70px;
     height: 70px;
+
+    background-color: rgba(0, 23, 255, 0.35);
 }
 
 .member
@@ -87,7 +465,7 @@ h2
 {
     cursor: pointer;
 
-    box-shadow: 0 4px 8px 0 rgb(255, 233, 0), 0 6px 20px 0 rgb(255, 247, 0);
+    box-shadow: 0 0 14px yellow;
 }
 
 .member img
