@@ -47,6 +47,8 @@ function displayDg(relDegreeBtn)
 
 function createMember(plusSpan)
 {
+    document.getElementById("main-nav").style.zIndex = "-1";
+
     displayMemOptsModal(plusSpan);
     displayDefaultPhoto(document.getElementById("dgContainer" + plusSpan.previousElementSibling.textContent.substring(0, 1)).firstElementChild.firstElementChild);
 
@@ -76,6 +78,7 @@ function createMember(plusSpan)
     {
         newMember.style.left = String(parseInt(newMember.previousElementSibling.style.left) + 350) + "px";
     }*/
+
 }
 
 function displayMemOptsModal(plusSpan)
@@ -198,5 +201,6 @@ function closeModal(modal)
     nameTextfield.value = "";
 
     modal.style.display = "none";
+    document.getElementById("main-nav").style.zIndex = "1";
 }
 
