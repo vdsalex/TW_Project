@@ -20,3 +20,13 @@
     top: 0;
     left: 0;
 }
+
+.picture-upload
+{
+    background-image:url('content/pictureUpload.png');
+}
+
+#letterContent
+{
+    resize:none;
+}
