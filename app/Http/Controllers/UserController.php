@@ -93,13 +93,12 @@ class UserController extends Controller
 
             dd($videosEdge);
 
-*/
+            */
         }
         catch (\Facebook\Exceptions\FacebookSDKException $e)
         {
             dd($e->getMessage());
         }
-        return view('pages/my_memories',['user'=> Auth::user()]);
 
     }
 

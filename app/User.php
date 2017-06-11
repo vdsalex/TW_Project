@@ -15,4 +15,29 @@ class User extends Model implements Authenticatable
     {
         return $this->hasMany(SocialProvider::class);
     }
+
+    public function videos()
+    {
+        return $this->hasMany(Video::class);
+    }
+
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+    public function letters()
+    {
+        return $this->hasMany(Letter::class);
+    }
+
+    public function artefacts()
+    {
+        return $this->hasMany(Artefact::class);
+    }
+
+    public function acts()
+    {
+        return $this->hasMany(Act::class);
+    }
 }
