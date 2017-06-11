@@ -15,7 +15,7 @@
 <header></header>
 
 <div class="container" id="mainContainer">
-@include ('includes/header')
+@include ('includes.header')
     <div class="container" id="mainContainer">
         <div class="jumbotron">
             <div class="profile-photo">
