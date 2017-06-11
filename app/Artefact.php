@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Artefact extends Model
 {
-    protected $fillable=['provider_id','provider'];
+    protected $fillable=['user_id','name', 'receive_date'];
     function User()
     {
         return $this->belongsTo(User::class);

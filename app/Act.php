@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Act extends Model
 {
-    protected $fillable=['provider_id','provider'];
+    protected $fillable=['user_id','name', 'location', 'emission_date'];
 
     function User()
     {
