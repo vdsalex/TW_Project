@@ -6,7 +6,7 @@ function displayPhoto()
     if (memOptions.style.display === 'none')
         memOptions.style.display = 'inline';
    // memOptions.innerHTML = "<br><label for=\"description\">Descriere: </label><input type=\"text\" name=\"picDesc\"> <br>Locatie:  <input type=\"text\" name=\"picLoc\"> <br><input type=\"Submit\" name=\"upPic\" value=\"Upload\">";
-    memOptions.innerHTML = "<form class=\"form-horizontal picture-upload\"> <fieldset><div class=\"control-group\"> <label class=\"control-label\" for=\"pictureTitle\">Title</label> <div class=\"controls\"> <input id=\"pictureTitle\" name=\"pictureTitle\" type=\"text\" placeholder=\"Name\" class=\"input-xlarge\"> </div> </div> <div class=\"control-group\"> <label class=\"control-label\" for=\"pictureDescription\">Description</label> <div class=\"controls\"> <textarea id=\"pictureDescription\" name=\"pictureDescription\" class=\"form-control\" rows=\"5\"></textarea> </div> </div> <!-- File Button --> <div class=\"control-group\"> <label class=\"control-label\" for=\"pictureFileButton\">Picture File</label> <div class=\"controls\"> <input id=\"pictureFileButton\" name=\"pictureFileButton\" class=\"input-file\" type=\"file\"> </div> </div> <!-- Button --> <div class=\"control-group\"> <label class=\"control-label\" for=\"uploadPictureButton\"></label> <div class=\"controls\"> <button id=\"uploadPictureButton\" name=\"uploadPictureButton\" class=\"btn btn-info\">Upload</button> </div> </div> </fieldset> </form>"
+    memOptions.innerHTML = "<form class=\"form-horizontal picture-upload\"> <fieldset><div class=\"control-group\"> <label class=\"control-label\" for=\"pictureTitle\">Title</label> <div class=\"controls\"> <input id=\"pictureTitle\" name=\"pictureTitle\" type=\"text\" placeholder=\"Name\" class=\"input-xlarge\"> </div> </div> <div class=\"control-group\"> <label class=\"control-label\" for=\"pictureDescription\">Description</label> <div class=\"controls\"> <textarea id=\"pictureDescription\" name=\"pictureDescription\" class=\"form-control\" rows=\"5\"></textarea> </div> </div> <!-- File Button --> <div class=\"control-group\"> <label class=\"control-label\" for=\"pictureFileButton\">Picture File</label> <div class=\"controls\"> <input id=\"pictureFileButton\" name=\"pictureFileButton\" class=\"input-file\" type=\"file\"> </div> </div> <!-- Button --> <div class=\"control-group\"> <label class=\"control-label\" for=\"uploadPictureButton\"></label> <div class=\"controls\"> <button id=\"uploadPictureButton\" name=\"uploadPictureButton\" class=\"btn btn-info\">Upload</button> </div> </div> </fieldset> <input type=\"hidden\" value=\"{{ Session::token() }}\" name=\"_token\"></form>"
 }
 
 function displayFilm()
@@ -16,6 +16,7 @@ function displayFilm()
         memOptions.style.display = 'inline';
    // memOptions.innerHTML = "<br><input type=\"text\" name=\"vidName\"> <br><input type=\"text\" name=\"vidDesc\"> <br><input type=\"Submit\" name=\"upVid\" value=\"Upload\">";
     memOptions.innerHTML="<form class=\"form-horizontal video-upload\">\
+    \
 <fieldset>\
 <!-- Text input-->\
 <div class=\"control-group\">\
@@ -51,6 +52,7 @@ function displayFilm()
     </div>\
     \
     </fieldset>\
+    <input type=\"hidden\" value=\"{{ Session::token() }}\" name=\"_token\">\
     </form>"
 }
 
@@ -96,6 +98,7 @@ function displayScr()
     </div>\
     \
     </fieldset>\
+    <input type=\"hidden\" value=\"{{ Session::token() }}\" name=\"_token\">\
     </form>"
 }
 
@@ -133,6 +136,7 @@ function displayArt()
     </div>\
     \
     </fieldset>\
+    <input type=\"hidden\" value=\"{{ Session::token() }}\" name=\"_token\">\
     </form>"
 }
 
@@ -170,6 +174,7 @@ function displayAct()
     </div>\
     \
     </fieldset>\
+    <input type=\"hidden\" value=\"{{ Session::token() }}\" name=\"_token\">\
     </form>"
 }
 
