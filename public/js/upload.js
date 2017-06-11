@@ -15,7 +15,7 @@ function displayFilm()
     if (memOptions.style.display === 'none')
         memOptions.style.display = 'inline';
    // memOptions.innerHTML = "<br><input type=\"text\" name=\"vidName\"> <br><input type=\"text\" name=\"vidDesc\"> <br><input type=\"Submit\" name=\"upVid\" value=\"Upload\">";
-    memOptions.innerHTML="<form class=\"form-horizontal\">\
+    memOptions.innerHTML="<form class=\"form-horizontal video-upload\">\
 <fieldset>\
 <!-- Text input-->\
 <div class=\"control-group\">\
@@ -30,7 +30,7 @@ function displayFilm()
     <div class=\"control-group\">\
     <label class=\"control-label\" for=\"videoDescription\">Description</label>\
     <div class=\"controls\">\
-    <textarea id=\"Description\" name=\"videoDescription\"></textarea>\
+    <textarea id=\"videoDescription\" name=\"videoDescription\"></textarea>\
     </div>\
     </div>\
     \
@@ -60,7 +60,7 @@ function displayScr()
     if (memOptions.style.display === 'none')
         memOptions.style.display = 'inline';
     //memOptions.innerHTML = "<br><input type=\"text\" name=\"dateLet\"> <br><input type=\"text\" name=\"contLet\"> <br><input type=\"Submit\" name=\"upLet\" value=\"Upload\">";
-    memOptions.innerHTML="<form class=\"form-horizontal\">\
+    memOptions.innerHTML="<form class=\"form-horizontal letter-upload\">\
 <fieldset>\
 <!-- Text input-->\
 <div class=\"control-group\">\
@@ -105,7 +105,7 @@ function displayArt()
     if (memOptions.style.display === 'none')
         memOptions.style.display = 'inline';
     //memOptions.innerHTML = "<br><input type=\"text\" name=\"artName\"> <br><input type=\"text\" name=\"artDate\"> <br><input type=\"Submit\" name=\"upPic\" value=\"Upload\">";
-    memOptions.innerHTML="<form class=\"form-horizontal\">\
+    memOptions.innerHTML="<form class=\"form-horizontal artefact-upload\">\
 <fieldset>\
 <!-- Text input-->\
 <div class=\"control-group\">\
@@ -142,7 +142,7 @@ function displayAct()
     if (memOptions.style.display === 'none')
         memOptions.style.display = 'inline';
     //memOptions.innerHTML = "<br><input type=\"text\" name=\"actName\"> <br><input type=\"text\" name=\"actLoc\"> <br><input type=\"Submit\" name=\"upPic\" value=\"Upload\">";
-    memOptions.innerHTML="<form class=\"form-horizontal\">\
+    memOptions.innerHTML="<form class=\"form-horizontal act-upload\">\
 <fieldset>\
 <!-- Text input-->\
 <div class=\"control-group\">\

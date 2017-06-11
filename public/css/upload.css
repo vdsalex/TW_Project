@@ -23,10 +23,46 @@
 
 .picture-upload
 {
-    background-image:url('content/pictureUpload.png');
+    background-image:url('../content/pictureUpload.png');
+    background-size: 80px 60px;
+    background-repeat: repeat-y;
+    background-position: right;
 }
 
-#letterContent
+.video-upload
+{
+    background-image:url('../content/video.png');
+    background-size: 80px 60px;
+    background-repeat: repeat-y;
+    background-position: right;
+}
+
+.letter-upload
+{
+    background-image:url('../content/letter.png');
+    background-size: 80px 60px;
+    background-repeat: repeat-y;
+    background-position: right;
+}
+
+.act-upload
+{
+    background-image:url('../content/act.jpg');
+    background-size: 60px 80px;
+    background-repeat: repeat-y;
+    background-position: right;
+}
+
+.artefact-upload
+{
+    background-image:url('../content/Ank.png');
+    background-size: 30px 50px;
+    background-repeat: repeat-y;
+    background-position: right;
+}
+
+
+#letterContent, #pictureDescription, #videoDescription, artDescription
 {
     resize:none;
 }
