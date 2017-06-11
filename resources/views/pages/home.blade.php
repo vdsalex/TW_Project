@@ -18,9 +18,9 @@
 @include ('includes/header')
     <div class="jumbotron">
             <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="profile-photo/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p  align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a photo.</p>
+            <p  align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a photo.</p>
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-1">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-2">Description</button>
@@ -57,13 +57,13 @@
 
             </p>
         </div>
-        <img src="objects/fat-frumos.jpg" alt="Photo" class="img-rounded">
+        <img src="content/fat-frumos.jpg" alt="Photo" class="img-rounded">
     </div>
     <div class="jumbotron ">
             <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="profile-photo/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a movie.</p>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a movie.</p>
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-4">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-5">Description</button>
@@ -100,15 +100,15 @@
             </p>
         </div>
         <video class="video" controls>
-            <source src="objects/AmazingFacts.mp4" type="video/mp4">
+            <source src="content/AmazingFacts.mp4" type="video/mp4">
         </video>
 
     </div>
     <div class="jumbotron ">
         <div class="profile-photo">
-            <a href="./profile/profile.html"><img src="profile-photo/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+            <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
         </div>
-        <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a letter.</p>
+        <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a letter.</p>
         <p class="buttons_paragraph">
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-7">Upload date</button>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-8">Transmitter</button>
@@ -164,9 +164,9 @@
         </div>
     <div class="jumbotron ">
         <div class="profile-photo">
-            <a href="./profile/profile.html"><img src="profile-photo/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+            <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
         </div>
-        <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a document.</p>
+        <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a document.</p>
         <p class="buttons_paragraph">
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-11">Upload date*</button>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-12">Act name</button>
@@ -214,15 +214,15 @@
             </div>
         </div>
         </p>
-        <img src="objects/permis-romanesc-de-conducere-spania.jpg" alt="Photo" class="img-rounded">
+        <img src="content/permis-romanesc-de-conducere-spania.jpg" alt="Photo" class="img-rounded">
 
     </div>
 
     <div class="jumbotron ">
             <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="profile-photo/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added an artifact.</p>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artifact.</p>
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-15">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-16">Name</button>
@@ -258,13 +258,11 @@
                 </div>
             </div>
 
-        <img src="objects/colier.jpg" alt="Photo" class="img-rounded">
+        <img src="content/colier.jpg" alt="Photo" class="img-rounded">
 
     </div>
-    </div>
-
-
 </div>
+
 
 </body>
 </html>
