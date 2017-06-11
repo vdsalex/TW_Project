@@ -14,8 +14,9 @@
 	<img id="bgImg" alt="Blue Background Image" src="content/blue-11.jpg">
 	<h1 id="dilyHeader">DiLy.</h1>
 	@if (count($errors)>0)
+		<br><br><br><br>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4 col-md-offset-4 erori">
 				<ul>
 					@foreach($errors->all() as $error)
 						<li class="text-danger">{{$error}}</li>
