@@ -2,16 +2,14 @@
 namespace App\Http\Controllers;
 
 use App\User;
-use Facebook\Facebook;
-use Facebook\FacebookRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Laravel\Socialite\Facades\Socialite;
-use SammyK\LaravelFacebookSdk\FacebookFacade;
 use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
-use Illuminate\Support\Facades\Session;
+use Illuminate\Pagination\LengthAwarePaginator;
+
 
 class UserController extends Controller
 {
@@ -26,7 +24,7 @@ class UserController extends Controller
         return view('pages/login',['user'=> Auth::user()]);
     }
 
-    public function getMyMemories(LaravelFacebookSdk $fb)
+    public function getMyMemories(LaravelFacebookSdk $fb,Request $request)
     {
         //get all photos
         $photosArray=array();
@@ -63,19 +61,38 @@ class UserController extends Controller
                     if ($concretePhoto->getField('place'))
                        $photoLocation=$concretePhoto->getField('place')['name'];
 
-                    array_push($photosArray, array($photoURL,$photoName,$photoLocation));
+                    array_push($photosArray, array('URL'=>$photoURL,'name'=>$photoName,'location'=>$photoLocation));
 
                    // Storage::put('testPhoto.jpg', fopen($photoURL, 'r'));
                 }
             }
 
-            dd($photosArray);
+
+            $currentPage = LengthAwarePaginator::resolveCurrentPage();
+
+            $col = new Collection($photosArray);
+
+            $perPage=6;
+
+            $currentPageSearchResults = $col->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+            $entries = new LengthAwarePaginator($currentPageSearchResults, count($col), $perPage);
+
+            if ($request->ajax()) {
+                $view = view('includes/memories_facebook',compact('entries'))->render();
+                return response()->json(['html'=>$view]);
+
+            }
+
+            $user=Auth::user();
+            return view('pages/my_memories',compact('entries','user'));
 
             //get all videos - NOT WORKING??
             /*$response=$fb->get('/'. session('provider_user_id') .'/videos', session('provider_access_token'));
             $videosEdge=$response->getGraphEdge();
 
             dd($videosEdge);
+
 */
         }
         catch (\Facebook\Exceptions\FacebookSDKException $e)
