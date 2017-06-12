@@ -1,11 +1,11 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Letter;
 use App\Photo;
 use App\User;
 use App\Video;
 use App\Document;
-use App\Photo;
 use App\Artefact;
 use DateTime;
 use Illuminate\Http\Request;
@@ -297,7 +297,6 @@ class UserController extends Controller
         $user = Auth::user();
 
         $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $date]);
-
 
         $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.doc';
         Storage::disk('local')->put($filePath, File::get($request['letter']));
