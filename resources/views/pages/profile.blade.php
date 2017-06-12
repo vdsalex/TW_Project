@@ -57,9 +57,9 @@
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer1">
-                <label><input type="number" id="birthYear1" min="1" max="" required></label>
+                <label><input type="number" id="birthYear1" min="1" max="" step="1" required></label>
                 <span>-</span>
-                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+                <label><input type="number" id="deathYear1" min="1" max="2017" step="1" onchange="setInput1Max(this)"></label>
             </div>
             <div class="container" id="photoTitle1">
                 <span>Photo</span>
@@ -103,9 +103,9 @@
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer2">
-                <label><input type="number" id="birthYear1" min="1" max="" required></label>
+                <label><input type="number" id="birthYear1" min="1" max="" step="1" pattern="\d+" required></label>
                 <span>-</span>
-                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+                <label><input type="number" id="deathYear1" min="1" max="2017" step="1" pattern="\d+" onchange="setInput1Max(this)"></label>
             </div>
             <div class="container" id="photoTitle2">
                 <span>Photo</span>
@@ -151,9 +151,9 @@
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer3">
-                <label><input type="number" id="birthYear1" min="1" max="" required></label>
+                <label><input type="number" id="birthYear1" min="1" max="" step="1" pattern="\d+" required></label>
                 <span>-</span>
-                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+                <label><input type="number" id="deathYear1" min="1" max="2017" step="1" pattern="\d+" onchange="setInput1Max(this)"></label>
             </div>
             <div class="container" id="photoTitle3">
                 <span>Photo</span>
@@ -201,9 +201,9 @@
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer4">
-                <label><input type="number" id="birthYear1" min="1" max="" required></label>
+                <label><input type="number" id="birthYear1" min="1" max="" step="1" pattern="\d+" required></label>
                 <span>-</span>
-                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+                <label><input type="number" id="deathYear1" min="1" max="2017" step="1" pattern="\d+" onchange="setInput1Max(this)"></label>
             </div>
             <div class="container" id="photoTitle4">
                 <span>Photo</span>

@@ -220,7 +220,7 @@ class UserController extends Controller
         return Response($file, 200);
     }
 
-    public function postUploadAct(Request $request)
+    public function postUploadDocument(Request $request)
     {
 
     }
@@ -233,25 +233,26 @@ class UserController extends Controller
     public function postUploadLetter(Request $request)
     {
         $this->validate($request,[
-            'title'=>'required|max:100',
-            'description'=> 'required|max:255',
-            'record_date' =>'required',
-            'video' => 'required'
+            'sender'=>'required',
+            'receiver'=> 'required',
+            'message' =>'required',
+            'write_date' => 'required'
         ]);
 
-        if (!($request->file('video')->isValid()))
+        if (!($request->file('letter')->isValid()))
         {
             return redirect()->route('home');
         }
 
-        $date = DateTime::createFromFormat('d-m-Y',$request['record_date']);
+        $date = DateTime::createFromFormat('d-m-Y',$request['write_date']);
 
-        $user=Auth::user();
+        $user = Auth::user();
 
-        $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$date]);
+        $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $date]);
 
-        $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
-        Storage::disk('local')->put($filePath, File::get($request['video']));
+
+        $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.doc';
+        Storage::disk('local')->put($filePath, File::get($request['letter']));
 
         return redirect()->route('upload');
     }
@@ -286,6 +287,4 @@ class UserController extends Controller
 
         return redirect()->route('upload');
     }
-
-
 }
