@@ -37,7 +37,7 @@
                     Date of receiving:<br>
                     <input type="text" name="receive_date">
                     <br><br>
-                    <input type="file" name="artefact" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt">
+                    <input type="file" name="artefact" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg">
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">

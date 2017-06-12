@@ -494,10 +494,42 @@ class UserController extends Controller
         }
     }
 
+    public function getUserPhoto($photo_id)
+    {
+        $user=Auth::user();
+        $filename=$user->username . '-'.$user->id.'\\photo\\'.$photo_id. '.jpg,.jpeg,.png';
+        $file=Storage::disk('local')->get($filename);
+        return Response($file, 200);
+    }
+
     public function getUserVideo($video_id)
     {
         $user=Auth::user();
-        $filename=$user->username . '-'.$user->id.'\\video\\'.$video_id. '.mp4';
+        $filename=$user->username . '-'.$user->id.'\\video\\'.$video_id. '.mp4,.mpg4';
+        $file=Storage::disk('local')->get($filename);
+        return Response($file, 200);
+    }
+
+    public function getUserDocument($document_id)
+    {
+        $user=Auth::user();
+        $filename=$user->username . '-'.$user->id.'\\document\\'.$document_id. '.doc,.txt';
+        $file=Storage::disk('local')->get($filename);
+        return Response($file, 200);
+    }
+
+    public function getUserLetter($letter_id)
+    {
+        $user=Auth::user();
+        $filename=$user->username . '-'.$user->id.'\\letter\\'.$letter_id. '.doc,.txt';
+        $file=Storage::disk('local')->get($filename);
+        return Response($file, 200);
+    }
+    
+    public function getUserArtefact($artefact_id)
+    {
+        $user=Auth::user();
+        $filename=$user->username . '-'.$user->id.'\\artefact\\'.$artefact_id. '.jpg,.jpeg';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
