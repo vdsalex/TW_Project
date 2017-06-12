@@ -133,9 +133,30 @@ Route::group(['middleware'=> ['web']],function(){
     ]);
 
 
+    Route::get('userphoto/{video_id}',[
+        'uses' => 'UserController@getUserPhoto',
+        'as' => 'user.photo'
+    ]);
+
     Route::get('uservideo/{video_id}',[
         'uses' => 'UserController@getUserVideo',
         'as' => 'user.video'
     ]);
+
+    Route::get('userdocument/{video_id}',[
+        'uses' => 'UserController@getUserDocument',
+        'as' => 'user.document'
+    ]);
+
+    Route::get('userartefact/{video_id}',[
+        'uses' => 'UserController@getUserArtefact',
+        'as' => 'user.artefact'
+    ]);
+
+    Route::get('userletter/{video_id}',[
+        'uses' => 'UserController@getUserLetter',
+        'as' => 'user.letter'
+    ]);
+
 });
 

@@ -5,7 +5,6 @@ use App\Photo;
 use App\User;
 use App\Video;
 use App\Document;
-use App\Photo;
 use App\Artefact;
 use DateTime;
 use Illuminate\Http\Request;
@@ -423,7 +422,10 @@ class UserController extends Controller
 
     public function getPhotoContent($currentPage)
     {
+        $entries=Photo::where('user_id','=',Auth::user()->id)->orderBy('updated_at','desc')->paginate(5);
 
+        $view = view('includes/memories_photo', compact('entries'))->render();
+        return response()->json(['html' => $view]);
     }
 
     public function getVideoContent($currentPage)
@@ -436,17 +438,26 @@ class UserController extends Controller
 
     public function getDocumentContent($currentPage)
     {
+        $entries=Document::where('user_id','=',Auth::user()->id)->orderBy('updated_at','desc')->paginate(5);
 
+        $view = view('includes/memories_document', compact('entries'))->render();
+        return response()->json(['html' => $view]);
     }
 
     public function getArtefactContent($currentPage)
     {
+        $entries=Artefact::where('user_id','=',Auth::user()->id)->orderBy('updated_at','desc')->paginate(5);
 
+        $view = view('includes/memories_artefact', compact('entries'))->render();
+        return response()->json(['html' => $view]);
     }
 
     public function getLetterContent($currentPage)
     {
+        $entries=Letter::where('user_id','=',Auth::user()->id)->orderBy('updated_at','desc')->paginate(5);
 
+        $view = view('includes/memories_letter', compact('entries'))->render();
+        return response()->json(['html' => $view]);
     }
 
     public function getContent($content_type)
