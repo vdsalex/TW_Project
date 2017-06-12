@@ -9,7 +9,7 @@ class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
 
-    protected $fillable = ['username','password','first_name','last_name','email','address'];
+    protected $fillable = ['username','password','first_name','last_name','email','address','gender'];
 
     public function socialProviders()
     {
@@ -36,8 +36,8 @@ class User extends Model implements Authenticatable
         return $this->hasMany(Artefact::class);
     }
 
-    public function acts()
+    public function documents()
     {
-        return $this->hasMany(Act::class);
+        return $this->hasMany(Document::class);
     }
 }

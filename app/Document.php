@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Act extends Model
+class Document extends Model
 {
     protected $fillable=['user_id','name', 'location', 'emission_date'];
 

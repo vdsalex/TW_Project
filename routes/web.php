@@ -101,5 +101,30 @@ Route::group(['middleware'=> ['web']],function(){
         'uses'=> 'Auth\RegisterController@handleProviderCallback',
         'as' => 'provider.callback'
     ]);
+
+    Route::post('/upload/video',[
+        'uses'=> 'UserController@postUploadVideo',
+        'as' => 'upload.video'
+    ]);
+
+    Route::post('/upload/photo',[
+        'uses'=> 'UserController@postUploadPhoto',
+        'as' => 'upload.photo'
+    ]);
+
+    Route::post('/upload/artefact',[
+        'uses'=> 'UserController@postUploadArtefact',
+        'as' => 'upload.artefact'
+    ]);
+
+    Route::post('/upload/letter',[
+        'uses'=> 'UserController@postUploadLetter',
+        'as' => 'upload.letter'
+    ]);
+
+    Route::post('/upload/document',[
+        'uses'=> 'UserController@postUploadDocument',
+        'as' => 'upload.document'
+    ]);
 });
 

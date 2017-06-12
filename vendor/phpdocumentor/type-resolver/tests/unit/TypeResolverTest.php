@@ -290,7 +290,7 @@ class TypeResolverTest extends \PHPUnit_Framework_TestCase
         // Assign
         $typeMock = m::mock(Type::class);
 
-        // Act
+        // Document
         $fixture = new TypeResolver();
         $fixture->addKeyword('mock', get_class($typeMock));
 

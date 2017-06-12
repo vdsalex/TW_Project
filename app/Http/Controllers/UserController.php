@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Video;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -175,12 +177,30 @@ class UserController extends Controller
 
     public function postSaveAccount(Request $request)
     {
-       /* $this->validate($request,[
+       if ($request['password']!=$request['password_conf'])
+           return redirect()->route('profile_settings');
 
-        ]);
-       */
        $user=Auth::user();
+
+       if ($request['email']!=$user->email)
+           $this->validate($request,[ 'email' =>'email|unique:users']);
+       if ($request['username']!=$user->username)
+           $this->validate($request,[ 'username' =>'unique:users']);
+
+       $this->validate($request,[
+            'password' => 'nullable|min:4',
+            'first_name' => 'min:1|max:100',
+            'last_name' => 'min:1|max:100',
+        ] );
+
        $user->first_name=$request['first_name'];
+       $user->last_name=$request['last_name'];
+       $user->username=$request['username'];
+       $user->password=bcrypt($request['password']);
+       $user->email=$request['email'];
+       $user->gender=$request['gender'];
+       $user->address=$request['address'];
+
        $user->update();
        $file=$request->file('image');
 
@@ -191,7 +211,7 @@ class UserController extends Controller
        {
            Storage::disk('local')->put($filename, File::get($file));
        }
-       return redirect()->route('profile');
+       return redirect()->route('profile_settings');
     }
 
     public function getUserImage($filename)
@@ -199,5 +219,52 @@ class UserController extends Controller
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
+
+    public function postUploadAct(Request $request)
+    {
+
+    }
+
+    public function postUploadArtefact(Request $request)
+    {
+
+    }
+
+    public function postUploadLetter(Request $request)
+    {
+
+    }
+
+    public function postUploadPhoto(Request $request)
+    {
+
+    }
+
+    public function postUploadVideo(Request $request)
+    {
+        $this->validate($request,[
+            'title'=>'required|max:100',
+            'description'=> 'required|max:255',
+            'record_date' =>'required',
+            'video' => 'required'
+        ]);
+
+        if (!($request->file('video')->isValid()))
+        {
+            return redirect()->route('home');
+        }
+
+        $date = DateTime::createFromFormat('d-m-Y',$request['record_date']);
+
+        $user=Auth::user();
+
+        $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$date]);
+
+        $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
+            Storage::disk('local')->put($filePath, File::get($request['video']));
+
+        return redirect()->route('upload');
+    }
+
 
 }

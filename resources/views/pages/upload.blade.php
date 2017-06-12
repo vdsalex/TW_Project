@@ -27,7 +27,7 @@
         <div id="Artefact" class="tabcontent">
             <h3>Artefact</h3>
             <div class="contentObj">
-                <form >
+                <form action="{{route('upload.artefact')}}" method="POST" enctype="multipart/form-data">
                     Name:<br>
                     <input type="text" name="name">
                     <br>
@@ -37,9 +37,10 @@
                     Date of receiving:<br>
                     <input type="text" name="receive_date">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" >
+                    <input type="file" name="artefact" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt">
                     <br>
                     <input type="submit" value="Submit">
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
                 </form>
             </div>
         </div>
@@ -47,7 +48,7 @@
         <div id="Document" class="tabcontent">
             <h3>Document</h3>
             <div class="contentObj">
-                <form >
+                <form action="{{route('upload.document')}}" method="POST" enctype="multipart/form-data">
                     Name:<br>
                     <input type="text" name="name">
                     <br>
@@ -57,9 +58,10 @@
                     Emission date:<br>
                     <input type="text" name="emission_date">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" >
+                    <input type="file" name="document" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt">
                     <br>
                     <input type="submit" value="Submit">
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
                 </form>
 
             </div>
@@ -68,7 +70,7 @@
         <div id="Letter" class="tabcontent">
             <h3>Letter</h3>
             <div class="contentObj">
-                <form >
+                <form action="{{route('upload.letter')}}" method="POST" enctype="multipart/form-data">
                     Sender:<br>
                     <input type="text" name="sender">
                     <br>
@@ -81,9 +83,10 @@
                     Date of writing<br>
                     <input type="text" name="write_data">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" >
+                    <input type="file" name="letter" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt" >
                     <br>
                     <input type="submit" value="Submit">
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
                 </form>
             </div>
         </div>
@@ -91,7 +94,7 @@
         <div id="Picture" class="tabcontent">
             <h3>Picture</h3>
             <div class="contentObj">
-                <form >
+                <form action="{{route('upload.photo')}}" method="POST" enctype="multipart/form-data">
                     Description:<br>
                     <textarea rows="4" cols="50" ></textarea>
                     <br>
@@ -101,9 +104,10 @@
                     Creation date:<br>
                     <input type="text" name="record_date">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" >
+                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
                     <br>
                     <input type="submit" value="Submit">
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
                 </form>
             </div>
         </div>
@@ -111,19 +115,20 @@
         <div id="Video" class="tabcontent">
             <h3>Video</h3>
             <div class="contentObj">
-                <form >
+                <form action="{{route('upload.video')}}" method="POST" enctype="multipart/form-data">
                     Title:<br>
                     <input type="text" name="title">
                     <br>
                     Description:<br>
-                    <textarea rows="4" cols="50" ></textarea>
+                    <textarea rows="4" cols="50" name="description" ></textarea>
                     <br>
                     Record date:<br>
                     <input type="text" name="record_date">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" >
+                    <input type="file" name="video" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".mp4,.mpg4">
                     <br>
                     <input type="submit" value="Submit">
+                    <input type="hidden" name="_token" value="{{Session::token()}}">
                 </form>
             </div>
         </div>
