@@ -18,11 +18,11 @@
         <div id="mySidenav1" class="sidenav">
             <br>
             <form>
-                <a ><input type="radio">Artefact</a>
-                <a ><input type="radio">Document</a>
-                <a ><input type="radio">Letter</a>
-                <a ><input type="radio">Picture</a>
-                <a ><input type="radio">Video</a>
+                <a ><input name="object" type="radio">Artefact</a>
+                <a ><input name="object" type="radio">Document</a>
+                <a ><input name="object" type="radio">Letter</a>
+                <a ><input name="object" type="radio">Picture</a>
+                <a ><input name="object" type="radio">Video</a>
             </form>
             <a class="closebtn" onclick="closeNav1()">
                 <input type="submit" value="Submit">
@@ -31,9 +31,9 @@
         <div id="mySidenav2" class="sidenav">
             <br>
             <form>
-                <a ><input type="radio">1</a>
-                <a ><input type="radio">2</a>
-                <a ><input type="radio">3</a>
+                <a ><input name="grade" type="radio">1</a>
+                <a ><input name="grade" type="radio">2</a>
+                <a ><input name="grade" type="radio">3</a>
             </form>
             <a class="closebtn" onclick="closeNav2()">
                 <input type="submit" value="Submit">

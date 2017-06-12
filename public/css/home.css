@@ -52,36 +52,87 @@
 .img-rounded{
     width: 400px;
     box-shadow: 5px 5px 9px black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
+.let{
+    width: 400px;
+    box-shadow: 5px 5px 9px black;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.buttons_paragraph{
-    float: right;
-    padding-top: 0px !important;
-}
-.modal-backdrop {
 
-    background-color: rgba(0,0,0,.0001) !important;
+.let:hover {opacity: 0.7;}
+
+
+.video{
+    cursor: pointer;
+    transition: 0.3s;
 }
+
+.img-rounded:hover {opacity: 0.7;}
+.video:hover {opacity: 0.7;}
+
+
+
 .video{
     width: 500px;
 }
-.paragraph{
-    color: red;
-    text-align: left;
+
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
-.my-img a {
-    display: inline-block;
-    margin: 10px;
-    border: 2px solid #CCC;
+
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
 }
-.my-img a:hover {
-    border: 2px solid #45AFFF;
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
 }
-.modal-lg {
-    width: 86%;
+
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
 }
-.modal-body {
-    overflow: auto;
-    max-height: auto;
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
 }
