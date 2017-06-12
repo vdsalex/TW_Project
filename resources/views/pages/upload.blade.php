@@ -32,7 +32,7 @@
                     <input type="text" name="name">
                     <br>
                     Description:<br>
-                    <textarea rows="5" cols="50" name="description">Please add a description column in the database</textarea>
+                    <textarea rows="5" cols="50" name="description"></textarea>
                     <br>
                     Date of receiving:<br>
                     <input type="text" name="receive_date">
