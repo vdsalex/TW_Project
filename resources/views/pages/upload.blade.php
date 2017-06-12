@@ -78,10 +78,10 @@
                     <input type="text" name="receiver">
                     <br>
                     Message:<br>
-                    <textarea rows="5" cols="50" ></textarea>
+                    <textarea rows="5" cols="50" name="message"></textarea>
                     <br>
                     Date of writing<br>
-                    <input type="text" name="write_data">
+                    <input type="text" name="write_date">
                     <br><br>
                     <input type="file" name="letter" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt" >
                     <br>
