@@ -62,8 +62,7 @@ Route::group(['middleware'=> ['web']],function(){
 
     Route::get('/team_project',[
         'uses' => 'UserController@getTeamProject',
-        'as' => 'team_project',
-        'middleware' => 'auth'
+        'as' => 'team_project'
     ]);
 
     Route::get('/upload',[

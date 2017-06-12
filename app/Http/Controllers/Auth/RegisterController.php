@@ -103,12 +103,13 @@ class RegisterController extends Controller
         //check if user already logged in with social provider
         $socialUserId=$socialUser->getId();
         $socialProvider=SocialProvider::where('provider_id',$socialUserId)->first();
+
         if (!$socialProvider)
         {
             //create user
+            $splitName=explode(' ', $socialUser->getName(),2);
             $user=User::firstOrCreate(
-                ['email' => $socialUser->getEmail()],
-                ['first_name'=>$socialUser->getName()]);
+                ['email' => $socialUser->getEmail(),'first_name'=> $splitName[0],'last_name' => $splitName[1]]);
             $user -> socialProviders() ->create(
                 ['provider_id' => $socialUser->getId(),'provider' => $provider]);
         }
