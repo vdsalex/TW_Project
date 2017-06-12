@@ -235,7 +235,29 @@ class UserController extends Controller
 
     public function postUploadLetter(Request $request)
     {
+        $this->validate($request,[
+            'sender'=>'required',
+            'receiver'=> 'required',
+            'message' =>'required',
+            'write_date' => 'required'
+        ]);
 
+        if (!($request->file('letter')->isValid()))
+        {
+            return redirect()->route('home');
+        }
+
+        $date = DateTime::createFromFormat('d-m-Y',$request['write_date']);
+
+        $user = Auth::user();
+
+        $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $date]);
+
+
+        $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.doc';
+        Storage::disk('local')->put($filePath, File::get($request['letter']));
+
+        return redirect()->route('upload');
     }
 
     public function postUploadPhoto(Request $request)
