@@ -15,12 +15,15 @@
 <header></header>
 
 <div class="container" id="mainContainer">
-@include ('includes/header')
-    <div class="jumbotron">
+@include ('includes.header')
+    <div class="container" id="mainContainer">
+        <div class="jumbotron">
             <div class="profile-photo">
+
                 <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
             <p  align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a photo.</p>
+
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-1">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-2">Description</button>
@@ -55,13 +58,17 @@
                     </div>
                 </div>
 
-            </p>
+                </p>
+            </div>
+            <img src="content/fat-frumos.jpg" alt="Photo" class="img-rounded">
         </div>
+
         <img src="content/fat-frumos.jpg" alt="Photo" class="img-rounded">
     </div>
     <div class="jumbotron ">
             <div class="profile-photo">
                 <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a movie.</p>
             <p class="buttons_paragraph">
@@ -97,6 +104,7 @@
                         </div>
                     </div>
                 </div>
+
             </p>
         </div>
         <video class="video" controls>
@@ -115,46 +123,54 @@
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-9">Receiver</button>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-10">Letter content</button>
 
-        <div class="modal" id="modal-7">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select data_crearii_scr from scrisoare</h3>
+            <div class="modal" id="modal-7">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select data_crearii_scr from scrisoare</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal" id="modal-8">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select emitator from scrisoare</h3>
+            <div class="modal" id="modal-8">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select emitator from scrisoare</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal" id="modal-9">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select destinatar from scrisoare</h3>
+            <div class="modal" id="modal-9">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select destinatar from scrisoare</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal" id="modal-10">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select continut_scr from scrisoare</h3>
+            <div class="modal" id="modal-10">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select continut_scr from scrisoare</h3>
+                        </div>
                     </div>
                 </div>
             </div>
+            </p>
+            <p class="paragraph">
+                Aici va fi afisat inceputul scrisorii lui Nume Prenume, urmand ca atunci cand veti apasa butonul Letter content sa se
+                afiseze intreaga scrisoare. Asta e ceea ce cred eu ca ar fi potrivit pentru aceast obiect(scrisoare) pana in acest moment.
+                Cu siguranta vor aparea modificari pe parcurs...
+            </p>
         </div>
+
         </p>
         <p class="paragraph">
             Aici va fi afisat inceputul scrisorii lui Nume Prenume, urmand ca atunci cand veti apasa butonul Letter content sa se
@@ -173,54 +189,60 @@
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-13">Issue date</button>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-14">Issue place</button>
 
-        <div class="modal" id="modal-11">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">Ar trebui sa avem in tabelul Acte un camp care ne spune cand a facut utilizatorul upload la un act. E ceva diferit de data emiterii daca va intrebati asta</h3>
+
+            <div class="modal" id="modal-11">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">Ar trebui sa avem in tabelul Acte un camp care ne spune cand a facut utilizatorul upload la un act. E ceva diferit de data emiterii daca va intrebati asta</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal" id="modal-12">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select nume_act from acte</h3>
+            <div class="modal" id="modal-12">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select nume_act from acte</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal" id="modal-13">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select data emiterii from acte</h3>
+            <div class="modal" id="modal-13">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select data emiterii from acte</h3>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="modal" id="modal-14">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">This will be Select locul_emiterii from acte</h3>
+            <div class="modal" id="modal-14">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h3 class="modal-title">This will be Select locul_emiterii from acte</h3>
+                        </div>
                     </div>
                 </div>
             </div>
+
         </div>
         </p>
         <img src="content/permis-romanesc-de-conducere-spania.jpg" alt="Photo" class="img-rounded">
 
-    </div>
 
-    <div class="jumbotron ">
+        </div>
+
+        <div class="jumbotron ">
             <div class="profile-photo">
+
                 <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artifact.</p>
             <p class="buttons_paragraph">
@@ -258,8 +280,11 @@
                 </div>
             </div>
 
+
         <img src="content/colier.jpg" alt="Photo" class="img-rounded">
 
+
+        </div>
     </div>
 </div>
 

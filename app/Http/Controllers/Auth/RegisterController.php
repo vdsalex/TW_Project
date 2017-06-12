@@ -6,6 +6,7 @@ use App\SocialProvider;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Laravel\Socialite\Facades\Socialite;
@@ -95,11 +96,13 @@ class RegisterController extends Controller
         }
         catch (\Exception $e)
         {
+            //to show error massage in case of auth error
             return redirect()->route('home');
         }
 
         //check if user already logged in with social provider
-        $socialProvider=SocialProvider::where('provider_id',$socialUser->getId())->first();
+        $socialUserId=$socialUser->getId();
+        $socialProvider=SocialProvider::where('provider_id',$socialUserId)->first();
         if (!$socialProvider)
         {
             //create user
@@ -110,6 +113,10 @@ class RegisterController extends Controller
                 ['provider_id' => $socialUser->getId(),'provider' => $provider]);
         }
         else $user=$socialProvider->user;
+
+        //save token for access to user content from provider
+        $accessToken=$socialUser->token;
+        session(['provider_access_token' => $accessToken,'provider_user_id'=>$socialUserId]);
 
         Auth::login($user);
 

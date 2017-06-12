@@ -14,6 +14,7 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
+
         <p id="question">What do you want to upload?</p>
         <div class="tab">
             <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artefact</button>
@@ -131,4 +132,6 @@
 
 </body>
 </html>
+
+
 {!! Html::script('js/upload.js') !!}

@@ -26,6 +26,7 @@ body {
     top: 0;
     left: 0;
 }
+
 /* Style the tab */
 div.tab {
     float: left;
@@ -78,5 +79,3 @@ div.tab button.active {
     font-size: 30px;
     letter-spacing: 5px;
 }
-
-

@@ -14,11 +14,12 @@
 	<img id="bgImg" alt="Blue Background Image" src="content/blue-11.jpg">
 	<h1 id="dilyHeader">DiLy.</h1>
 	@if (count($errors)>0)
+		<br><br><br><br>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-4 col-md-offset-4 erori">
 				<ul>
 					@foreach($errors->all() as $error)
-						<li>{{$error}}</li>
+						<li class="text-danger">{{$error}}</li>
 					@endforeach
 				</ul>
 			</div>
@@ -73,9 +74,9 @@
                     <div id="aboutYouFieldsDiv">
                         <ul>
                             <li>
-                                <input class="aboutYouFields" type="text" name="last_name" placeholder="Last Name">
-                                <input class="aboutYouFields" type="text" name="first_name" placeholder="First Name">
-                                <input class="aboutYouFields" type="text" name="address" placeholder="Address">
+                                <input class="aboutYouFields" type="text" name="last_name" placeholder="Last Name" value="{{\Illuminate\Support\Facades\Request::old('last_name')}}">
+                                <input class="aboutYouFields" type="text" name="first_name" placeholder="First Name" value="{{\Illuminate\Support\Facades\Request::old('first_name')}}">
+                                <input class="aboutYouFields" type="text" name="address" placeholder="Address" value="{{\Illuminate\Support\Facades\Request::old('address')}}">
                             </li>
                         </ul>
                     </div>
