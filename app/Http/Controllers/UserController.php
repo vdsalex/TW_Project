@@ -232,7 +232,28 @@ class UserController extends Controller
 
     public function postUploadLetter(Request $request)
     {
+        $this->validate($request,[
+            'title'=>'required|max:100',
+            'description'=> 'required|max:255',
+            'record_date' =>'required',
+            'video' => 'required'
+        ]);
 
+        if (!($request->file('video')->isValid()))
+        {
+            return redirect()->route('home');
+        }
+
+        $date = DateTime::createFromFormat('d-m-Y',$request['record_date']);
+
+        $user=Auth::user();
+
+        $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$date]);
+
+        $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
+        Storage::disk('local')->put($filePath, File::get($request['video']));
+
+        return redirect()->route('upload');
     }
 
     public function postUploadPhoto(Request $request)

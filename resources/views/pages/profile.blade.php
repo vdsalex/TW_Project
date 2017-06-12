@@ -53,17 +53,25 @@
             <div class="container" id="nameContainer1">
                 <label><input type="text"></label>
             </div>
+            <div class="container" id="livedTitle1">
+                <span>Lived Between</span>
+            </div>
+            <div class="container" id="livedContainer1">
+                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <span>-</span>
+                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+            </div>
             <div class="container" id="photoTitle1">
                 <span>Photo</span>
             </div>
             <div class="container" id="photoMainContainer1">
-                <label id="photoBtn1" class="btn btn-default btn-file" onclick="getUploadedPhoto(this)">Choose Photo<input type="file" id="photoInput1" style="display: none;"></label>
+                <label id="photoBtn1" class="btn btn-default btn-file">Choose Photo<input type="file" id="photoInput1" style="display: none;"></label>
                 <div class="container" id="photoContainer1">
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg1">
                 </div>
             </div>
             <div class="container" id="btnsContainer1">
-                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
@@ -91,17 +99,25 @@
             <div class="container" id="nameContainer2">
                 <label><input type="text"></label>
             </div>
+            <div class="container" id="livedTitle2">
+                <span>Lived Between</span>
+            </div>
+            <div class="container" id="livedContainer2">
+                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <span>-</span>
+                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+            </div>
             <div class="container" id="photoTitle2">
                 <span>Photo</span>
             </div>
             <div class="container" id="photoMainContainer2">
-                <label id="photoBtn2" class="btn btn-default btn-file" onclick="getUploadedPhoto(this)">Choose Photo<input type="file" id="photoInput2" style="display: none;"></label>
+                <label id="photoBtn2" class="btn btn-default btn-file">Choose Photo<input type="file" id="photoInput2" style="display: none;"></label>
                 <div class="container" id="photoContainer2">
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg2">
                 </div>
             </div>
             <div class="container" id="btnsContainer2">
-                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
@@ -131,17 +147,25 @@
             <div class="container" id="nameContainer3">
                 <label><input type="text"></label>
             </div>
+            <div class="container" id="livedTitle3">
+                <span>Lived Between</span>
+            </div>
+            <div class="container" id="livedContainer3">
+                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <span>-</span>
+                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+            </div>
             <div class="container" id="photoTitle3">
                 <span>Photo</span>
             </div>
             <div class="container" id="photoMainContainer3">
-                <label id="photoBtn3" class="btn btn-default btn-file" onclick="getUploadedPhoto(this)">Choose Photo<input type="file" id="photoInput3" style="display: none;"></label>
+                <label id="photoBtn3" class="btn btn-default btn-file">Choose Photo<input type="file" id="photoInput3" style="display: none;"></label>
                 <div class="container" id="photoContainer3">
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg3">
                 </div>
             </div>
             <div class="container" id="btnsContainer3">
-                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
@@ -173,17 +197,25 @@
             <div class="container" id="nameContainer4">
                 <label><input type="text"></label>
             </div>
+            <div class="container" id="livedTitle4">
+                <span>Lived Between</span>
+            </div>
+            <div class="container" id="livedContainer4">
+                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <span>-</span>
+                <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
+            </div>
             <div class="container" id="photoTitle4">
                 <span>Photo</span>
             </div>
             <div class="container" id="photoMainContainer4">
-                <label id="photoBtn4" class="btn btn-default btn-file" onclick="getUploadedPhoto(this)">Choose Photo<input type="file" id="photoInput4" style="display: none;"></label>
+                <label id="photoBtn4" class="btn btn-default btn-file">Choose Photo<input type="file" id="photoInput4" style="display: none;"></label>
                 <div class="container" id="photoContainer4">
                     <img src="" alt="Member Photo" class="membersPhoto" id="photoImg4">
                 </div>
             </div>
             <div class="container" id="btnsContainer4">
-                <button type="submit" class="btn btn-defaul">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
