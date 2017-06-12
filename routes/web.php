@@ -126,5 +126,16 @@ Route::group(['middleware'=> ['web']],function(){
         'uses'=> 'UserController@postUploadDocument',
         'as' => 'upload.document'
     ]);
+
+    Route::get('getContent/{content_type}',[
+        'uses'=> 'UserController@getContent',
+        'as' => 'get.content'
+    ]);
+
+
+    Route::get('uservideo/{video_id}',[
+        'uses' => 'UserController@getUserVideo',
+        'as' => 'user.video'
+    ]);
 });
 
