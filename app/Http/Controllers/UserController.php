@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use App\Photo;
 use App\User;
 use App\Video;
+use App\Document;
+use App\Photo;
+use App\Artefact;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -225,12 +228,54 @@ class UserController extends Controller
 
     public function postUploadDocument(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required|max:100',
+            'location'=> 'required|max:255',
+            'emission_date' =>'required',
+            'document' => 'required'
+        ]);
 
+        if (!($request->file('document')->isValid()))
+        {
+            return redirect()->route('home');
+        }
+
+        $date = DateTime::createFromFormat('d-m-Y',$request['emission_date']);
+
+        $user=Auth::user();
+
+        $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$date]);
+
+        $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.txt';
+        Storage::disk('local')->put($filePath, File::get($request['document']));
+
+        return redirect()->route('upload');
     }
 
     public function postUploadArtefact(Request $request)
     {
+        $this->validate($request,[
+            'name'=>'required|max:100',
+            'description'=> 'required|max:255',
+            'receive_date' =>'required',
+            'artefact' => 'required'
+        ]);
 
+        if (!($request->file('artefact')->isValid()))
+        {
+            return redirect()->route('home');
+        }
+
+        $date = DateTime::createFromFormat('d-m-Y',$request['receive_date']);
+
+        $user=Auth::user();
+
+        $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$date]);
+
+        $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . 'jpg';
+        Storage::disk('local')->put($filePath, File::get($request['artefact']));
+
+        return redirect()->route('upload');
     }
 
     public function postUploadLetter(Request $request)
@@ -262,7 +307,28 @@ class UserController extends Controller
 
     public function postUploadPhoto(Request $request)
     {
+        $this->validate($request,[
+            'description'=> 'required|max:255',
+            'location'=>'required|max:100',
+            'snap_date' =>'required',
+            'photo' => 'required'
+        ]);
 
+        if (!($request->file('photo')->isValid()))
+        {
+            return redirect()->route('home');
+        }
+
+        $date = DateTime::createFromFormat('d-m-Y',$request['snap_date']);
+
+        $user=Auth::user();
+
+        $newPhoto=Photo::create(['user_id'=>$user->id, 'description'=>$request['description'], 'location'=>$request['location'],'snap_date'=>$date]);
+
+        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$newPhoto->id . '.png';
+        Storage::disk('local')->put($filePath, File::get($request['photo']));
+
+        return redirect()->route('home');
     }
 
     public function postUploadVideo(Request $request)

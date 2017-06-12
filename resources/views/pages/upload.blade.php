@@ -32,7 +32,7 @@
                     <input type="text" name="name">
                     <br>
                     Description:<br>
-                    <textarea rows="5" cols="50" >Please add a description column in the database</textarea>
+                    <textarea rows="5" cols="50" name="description"></textarea>
                     <br>
                     Date of receiving:<br>
                     <input type="text" name="receive_date">
@@ -96,15 +96,15 @@
             <div class="contentObj">
                 <form action="{{route('upload.photo')}}" method="POST" enctype="multipart/form-data">
                     Description:<br>
-                    <textarea rows="4" cols="50" ></textarea>
+                    <textarea rows="4" cols="50"  name="description"></textarea>
                     <br>
                     Location:<br>
-                    <input type="text" name="title">
+                    <input type="text" name="location">
                     <br>
                     Creation date:<br>
-                    <input type="text" name="record_date">
+                    <input type="text" name="snap_date">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
+                    <input type="file" name="photo" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">
