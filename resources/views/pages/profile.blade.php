@@ -51,13 +51,13 @@
                 <span>Name</span>
             </div>
             <div class="container" id="nameContainer1">
-                <label><input type="text"></label>
+                <label><input type="text" required></label>
             </div>
             <div class="container" id="livedTitle1">
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer1">
-                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <label><input type="number" id="birthYear1" min="1" max="" required></label>
                 <span>-</span>
                 <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
             </div>
@@ -97,13 +97,13 @@
                 <span>Name</span>
             </div>
             <div class="container" id="nameContainer2">
-                <label><input type="text"></label>
+                <label><input type="text" required></label>
             </div>
             <div class="container" id="livedTitle2">
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer2">
-                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <label><input type="number" id="birthYear1" min="1" max="" required></label>
                 <span>-</span>
                 <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
             </div>
@@ -145,13 +145,13 @@
                 <span>Name</span>
             </div>
             <div class="container" id="nameContainer3">
-                <label><input type="text"></label>
+                <label><input type="text" required></label>
             </div>
             <div class="container" id="livedTitle3">
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer3">
-                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <label><input type="number" id="birthYear1" min="1" max="" required></label>
                 <span>-</span>
                 <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
             </div>
@@ -195,13 +195,13 @@
                 <span>Name</span>
             </div>
             <div class="container" id="nameContainer4">
-                <label><input type="text"></label>
+                <label><input type="text" required></label>
             </div>
             <div class="container" id="livedTitle4">
                 <span>Lived Between</span>
             </div>
             <div class="container" id="livedContainer4">
-                <label><input type="number" id="birthYear1" min="1" max=""></label>
+                <label><input type="number" id="birthYear1" min="1" max="" required></label>
                 <span>-</span>
                 <label><input type="number" id="deathYear1" min="1" max="2017" onchange="setInput1Max(this)"></label>
             </div>
