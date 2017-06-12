@@ -19,9 +19,11 @@
     <div class="container" id="mainContainer">
         <div class="jumbotron">
             <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p  align="left"><a href="content/profile.html"> &nbsp; FirstName LastName </a> added a photo.</p>
+            <p  align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a photo.</p>
+
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-1">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-2">Description</button>
@@ -60,11 +62,15 @@
             </div>
             <img src="content/fat-frumos.jpg" alt="Photo" class="img-rounded">
         </div>
-        <div class="jumbotron ">
+
+        <img src="content/fat-frumos.jpg" alt="Photo" class="img-rounded">
+    </div>
+    <div class="jumbotron ">
             <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+
             </div>
-            <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a movie.</p>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a movie.</p>
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-4">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-5">Description</button>
@@ -98,23 +104,24 @@
                         </div>
                     </div>
                 </div>
-                </p>
-            </div>
-            <video class="video" controls>
-                <source src="content/AmazingFacts.mp4" type="video/mp4">
-            </video>
 
+            </p>
         </div>
-        <div class="jumbotron ">
-            <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
-            </div>
-            <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a letter.</p>
-            <p class="buttons_paragraph">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-7">Upload date</button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-8">Transmitter</button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-9">Receiver</button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-10">Letter content</button>
+        <video class="video" controls>
+            <source src="content/AmazingFacts.mp4" type="video/mp4">
+        </video>
+
+    </div>
+    <div class="jumbotron ">
+        <div class="profile-photo">
+            <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+        </div>
+        <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a letter.</p>
+        <p class="buttons_paragraph">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-7">Upload date</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-8">Transmitter</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-9">Receiver</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-10">Letter content</button>
 
             <div class="modal" id="modal-7">
                 <div class="modal-dialog">
@@ -163,16 +170,25 @@
                 Cu siguranta vor aparea modificari pe parcurs...
             </p>
         </div>
-        <div class="jumbotron ">
-            <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
-            </div>
-            <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added a document.</p>
-            <p class="buttons_paragraph">
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-11">Upload date*</button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-12">Act name</button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-13">Issue date</button>
-                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-14">Issue place</button>
+
+        </p>
+        <p class="paragraph">
+            Aici va fi afisat inceputul scrisorii lui Nume Prenume, urmand ca atunci cand veti apasa butonul Letter content sa se
+            afiseze intreaga scrisoare. Asta e ceea ce cred eu ca ar fi potrivit pentru aceast obiect(scrisoare) pana in acest moment.
+            Cu siguranta vor aparea modificari pe parcurs...
+        </p>
+        </div>
+    <div class="jumbotron ">
+        <div class="profile-photo">
+            <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+        </div>
+        <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a document.</p>
+        <p class="buttons_paragraph">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-11">Upload date*</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-12">Act name</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-13">Issue date</button>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-14">Issue place</button>
+
 
             <div class="modal" id="modal-11">
                 <div class="modal-dialog">
@@ -214,16 +230,21 @@
                     </div>
                 </div>
             </div>
-            </p>
-            <img src="content/permis-romanesc-de-conducere-spania.jpg" alt="Photo" class="img-rounded">
+
+        </div>
+        </p>
+        <img src="content/permis-romanesc-de-conducere-spania.jpg" alt="Photo" class="img-rounded">
+
 
         </div>
 
         <div class="jumbotron ">
             <div class="profile-photo">
-                <a href="./profile/profile.html"><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+
             </div>
-            <p align="left"><a href="./profile/profile.html"> &nbsp; FirstName LastName </a> added an artifact.</p>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artifact.</p>
             <p class="buttons_paragraph">
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-15">Upload date</button>
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#modal-16">Name</button>
@@ -259,14 +280,14 @@
                 </div>
             </div>
 
-            <img src="content/colier.jpg" alt="Photo" class="img-rounded">
+
+        <img src="content/colier.jpg" alt="Photo" class="img-rounded">
+
 
         </div>
     </div>
-    </div>
-
-
 </div>
+
 
 </body>
 </html>

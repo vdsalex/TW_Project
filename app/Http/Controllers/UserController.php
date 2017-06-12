@@ -102,6 +102,11 @@ class UserController extends Controller
 
     }
 
+    public function getTeamProject()
+    {
+        return view('pages/team_project',['user'=> Auth::user()]);
+    }
+
     public function getUpload()
     {
         return view('pages/upload',['user'=> Auth::user()]);
