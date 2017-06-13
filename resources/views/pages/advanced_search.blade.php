@@ -47,7 +47,8 @@
             <br><br>
 
             <form>
-                    <input type="text" name="search" placeholder="Search..">
+                    <input type="text" name="search" placeholder="Search.."><br><br>
+                    <button type="submit" class="btn btn-default" id="searchBtn">Search</button>
             </form>
 
         </div>
