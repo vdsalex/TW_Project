@@ -29,14 +29,14 @@
 						<li><a href="{{route('search')}}">ADVANCED SEARCH</a></li>
 						<li role="separator" class="divider"></li>
 						<li>
-							<div class="input-group">
-								<form action="{{route('simple.search')}}" method="post">
+							<form class="input-group" action="{{route('simple.search')}}" method="post">
 								<input spellcheck="false" name="search_text" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
 								<button class="btn btn-default" type="submit">
 									<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 								</button>
+								<input type="hidden" name="_token" value="{{Session::token()}}">
 								</form>
-							</div>
+							</form>
 						</li>
 					</ul>
 				</div>

@@ -43,7 +43,7 @@
                     <br>
                     Description:<br>
 
-                    <textarea rows="5" cols="50" name="description">Please add a description column in the database</textarea>
+                    <textarea rows="5" cols="50" name="description"></textarea>
 
                     <br>
                     Date of receiving:<br>
@@ -72,7 +72,7 @@
                     Emission date:<br>
                     <input type="text" name="emission_date">
                     <br><br>
-                    <input type="file" name="document" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt">
+                    <input type="file" name="document" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc">
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">
@@ -97,7 +97,7 @@
                     Date of writing<br>
                     <input type="text" name="write_date">
                     <br><br>
-                    <input type="file" name="letter" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt" >
+                    <input type="file" name="letter" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".txt" >
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">

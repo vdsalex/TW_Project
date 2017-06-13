@@ -34,7 +34,7 @@
 
         <div id="Receiving Date" class="tabcontent">
             <h3>Receiving Date</h3>
-            <p>{{$entry['receiving_date']}}</p>
+            <p>{{$entry['receive_date']}}</p>
         </div>
 
     </div>

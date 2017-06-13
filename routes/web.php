@@ -171,7 +171,7 @@ Route::group(['middleware'=> ['web']],function(){
     ]);
 
     Route::post('search/results',[
-        'uses' => 'UserController@getSimpleSearchResults',
+        'uses' => 'UserController@postSimpleSearchResults',
         'as' => 'simple.search',
         'middleware' => 'auth'
     ]);

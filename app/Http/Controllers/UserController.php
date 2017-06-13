@@ -210,7 +210,7 @@ class UserController extends Controller
 
         $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$date]);
 
-        $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . 'jpg';
+        $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . '.jpg';
         Storage::disk('local')->put($filePath, File::get($request['artefact']));
 
         return redirect()->route('upload');
@@ -490,7 +490,7 @@ class UserController extends Controller
         return redirect()->route('memories');
     }
 
-    public function getSimpleSearchResults($search_text)
+    public function postSimpleSearchResults($search_text)
     {
         $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
         $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
