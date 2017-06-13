@@ -94,3 +94,15 @@ input[type=text] {
 input[type=text]:focus {
     width: 100%;
 }
+
+#searchBtn
+{
+    border-radius: 0 !important;
+
+    background-color: dimgray;
+    color: white;
+
+    font-family: "Courier New", Courier, monospace;
+
+    font-size: 12pt;
+}
