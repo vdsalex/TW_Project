@@ -492,8 +492,14 @@ class UserController extends Controller
 
     public function getSimpleSearchResults($search_text)
     {
-        $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%');
-        $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%');
+        $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+        $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
+        $letters=Letter::where('user_id','=',Auth::user()->id) ->where('sender','LIKE','%'.$search_text.'%') ->orWhere('receiver','LIKE','%'.$search_text.'%')
+            ->orWhere('message','LIKE','%'.$search_text.'%')->get();
+        $documents=Video::where('user_id','=',Auth::user()->id) ->where('name','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+        $artefacts=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
+
+        $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
         dd($photos);
     }
 }
