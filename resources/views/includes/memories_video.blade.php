@@ -6,7 +6,7 @@
         <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a movie.</p>
 
         <video class="video" controls>
-            <source src="content/AmazingFacts.mp4" type="video/mp4" alt="Video" >
+            <source src="{{route('user.video',$entry['id'])}}" type="video/mp4" alt="Video" >
         </video><br><br>
         <div class="tab">
             <button class="tablinks" onclick="openCol(event, 'Title')">Title</button>
@@ -15,17 +15,17 @@
         </div>
         <div id="Title" class="tabcontent">
             <h3>Title</h3>
-            <p>Title is the capital city of England.</p>
+            <p>{{$entry['title']}}</p>
         </div>
 
         <div id="Description" class="tabcontent">
             <h3>Description</h3>
-            <p>Description is the capital of France.</p>
+            <p>{{$entry['description']}}</p>
         </div>
 
         <div id="Record Date" class="tabcontent">
             <h3>Record Date</h3>
-            <p>Record Date< is the capital of Japan.</p>
+            <p>{{$entry['record_date']}}</p>
         </div>
     </div>
 @endforeach

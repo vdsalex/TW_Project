@@ -129,33 +129,51 @@ Route::group(['middleware'=> ['web']],function(){
 
     Route::get('getContent/{content_type}',[
         'uses'=> 'UserController@getContent',
-        'as' => 'get.content'
+        'as' => 'get.content',
+        'middleware' => 'auth'
     ]);
 
 
     Route::get('userphoto/{video_id}',[
         'uses' => 'UserController@getUserPhoto',
-        'as' => 'user.photo'
+        'as' => 'user.photo',
+        'middleware' => 'auth'
     ]);
 
     Route::get('uservideo/{video_id}',[
         'uses' => 'UserController@getUserVideo',
-        'as' => 'user.video'
+        'as' => 'user.video',
+        'middleware' => 'auth'
     ]);
 
     Route::get('userdocument/{video_id}',[
         'uses' => 'UserController@getUserDocument',
-        'as' => 'user.document'
+        'as' => 'user.document',
+        'middleware' => 'auth'
     ]);
 
     Route::get('userartefact/{video_id}',[
         'uses' => 'UserController@getUserArtefact',
-        'as' => 'user.artefact'
+        'as' => 'user.artefact',
+        'middleware' => 'auth'
     ]);
 
     Route::get('userletter/{video_id}',[
         'uses' => 'UserController@getUserLetter',
-        'as' => 'user.letter'
+        'as' => 'user.letter',
+         'middleware' => 'auth'
+    ]);
+
+    Route::post('facebook_import',[
+        'uses' => 'UserController@postImportPhoto',
+        'as' => 'facebook.import',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('search/results',[
+        'uses' => 'UserController@getSimpleSearchResults',
+        'as' => 'simple.search',
+        'middleware' => 'auth'
     ]);
 
 });

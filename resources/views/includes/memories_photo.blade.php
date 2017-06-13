@@ -11,10 +11,10 @@
         <div class="profile-photo">
             <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
         </div>
-        <p  align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a photo.
+        <p  align="left"><a href=http://localhost:8000/profile> &nbsp; You </a> added a photo.
         </p>
 
-        <img  src="content/fat-frumos.jpg" alt="Photo" class="img-rounded"><br><br>
+        <img  src={{route('user.photo',$entry['id'])}} alt="{{$entry['id']}}" class="img-rounded"><br><br>
         <div class="tab">
             <button class="tablinks" onclick="openCol(event, 'Description')">Description</button>
             <button class="tablinks" onclick="openCol(event, 'Location')">Location</button>
@@ -22,16 +22,17 @@
         </div>
         <div id="Description" class="tabcontent">
             <h3>Description</h3>
-            <p>Description is the capital city of England.</p>
+            <p>{{$entry['description']}}</p>
         </div>
 
         <div id="Location" class="tabcontent">
             <h3>Location</h3>
-            <p>Location is the capital of France.</p>
+            <p>{{$entry['location']}}</p>
         </div>
 
         <div id="Creation Date" class="tabcontent">
             <h3>Creation Date</h3>
-            <p>Creation Date is the capital of Japan.</p>
+            <p>{{$entry['snap_date']}}</p>
         </div>
+    </div>
 @endforeach

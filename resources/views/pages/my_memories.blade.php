@@ -1,4 +1,5 @@
 {!! Html::style('css/my_memories.css') !!}
+{!! Html::style('css/home.css') !!}
 <!DOCTYPE html>
 <html lang="en">
 <head>

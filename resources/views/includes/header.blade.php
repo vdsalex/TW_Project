@@ -28,10 +28,12 @@
 						<li role="separator" class="divider"></li>
 						<li>
 							<div class="input-group">
-								<input spellcheck="false" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
+								<form action="{{route('simple.search')}}" method="post">
+								<input spellcheck="false" name="search_text" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
 								<button class="btn btn-default" type="submit">
 									<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 								</button>
+								</form>
 							</div>
 						</li>
 					</ul>
