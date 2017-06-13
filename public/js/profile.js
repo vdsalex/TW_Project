@@ -45,15 +45,15 @@ function displayDg(relDegreeBtn)
     }
 }
 
-function createMember(plusSpan)
+function displayModalWithOpts(plusSpan)
 {
     document.getElementById("main-nav").style.zIndex = "-1";
 
-    displayMemOptsModal(plusSpan);
+    displayModal(plusSpan);
     displayDefaultPhoto(document.getElementById("dgContainer" + plusSpan.previousElementSibling.textContent.substring(0, 1)).firstElementChild.firstElementChild);
 
 /*
-    aSpan.parentElement.style.width = String(aSpan.parentElement.offsetWidth + 350) + "px";
+    aSpan.parentElement.style.width= String(aSpan.parentElement.offsetWidth + 350) + "px";
 
     var newMember = document.createElement("DIV");
     newMember.className = "member";
@@ -81,7 +81,67 @@ function createMember(plusSpan)
 
 }
 
-function displayMemOptsModal(plusSpan)
+function createMember(cBtn)
+{
+    var newMember = document.createElement("DIV");
+    newMember.className = "member";
+
+    var id = cBtn.parentElement.getAttribute("id");
+    var index = id.substring(id.length - 1, id.length);
+    var plusSpan = document.getElementById("plusSpan" + index);
+
+    plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 350) + "px";
+
+    var photoSrc = document.getElementById("photoImg" + index).getAttribute("src");
+    var nameTextfieldValue = document.getElementById("nameTextfield" + index).value;
+    var birthYearValue = document.getElementById("birthYear" + index).value;
+    var deathYearValue = document.getElementById("deathYear" + index).value;
+    var radioButtonCheckedValue = getCheckedValue(document.getElementsByName(index + "DgOpts"));
+
+    if(deathYearValue === "")newMember.innerHTML = "<img src=\"" + photoSrc + "\"alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + "</p>";
+    else newMember.innerHTML = "<img src=\"" + photoSrc + "\"alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + " - " + deathYearValue + "</p>";
+
+    plusSpan.parentElement.insertBefore(newMember, plusSpan);
+
+    setNewMembersPosition(newMember, plusSpan);
+}
+
+function setNewMembersPosition(newMember, plusSpan)
+{
+    switch(plusSpan.parentElement.firstElementChild.textContent)
+    {
+        case "1st Degree": newMember.style.top = "170px"; break;
+        case "2nd Degree": newMember.style.top = "250px"; break;
+        case "3rd Degree": newMember.style.top = "330px"; break;
+        case "4th Degree": newMember.style.top = "410px"; break;
+    }
+
+    //Set distance between elements of class member.
+    //There's a special case for the first element.
+    if(newMember.previousElementSibling.tagName === "BUTTON")
+    {
+        newMember.style.left = "240px";
+    }
+    else
+    {
+        newMember.style.left = String(parseInt(newMember.previousElementSibling.style.left) + 350) + "px";
+    }
+}
+
+function getCheckedValue(rdBtns)
+{
+    var i;
+
+    for(i = 0; i < rdBtns.length; i++)
+    {
+        if(rdBtns[i].checked)
+        {
+            return rdBtns[i].value;
+        }
+    }
+}
+
+function displayModal(plusSpan)
 {
     //Display modal according to the plus span pushed.
     switch(plusSpan.previousElementSibling.textContent)
