@@ -14,6 +14,9 @@
 					<span>DiLy.</span>
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
 				</a>
+				<a class="navbar-brand" href={{route('team_project')}} id="DBrand">
+					<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
+				</a>
 			</div>
 			<div class="navbar-form navbar-left" id="leftNavbar">
 				<div class="dropdown" id="dropdown1">

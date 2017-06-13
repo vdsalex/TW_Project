@@ -151,8 +151,8 @@
 
     </div>
 
+    {!! Html::script('js/upload.js') !!}
+
 </body>
 </html>
 
-
-{!! Html::script('js/upload.js') !!}

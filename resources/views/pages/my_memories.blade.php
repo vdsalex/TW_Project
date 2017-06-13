@@ -28,7 +28,14 @@
 
     </div>
 
-    <header></header>
+        <div id="modal_id" class="modal">
+
+            <span class="close" onclick="document.getElementById('modal_id').style.display='none'">&times;</span>
+
+            <img class="modal-content" id="img2">
+
+            <div id="caption2"></div>
+        </div>
 
         <div class="container" id="contentContainer">
                       <br/>
@@ -42,7 +49,8 @@
         </div>
 
     </div>
+    {!! Html::script('js/my_memories.js') !!}
+    {!! Html::script('js/home.js') !!}}
 
 </body>
 </html>
-{!! Html::script('js/my_memories.js') !!}

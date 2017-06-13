@@ -85,8 +85,8 @@
     </div>
     </div>
 </div>
+{!! Html::script('js/home.js') !!}
 
 
 </body>
 </html>
-{!! Html::script('js/home.js') !!}

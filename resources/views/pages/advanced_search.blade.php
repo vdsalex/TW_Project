@@ -53,7 +53,6 @@
 
         </div>
     </div>
-
+    {!! Html::script('js/advanced_search.js') !!}
 </body>
 </html>
-{!! Html::script('js/advanced_search.js') !!}

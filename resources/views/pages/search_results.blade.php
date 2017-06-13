@@ -30,7 +30,8 @@
     </div>
 
 </div>
+{!! Html::script('js/my_memories.js') !!}
 
 </body>
 </html>
-{!! Html::script('js/my_memories.js') !!}
+
