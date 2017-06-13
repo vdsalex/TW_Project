@@ -17,20 +17,17 @@ function displayContent(button)
 }
 
 function loadMoreData(page,content_type){
-    console.log("sal");
     $.ajax(
         {
             url: 'getContent/' + content_type + '?page=' + page,
             type: "get",
             beforeSend: function()
             {
-                console.log(page);
                 $('.ajax-load').show();
             }
         })
         .done(function(data)
         {
-            console.log(data);
             if(data.html == ""){
 
                 $('.ajax-load').html("No more records found");
@@ -41,7 +38,6 @@ function loadMoreData(page,content_type){
         })
         .fail(function(jqXHR, ajaxOptions, thrownError)
         {
-            console.log("error");
             alert('Server not responding...');
         });
 }

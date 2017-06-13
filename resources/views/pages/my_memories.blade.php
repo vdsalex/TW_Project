@@ -21,7 +21,9 @@
         <a href="#" id="video" onclick="displayContent(this)">Videos</a>
         <a href="#" id="artefact" onclick="displayContent(this)">Artefacts</a>
         <a href="#" id="document" onclick="displayContent(this)">Documents</a>
-        <a href="#" id="facebook" onclick="displayContent(this)">Facebook</a>
+        @if ($sidebutton=='true')
+            <a href="#" id="facebook" onclick="displayContent(this)">Facebook</a>
+        @endif
 
     </div>
 
