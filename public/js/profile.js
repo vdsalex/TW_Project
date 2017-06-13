@@ -5,8 +5,8 @@ var members;
 var i;
 var relDegreeWidth;
 var modals = document.getElementsByClassName('modal');
-var memOptionsId;
-var memOptionsIndex;
+var id;
+var index;
 var nameTextfield;
 
 function displayDg(relDegreeBtn)
@@ -49,36 +49,12 @@ function displayModalWithOpts(plusSpan)
 {
     document.getElementById("main-nav").style.zIndex = "-1";
 
+    var id = plusSpan.getAttribute("id");
+    var index = id.substring(id.length - 1, id.length);
+    var radioButtons = document.getElementsByName(index + "DgOpts");
+
     displayModal(plusSpan);
-    displayDefaultPhoto(document.getElementById("dgContainer" + plusSpan.previousElementSibling.textContent.substring(0, 1)).firstElementChild.firstElementChild);
-
-/*
-    aSpan.parentElement.style.width= String(aSpan.parentElement.offsetWidth + 350) + "px";
-
-    var newMember = document.createElement("DIV");
-    newMember.className = "member";
-    newMember.innerHTML = "<img src=\"icons/grandfather_icon.png\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">Mother Elizabeth</p> <p class=\"lived\">1936 - 2009</p>";
-    aSpan.parentElement.insertBefore(newMember, aSpan);
-
-    switch(aSpan.parentElement.firstElementChild.textContent)
-    {
-        case "1st Degree": newMember.style.top = "170px"; break;
-        case "2nd Degree": newMember.style.top = "250px"; break;
-        case "3rd Degree": newMember.style.top = "330px"; break;
-        case "4th Degree": newMember.style.top = "410px"; break;
-    }
-
-    //Set distance between elements of class member.
-    //There's a special case for the first element.
-    if(newMember.previousElementSibling.tagName === "BUTTON")
-    {
-        newMember.style.left = "240px";
-    }
-    else
-    {
-        newMember.style.left = String(parseInt(newMember.previousElementSibling.style.left) + 350) + "px";
-    }*/
-
+    displayDefaultPhoto(radioButtons[0]);
 }
 
 function createMember(cBtn)
@@ -148,7 +124,7 @@ function getCheckedValue(rdBtns)
 function displayModal(plusSpan)
 {
     //Display modal according to the plus span pushed.
-    switch(plusSpan.previousElementSibling.textContent)
+    switch(plusSpan.parentElement.firstElementChild.textContent)
     {
         case "1st Degree": modals[1].style.display = "block"; break; //modals[0] is the modal for pf photo
         case "2nd Degree": modals[2].style.display = "block"; break;
@@ -200,10 +176,10 @@ function displayDefaultPhoto(rdInput)
         case "Granddaughter":
             photo.setAttribute("src", "icons/granddaughter_icon.png");
             break;
-        case "GtGrandson":
+        case "Great Grandson":
             photo.setAttribute("src", "icons/grandson_icon.png");
             break;
-        case "GtGranddaughter":
+        case "Great Granddaughter":
             photo.setAttribute("src", "icons/granddaughter_icon.png");
             break;
         case "Nephew":
@@ -212,16 +188,16 @@ function displayDefaultPhoto(rdInput)
         case "Niece":
             photo.setAttribute("src", "icons/niece_icon.png");
             break;
-        case "GtGrandmother":
+        case "Great Grandmother":
             photo.setAttribute("src", "icons/grandmother_icon.png");
             break;
-        case "GtGrandfather":
+        case "Great Grandfather":
             photo.setAttribute("src", "icons/grandfather_icon.png");
             break;
-        case "GtGtGrandson":
+        case "Great-Great Grandson":
             photo.setAttribute("src", "icons/grandson_icon.png");
             break;
-        case "GtGtGranddaughter":
+        case "Great-Great Granddaughter":
             photo.setAttribute("src", "icons/granddaughter_icon.png");
             break;
         case "Cousin sister":
@@ -230,16 +206,16 @@ function displayDefaultPhoto(rdInput)
         case "Cousin brother":
             photo.setAttribute("src", "icons/cousin_brother_icon.png");
             break;
-        case "GtNephew":
+        case "Great Nephew":
             photo.setAttribute("src", "icons/nephew_icon.png");
             break;
-        case "GtNiece":
+        case "Great Niece":
             photo.setAttribute("src", "icons/niece_icon.png");
             break;
-        case "GtUncle":
+        case "Great Uncle":
             photo.setAttribute("src", "icons/uncle_icon.png");
             break;
-        case "GtAunt":
+        case "Great Aunt":
             photo.setAttribute("src", "icons/aunt_icon.png");
             break;
     }
@@ -256,23 +232,23 @@ function closeModal(modal)
     if(modal.className === "modal")
     {
         //get memOptionContent element. Then get its index (last char, a digit).
-        memOptionsId = modal.firstElementChild.getAttribute("id");
-        memOptionsIndex = memOptionsId.substring(memOptionsId.length - 1, memOptionsId.length);
+        id = modal.firstElementChild.getAttribute("id");
+        index = id.substring(id.length - 1, id.length);
 
         //set dgContainer's first input element to true.
         //I used the digit to get the dgContainer.
-        document.getElementById("dgContainer" + memOptionsIndex).firstElementChild.firstElementChild.checked = true;
+        document.getElementById("dgContainer" + index).firstElementChild.firstElementChild.checked = true;
 
-        nameTextfield = document.getElementById("nameContainer" + memOptionsIndex).firstElementChild.firstElementChild;
+        nameTextfield = document.getElementById("nameContainer" + index).firstElementChild.firstElementChild;
         nameTextfield.value = "";
 
+        var birthYearValue = document.getElementById("birthYear" + index);
+        var deathYearValue = document.getElementById("deathYear" + index);
+
+        birthYearValue.value = "";
+        deathYearValue.value = "";
+
         modal.style.display = "none";
-
-        var input1 = document.getElementById("birthYear" + memOptionsIndex);
-        var input2 = document.getElementById("deathYear" + memOptionsIndex);
-
-        input1.value = "";
-        input2.value = "";
 
         document.getElementById("main-nav").style.zIndex = "1";
     }

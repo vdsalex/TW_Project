@@ -78,7 +78,7 @@
     </div>
 
     <div class="modal" id="modal2">
-        <form class="container" id="memOptionsContent2">
+        <form class="container" id="memOptionsContent2" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -117,14 +117,14 @@
                 </div>
             </div>
             <div class="container" id="btnsContainer2">
-                <button type="button" class="btn btn-default" onclick="createMember(this)">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
     </div>
 
     <div class="modal" id="modal3">
-        <form class="container" id="memOptionsContent3">
+        <form class="container" id="memOptionsContent3" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -165,14 +165,14 @@
                 </div>
             </div>
             <div class="container" id="btnsContainer3">
-                <button type="button" class="btn btn-default" onclick="createMember(this)">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
     </div>
 
     <div class="modal" id="modal4">
-        <form class="container" id="memOptionsContent4" method="post">
+        <form class="container" id="memOptionsContent4"  onsubmit="return createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -215,7 +215,7 @@
                 </div>
             </div>
             <div class="container" id="btnsContainer4">
-                <button type="button" class="btn btn-default" onclick="createMember(this)">Confirm</button>
+                <button type="submit" class="btn btn-default">Confirm</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
         </form>
