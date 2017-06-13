@@ -8,6 +8,7 @@ use App\User;
 use App\Video;
 use App\Document;
 use App\Artefact;
+use Carbon\Carbon;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
@@ -15,8 +16,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use SammyK\LaravelFacebookSdk\FacebookFacade;
-use SammyK\LaravelFacebookSdk\LaravelFacebookSdk;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 
@@ -39,7 +38,8 @@ class UserController extends Controller
         $user=Auth::user();
 
         $socialModel=SocialProvider::where('user_id',$user->id)->first();
-        if ($socialModel=='facebook')
+
+        if ($socialModel['provider']=='facebook')
             return view('pages/my_memories',['user'=>$user,'sidebutton'=>'true']);
         else return view('pages/my_memories',['user'=>$user,'sidebutton'=>'false']);
     }
@@ -112,6 +112,7 @@ class UserController extends Controller
     public function getLogout()
     {
         Auth::logout();
+        session()->flush();
         return redirect()->route('home');
     }
 
@@ -183,7 +184,7 @@ class UserController extends Controller
 
         $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$date]);
 
-        $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.txt';
+        $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.doc';
         Storage::disk('local')->put($filePath, File::get($request['document']));
 
         return redirect()->route('upload');
@@ -235,7 +236,7 @@ class UserController extends Controller
 
         $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $date]);
 
-        $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.doc';
+        $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.txt';
         Storage::disk('local')->put($filePath, File::get($request['letter']));
 
         return redirect()->route('upload');
@@ -288,7 +289,7 @@ class UserController extends Controller
         $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
-            Storage::disk('local')->put($filePath, File::get($request['video']));
+        Storage::disk('local')->put($filePath, File::get($request['video']));
 
         return redirect()->route('upload');
     }
@@ -330,11 +331,8 @@ class UserController extends Controller
 
                     array_push($photosArray, array('URL' => $photoURL, 'name' => $photoName, 'location' => $photoLocation));
 
-                    // Storage::put('testPhoto.jpg', fopen($photoURL, 'r'));
                 }
             }
-
-            //$photosArray=Photo::where('user_id','=',Auth::user()->id);
 
             $col = new Collection($photosArray);
 
@@ -434,7 +432,7 @@ class UserController extends Controller
     public function getUserPhoto($photo_id)
     {
         $user=Auth::user();
-        $filename=$user->username . '-'.$user->id.'\\photo\\'.$photo_id. '.jpg,.jpeg,.png';
+        $filename=$user->username . '-'.$user->id.'\\photo\\'.$photo_id. '.png';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
@@ -442,7 +440,7 @@ class UserController extends Controller
     public function getUserVideo($video_id)
     {
         $user=Auth::user();
-        $filename=$user->username . '-'.$user->id.'\\video\\'.$video_id. '.mp4,.mpg4';
+        $filename=$user->username . '-'.$user->id.'\\video\\'.$video_id. '.mp4';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
@@ -450,7 +448,7 @@ class UserController extends Controller
     public function getUserDocument($document_id)
     {
         $user=Auth::user();
-        $filename=$user->username . '-'.$user->id.'\\document\\'.$document_id. '.doc,.txt';
+        $filename=$user->username . '-'.$user->id.'\\document\\'.$document_id. '.doc';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
@@ -458,7 +456,7 @@ class UserController extends Controller
     public function getUserLetter($letter_id)
     {
         $user=Auth::user();
-        $filename=$user->username . '-'.$user->id.'\\letter\\'.$letter_id. '.doc,.txt';
+        $filename=$user->username . '-'.$user->id.'\\letter\\'.$letter_id. '.txt';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
@@ -466,9 +464,42 @@ class UserController extends Controller
     public function getUserArtefact($artefact_id)
     {
         $user=Auth::user();
-        $filename=$user->username . '-'.$user->id.'\\artefact\\'.$artefact_id. '.jpg,.jpeg';
+        $filename=$user->username . '-'.$user->id.'\\artefact\\'.$artefact_id. '.jpg';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
     }
 
+    public function postImportPhoto(Request $request)
+    {
+        $img_data = file_get_contents($request['URL']);
+        if (!$img_data)
+        {
+            return redirect()->route('home');
+            //SEND ERROR
+        }
+
+        $current_time = Carbon::now()->toDayDateTimeString();
+        $user=Auth::user();
+
+        $newPhoto=Photo::create(['user_id'=>$user->id, 'description'=>$request['name'], 'location'=>$request['location'],'snap_date'=>$current_time]);
+
+        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$newPhoto->id . '.png';
+
+        Storage::disk('local')->put($filePath, $img_data);
+
+        return redirect()->route('memories');
+    }
+
+    public function getSimpleSearchResults($search_text)
+    {
+        $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+        $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
+        $letters=Letter::where('user_id','=',Auth::user()->id) ->where('sender','LIKE','%'.$search_text.'%') ->orWhere('receiver','LIKE','%'.$search_text.'%')
+            ->orWhere('message','LIKE','%'.$search_text.'%')->get();
+        $documents=Video::where('user_id','=',Auth::user()->id) ->where('name','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+        $artefacts=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
+
+        $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
+        dd($photos);
+    }
 }

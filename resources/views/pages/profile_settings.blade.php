@@ -98,7 +98,7 @@
         </div>
 
     </div>
+    {!! Html::script('js/profile_settings.js') !!}
 
 </body>
 </html>
-{!! Html::script('js/profile_settings.js') !!}

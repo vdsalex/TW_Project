@@ -1,5 +1,5 @@
 var page = 1;
-var currentContent="facebook";
+var currentContent="photo";
 
 $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() >= $(document).height()) {
