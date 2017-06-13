@@ -38,40 +38,48 @@
     text-align: center ;
 }
 
-#iimages {
+#photo {
     left: -80px;
     top: 160px;
     background-color:#795548;
     text-align-all: center;
 }
 
-#videos {
-    left: -75.1px;
+#video {
+    left: -75.5px;
     top: 220px;
     background-color: #f44336;
     text-align: center;
 }
 
-#letters {
+#letter {
     left: -76px;
     top: 280px;
     background-color: #4A148C;
     text-align: center;
 }
 
-#artefacts {
+#artefact {
     left: -93.5px;
     top: 340px;
     background-color: #FFC107;
     text-align: center;
 }
 
-#documents {
+#document {
     left: -115.8px;
     top: 400px;
     background-color: #555 ;
     text-align: center;
 }
+
+#facebook {
+    left: -103px;
+    top: 460px;
+    background-color: #3B5998 ;
+    text-align: center;
+}
+
 
 #mainContainer
 {

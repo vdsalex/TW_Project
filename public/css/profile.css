@@ -21,7 +21,7 @@ div.modal
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 35px; /* Location of the box */
+    padding-top: 15px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -148,6 +148,54 @@ div.modal > form.container
     width: 100%;
 
     margin-bottom: 20px;
+}
+
+#livedTitle1,
+#livedTitle2,
+#livedTitle3,
+#livedTitle4
+{
+    text-align: center;
+
+    font-family: "Comic Sans MS", sans-serif;
+    font-size: 14pt;
+
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+
+    width: 100%;
+}
+
+#livedTitle1 > span,
+#livedTitle2 > span,
+#livedTitle3 > span,
+#livedTitle4 > span
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+    padding: 0 155px 5px;
+}
+
+#livedContainer1,
+#livedContainer2,
+#livedContainer3,
+#livedContainer4
+{
+    width: 100%;
+
+    margin-bottom: 30px;
+    height: 30px;
+
+    text-align: center;
+}
+
+#livedContainer1 *,
+#livedContainer2 *,
+#livedContainer3 *,
+#livedContainer4 *
+{
+    width: 60px;
 }
 
 #nameContainer1 input[type="text"],
