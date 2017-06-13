@@ -104,6 +104,10 @@ function createMember(cBtn)
     plusSpan.parentElement.insertBefore(newMember, plusSpan);
 
     setNewMembersPosition(newMember, plusSpan);
+
+    closeModal(document.getElementById("modal" + index));
+
+    return false;
 }
 
 function setNewMembersPosition(newMember, plusSpan)

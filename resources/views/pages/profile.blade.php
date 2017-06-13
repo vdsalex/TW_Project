@@ -34,7 +34,7 @@
     </div>
 
     <div class="modal" id="modal1">
-        <form class="container" id="memOptionsContent1" onsubmit="createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent1" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
