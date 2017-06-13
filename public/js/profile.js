@@ -189,18 +189,35 @@ window.onclick = function (event)
 
 function closeModal(modal)
 {
-    //get memOptionContent element. Then get its index (last char, a digit).
-    memOptionsId = modal.firstElementChild.getAttribute("id");
-    memOptionsIndex = memOptionsId.substring(memOptionsId.length - 1, memOptionsId.length);
+    if(modal.className === "modal")
+    {
+        //get memOptionContent element. Then get its index (last char, a digit).
+        memOptionsId = modal.firstElementChild.getAttribute("id");
+        memOptionsIndex = memOptionsId.substring(memOptionsId.length - 1, memOptionsId.length);
 
-    //set dgContainer's first input element to true.
-    //I used the digit to get the dgContainer.
-    document.getElementById("dgContainer" + memOptionsIndex).firstElementChild.firstElementChild.checked = true;
-    nameTextfield = document.getElementById("nameContainer" + memOptionsIndex).firstElementChild.firstElementChild;
+        //set dgContainer's first input element to true.
+        //I used the digit to get the dgContainer.
+        document.getElementById("dgContainer" + memOptionsIndex).firstElementChild.firstElementChild.checked = true;
 
-    nameTextfield.value = "";
+        nameTextfield = document.getElementById("nameContainer" + memOptionsIndex).firstElementChild.firstElementChild;
+        nameTextfield.value = "";
 
-    modal.style.display = "none";
-    document.getElementById("main-nav").style.zIndex = "1";
+        modal.style.display = "none";
+
+        var input1 = document.getElementById("birthYear" + memOptionsIndex);
+        var input2 = document.getElementById("deathYear" + memOptionsIndex);
+
+        input1.value = "";
+        input2.value = "";
+
+        document.getElementById("main-nav").style.zIndex = "1";
+    }
+}
+
+function setInput1Max(input2)
+{
+    var input1 = input2.parentElement.previousElementSibling.previousElementSibling.firstElementChild;
+
+    input1.setAttribute("max", input2.value);
 }
 

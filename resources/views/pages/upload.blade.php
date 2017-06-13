@@ -14,7 +14,17 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
-
+        @if (count($errors)>0)
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 erori">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="text-danger">{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
         <p id="question">What do you want to upload?</p>
         <div class="tab">
             <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artefact</button>
@@ -32,12 +42,16 @@
                     <input type="text" name="name">
                     <br>
                     Description:<br>
+
                     <textarea rows="5" cols="50" name="description">Please add a description column in the database</textarea>
+
                     <br>
                     Date of receiving:<br>
                     <input type="text" name="receive_date">
                     <br><br>
+
                     <input type="file" name="artefact" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
+
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">
@@ -78,10 +92,10 @@
                     <input type="text" name="receiver">
                     <br>
                     Message:<br>
-                    <textarea rows="5" cols="50" ></textarea>
+                    <textarea rows="5" cols="50" name="message"></textarea>
                     <br>
                     Date of writing<br>
-                    <input type="text" name="write_data">
+                    <input type="text" name="write_date">
                     <br><br>
                     <input type="file" name="letter" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc,.txt" >
                     <br>
@@ -96,7 +110,9 @@
             <div class="contentObj">
                 <form action="{{route('upload.photo')}}" method="POST" enctype="multipart/form-data">
                     Description:<br>
+
                     <textarea rows="4" cols="50" name="description"></textarea>
+
                     <br>
                     Location:<br>
                     <input type="text" name="location">
@@ -104,7 +120,7 @@
                     Creation date:<br>
                     <input type="text" name="snap_date">
                     <br><br>
-                    <input type="file" name="image" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
+                    <input type="file" name="photo" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">
