@@ -74,8 +74,8 @@ function createMember(cBtn)
     var deathYearValue = document.getElementById("deathYear" + index).value;
     var radioButtonCheckedValue = getCheckedValue(document.getElementsByName(index + "DgOpts"));
 
-    if(deathYearValue === "")newMember.innerHTML = "<img src=\"" + photoSrc + "\"alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + "</p>";
-    else newMember.innerHTML = "<img src=\"" + photoSrc + "\"alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + " - " + deathYearValue + "</p>";
+    if(deathYearValue === "")newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + "</p>";
+    else newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + " - " + deathYearValue + "</p>";
 
     plusSpan.parentElement.insertBefore(newMember, plusSpan);
 
@@ -135,7 +135,7 @@ function displayModal(plusSpan)
 
 function displayDefaultPhoto(rdInput)
 {
-    var photo = document.getElementById("photoContainer" + rdInput.name.substring(0, 1)).firstElementChild;
+    var photo = document.getElementById("photoImg" + rdInput.name.substring(0, 1));
 
     //Insert default photo according to rdInput's value (the checked radio button).
     switch(rdInput.value)

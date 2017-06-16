@@ -86,7 +86,8 @@
     margin-top: 80px;
 }
 
-.jumbotron{
+.jumbotron
+{
     background-color:#EEE8AA !important;
     color:black;
     width:100%;
@@ -148,5 +149,4 @@
 }
 .modal-body {
     overflow: auto;
-    max-height: auto;
 }
