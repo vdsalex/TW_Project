@@ -44,12 +44,12 @@
 					<li><a href={{route('upload')}} id="uploadText">UPLOAD</a></li>
 					<li><a href={{route('memories')}} id="MyMemText">MY MEMORIES</a></li>
 					<li>
-						<div class="input-group">
+						<form class="input-group">
 							<input spellcheck="false" type="text" id="search" class="form-control" placeholder="Search for..">
 							<button class="btn btn-default" type="submit">
 								<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 							</button>
-						</div>
+						</form>
 					</li>
 					<li><a href={{route('search')}} id="advSearchText">ADVANCED SEARCH</a></li>
 				</ul>
