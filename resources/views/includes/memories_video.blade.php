@@ -7,6 +7,11 @@
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a movie.</p>
             <button class="btn btn-default deleteBtn">Delete This Memory</button>
         </div>
+
+        <form action="{{route('delete.video',['id'=>$entry['id']])}}" method="post">
+            <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
+            <input type="hidden" name="_token" value="{{Session::token()}}">
+        </form>
         <video class="video" controls>
             <source src="{{route('user.video',$entry['id'])}}" type="video/mp4" alt="Video" >
         </video><br><br>

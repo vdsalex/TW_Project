@@ -570,7 +570,7 @@ class UserController extends Controller
         Photo::destroy($request['id']);
 
         $user=Auth::user();
-        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png';
+        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png,.jpg,.jpeg';
         Storage::disk('local')->delete($filePath);
 
         return redirect()->route('memories');
@@ -578,6 +578,57 @@ class UserController extends Controller
         //have to return alert or smthing that the photo has been deleted
     }
 
+    public function postDeleteUserVideo(Request $request)
+    {
+        Video::destroy($request['id']);
+
+        $user=Auth::user();
+        $filePath=$user->username . '-'.$user->id.'\\video\\'.$request['id'] . '.mp4,.mpg4';
+        Storage::disk('local')->delete($filePath);
+
+        return redirect()->route('memories');
+
+        //have to return alert or smthing that the photo has been deleted
+    }
+
+    public function postDeleteUserDocument(Request $request)
+    {
+        Document::destroy($request['id']);
+
+        $user=Auth::user();
+        $filePath=$user->username . '-'.$user->id.'\\document\\'.$request['id'] . '.doc';
+        Storage::disk('local')->delete($filePath);
+
+        return redirect()->route('memories');
+
+        //have to return alert or smthing that the photo has been deleted
+    }
+
+    public function postDeleteUserLetter(Request $request)
+    {
+        Letter::destroy($request['id']);
+
+        $user=Auth::user();
+        $filePath=$user->username . '-'.$user->id.'\\letter\\'.$request['id'] . '.txt';
+        Storage::disk('local')->delete($filePath);
+
+        return redirect()->route('memories');
+
+        //have to return alert or smthing that the photo has been deleted
+    }
+
+    public function postDeleteUserArtefact(Request $request)
+    {
+        Artefact::destroy($request['id']);
+
+        $user=Auth::user();
+        $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$request['id'] . '.png,.jpg,.jpeg';
+        Storage::disk('local')->delete($filePath);
+
+        return redirect()->route('memories');
+
+        //have to return alert or smthing that the photo has been deleted
+    }
     /*
      * END OF DELETE API
      */
