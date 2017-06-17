@@ -156,6 +156,7 @@ class UserController extends Controller
            Storage::disk('local')->put($filename, File::get($file));
        }
        return redirect()->route('profile_settings');
+        //SEND successfull message
     }
 
     public function getUserImage($filename)
@@ -188,6 +189,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['document']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadArtefact(Request $request)
@@ -214,6 +216,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['artefact']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadLetter(Request $request)
@@ -240,6 +243,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['letter']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadPhoto(Request $request)
@@ -266,6 +270,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['photo']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadVideo(Request $request)
@@ -292,6 +297,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['video']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function getFacebookContent($currentPage)
@@ -524,7 +530,7 @@ class UserController extends Controller
         if (!$img_data)
         {
             return redirect()->route('home');
-            //SEND ERROR
+            //SEND ERROR MESSAGE
         }
 
         $current_time = Carbon::now()->toDayDateTimeString();
@@ -537,6 +543,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, $img_data);
 
         return redirect()->route('memories');
+        //SEND successfull message
     }
 
     public function postSimpleSearchResults($search_text)
@@ -560,9 +567,15 @@ class UserController extends Controller
 
     public function postDeleteUserPhoto(Request $request)
     {
-        //have to return alert or smthing that the photo has been deleted
-
         Photo::destroy($request['id']);
+
+        $user=Auth::user();
+        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png';
+        Storage::disk('local')->delete($filePath);
+
+        return redirect()->route('memories');
+
+        //have to return alert or smthing that the photo has been deleted
     }
 
     /*

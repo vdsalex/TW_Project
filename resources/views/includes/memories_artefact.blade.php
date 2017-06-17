@@ -1,6 +1,6 @@
 @foreach($entries as $entry)
 
-    <<div id="modal_id" class="modal">
+    <div id="modal_id" class="modal">
 
         <span class="close" onclick="document.getElementById('modal_id').style.display='none'">&times;</span>
 

@@ -13,7 +13,12 @@
                 <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
             <p  align="left"><a href=http://localhost:8000/profile> &nbsp; You </a> added a photo.</p>
-            <button class="btn btn-default deleteBtn">Delete This Memory</button>
+
+            <form action="{{route('delete.photo',['id'=>$entry['id']])}}" method="post">
+                <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
+                <input type="hidden" name="_token" value="{{Session::token()}}">
+            </form>
+
         </div>
 
         <img  src={{route('user.photo',$entry['id'])}} alt="{{$entry['id']}}" class="img-rounded"><br><br>
