@@ -1,5 +1,5 @@
 @foreach($entries as $entry)
-    <div class="jumbotron ">
+    <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="profile-photo">
             <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
         </div>
@@ -12,7 +12,6 @@
             <button class="tablinks" onclick="openCol(event, 'Receiver')">Receiver</button>
             <button class="tablinks" onclick="openCol(event, 'Message')">Message</button>
             <button class="tablinks" onclick="openCol(event, 'Writing Date')">Writing Date</button>
-
         </div>
         <div id="Sender" class="tabcontent">
             <h3>Sender</h3>

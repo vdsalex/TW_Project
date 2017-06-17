@@ -383,7 +383,8 @@ span.input-group-addon > form > label
 
 .radio-inline
 {
-    font-family: "Comic Sans MS", sans-serif;
+    font-family: "Times New Roman", sans-serif;
+    font-size: 11pt;
 }
 
 h2
