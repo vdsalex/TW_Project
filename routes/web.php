@@ -13,6 +13,9 @@
 
 Route::group(['middleware'=> ['web']],function(){
 
+    //
+    // LOGIN
+    //
 
     Route::post('/signup',[
         'uses' => 'UserController@postSignUp',
@@ -24,6 +27,34 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'signin'
     ]);
 
+     Route::get('/auth/{provider}', [
+        'uses' => 'Auth\RegisterController@redirectToProvider',
+        'as' => 'provider.auth'
+    ]);
+
+    Route::get('/auth/{provider}/callback', [
+        'uses'=> 'Auth\RegisterController@handleProviderCallback',
+        'as' => 'provider.callback'
+    ]);
+
+    Route::get('/logout',[
+        'uses' => 'UserController@getLogout',
+        'as' => 'logout'
+    ]);
+
+    //
+    //  END OF LOGIN
+    //
+
+    //
+    //  MAIN PAGES
+    //
+
+    Route::get('/',[
+        'uses' => 'UserController@getHome',
+        'as' => 'baseRoute',
+        'middleware' => 'auth'
+    ]);
 
     Route::get('/home',[
         'uses' => 'UserController@getHome',
@@ -71,16 +102,9 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
-    Route::get('/',[
-        'uses' => 'UserController@getHome',
-        'as' => 'baseRoute',
-        'middleware' => 'auth'
-    ]);
-
-    Route::get('/logout',[
-       'uses' => 'UserController@getLogout',
-        'as' => 'logout'
-    ]);
+    //
+    // END OF MAIN PAGES
+    //
 
     Route::post('/updateaccount',[
         'uses' => 'UserController@postSaveAccount',
@@ -92,15 +116,9 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'account.image'
     ]);
 
-    Route::get('/auth/{provider}', [
-        'uses' => 'Auth\RegisterController@redirectToProvider',
-        'as' => 'provider.auth'
-    ]);
-
-    Route::get('/auth/{provider}/callback', [
-        'uses'=> 'Auth\RegisterController@handleProviderCallback',
-        'as' => 'provider.callback'
-    ]);
+    //
+    // UPLOAD
+    //
 
     Route::post('/upload/video',[
         'uses'=> 'UserController@postUploadVideo',
@@ -126,6 +144,12 @@ Route::group(['middleware'=> ['web']],function(){
         'uses'=> 'UserController@postUploadDocument',
         'as' => 'upload.document'
     ]);
+
+    //
+    // end of content upload routes
+    //
+
+    // get view part coresponding to content_type
 
     Route::get('getContent/{content_type}',[
         'uses'=> 'UserController@getContent',
@@ -173,6 +197,16 @@ Route::group(['middleware'=> ['web']],function(){
     Route::post('search/results',[
         'uses' => 'UserController@postSimpleSearchResults',
         'as' => 'simple.search',
+        'middleware' => 'auth'
+    ]);
+
+    /*
+     * DELETE USER MEMORIES
+     */
+
+    Route::post('delete/photo',[
+        'uses'=> 'UserController@postDeleteUserPhoto',
+        'as' => 'delete.photo',
         'middleware' => 'auth'
     ]);
 

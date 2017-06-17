@@ -1,6 +1,6 @@
 @foreach($entries as $entry)
 
-    <<div id="modal_id" class="modal">
+    <div id="modal_id" class="modal">
 
         <span class="close" onclick="document.getElementById('modal_id').style.display='none'">&times;</span>
 
@@ -9,12 +9,14 @@
         <div id="caption2"></div>
     </div>
 
-    <div class="jumbotron ">
-        <div class="profile-photo">
-            <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+    <div class="jumbotron" style="margin-top: 80px !important;">
+        <div class="poster">
+            <div class="profile-photo">
+                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+            </div>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artefact.</p>
+            <button class="btn btn-default deleteBtn">Delete This Memory</button>
         </div>
-        <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artefact.</p>
-
         <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded"><br><br>
         <div class="tab">
             <button class="tablinks" onclick="openCol(event, 'Name')">Name</button>

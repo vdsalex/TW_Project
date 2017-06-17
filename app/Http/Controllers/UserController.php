@@ -156,6 +156,7 @@ class UserController extends Controller
            Storage::disk('local')->put($filename, File::get($file));
        }
        return redirect()->route('profile_settings');
+        //SEND successfull message
     }
 
     public function getUserImage($filename)
@@ -188,6 +189,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['document']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadArtefact(Request $request)
@@ -214,6 +216,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['artefact']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadLetter(Request $request)
@@ -240,6 +243,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['letter']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadPhoto(Request $request)
@@ -266,6 +270,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['photo']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function postUploadVideo(Request $request)
@@ -292,6 +297,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, File::get($request['video']));
 
         return redirect()->route('upload');
+        //SEND successfull message
     }
 
     public function getFacebookContent($currentPage)
@@ -352,6 +358,45 @@ class UserController extends Controller
 
     public function getAllContent($currentPage)
     {
+        $contentCollection=new Collection();
+
+        $photos=Photo::where('user_id','=',Auth::user()->id)->get();
+        foreach ($photos as $photo)
+            $contentCollection->push($photo);
+
+        $videos=Video::where('user_id','=',Auth::user()->id)->get();
+
+        foreach ($videos as $video)
+            $contentCollection->push($video);
+
+        $letters=Letter::where('user_id','=',Auth::user()->id) ->get();
+
+        foreach ($letters as $letter)
+            $contentCollection->push($letter);
+
+        $documents=Document::where('user_id','=',Auth::user()->id)->get();
+
+        foreach ($documents as $document)
+            $contentCollection->push($document);
+
+        $artefacts=Artefact::where('user_id','=',Auth::user()->id)->get();
+
+        foreach ($artefacts as $artefact)
+            $contentCollection->push($artefact);
+
+        $sortedMemories=$contentCollection->sortByDesc(function($memory, $key)
+        {
+            return $memory['updated_at'];
+        });
+
+        $perPage = 6;
+
+        $currentPageSearchResults = $sortedMemories->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+        $entries = new LengthAwarePaginator($currentPageSearchResults, count($sortedMemories), $perPage);
+
+        $view = view('layouts/memories_content', compact('entries'))->render();
+        return response()->json(['html' => $view]);
 
     }
 
@@ -429,9 +474,15 @@ class UserController extends Controller
         }
     }
 
+    //
+    //  GET USER FILES ON STORAGE
+    //
+
     public function getUserPhoto($photo_id)
     {
-        $user=Auth::user();
+        $photo=Photo::where('id','=',$photo_id)->get()->first();
+        $user=User::where('id','=',$photo->user_id)->get()->first();
+
         $filename=$user->username . '-'.$user->id.'\\photo\\'.$photo_id. '.png';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
@@ -469,13 +520,17 @@ class UserController extends Controller
         return Response($file, 200);
     }
 
+    //
+    // END GET USER FILES ON STORAGE
+    //
+
     public function postImportPhoto(Request $request)
     {
         $img_data = file_get_contents($request['URL']);
         if (!$img_data)
         {
             return redirect()->route('home');
-            //SEND ERROR
+            //SEND ERROR MESSAGE
         }
 
         $current_time = Carbon::now()->toDayDateTimeString();
@@ -488,6 +543,7 @@ class UserController extends Controller
         Storage::disk('local')->put($filePath, $img_data);
 
         return redirect()->route('memories');
+        //SEND successfull message
     }
 
     public function postSimpleSearchResults($search_text)
@@ -502,4 +558,29 @@ class UserController extends Controller
         $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
         dd($photos);
     }
+
+
+
+    /*
+     * DELETE CONTENT API
+     */
+
+    public function postDeleteUserPhoto(Request $request)
+    {
+        Photo::destroy($request['id']);
+
+        $user=Auth::user();
+        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png';
+        Storage::disk('local')->delete($filePath);
+
+        return redirect()->route('memories');
+
+        //have to return alert or smthing that the photo has been deleted
+    }
+
+    /*
+     * END OF DELETE API
+     */
+
+
 }

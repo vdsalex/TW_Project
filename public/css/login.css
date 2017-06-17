@@ -1,6 +1,6 @@
 body
 {
-    margin: 0px;
+    margin: 0;
 }
 
 #bgImg
@@ -106,16 +106,17 @@ body
 .tablink
 {
     background-color: rgb(12,73,138);
-    color: rgb(22, 16, 108);
+    /*color: rgb(22, 16, 108);*/
+	color: white;
     float: left;
     border: none;
     outline: none;
     cursor: pointer;
     padding: 10px 16px;
-    font-size: 17px;
-    font-family: "Comic Sans MS";
+    font-size: 20px;
+    font-family: "Times New Roman", sans-serif;
 
-    text-shadow: 0px 1px 0px rgba(255,255,255,.3), 0px -1px 0px rgba(0,0,0,.7);
+    text-shadow: 0 1px 0 rgba(255,255,255,.3), 0 -1px 0 rgba(0,0,0,.7);
     width: 50%;
     height: 45px;
 }
