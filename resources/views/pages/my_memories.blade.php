@@ -50,7 +50,7 @@
 
     </div>
     {!! Html::script('js/my_memories.js') !!}
-    {!! Html::script('js/home.js') !!}}
+    {!! Html::script('js/home.js') !!}
 
 </body>
 </html>
