@@ -352,6 +352,45 @@ class UserController extends Controller
 
     public function getAllContent($currentPage)
     {
+        $contentCollection=new Collection();
+
+        $photos=Photo::where('user_id','=',Auth::user()->id)->get();
+        foreach ($photos as $photo)
+            $contentCollection->push($photo);
+
+        $videos=Video::where('user_id','=',Auth::user()->id)->get();
+
+        foreach ($videos as $video)
+            $contentCollection->push($video);
+
+        $letters=Letter::where('user_id','=',Auth::user()->id) ->get();
+
+        foreach ($letters as $letter)
+            $contentCollection->push($letter);
+
+        $documents=Document::where('user_id','=',Auth::user()->id)->get();
+
+        foreach ($documents as $document)
+            $contentCollection->push($document);
+
+        $artefacts=Artefact::where('user_id','=',Auth::user()->id)->get();
+
+        foreach ($artefacts as $artefact)
+            $contentCollection->push($artefact);
+
+        $sortedMemories=$contentCollection->sortByDesc(function($memory, $key)
+        {
+            return $memory['updated_at'];
+        });
+
+        $perPage = 6;
+
+        $currentPageSearchResults = $sortedMemories->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+        $entries = new LengthAwarePaginator($currentPageSearchResults, count($sortedMemories), $perPage);
+
+        $view = view('layouts/memories_content', compact('entries'))->render();
+        return response()->json(['html' => $view]);
 
     }
 
@@ -429,9 +468,15 @@ class UserController extends Controller
         }
     }
 
+    //
+    //  GET USER FILES ON STORAGE
+    //
+
     public function getUserPhoto($photo_id)
     {
-        $user=Auth::user();
+        $photo=Photo::where('id','=',$photo_id)->get()->first();
+        $user=User::where('id','=',$photo->user_id)->get()->first();
+
         $filename=$user->username . '-'.$user->id.'\\photo\\'.$photo_id. '.png';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
@@ -469,6 +514,10 @@ class UserController extends Controller
         return Response($file, 200);
     }
 
+    //
+    // END GET USER FILES ON STORAGE
+    //
+
     public function postImportPhoto(Request $request)
     {
         $img_data = file_get_contents($request['URL']);
@@ -502,4 +551,23 @@ class UserController extends Controller
         $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
         dd($photos);
     }
+
+
+
+    /*
+     * DELETE CONTENT API
+     */
+
+    public function postDeleteUserPhoto(Request $request)
+    {
+        //have to return alert or smthing that the photo has been deleted
+
+        Photo::destroy($request['id']);
+    }
+
+    /*
+     * END OF DELETE API
+     */
+
+
 }
