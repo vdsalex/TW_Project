@@ -47,7 +47,6 @@ function openTab(buttonId, button, tabcontentId)
 		else loginBox.style.height = String(loginBox.offsetHeight + 30) + "px";
 	}
 
-	button.style.color = "rgb(26, 18, 142)";
 	button.style.backgroundColor = "Transparent";
 
 	document.getElementById(tabcontentId).style.display = "block";

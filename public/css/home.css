@@ -40,9 +40,13 @@
 
 .poster
 {
-    height: 50px;
+    height: 65px;
 
     margin-bottom: 20px;
+
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: dimgray;
 }
 
 .poster p
