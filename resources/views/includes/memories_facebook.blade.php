@@ -13,7 +13,7 @@
         <div class="profile-photo">
             <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
         </div>
-        <p  align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a photo.
+        <p  align="left"><a href=http://localhost:8000/profile> &nbsp; Your </a> facebook photo.
         </p>
 
         <form action="{{route('facebook.import',['URL'=>$entry['URL'],'name'=>$entry['name'],'location'=>$entry['location']])}}" method="post">

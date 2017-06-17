@@ -57,7 +57,7 @@
     <div class="column">
         <div class="card">
             <center>
-                <img src="content/black.jpg" alt="Alexandru" width="200px" height="180px">
+                <img src="content/alex_voaides.jpg" alt="Alexandru" width="200px" height="180px">
                 <div class="container">
                     <h2>Voaides Alexandru</h2>
                     <p class="title">Front-end</p>
@@ -75,7 +75,7 @@
     <div class="column">
         <div class="card">
             <center>
-                <img src="content/black.jpg" alt="Andrei" width="200px" height="180px">
+                <img src="content/andrei_rusu.jpg" alt="Andrei" width="200px" height="180px">
                 <div class="container">
                     <h2>Rusu Andrei</h2>
                     <p class="title">Back-end</p>
