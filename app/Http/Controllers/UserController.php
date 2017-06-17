@@ -570,7 +570,7 @@ class UserController extends Controller
         Photo::destroy($request['id']);
 
         $user=Auth::user();
-        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png,.jpg,.jpeg';
+        $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png';
         Storage::disk('local')->delete($filePath);
 
         return redirect()->route('memories');
@@ -583,7 +583,7 @@ class UserController extends Controller
         Video::destroy($request['id']);
 
         $user=Auth::user();
-        $filePath=$user->username . '-'.$user->id.'\\video\\'.$request['id'] . '.mp4,.mpg4';
+        $filePath=$user->username . '-'.$user->id.'\\video\\'.$request['id'] . '.mp4';
         Storage::disk('local')->delete($filePath);
 
         return redirect()->route('memories');
@@ -622,7 +622,7 @@ class UserController extends Controller
         Artefact::destroy($request['id']);
 
         $user=Auth::user();
-        $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$request['id'] . '.png,.jpg,.jpeg';
+        $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$request['id'] . '.jpg';
         Storage::disk('local')->delete($filePath);
 
         return redirect()->route('memories');
