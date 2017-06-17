@@ -210,5 +210,28 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
+    Route::post('delete/video',[
+        'uses'=> 'UserController@postDeleteUserVideo',
+        'as' => 'delete.video',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/document',[
+        'uses'=> 'UserController@postDeleteUserDocument',
+        'as' => 'delete.document',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/letter',[
+        'uses'=> 'UserController@postDeleteUserLetter',
+        'as' => 'delete.letter',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/artefact',[
+        'uses'=> 'UserController@postDeleteUserArtefact',
+        'as' => 'delete.artefact',
+        'middleware' => 'auth'
+    ]);
 });
 
