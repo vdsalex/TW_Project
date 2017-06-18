@@ -30,7 +30,7 @@
             <span id="4thDegree">4th Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan4"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="friendsDiv">
             <span id="5Friends">Friends:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan5"></span>
         </div>
@@ -45,8 +45,19 @@
                 <p class="requestMessage"> sent you a request.</p>
             </div>
             <div class="responseBtns">
-                <button class="btn btn-default">Accept</button>
-                <button class="btn btn-default">Reject</button>
+                <button class="btn btn-default" onclick="moveToFriends(this.parentElement.parentElement)">Accept</button>
+                <button class="btn btn-default" onclick="deleteRequest(this.parentElement.parentElement)">Reject</button>
+            </div>
+        </div>
+        <div class="request">
+            <img src="" alt="Requester's Photo" class="requesterPhoto">
+            <div class="requestDiv">
+                <p class="requesterName">Alex</p>
+                <p class="requestMessage"> sent you a request.</p>
+            </div>
+            <div class="responseBtns">
+                <button class="btn btn-default" onclick="moveToFriends(this.parentElement.parentElement)">Accept</button>
+                <button class="btn btn-default" onclick="deleteRequest(this.parentElement.parentElement)">Reject</button>
             </div>
         </div>
     </div>

@@ -569,11 +569,26 @@ h2 span
     background-color: rgba(81, 81, 81, 0.73);
 }
 
+.friendAccepted
+{
+    width: 340px;
+    height: 70px;
+
+    background-color: rgba(0, 23, 255, 0.35);
+}
+
+.friendAccepted img
+{
+    float: left;
+    background-color: rgba(0, 23, 255, 0.25);
+}
+
 .friend .memName
 {
     color: #bdbdbd;
 }
 
+.friendAccepted,
 .friend:hover,
 .member:hover
 {
@@ -668,7 +683,7 @@ span.removeIcon:hover
 #requestsReceivedDiv
 {
     height: 70px;
-    width: 630px;
+    width: 1040px;
 
     margin-left: 96px;
 
@@ -693,9 +708,20 @@ span.removeIcon:hover
     position: absolute;
 
     top: 620px;
-    left: 310px;
 
     background-color: rgba(0, 119, 118, 0.66);
+
+    margin-right: 10px;
+}
+
+.request:first-of-type
+{
+    left: 310px;
+}
+
+.request:nth-of-type(2)
+{
+    left: 730px;
 }
 
 .requesterPhoto

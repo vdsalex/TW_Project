@@ -327,10 +327,10 @@ function closeModal(modal)
         }
 
         //get memOptionContent element. Then get its index (last char, a digit).
-        id = modal.firstElementChild.getAttribute("id");
-        index = id.substring(id.length - 1, id.length);
+        var id = modal.firstElementChild.getAttribute("id");
+        var index = id.substring(id.length - 1, id.length);
 
-        nameTextfield = document.getElementById("nameTextfield" + index);
+        var nameTextfield = document.getElementById("nameTextfield" + index);
         nameTextfield.value = "";
 
         //set dgContainer's first input element to true.
@@ -449,4 +449,34 @@ function removeMember(modal)
     closeModal(modal);
 
     return false;
+}
+function moveToFriends(request)
+{
+    var friendsDiv = document.getElementById("friendsDiv");
+    var username = request.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+    var newFriend = document.createElement("DIV");
+
+    friendsDiv.style.width = String(parseInt(friendsDiv.offsetWidth) + 300) + "px";
+
+    newFriend.className = "friendAccepted";
+    newFriend.style.position = "absolute";
+    newFriend.style.width = "290px";
+    newFriend.style.top = "535px";
+
+    if(friendsDiv.children.length > 2)
+    {
+        newFriend.style.left = String(parseInt(friendsDiv.lastElementChild.previousElementSibling.style.left) + 300) + "px";
+    }
+    else newFriend.style.left = "240px";
+
+    newFriend.innerHTML = "<img src='' alt=\"Member\'s Photo\" class=\"friendsPhoto\"><p class=\"memName\">" + username + "</p>";
+
+    friendsDiv.insertBefore(newFriend, friendsDiv.lastElementChild);
+
+    request.parentElement.removeChild(request);
+}
+
+function deleteRequest(request)
+{
+    request.parentElement.removeChild(request);
 }
