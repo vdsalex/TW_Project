@@ -185,3 +185,29 @@ button.deleteBtn
 .modal-body {
     overflow: auto;
 }
+
+.erori, .succesuri
+{
+    align:center;
+    text-align:center;
+}
+
+.erori
+{
+    border: 1px solid red;
+    background-color: pink;
+    color:red;
+}
+
+.erori ul{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.succesuri
+{
+    border: 1px solid green;
+    background-color:lawngreen;
+    color:green;
+}

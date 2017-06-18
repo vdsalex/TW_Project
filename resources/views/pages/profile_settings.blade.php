@@ -15,18 +15,7 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
-        @if (count($errors)>0)
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 erori">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li class="text-danger">{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        @endif
-
+        @include ('includes.errors_success')
         <div class="changes" id="changes1">
             <div class="caption" id="caption1">
                 <p><span class="border">YOU CAN CHOOSE</span></p>
