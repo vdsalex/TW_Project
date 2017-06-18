@@ -15,6 +15,17 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
+        @if (count($errors)>0)
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4 erori">
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="text-danger">{{$error}}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+        @endif
 
         <div class="changes" id="changes1">
             <div class="caption" id="caption1">
@@ -37,6 +48,10 @@
                             <input type="text" name="last_name" class="form-control" value="{{ $user->last_name }}" id="last_name">
                         </div>
                         <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" name="username" class="form-control" value="{{ $user->username }}" id="username">
+                        </div>
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="text" name="email" class="form-control" value="{{ $user->email }}" id="email">
                         </div>
@@ -46,7 +61,7 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Confirm New Password</label>
-                            <input type="password" name="password" class="form-control"  id="password">
+                            <input type="password" name="password_conf" class="form-control"  id="password">
                         </div>
                         <div class="form-group">
                             <label for="gender">Gender</label>
@@ -59,10 +74,6 @@
                         <div class="form-group">
                             <label for="address">Address</label>
                             <input type="text" name="address" class="form-control" value="{{ $user->address }}" id="address">
-                        </div>
-                        <div class="form-group">
-                            <label for="remember_token">Remember Token</label>
-                            <input type="text" name="remember_token" class="form-control" value="{{ $user->remember_token }}" id="remember_token">
                         </div>
                         <div class="form-group">
                             <label for="image">Profile Photo (only .jpg)</label>
@@ -87,7 +98,7 @@
         </div>
 
     </div>
+    {!! Html::script('js/profile_settings.js') !!}
 
 </body>
 </html>
-{!! Html::script('js/profile_settings.js') !!}

@@ -13,6 +13,9 @@
 
 Route::group(['middleware'=> ['web']],function(){
 
+    //
+    // LOGIN
+    //
 
     Route::post('/signup',[
         'uses' => 'UserController@postSignUp',
@@ -24,6 +27,34 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'signin'
     ]);
 
+     Route::get('/auth/{provider}', [
+        'uses' => 'Auth\RegisterController@redirectToProvider',
+        'as' => 'provider.auth'
+    ]);
+
+    Route::get('/auth/{provider}/callback', [
+        'uses'=> 'Auth\RegisterController@handleProviderCallback',
+        'as' => 'provider.callback'
+    ]);
+
+    Route::get('/logout',[
+        'uses' => 'UserController@getLogout',
+        'as' => 'logout'
+    ]);
+
+    //
+    //  END OF LOGIN
+    //
+
+    //
+    //  MAIN PAGES
+    //
+
+    Route::get('/',[
+        'uses' => 'UserController@getHome',
+        'as' => 'baseRoute',
+        'middleware' => 'auth'
+    ]);
 
     Route::get('/home',[
         'uses' => 'UserController@getHome',
@@ -71,16 +102,9 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
-    Route::get('/',[
-        'uses' => 'UserController@getHome',
-        'as' => 'baseRoute',
-        'middleware' => 'auth'
-    ]);
-
-    Route::get('/logout',[
-       'uses' => 'UserController@getLogout',
-        'as' => 'logout'
-    ]);
+    //
+    // END OF MAIN PAGES
+    //
 
     Route::post('/updateaccount',[
         'uses' => 'UserController@postSaveAccount',
@@ -92,14 +116,122 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'account.image'
     ]);
 
-    Route::get('/auth/{provider}', [
-        'uses' => 'Auth\RegisterController@redirectToProvider',
-        'as' => 'provider.auth'
+    //
+    // UPLOAD
+    //
+
+    Route::post('/upload/video',[
+        'uses'=> 'UserController@postUploadVideo',
+        'as' => 'upload.video'
     ]);
 
-    Route::get('/auth/{provider}/callback', [
-        'uses'=> 'Auth\RegisterController@handleProviderCallback',
-        'as' => 'provider.callback'
+    Route::post('/upload/photo',[
+        'uses'=> 'UserController@postUploadPhoto',
+        'as' => 'upload.photo'
+    ]);
+
+    Route::post('/upload/artefact',[
+        'uses'=> 'UserController@postUploadArtefact',
+        'as' => 'upload.artefact'
+    ]);
+
+    Route::post('/upload/letter',[
+        'uses'=> 'UserController@postUploadLetter',
+        'as' => 'upload.letter'
+    ]);
+
+    Route::post('/upload/document',[
+        'uses'=> 'UserController@postUploadDocument',
+        'as' => 'upload.document'
+    ]);
+
+    //
+    // end of content upload routes
+    //
+
+    // get view part coresponding to content_type
+
+    Route::get('getContent/{content_type}',[
+        'uses'=> 'UserController@getContent',
+        'as' => 'get.content',
+        'middleware' => 'auth'
+    ]);
+
+
+    Route::get('userphoto/{video_id}',[
+        'uses' => 'UserController@getUserPhoto',
+        'as' => 'user.photo',
+        'middleware' => 'auth'
+    ]);
+
+    Route::get('uservideo/{video_id}',[
+        'uses' => 'UserController@getUserVideo',
+        'as' => 'user.video',
+        'middleware' => 'auth'
+    ]);
+
+    Route::get('userdocument/{video_id}',[
+        'uses' => 'UserController@getUserDocument',
+        'as' => 'user.document',
+        'middleware' => 'auth'
+    ]);
+
+    Route::get('userartefact/{video_id}',[
+        'uses' => 'UserController@getUserArtefact',
+        'as' => 'user.artefact',
+        'middleware' => 'auth'
+    ]);
+
+    Route::get('userletter/{video_id}',[
+        'uses' => 'UserController@getUserLetter',
+        'as' => 'user.letter',
+         'middleware' => 'auth'
+    ]);
+
+    Route::post('facebook_import',[
+        'uses' => 'UserController@postImportPhoto',
+        'as' => 'facebook.import',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('search/results',[
+        'uses' => 'UserController@postSimpleSearchResults',
+        'as' => 'simple.search',
+        'middleware' => 'auth'
+    ]);
+
+    /*
+     * DELETE USER MEMORIES
+     */
+
+    Route::post('delete/photo',[
+        'uses'=> 'UserController@postDeleteUserPhoto',
+        'as' => 'delete.photo',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/video',[
+        'uses'=> 'UserController@postDeleteUserVideo',
+        'as' => 'delete.video',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/document',[
+        'uses'=> 'UserController@postDeleteUserDocument',
+        'as' => 'delete.document',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/letter',[
+        'uses'=> 'UserController@postDeleteUserLetter',
+        'as' => 'delete.letter',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('delete/artefact',[
+        'uses'=> 'UserController@postDeleteUserArtefact',
+        'as' => 'delete.artefact',
+        'middleware' => 'auth'
     ]);
 });
 

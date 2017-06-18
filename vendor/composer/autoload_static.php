@@ -8,8 +8,8 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
@@ -110,6 +110,7 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         ),
         'A' => 
         array (
+            'Arubacao\\Friends\\' => 17,
             'App\\' => 4,
         ),
     );
@@ -285,6 +286,10 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
+        'Arubacao\\Friends\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/arubacao/friends/src/Friends',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -331,7 +336,9 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
     );
 
     public static $classMap = array (
+        'App\\Artefact' => __DIR__ . '/../..' . '/app/Artefact.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Document' => __DIR__ . '/../..' . '/app/Document.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -344,6 +351,8 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'App\\Http\\Middleware\\RedirectIfAuthenticated' => __DIR__ . '/../..' . '/app/Http/Middleware/RedirectIfAuthenticated.php',
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Letter' => __DIR__ . '/../..' . '/app/Letter.php',
+        'App\\Photo' => __DIR__ . '/../..' . '/app/Photo.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -351,6 +360,10 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\SocialProvider' => __DIR__ . '/../..' . '/app/SocialProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'App\\Video' => __DIR__ . '/../..' . '/app/Video.php',
+        'Arubacao\\Friends\\FriendsServiceProvider' => __DIR__ . '/..' . '/arubacao/friends/src/Friends/FriendsServiceProvider.php',
+        'Arubacao\\Friends\\Status' => __DIR__ . '/..' . '/arubacao/friends/src/Friends/Status.php',
+        'Arubacao\\Friends\\Traits\\Friendable' => __DIR__ . '/..' . '/arubacao/friends/src/Friends/Traits/Friendable.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -361,6 +374,7 @@ class ComposerStaticInit1cb997280518892da629fd413e1e2237
         'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
         'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
+        'CreateFriendsTable' => __DIR__ . '/../..' . '/database/migrations/2017_06_17_200246_create_friends_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',

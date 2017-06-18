@@ -18,11 +18,11 @@
         <div id="mySidenav1" class="sidenav">
             <br>
             <form>
-                <a ><input type="radio">Artefact</a>
-                <a ><input type="radio">Document</a>
-                <a ><input type="radio">Letter</a>
-                <a ><input type="radio">Picture</a>
-                <a ><input type="radio">Video</a>
+                <a ><input type="radio" name="memory">Artefact</a>
+                <a ><input type="radio" name="memory">Document</a>
+                <a ><input type="radio" name="memory">Letter</a>
+                <a ><input type="radio" name="memory">Picture</a>
+                <a ><input type="radio" name="memory">Video</a>
             </form>
             <a class="closebtn" onclick="closeNav1()">
                 <input type="submit" value="Submit">
@@ -31,9 +31,11 @@
         <div id="mySidenav2" class="sidenav">
             <br>
             <form>
-                <a ><input type="radio">1</a>
-                <a ><input type="radio">2</a>
-                <a ><input type="radio">3</a>
+
+                <a ><input type="radio" name="grad">1</a>
+                <a ><input type="radio" name="grad">2</a>
+                <a ><input type="radio" name="grad">3</a>
+
             </form>
             <a class="closebtn" onclick="closeNav2()">
                 <input type="submit" value="Submit">
@@ -47,12 +49,12 @@
             <br><br>
 
             <form>
-                    <input type="text" name="search" placeholder="Search..">
+                    <input type="text" name="search" placeholder="Search.."><br><br>
+                    <button type="submit" class="btn btn-default" id="searchBtn">Search</button>
             </form>
 
         </div>
     </div>
-
+    {!! Html::script('js/advanced_search.js') !!}
 </body>
 </html>
-{!! Html::script('js/advanced_search.js') !!}

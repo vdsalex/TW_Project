@@ -189,7 +189,7 @@ div.input-group
 form.navbar-right
 {
     height: 56px;
-    width: 250px;
+    width: 290px;
 
     margin-right: 20px;
 }
@@ -200,7 +200,7 @@ form.navbar-right > span
 
     position: absolute;
     top: 15px;
-    right: 75px;
+    right: 95px;
 
     font-size: 10pt;
 }

@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 <body>
@@ -14,6 +13,9 @@
 				<a class="navbar-brand" href={{route('home')}} id="DBrand">
 					<span>DiLy.</span>
 					<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				</a>
+				<a class="navbar-brand" href={{route('team_project')}} id="DBrand">
+					<span class="glyphicon glyphicon-asterisk" aria-hidden="true"></span>
 				</a>
 			</div>
 			<div class="navbar-form navbar-left" id="leftNavbar">
@@ -27,12 +29,14 @@
 						<li><a href="{{route('search')}}">ADVANCED SEARCH</a></li>
 						<li role="separator" class="divider"></li>
 						<li>
-							<div class="input-group">
-								<input spellcheck="false" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
+							<form class="input-group" action="{{route('simple.search')}}" method="post">
+								<input spellcheck="false" name="search_text" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
 								<button class="btn btn-default" type="submit">
 									<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 								</button>
-							</div>
+								<input type="hidden" name="_token" value="{{Session::token()}}">
+								</form>
+							</form>
 						</li>
 					</ul>
 				</div>
@@ -40,12 +44,12 @@
 					<li><a href={{route('upload')}} id="uploadText">UPLOAD</a></li>
 					<li><a href={{route('memories')}} id="MyMemText">MY MEMORIES</a></li>
 					<li>
-						<div class="input-group">
+						<form class="input-group">
 							<input spellcheck="false" type="text" id="search" class="form-control" placeholder="Search for..">
 							<button class="btn btn-default" type="submit">
 								<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 							</button>
-						</div>
+						</form>
 					</li>
 					<li><a href={{route('search')}} id="advSearchText">ADVANCED SEARCH</a></li>
 				</ul>
