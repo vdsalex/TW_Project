@@ -1,0 +1,83 @@
+document.getElementById(id). lucruri
+
+.innerHTML - schimba html-ul
+.src - schimba source pentru imagini/video/etc
+.style.cssA - schimba atributele css
+
+
+display: innerHTML, document/write(), window.alert(), console.log()
+|testare| folosirea document.wirte() dupa ce un document HTML s-a incarcat complet, va sterge tot HTML-ul existent
+
+Data types: number, string, object, boolean, arrays
+object ex: var x = {firstName:"John", lastName:"Doe"};
+array: var cars=["Saab", "Volvo", "BMW"] ; in js, vectorii sunt considerati obiecte
+empty object: var v = undefined;
+
+
+
+123e5 | e = * 10^5
+
+
+
+functii: function nume(param1, param2 ...){
+	cod
+}
+functile se executa atunci cand "ceva" le invoca:
+	eveniment (button click)
+	cod js
+	automat - self invoke
+
+accesarea proprietatilor unui obiect:
+objectName.propertyName
+sau
+objectName["propertyName"]
+
+pentru metode, doar punct
+
+variabile globale: sunt declarate in exteriorul functiilor si apartin obiectului window
+ex: var carName="Volvo";
+window.carName
+
+parametrii sunt considerati variabile locale
+lifetime: (functii) pe durata functiei, (global) pe durata sesiunii - pana este inchis tab-ul
+
+
+js events
+ex: html page finished loading
+html input field was changed
+html button clicked
+
+events: onchange, onclick, onmouseover, onmouseout, onkeydown, onload
+String methods:
+.length
+indexOf()(un fel de strstr)
+lastIndexOf()
+search() - echivalent cu indexOf
+slice(), substring(), substr()
+substring() nu merge cu param negativi, substr are al doilea parametru lungimea (comparativ cu indexul de oprire)
+replace() - intoarce un string nou in care este modificat param1
+toUpper/LowerCase()
+concat()
+
+Number methods:
+.toString() - intoarce un numar ca string
+.toExponential - exponentiaza cu 10
+.toFixed() - intoarce ca string un numar cu un nr de decimale
+.toPrecision() - intoarce ca string un numar cu o anumita lungime
+.valueOf() - intoarce un number ca number
+
+conversii: Number(), parseInt(), parseFloat() (variabile in numere)
+proprietati number: MAX_VALUE, MIN_VALUE, NEGATIVE_INFINITY, POSITIVE_INFINITY, NaN
+
+Math - obiect cu proprietatile:
+PI, round, pow, sqrt, abs, ceil, floor, sin, cos, min, max, random
+
+
+Data calendaristica
+new Date()
+Date(milliseconds)
+Date(dateString)
+Date(year, month, day, hours, minutes, seconds, milliseconds)
+metode: toDateString(), 
+
+
