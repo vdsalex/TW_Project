@@ -37,14 +37,11 @@ function openCol(evt, colName) {
     evt.currentTarget.className += " active";
 }
 
-function hideF() {
-    var xs = document.getElementsByClassName("hideBut");
-    for(var i = 0; i < xs.length; i++){
-        x=xs[i];
-        if (x.style.display === 'none') {
-            x.style.display = 'block';
-        } else {
-            x.style.display = 'none';
-        }
+function hideF(btn)
+{
+    if(btn.nextElementSibling.style.display === "none")
+    {
+        btn.nextElementSibling.style.display = "block";
     }
+    else btn.nextElementSibling.style.display = "none";
 }

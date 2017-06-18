@@ -29,8 +29,7 @@
             </div>
             <img src="content/fat-frumos.jpg" alt="Photo" class="img-rounded">
             <div class="rightContainer">
-                <button class="btn info" onclick="hideF()">Information</button>
-
+                <button class="btn info" onclick="hideF(this)">Information</button>
                 <div class="hideBut" id="info1">
                     Information1
                 </div>
@@ -48,8 +47,7 @@
                 <source src="content/AmazingFacts.mp4" type="video/mp4">
             </video>
             <div class="rightContainer">
-                <button class="btn info" onclick="hideF()">Information</button>
-
+                <button class="btn info" onclick="hideF(this)">Information</button>
                 <div class="hideBut" id="info2">
                     Information2
                 </div>
@@ -67,8 +65,7 @@
                 <a href="content/scrisoare.txt"></a>
             </object>
             <div class="rightContainer">
-                <button class="btn info" onclick="hideF()">Information</button>
-
+                <button class="btn info" onclick="hideF(this)">Information</button>
                 <div class="hideBut" id="info3">
                     Information3
                 </div>
@@ -86,8 +83,7 @@
                 <a href="content/document.txt"></a>
             </object>
             <div class="rightContainer">
-                <button class="btn info" onclick="hideF()">Information</button>
-
+                <button class="btn info" onclick="hideF(this)">Information</button>
                 <div class="hideBut" id="info4">
                     Information4
                 </div>
@@ -103,8 +99,7 @@
             </div>
             <img src="content/colier.jpg" alt="Photo" class="img-rounded">
             <div class="rightContainer">
-                <button class="btn info" onclick="hideF()">Information</button>
-
+                <button class="btn info" onclick="hideF(this)">Information</button>
                 <div class="hideBut" id="info5">
                     Information5
                 </div>
