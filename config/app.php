@@ -181,6 +181,8 @@ return [
         Collective\Html\HtmlServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         SammyK\LaravelFacebookSdk\LaravelFacebookSdkServiceProvider::class,
+        
+        Arubacao\Friends\FriendsServiceProvider::class,
 
     ],
 

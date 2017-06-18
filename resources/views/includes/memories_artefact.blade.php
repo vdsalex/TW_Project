@@ -1,6 +1,6 @@
 @foreach($entries as $entry)
 
-    <<div id="modal_id" class="modal">
+    <div id="modal_id" class="modal">
 
         <span class="close" onclick="document.getElementById('modal_id').style.display='none'">&times;</span>
 
@@ -15,7 +15,10 @@
                 <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artefact.</p>
-            <button class="btn btn-default deleteBtn">Delete This Memory</button>
+            <form action="{{route('delete.artefact',['id'=>$entry['id']])}}" method="post">
+                <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
+                <input type="hidden" name="_token" value="{{Session::token()}}">
+            </form>
         </div>
         <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded"><br><br>
         <div class="tab">
