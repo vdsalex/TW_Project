@@ -35,6 +35,7 @@ function openCol(evt, colName) {
     }
     document.getElementById(colName).style.display = "block";
     evt.currentTarget.className += " active";
+<<<<<<< HEAD
 }
 
 function hideF() {
@@ -47,4 +48,6 @@ function hideF() {
             x.style.display = 'none';
         }
     }
+=======
+>>>>>>> 445d68b6a096bc777482940741cd97bdb6ce6a24
 }
