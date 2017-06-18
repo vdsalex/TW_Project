@@ -227,14 +227,7 @@
     <div class="modal" id="modal5">
         <form class="container" id="memOptionsContent5" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
-                <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
-            </div>
-            <div class="container" id="dgTitle5">
-                <span>Relative Type</span>
-            </div>
-            <div class="container" id="dgContainer5">
-                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Male" aria-label="Male" onclick="displayDefaultPhotoAndSetMaxLength(this)" checked> Male &nbsp</label>
-                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Female" aria-label="Female" onclick="displayDefaultPhotoAndSetMaxLength(this)"> Female &nbsp</label><br>
+                <span>ADD A NEW FRIEND</span>
             </div>
             <div class="container" id="nameTitle5">
                 <span>Username</span>
@@ -242,19 +235,18 @@
             <div class="container" id="nameContainer5">
                 <label><input type="text" id="nameTextfield5" maxlength="" required></label>
             </div>
-            <div class="container" id="photoTitle5">
-                <span>Photo</span>
-            </div>
-            <div class="container" id="photoMainContainer5">
-                <label id="photoBtn5" class="btn btn-default btn-file">Choose Photo<input type="file" id="photoInput5" style="display: none;"></label>
-                <div class="container" id="photoContainer5">
-                    <img src="" alt="Member Photo" class="membersPhoto" id="photoImg5">
-                </div>
-            </div>
             <div class="container" id="btnsContainer5">
-                <button type="submit" class="btn btn-default">Confirm</button>
+                <button type="submit" class="btn btn-default">Send Request</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
+        </form>
+    </div>
+
+    <div class="modal" id="modal6">
+        <form class="container">
+            <span>Are you sure you want to remove this member?</span><br>
+            <button type="submit" class="btn btn-default" id="yesBtn" onclick="return removeMember(this.parentElement.parentElement)">Yes</button>
+            <button type="submit" class="btn btn-default" id="noBtn" onclick="return closeModal(this.parentElement.parentElement)">No</button>
         </form>
     </div>
 

@@ -1,3 +1,5 @@
+@import url("https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");
+
 #bg-img
 {
     min-width: 100%;
@@ -30,6 +32,33 @@ div.modal
     background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
 }
 
+#modal6
+{
+    padding-top: 185px !important;
+}
+
+#modal6 > form.container
+{
+    text-align: center;
+    padding: 20px 0;
+    width: 550px;
+}
+
+#modal6 > form.container > span
+{
+    margin-top: 30px;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14pt;
+}
+
+#modal6 > form.container > button
+{
+    margin-top: 20px;
+    margin-bottom: 5px;
+
+    font-size: 12pt;
+}
+
 div.modal > form.container
 {
     position: relative;
@@ -37,10 +66,6 @@ div.modal > form.container
     margin: auto;
     padding: 0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-div.modal > form.container
-{
     width: 600px;
 }
 
@@ -74,8 +99,7 @@ div.modal > form.container
 #dgTitle1,
 #dgTitle2,
 #dgTitle3,
-#dgTitle4,
-#dgTitle5
+#dgTitle4
 {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 14pt;
@@ -92,8 +116,7 @@ div.modal > form.container
 #dgTitle1 > span,
 #dgTitle2 > span,
 #dgTitle3 > span,
-#dgTitle4 > span,
-#dgTitle5 > span
+#dgTitle4 > span
 {
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -104,8 +127,7 @@ div.modal > form.container
 #dgContainer1,
 #dgContainer2,
 #dgContainer3,
-#dgContainer4,
-#dgContainer5
+#dgContainer4
 {
     text-align: center;
 
@@ -129,6 +151,11 @@ div.modal > form.container
     margin-bottom: 10px;
 
     width: 100%;
+}
+
+#nameTitle5
+{
+    margin-top: 10px;
 }
 
 #nameTitle1 > span,
@@ -218,8 +245,7 @@ div.modal > form.container
 #photoTitle1,
 #photoTitle2,
 #photoTitle3,
-#photoTitle4,
-#photoTitle5
+#photoTitle4
 {
     width: 100%;
 
@@ -235,8 +261,7 @@ div.modal > form.container
 #photoTitle1 > span,
 #photoTitle2 > span,
 #photoTitle3 > span,
-#photoTitle4 > span,
-#photoTitle5 > span
+#photoTitle4 > span
 {
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -247,8 +272,7 @@ div.modal > form.container
 #photoMainContainer1,
 #photoMainContainer2,
 #photoMainContainer3,
-#photoMainContainer4,
-#photoMainContainer5
+#photoMainContainer4
 {
     width: 100%;
 
@@ -261,8 +285,7 @@ div.modal > form.container
 #photoMainContainer1 > label,
 #photoMainContainer2 > label,
 #photoMainContainer3 > label,
-#photoMainContainer4 > label,
-#photoMainContainer5 > label
+#photoMainContainer4 > label
 {
     margin-right: 131px;
 
@@ -279,6 +302,8 @@ div.modal > form.container
     font-size: 10pt;
 }
 
+#yesBtn:hover,
+#noBtn:hover,
 #btnsContainer1 button:hover, #btnsContainer1 span:hover,
 #btnsContainer2 button:hover, #btnsContainer2 span:hover,
 #btnsContainer3 button:hover, #btnsContainer3 span:hover,
@@ -287,8 +312,7 @@ div.modal > form.container
 #photoMainContainer1 > label:hover,
 #photoMainContainer2 > label:hover,
 #photoMainContainer3 > label:hover,
-#photoMainContainer4 > label:hover,
-#photoMainContainer5 > label:hover
+#photoMainContainer4 > label:hover
 {
     background-color: #2d2d2d;
     color: white;
@@ -296,6 +320,8 @@ div.modal > form.container
     box-shadow: 0 0 8px black;
 }
 
+#yesBtn:active:focus,
+#noBtn:active:focus,
 #btnsContainer1 *:active:focus,
 #btnsContainer2 *:active:focus,
 #btnsContainer3 *:active:focus,
@@ -306,6 +332,8 @@ div.modal > form.container
 #btnsContainer3 *:focus,
 #btnsContainer4 *:focus,
 #btnsContainer5 *:focus,
+#yesBtn:focus,
+#noBtn:focus,
 #photoMainContainer1 > label:active:focus,
 #photoMainContainer2 > label:active:focus,
 #photoMainContainer3 > label:active:focus,
@@ -313,8 +341,7 @@ div.modal > form.container
 #photoMainContainer1 > label:focus,
 #photoMainContainer2 > label:focus,
 #photoMainContainer3 > label:focus,
-#photoMainContainer4 > label:focus,
-#photoMainContainer5 > label:focus
+#photoMainContainer4 > label:focus
 {
     background-color: #2d2d2d;
     color: white;
@@ -325,8 +352,7 @@ div.modal > form.container
 #photoContainer1,
 #photoContainer2,
 #photoContainer3,
-#photoContainer4,
-#photoContainer5
+#photoContainer4
 {
     width: 72px;
     height: 72px;
@@ -347,8 +373,7 @@ div.modal > form.container
 #photoContainer1 img,
 #photoContainer2 img,
 #photoContainer3 img,
-#photoContainer4 img,
-#photoContainer5 img
+#photoContainer4 img
 {
     position: absolute;
     left: 0;
@@ -372,6 +397,13 @@ div.modal > form.container
     border-width: 1px;
 }
 
+#btnsContainer5
+{
+    border-style: none !important;
+}
+
+#yesBtn,
+#noBtn,
 #btnsContainer1 *,
 #btnsContainer2 *,
 #btnsContainer3 *,
@@ -569,7 +601,7 @@ h2 span
     font-weight: bold;
 }
 
-span.glyphicon-pencil
+span.pencilIcon
 {
     border-style: solid;
     border-width: 1px;
@@ -587,7 +619,7 @@ span.glyphicon-pencil
     background-color: #7aaeff;
 }
 
-span.glyphicon-pencil:hover
+span.pencilIcon:hover
 {
     cursor: pointer;
 
@@ -595,13 +627,14 @@ span.glyphicon-pencil:hover
     color: #9b8a30;
 }
 
-span.glyphicon-remove
+span.removeIcon
 {
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 15px;
 
-    font-size: 14pt;
+    border-style: solid !important;
+    border-width: 1px !important;
+    border-radius: 15px !important;
+
+    font-size: 14pt !important;
 
     width: 30px;
     height: 30px;
@@ -613,7 +646,7 @@ span.glyphicon-remove
     background-color: #7aaeff;
 }
 
-span.glyphicon-remove:hover
+span.removeIcon:hover
 {
     cursor: pointer;
 
