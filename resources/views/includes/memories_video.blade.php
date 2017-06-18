@@ -15,24 +15,13 @@
         <video class="video" controls>
             <source src="{{route('user.video',$entry['id'])}}" type="video/mp4" alt="Video" >
         </video><br><br>
-        <div class="tab">
-            <button class="tablinks" onclick="openCol(event, 'Title')">Title</button>
-            <button class="tablinks" onclick="openCol(event, 'Description')">Description</button>
-            <button class="tablinks" onclick="openCol(event, 'Record Date')">Record Date</button>
-        </div>
-        <div id="Title" class="tabcontent">
-            <h3>Title</h3>
-            <p>{{$entry['title']}}</p>
-        </div>
-
-        <div id="Description" class="tabcontent">
-            <h3>Description</h3>
-            <p>{{$entry['description']}}</p>
-        </div>
-
-        <div id="Record Date" class="tabcontent">
-            <h3>Record Date</h3>
-            <p>{{$entry['record_date']}}</p>
+        <div class="rightContainer">
+            <button class="btn info" onclick="hideF(this)">Information</button>
+            <div class="hideBut">
+                <p>Title: {{$entry['title']}}</p>
+                <p>Description: {{$entry['description']}}</p>
+                <p>Record date: {{$entry['record_date']}}</p>
+            </div>
         </div>
     </div>
 @endforeach

@@ -98,12 +98,14 @@
                 <p align="left"><a href=http://localhost:8000/profile> Firstname Lastname </a> added an artefact.</p>
             </div>
             <img src="content/colier.jpg" alt="Photo" class="img-rounded">
+
             <div class="rightContainer">
                 <button class="btn info" onclick="hideF(this)">Information</button>
                 <div class="hideBut" id="info5">
                     Information5
                 </div>
             </div>
+
         </div>
 
     </div>

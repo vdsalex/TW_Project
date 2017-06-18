@@ -13,25 +13,13 @@
         <object data="{{route('user.document',$entry['id'])}}" type="text/plain" style="height: 50%; width:50%" class="let">
             <a href="{{route('user.document',$entry['id'])}}"></a>
         </object><br><br>
-        <div class="tab">
-            <button class="tablinks" onclick="openCol(event, 'Name')">Name</button>
-            <button class="tablinks" onclick="openCol(event, 'Location')">Location</button>
-            <button class="tablinks" onclick="openCol(event, 'Emission Date')">Emission Date</button>
-
-        </div>
-        <div id="Name" class="tabcontent">
-            <h3>Name</h3>
-            <p>{{$entry['name']}}</p>
-        </div>
-
-        <div id="Location" class="tabcontent">
-            <h3>Location</h3>
-            <p>{{$entry['location']}}</p>
-        </div>
-
-        <div id="Emission Date" class="tabcontent">
-            <h3>Emission Date</h3>
-            <p>{{$entry['emission_date']}}</p>
+        <div class="rightContainer">
+            <button class="btn info" onclick="hideF(this)">Information</button>
+            <div class="hideBut">
+                <p>Name: {{$entry['name']}}</p>
+                <p>Location: {{$entry['location']}}</p>
+                <p>Emission date: {{$entry['emission_date']}}</p>
+            </div>
         </div>
 
     </div>

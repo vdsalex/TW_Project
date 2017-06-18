@@ -24,24 +24,13 @@
             <input type="hidden" name="_token" value="{{Session::token()}}">
         </form>
         <img  src="{{$entry['URL']}}" alt="Photo" class="img-rounded"><br><br>
-        <div class="tab">
-            <button class="tablinks" onclick="openCol(event, 'Description')">Description</button>
-            <button class="tablinks" onclick="openCol(event, 'Location')">Location</button>
-            <button class="tablinks" onclick="openCol(event, 'Creation Date')">Creation Date</button>
-        </div>
-        <div id="Description" class="tabcontent">
-            <h3>Description</h3>
-            <p>{{$entry['name']}}</p>
-        </div>
-
-        <div id="Location" class="tabcontent">
-            <h3>Location</h3>
-            <p>{{$entry['location']}}</p>
-        </div>
-
-        <div id="Creation Date" class="tabcontent">
-            <h3>Creation Date</h3>
-            <p>Creation Date is the capital of Japan.</p>
+        <div class="rightContainer">
+            <button class="btn info" onclick="hideF(this)">Information</button>
+            <div class="hideBut">
+                <p>Description: {{$entry['description']}}</p>
+                <p>Location: {{$entry['location']}}</p>
+                <p>Creation date: {{$entry['snap_date']}}</p>
+            </div>
         </div>
     </div>
 @endforeach

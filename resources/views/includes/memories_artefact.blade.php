@@ -1,5 +1,5 @@
+{!! Html::style('css/home.css') !!}
 @foreach($entries as $entry)
-
     <div id="modal_id" class="modal">
 
         <span class="close" onclick="document.getElementById('modal_id').style.display='none'">&times;</span>
@@ -20,28 +20,14 @@
                 <input type="hidden" name="_token" value="{{Session::token()}}">
             </form>
         </div>
-        <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded"><br><br>
-        <div class="tab">
-            <button class="tablinks" onclick="openCol(event, 'Name')">Name</button>
-            <button class="tablinks" onclick="openCol(event, 'Description')">Description</button>
-            <button class="tablinks" onclick="openCol(event, 'Receiving Date')">Receiving Date</button>
-
+        <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded" style="width: 61%; height: 50%;"><br><br>
+        <div class="rightContainer">
+            <button class="btn info" onclick="hideF(this)">Information</button>
+            <div class="hideBut">
+                <p>Name: {{$entry['name']}}</p>
+                <p>Description: {{$entry['description']}}</p>
+                <p>Receiving date: {{$entry['receive_date']}}</p>
+            </div>
         </div>
-        <div id="Name" class="tabcontent">
-            <h3>Name</h3>
-            <p>{{$entry['name']}}</p>
-        </div>
-
-        <div id="Description" class="tabcontent">
-            <h3>Description</h3>
-            <p>{{$entry['description']}}</p>
-        </div>
-
-        <div id="Receiving Date" class="tabcontent">
-            <h3>Receiving Date</h3>
-            <p>{{$entry['receive_date']}}</p>
-        </div>
-
     </div>
-
 @endforeach
