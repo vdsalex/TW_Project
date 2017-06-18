@@ -14,17 +14,7 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
-        @if (count($errors)>0)
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 erori">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li class="text-danger">{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        @endif
+        @include('includes.errors_success')
         <p id="question">What do you want to upload?</p>
         <div class="tab">
             <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artefact</button>

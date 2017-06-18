@@ -122,7 +122,7 @@ class UserController extends Controller
            return redirect()->route('profile_settings');
 
        $user=Auth::user();
-
+        $message = "Profile updated successfully!";
        if ($request['email']!=$user->email)
            $this->validate($request,[ 'email' =>'email|unique:users']);
        if ($request['username']!=$user->username)
@@ -155,7 +155,7 @@ class UserController extends Controller
        {
            Storage::disk('local')->put($filename, File::get($file));
        }
-       return redirect()->route('profile_settings');
+       return redirect()->route('profile_settings')->with(['message' => $message]);
         //SEND successfull message
     }
 
@@ -173,7 +173,7 @@ class UserController extends Controller
             'emission_date' =>'required',
             'document' => 'required'
         ]);
-
+        $message = "Uncaught Error!";
         if (!($request->file('document')->isValid()))
         {
             return redirect()->route('home');
@@ -186,9 +186,9 @@ class UserController extends Controller
         $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.doc';
-        Storage::disk('local')->put($filePath, File::get($request['document']));
-
-        return redirect()->route('upload');
+        if(Storage::disk('local')->put($filePath, File::get($request['document'])))
+            $message = "Upload successful!";
+        return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
     }
 
@@ -200,7 +200,7 @@ class UserController extends Controller
             'receive_date' =>'required',
             'artefact' => 'required'
         ]);
-
+        $message = "Uncaught Error!";
         if (!($request->file('artefact')->isValid()))
         {
             return redirect()->route('home');
@@ -213,9 +213,9 @@ class UserController extends Controller
         $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . '.jpg';
-        Storage::disk('local')->put($filePath, File::get($request['artefact']));
-
-        return redirect()->route('upload');
+        if(Storage::disk('local')->put($filePath, File::get($request['artefact'])))
+            $message = "Upload successful!";
+        return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
     }
 
@@ -227,7 +227,7 @@ class UserController extends Controller
             'message' =>'required',
             'write_date' => 'required'
         ]);
-
+        $message = "Uncaught Error!";
         if (!($request->file('letter')->isValid()))
         {
             return redirect()->route('home');
@@ -240,9 +240,10 @@ class UserController extends Controller
         $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $date]);
 
         $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.txt';
-        Storage::disk('local')->put($filePath, File::get($request['letter']));
+        if(Storage::disk('local')->put($filePath, File::get($request['letter'])))
+            $message = "Upload successful!";
 
-        return redirect()->route('upload');
+        return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
     }
 
@@ -254,7 +255,7 @@ class UserController extends Controller
             'snap_date' =>'required',
             'photo' => 'required'
         ]);
-
+        $message = "Uncaught Error!";
         if (!($request->file('photo')->isValid()))
         {
             return redirect()->route('home');
@@ -267,9 +268,10 @@ class UserController extends Controller
         $newPhoto=Photo::create(['user_id'=>$user->id, 'description'=>$request['description'], 'location'=>$request['location'],'snap_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\photo\\'.$newPhoto->id . '.png';
-        Storage::disk('local')->put($filePath, File::get($request['photo']));
+        if(Storage::disk('local')->put($filePath, File::get($request['photo'])))
+            $message = "Upload successful!";
 
-        return redirect()->route('upload');
+        return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
     }
 
@@ -281,7 +283,7 @@ class UserController extends Controller
             'record_date' =>'required',
             'video' => 'required'
         ]);
-
+        $message = "Uncaught Error!";
         if (!($request->file('video')->isValid()))
         {
             return redirect()->route('home');
@@ -294,9 +296,10 @@ class UserController extends Controller
         $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
-        Storage::disk('local')->put($filePath, File::get($request['video']));
+        if(Storage::disk('local')->put($filePath, File::get($request['video'])))
+            $message = "Upload successful!";
 
-        return redirect()->route('upload');
+        return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
     }
 
@@ -568,12 +571,13 @@ class UserController extends Controller
     public function postDeleteUserPhoto(Request $request)
     {
         Photo::destroy($request['id']);
-
+        $message = "Deletion failed!";
         $user=Auth::user();
         $filePath=$user->username . '-'.$user->id.'\\photo\\'.$request['id'] . '.png';
-        Storage::disk('local')->delete($filePath);
+        if(Storage::disk('local')->delete($filePath))
+            $message = "Memory successfully deleted!";
 
-        return redirect()->route('memories');
+        return redirect()->route('memories')->with(['message' => $message]);
 
         //have to return alert or smthing that the photo has been deleted
     }
@@ -581,12 +585,13 @@ class UserController extends Controller
     public function postDeleteUserVideo(Request $request)
     {
         Video::destroy($request['id']);
-
+        $message = "Deletion failed!";
         $user=Auth::user();
         $filePath=$user->username . '-'.$user->id.'\\video\\'.$request['id'] . '.mp4';
-        Storage::disk('local')->delete($filePath);
+        if(Storage::disk('local')->delete($filePath))
+            $message = "Memory successfully deleted!";
 
-        return redirect()->route('memories');
+        return redirect()->route('memories')->with(['message' => $message]);
 
         //have to return alert or smthing that the photo has been deleted
     }
@@ -594,12 +599,13 @@ class UserController extends Controller
     public function postDeleteUserDocument(Request $request)
     {
         Document::destroy($request['id']);
-
+        $message = "Deletion failed!";
         $user=Auth::user();
         $filePath=$user->username . '-'.$user->id.'\\document\\'.$request['id'] . '.doc';
-        Storage::disk('local')->delete($filePath);
+        if(Storage::disk('local')->delete($filePath))
+            $message = "Memory successfully deleted!";
 
-        return redirect()->route('memories');
+        return redirect()->route('memories')->with(['message' => $message]);
 
         //have to return alert or smthing that the photo has been deleted
     }
@@ -607,12 +613,13 @@ class UserController extends Controller
     public function postDeleteUserLetter(Request $request)
     {
         Letter::destroy($request['id']);
-
+        $message = "Deletion failed!";
         $user=Auth::user();
         $filePath=$user->username . '-'.$user->id.'\\letter\\'.$request['id'] . '.txt';
-        Storage::disk('local')->delete($filePath);
+        if(Storage::disk('local')->delete($filePath))
+            $message = "Memory successfully deleted!";
 
-        return redirect()->route('memories');
+        return redirect()->route('memories')->with(['message' => $message]);
 
         //have to return alert or smthing that the photo has been deleted
     }
@@ -620,12 +627,13 @@ class UserController extends Controller
     public function postDeleteUserArtefact(Request $request)
     {
         Artefact::destroy($request['id']);
-
+        $message = "Deletion failed!";
         $user=Auth::user();
         $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$request['id'] . '.jpg';
-        Storage::disk('local')->delete($filePath);
+        if(Storage::disk('local')->delete($filePath))
+            $message = "Memory successfully deleted!";
 
-        return redirect()->route('memories');
+        return redirect()->route('memories')->with(['message' => $message]);
 
         //have to return alert or smthing that the photo has been deleted
     }
