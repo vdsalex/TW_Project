@@ -1,10 +1,8 @@
 var span;
-var members;
+var membersCount = 0;
 var i;
 var modals = document.getElementsByClassName('modal');
-var id;
-var index;
-var nameTextfield;
+var memberWantedToBeRemoved;
 
 function displayModalWithOpts(plusSpan)
 {
@@ -183,31 +181,25 @@ function displayDefaultPhotoAndSetMaxLength(rdInput)
             textField.setAttribute("maxlength", "30");
         }
             break;
-        case "Male": {
-            photo.setAttribute("src", "icons/male_icon.png");
-            textField.setAttribute("maxlength", "20");
-        }
-            break;
-        case "Female": {
-            photo.setAttribute("src", "icons/female_icon.png");
-            textField.setAttribute("maxlength", "20");
-        }
-            break;
     }
 }
 
 function createMember(cBtn)
 {
+    membersCount++;
+
     var newMember = document.createElement("DIV");
 
     newMember.className = "member";
 
     newMember.setAttribute("onmouseover", "displayEditAndRemove(this)");
     newMember.setAttribute("onmouseout", "hideEditAndRemove(this)");
+    newMember.setAttribute("id", "member" + membersCount);
 
     var id = cBtn.parentElement.getAttribute("id");
     var index = id.substring(id.length - 1, id.length);
     var plusSpan = document.getElementById("plusSpan" + index);
+    var photoSrc;
 
     if(parseInt(index) === 5)
     {
@@ -216,7 +208,6 @@ function createMember(cBtn)
     }
     else plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 350) + "px";
 
-    var photoSrc = document.getElementById("photoImg" + index).getAttribute("src");
     var nameTextfieldValue = document.getElementById("nameTextfield" + index).value;
     var birthYearValue;
     var deathYearValue;
@@ -224,6 +215,8 @@ function createMember(cBtn)
 
     if(parseInt(index) !== 5)
     {
+        photoSrc = document.getElementById("photoImg" + index).getAttribute("src");
+
         birthYearValue = document.getElementById("birthYear" + index).value;
         deathYearValue = document.getElementById("deathYear" + index).value;
 
@@ -234,7 +227,7 @@ function createMember(cBtn)
     }
     else
     {
-        newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">" + nameTextfieldValue + "</p>";
+        newMember.innerHTML = "<img src=\"" + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">" + nameTextfieldValue + "</p>";
     }
 
     plusSpan.parentElement.insertBefore(newMember, plusSpan);
@@ -327,6 +320,12 @@ function closeModal(modal)
 {
     if(modal.className === "modal")
     {
+        if(modal.getAttribute("id") === "modal6")
+        {
+            modal.style.display = "none";
+            return false;
+        }
+
         //get memOptionContent element. Then get its index (last char, a digit).
         id = modal.firstElementChild.getAttribute("id");
         index = id.substring(id.length - 1, id.length);
@@ -336,10 +335,9 @@ function closeModal(modal)
 
         //set dgContainer's first input element to true.
         //I used the digit to get the dgContainer.
-        document.getElementById("dgContainer" + index).firstElementChild.firstElementChild.checked = true;
-
         if(parseInt(index) !== 5)
         {
+            document.getElementById("dgContainer" + index).firstElementChild.firstElementChild.checked = true;
 
             var birthYearValue = document.getElementById("birthYear" + index);
             var deathYearValue = document.getElementById("deathYear" + index);
@@ -352,6 +350,8 @@ function closeModal(modal)
 
         document.getElementById("main-nav").style.zIndex = "1";
     }
+
+    return false;
 }
 
 function setInput1Max(input2)
@@ -366,8 +366,8 @@ function displayEditAndRemove(member)
     if(member.firstElementChild.tagName !== "SPAN")createEditAndRemove(member);
     else
     {
-        var pencilSpan = member.firstElementChild;
-        var removeSpan = member.firstElementChild.nextElementSibling;
+        var removeSpan = member.firstElementChild;
+        var pencilSpan = removeSpan.nextElementSibling;
 
         pencilSpan.style.display = "inline";
         removeSpan.style.display = "inline";
@@ -378,8 +378,8 @@ function hideEditAndRemove(member)
 {
     if(member.firstElementChild.tagName === "SPAN")
     {
-        var pencilSpan = member.firstElementChild;
-        var removeSpan = pencilSpan.nextElementSibling;
+        var removeSpan = member.firstElementChild;
+        var pencilSpan = removeSpan.nextElementSibling;
 
         pencilSpan.style.display = "none";
         removeSpan.style.display = "none";
@@ -390,7 +390,8 @@ function createEditAndRemove(member)
 {
     var removeSpan = document.createElement("SPAN");
 
-    removeSpan.className = "glyphicon glyphicon-remove";
+    removeSpan.className = "glyphicon glyphicon-remove removeIcon";
+    removeSpan.setAttribute("onclick", "displayAreYouSure(this.parentElement)");
     removeSpan.style.display = "inline";
     removeSpan.style.position = "absolute";
     removeSpan.style.right = "-10px";
@@ -398,12 +399,54 @@ function createEditAndRemove(member)
 
     var pencilSpan = document.createElement("SPAN");
 
-    pencilSpan.className = "glyphicon glyphicon-pencil";
+    pencilSpan.className = "glyphicon glyphicon-pencil pencilIcon";
     pencilSpan.style.display = "inline";
     pencilSpan.style.position = "absolute";
     pencilSpan.style.right = "25px";
     pencilSpan.style.top = "-15px";
 
-    member.insertBefore(removeSpan, member.childNodes[0]);
-    member.insertBefore(pencilSpan, member.childNodes[0]);
+    member.insertBefore(pencilSpan, member.firstElementChild);
+    member.insertBefore(removeSpan, member.firstElementChild);
+}
+
+function displayAreYouSure(member)
+{
+    memberWantedToBeRemoved = member;
+
+    var modal = document.getElementById("modal6");
+    modal.style.display = "block";
+}
+
+function removeMember(modal)
+{
+    var relDegree = memberWantedToBeRemoved.parentElement;
+    var members = relDegree.children;
+    var i, j, subtractor;
+
+    if(memberWantedToBeRemoved.style.width === "290px")
+    {
+        subtractor = 300;
+    }
+    else subtractor = 350;
+
+    for(i = 1; i < members.length - 1; i++)
+    {
+        if(members[i] === memberWantedToBeRemoved)
+        {
+            //move every element one position left.
+            for(j = i + 1; j < members.length - 1; j++)
+            {
+                members[j].style.left = String(parseInt(members[j].style.left) - subtractor) + "px";
+            }
+
+            break;
+        }
+    }
+
+    relDegree.removeChild(memberWantedToBeRemoved);
+    relDegree.style.width = String(parseInt(relDegree.style.width) - subtractor) + "px";
+
+    closeModal(modal);
+
+    return false;
 }
