@@ -20,8 +20,8 @@
                 <input type="hidden" name="_token" value="{{Session::token()}}">
             </form>
         </div>
-        <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded" style="width: 61%; height: 50%;"><br><br>
-        <div class="rightContainer">
+        <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded"><br><br>
+        <div class="rightContainer" style="height: 53%;">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
                 <p>Name: {{$entry['name']}}</p>
@@ -29,5 +29,6 @@
                 <p>Receiving date: {{$entry['receive_date']}}</p>
             </div>
         </div>
+
     </div>
 @endforeach

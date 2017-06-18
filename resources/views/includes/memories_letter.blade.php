@@ -10,10 +10,10 @@
                 <input type="hidden" name="_token" value="{{Session::token()}}">
             </form>
         </div>
-        <object data="{{route('user.letter',$entry['id'])}}" type="text/plain" style="height: 50%; width:50%" class="let">
+        <object data="{{route('user.letter',$entry['id'])}}" type="text/plain"  class="let">
             <a href="{{route('user.letter',$entry['id'])}}"></a>
         </object><br><br>
-        <div class="rightContainer">
+        <div class="rightContainer" style="height: 53%">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
                 <p>Sender: {{$entry['sender']}}</p>

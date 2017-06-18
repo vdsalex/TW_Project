@@ -6,16 +6,19 @@
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a movie.</p>
             <button class="btn btn-default deleteBtn">Delete This Memory</button>
+
+            <form action="{{route('delete.video',['id'=>$entry['id']])}}" method="post">
+                <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
+                <input type="hidden" name="_token" value="{{Session::token()}}">
+            </form>
         </div>
 
-        <form action="{{route('delete.video',['id'=>$entry['id']])}}" method="post">
-            <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
-            <input type="hidden" name="_token" value="{{Session::token()}}">
-        </form>
+
         <video class="video" controls>
-            <source src="{{route('user.video',$entry['id'])}}" type="video/mp4" alt="Video" >
+            <source src="{{route('user.video',$entry['id'])}}"  type="video/mp4" >
         </video><br><br>
-        <div class="rightContainer">
+
+        <div class="rightContainer" style="height: 43%">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
                 <p>Title: {{$entry['title']}}</p>

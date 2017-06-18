@@ -188,8 +188,9 @@ class UserController extends Controller
         $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.doc';
         Storage::disk('local')->put($filePath, File::get($request['document']));
 
+        $request->session()->flash('alert-success', 'A document was successful added!');
+
         return redirect()->route('upload');
-        //SEND successfull message
     }
 
     public function postUploadArtefact(Request $request)
@@ -215,8 +216,9 @@ class UserController extends Controller
         $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . '.jpg';
         Storage::disk('local')->put($filePath, File::get($request['artefact']));
 
+        $request->session()->flash('alert-success', 'An artefact was successful added!');
+
         return redirect()->route('upload');
-        //SEND successfull message
     }
 
     public function postUploadLetter(Request $request)
@@ -242,8 +244,9 @@ class UserController extends Controller
         $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.txt';
         Storage::disk('local')->put($filePath, File::get($request['letter']));
 
+        $request->session()->flash('alert-success', 'A letter was successful added!');
+
         return redirect()->route('upload');
-        //SEND successfull message
     }
 
     public function postUploadPhoto(Request $request)
@@ -269,8 +272,9 @@ class UserController extends Controller
         $filePath=$user->username . '-'.$user->id.'\\photo\\'.$newPhoto->id . '.png';
         Storage::disk('local')->put($filePath, File::get($request['photo']));
 
+        $request->session()->flash('alert-success', 'A photo was successful added!');
+
         return redirect()->route('upload');
-        //SEND successfull message
     }
 
     public function postUploadVideo(Request $request)
@@ -296,8 +300,9 @@ class UserController extends Controller
         $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
         Storage::disk('local')->put($filePath, File::get($request['video']));
 
+        $request->session()->flash('alert-success', 'A video was successful added!');
+
         return redirect()->route('upload');
-        //SEND successfull message
     }
 
     public function getFacebookContent($currentPage)
