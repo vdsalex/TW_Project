@@ -30,9 +30,35 @@
             <span id="4thDegree">4th Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan4"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="friendsDiv">
             <span id="5Friends">Friends:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan5"></span>
+        </div>
+    </div>
+
+    <div id="requestsReceivedDiv">
+        <span id="requestsReceivedSpan">Requests Received:</span>
+        <div class="request">
+            <img src="" alt="Requester's Photo" class="requesterPhoto">
+            <div class="requestDiv">
+                <p class="requesterName">Andrew</p>
+                <p class="requestMessage"> sent you a request.</p>
+            </div>
+            <div class="responseBtns">
+                <button class="btn btn-default" onclick="moveToFriends(this.parentElement.parentElement)">Accept</button>
+                <button class="btn btn-default" onclick="deleteRequest(this.parentElement.parentElement)">Reject</button>
+            </div>
+        </div>
+        <div class="request">
+            <img src="" alt="Requester's Photo" class="requesterPhoto">
+            <div class="requestDiv">
+                <p class="requesterName">Alex</p>
+                <p class="requestMessage"> sent you a request.</p>
+            </div>
+            <div class="responseBtns">
+                <button class="btn btn-default" onclick="moveToFriends(this.parentElement.parentElement)">Accept</button>
+                <button class="btn btn-default" onclick="deleteRequest(this.parentElement.parentElement)">Reject</button>
+            </div>
         </div>
     </div>
 
@@ -229,11 +255,18 @@
             <div class="modal-header">
                 <span>ADD A NEW FRIEND</span>
             </div>
+            <div class="container" id="dgTitle5">
+                <span>Gender</span>
+            </div>
+            <div class="container" id="dgContainer5">
+                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Male" aria-label="Male" checked> Male &nbsp</label>
+                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Female" aria-label="Female"> Female &nbsp</label>
+            </div>
             <div class="container" id="nameTitle5">
                 <span>Username</span>
             </div>
             <div class="container" id="nameContainer5">
-                <label><input type="text" id="nameTextfield5" maxlength="" required></label>
+                <label><input type="text" id="nameTextfield5" maxlength="20" required></label>
             </div>
             <div class="container" id="btnsContainer5">
                 <button type="submit" class="btn btn-default">Send Request</button>

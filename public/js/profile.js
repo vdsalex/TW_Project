@@ -1,5 +1,4 @@
 var span;
-var membersCount = 0;
 var i;
 var modals = document.getElementsByClassName('modal');
 var memberWantedToBeRemoved;
@@ -13,7 +12,6 @@ function displayModalWithOpts(plusSpan)
     var radioButtons = document.getElementsByName(index + "DgOpts");
 
     displayModal(plusSpan);
-
     displayDefaultPhotoAndSetMaxLength(radioButtons[0]);
 }
 
@@ -186,35 +184,41 @@ function displayDefaultPhotoAndSetMaxLength(rdInput)
 
 function createMember(cBtn)
 {
-    membersCount++;
-
     var newMember = document.createElement("DIV");
-
-    newMember.className = "member";
 
     newMember.setAttribute("onmouseover", "displayEditAndRemove(this)");
     newMember.setAttribute("onmouseout", "hideEditAndRemove(this)");
-    newMember.setAttribute("id", "member" + membersCount);
 
     var id = cBtn.parentElement.getAttribute("id");
     var index = id.substring(id.length - 1, id.length);
     var plusSpan = document.getElementById("plusSpan" + index);
     var photoSrc;
-
-    if(parseInt(index) === 5)
-    {
-        newMember.style.width = "290px";
-        plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 300) + "px";
-    }
-    else plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 350) + "px";
-
     var nameTextfieldValue = document.getElementById("nameTextfield" + index).value;
     var birthYearValue;
     var deathYearValue;
     var radioButtonCheckedValue;
 
-    if(parseInt(index) !== 5)
+    if(parseInt(index) === 5)
     {
+        newMember.className = "friend";
+        newMember.style.width = "290px";
+
+        radioButtonCheckedValue = getCheckedValue(document.getElementsByName(index + "DgOpts"));
+
+        if(radioButtonCheckedValue === "Male")
+        {
+            photoSrc = "icons/male_icon.png";
+        }
+        else photoSrc = "icons/female_icon.png";
+
+        plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 300) + "px";
+
+        newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"friendsPhoto\"><p class=\"memName\">" + nameTextfieldValue + "</p><p class='memName' style='font-style: italic'>Request Sent</p>";
+    }
+    else
+    {
+        newMember.className = "member";
+        plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 350) + "px";
         photoSrc = document.getElementById("photoImg" + index).getAttribute("src");
 
         birthYearValue = document.getElementById("birthYear" + index).value;
@@ -224,10 +228,6 @@ function createMember(cBtn)
 
         if(deathYearValue === "")newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + "</p>";
         else newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + " - " + deathYearValue + "</p>";
-    }
-    else
-    {
-        newMember.innerHTML = "<img src=\"" + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">" + nameTextfieldValue + "</p>";
     }
 
     plusSpan.parentElement.insertBefore(newMember, plusSpan);
@@ -281,7 +281,7 @@ function setNewMembersPosition(newMember, plusSpan)
         case "2ndDegree": newMember.style.top = "250px"; break;
         case "3rdDegree": newMember.style.top = "330px"; break;
         case "4thDegree": newMember.style.top = "410px"; break;
-        case "5Friends": newMember.style.top = "520px"; break;
+        case "5Friends": newMember.style.top = "535px"; break;
     }
 
     //Set distance between elements of class member.
@@ -327,10 +327,10 @@ function closeModal(modal)
         }
 
         //get memOptionContent element. Then get its index (last char, a digit).
-        id = modal.firstElementChild.getAttribute("id");
-        index = id.substring(id.length - 1, id.length);
+        var id = modal.firstElementChild.getAttribute("id");
+        var index = id.substring(id.length - 1, id.length);
 
-        nameTextfield = document.getElementById("nameTextfield" + index);
+        var nameTextfield = document.getElementById("nameTextfield" + index);
         nameTextfield.value = "";
 
         //set dgContainer's first input element to true.
@@ -449,4 +449,34 @@ function removeMember(modal)
     closeModal(modal);
 
     return false;
+}
+function moveToFriends(request)
+{
+    var friendsDiv = document.getElementById("friendsDiv");
+    var username = request.firstElementChild.nextElementSibling.firstElementChild.innerHTML;
+    var newFriend = document.createElement("DIV");
+
+    friendsDiv.style.width = String(parseInt(friendsDiv.offsetWidth) + 300) + "px";
+
+    newFriend.className = "friendAccepted";
+    newFriend.style.position = "absolute";
+    newFriend.style.width = "290px";
+    newFriend.style.top = "535px";
+
+    if(friendsDiv.children.length > 2)
+    {
+        newFriend.style.left = String(parseInt(friendsDiv.lastElementChild.previousElementSibling.style.left) + 300) + "px";
+    }
+    else newFriend.style.left = "240px";
+
+    newFriend.innerHTML = "<img src='' alt=\"Member\'s Photo\" class=\"friendsPhoto\"><p class=\"memName\">" + username + "</p>";
+
+    friendsDiv.insertBefore(newFriend, friendsDiv.lastElementChild);
+
+    request.parentElement.removeChild(request);
+}
+
+function deleteRequest(request)
+{
+    request.parentElement.removeChild(request);
 }
