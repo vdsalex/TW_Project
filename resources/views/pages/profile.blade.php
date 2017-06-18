@@ -14,56 +14,38 @@
 
     <div class="container" id="h1AndBtns">
         <h2>Your Relatives<span class="glyphicon glyphicon-leaf"></span></h2>
-        <div class="relDegree">
+        <div class="relDegree" id="1DegreeDiv">
             <span id="1stDegree">1st Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan1"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="2DegreeDiv">
             <span id="2ndDegree">2nd Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan2"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="3DegreeDiv">
             <span id="3rdDegree">3rd Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan3"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="4DegreeDiv">
             <span id="4thDegree">4th Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan4"></span>
         </div>
-        <div class="relDegree" id="friendsDiv">
+        <div id="friendsDiv">
             <span id="5Friends">Friends:</span>
-            <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan5"></span>
         </div>
     </div>
 
     <div id="requestsReceivedDiv">
         <span id="requestsReceivedSpan">Requests Received:</span>
-        <div class="request">
-            <img src="" alt="Requester's Photo" class="requesterPhoto">
-            <div class="requestDiv">
-                <p class="requesterName">Andrew</p>
-                <p class="requestMessage"> sent you a request.</p>
-            </div>
-            <div class="responseBtns">
-                <button class="btn btn-default" onclick="moveToFriends(this.parentElement.parentElement)">Accept</button>
-                <button class="btn btn-default" onclick="deleteRequest(this.parentElement.parentElement)">Reject</button>
-            </div>
-        </div>
-        <div class="request">
-            <img src="" alt="Requester's Photo" class="requesterPhoto">
-            <div class="requestDiv">
-                <p class="requesterName">Alex</p>
-                <p class="requestMessage"> sent you a request.</p>
-            </div>
-            <div class="responseBtns">
-                <button class="btn btn-default" onclick="moveToFriends(this.parentElement.parentElement)">Accept</button>
-                <button class="btn btn-default" onclick="deleteRequest(this.parentElement.parentElement)">Reject</button>
-            </div>
-        </div>
+    </div>
+
+    <div id="requestsSentDiv">
+        <span id="requestsSentSpan">Requests Sent:</span>
+        <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(document.getElementById('friendsDiv').lastElementChild)" id="plusSpan5"></span>
     </div>
 
     <div class="modal" id="modal1">
-        <form class="container" id="memOptionsContent1" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent1" onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -107,7 +89,7 @@
     </div>
 
     <div class="modal" id="modal2">
-        <form class="container" id="memOptionsContent2" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent2" onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -153,7 +135,7 @@
     </div>
 
     <div class="modal" id="modal3">
-        <form class="container" id="memOptionsContent3" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent3" onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -201,7 +183,7 @@
     </div>
 
     <div class="modal" id="modal4">
-        <form class="container" id="memOptionsContent4"  onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent4"  onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -251,7 +233,7 @@
     </div>
 
     <div class="modal" id="modal5">
-        <form class="container" id="memOptionsContent5" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent5" onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>ADD A NEW FRIEND</span>
             </div>
@@ -266,7 +248,7 @@
                 <span>Username</span>
             </div>
             <div class="container" id="nameContainer5">
-                <label><input type="text" id="nameTextfield5" maxlength="20" required></label>
+                <label><input type="text" id="nameTextfield5" maxlength="100" required></label>
             </div>
             <div class="container" id="btnsContainer5">
                 <button type="submit" class="btn btn-default">Send Request</button>

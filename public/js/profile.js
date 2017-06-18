@@ -1,5 +1,4 @@
 var span;
-var i;
 var modals = document.getElementsByClassName('modal');
 var memberWantedToBeRemoved;
 
@@ -200,7 +199,7 @@ function createMember(cBtn)
 
     if(parseInt(index) === 5)
     {
-        newMember.className = "friend";
+        newMember.className = "friendUnconfirmed";
         newMember.style.width = "290px";
 
         radioButtonCheckedValue = getCheckedValue(document.getElementsByName(index + "DgOpts"));
@@ -236,8 +235,6 @@ function createMember(cBtn)
     setNameFontSize(newMember.firstElementChild.nextElementSibling, radioButtonCheckedValue);
 
     closeModal(document.getElementById("modal" + index));
-
-    return false;
 }
 
 function setNameFontSize(newMember, checkedValue)
@@ -273,7 +270,13 @@ function setNameFontSize(newMember, checkedValue)
 
 function setNewMembersPosition(newMember, plusSpan)
 {
-    var spanID = plusSpan.parentElement.firstElementChild.getAttribute("id");
+    var spanID;
+
+    if(plusSpan.parentElement.getAttribute("id") === "requestsSentDiv")
+    {
+        spanID = "requestsSent";
+    }
+    else spanID = plusSpan.parentElement.firstElementChild.getAttribute("id");
 
     switch(spanID)
     {
@@ -282,17 +285,19 @@ function setNewMembersPosition(newMember, plusSpan)
         case "3rdDegree": newMember.style.top = "330px"; break;
         case "4thDegree": newMember.style.top = "410px"; break;
         case "5Friends": newMember.style.top = "535px"; break;
+        case "requestsSent": newMember.style.top = "720px"; break;
     }
 
     //Set distance between elements of class member.
     //There's a special case for the first element.
     if(newMember.previousElementSibling.tagName === "SPAN")
     {
-        newMember.style.left = "240px";
+        if(newMember.style.width !== "290px")newMember.style.left = "240px";
+        else newMember.style.left = "270px";
     }
     else
     {
-        if(spanID !== "5Friends")newMember.style.left = String(parseInt(newMember.previousElementSibling.style.left) + 350) + "px";
+        if(spanID !== "requestsSent")newMember.style.left = String(parseInt(newMember.previousElementSibling.style.left) + 350) + "px";
         else newMember.style.left = String(parseInt(newMember.previousElementSibling.style.left) + 300) + "px";
     }
 }
@@ -471,7 +476,7 @@ function moveToFriends(request)
 
     newFriend.innerHTML = "<img src='' alt=\"Member\'s Photo\" class=\"friendsPhoto\"><p class=\"memName\">" + username + "</p>";
 
-    friendsDiv.insertBefore(newFriend, friendsDiv.lastElementChild);
+    friendsDiv.insertBefore(newFriend, friendsDiv.lastElementChild.nextElementSibling);
 
     request.parentElement.removeChild(request);
 }
@@ -479,4 +484,41 @@ function moveToFriends(request)
 function deleteRequest(request)
 {
     request.parentElement.removeChild(request);
+}
+
+var requestsSent = document.getElementsByClassName("friendUnconfirmed");
+var i;
+var parentDiv = document.getElementById("requestsSentDiv");
+
+parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
+requestsSent[0].style.left = "270px";
+
+for(i = 1; i < requestsSent.length; i++)
+{
+    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
+    requestsSent[i].style.left = String(parseInt(requestsSent[i-1].style.left) + 300) + "px";
+}
+
+parentDiv = document.getElementById("friendsDiv");
+var acceptedFriends = document.getElementsByClassName("friendAccepted");
+
+parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
+acceptedFriends[0].style.left = "240px";
+
+for(i = 1; i < requestsSent.length; i++)
+{
+    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
+    acceptedFriends[i].style.left = String(parseInt(acceptedFriends[i-1].style.left) + 300) + "px";
+}
+
+parentDiv = document.getElementById("requestsReceivedDiv");
+var requestsReceived = document.getElementsByClassName("request");
+
+parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 420)) + "px";
+requestsReceived[0].style.left = "310px";
+
+for(i = 1; i < requestsSent.length; i++)
+{
+    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 420)) + "px";
+    requestsReceived[i].style.left = String(parseInt(requestsReceived[i-1].style.left) + 420) + "px";
 }
