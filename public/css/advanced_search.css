@@ -1,54 +1,14 @@
-body {
-    font-family: "Lato", sans-serif;
-    transition: background-color .5s;
-}
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 480px;
-    font-size: 16px;
-}
-
-#advanced_search {
+#advanced_search
+{
     transition: margin-left .5s;
     padding: 16px;
 }
 
-
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
-}
-
 #mainContainer
 {
-    margin-top: 80px;
+    margin-top: 120px;
+
+    margin-bottom: 40px;
 }
 
 #bg-img
@@ -69,13 +29,76 @@ body {
     left: 0;
 }
 
-#advanced_search{
-    width: 50%;
-    transition: margin-left .6s;
-    padding: 16px;
+.formHeader
+{
+    margin-bottom: 30px;
+
+    text-align: center;
 }
 
-input[type=text] {
+.headerSpan
+{
+    font-size: 30px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+}
+
+.memParameters,
+.memType,
+.enterUsernameDiv,
+.createdDateDiv
+{
+    width: 100%;
+    padding: 16px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+}
+#memParametersSpan,
+#createdDateSpan,
+#chooseMemTypeSpan,
+#enterUsername
+{
+    font-size: 25px;
+
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+
+    border-bottom-style: solid;
+    border-width: 1px;
+
+    padding: 0 40px;
+}
+
+.memType label
+{
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+
+    font-size: 14pt;
+}
+
+.memTypeInput
+{
+    margin-right: 7px !important;
+}
+
+.enterUsernameDiv > label > input[type="text"]
+{
+    padding: 0 5px;
+    width: 320px;
+}
+
+.createdBetweenSpans
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+#searchInput
+{
     color: black;
     background-image: url('../content/search.png');
     width: 130px;
@@ -91,18 +114,128 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
-input[type=text]:focus {
-    width: 100%;
+#searchInput:focus
+{
+    width: 60%;
 }
 
 #searchBtn
 {
     border-radius: 0 !important;
 
-    background-color: dimgray;
+    background-color: #343434;
     color: white;
 
     font-family: "Courier New", Courier, monospace;
+    font-size: 13pt;
 
-    font-size: 12pt;
+    margin-left: 185px;
+}
+
+#searchBtn:hover
+{
+    background-color: #707070;
+}
+
+.searchType
+{
+    display: inline-table;
+
+    width: 40%;
+}
+
+#firstForm
+{
+    height: 86%;
+}
+
+#secondForm
+{
+    margin-left: 222px;
+    height: 100%;
+}
+
+#documentOptions,
+#artifactOptions,
+#videoOptions,
+#photoOptions,
+#letterOptions
+{
+    display: none;
+}
+
+#documentOptionsSpanName
+{
+    margin-right: 136px;
+}
+
+#documentOptionsSpanEmissionDate
+{
+    margin-right: 42px;
+}
+
+.documentOptionsLabel input[type="text"]
+{
+    padding: 0 5px;
+}
+
+.letterOptionsSpan,
+.photoOptionsSpan,
+.videoOptionsSpan,
+.documentOptionsSpan,
+.artifactOptionsSpan
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 13pt;
+    font-weight: bold;
+}
+
+#artifactOptionsSpanDescription
+{
+    margin-right: 20px;
+}
+
+#artifactOptionsSpanName
+{
+    margin-right: 93px;
+}
+
+#artifactOptionsSpanRecDate
+{
+    margin-right: 34px;
+}
+
+#videoOptionsSpanTitle
+{
+    margin-right: 62px;
+}
+
+#videoOptionsSpanRecDate
+{
+    margin-right: 44px;
+}
+
+#photoOptionsSpanDescription
+{
+    margin-right: 5px;
+}
+
+#photoOptionsSpanLocation
+{
+    margin-right: 34px;
+}
+
+#letterOptionsSpanMessage
+{
+    margin-right: 55px;
+}
+
+#letterOptionsSpanSender
+{
+    margin-right: 22px;
+}
+
+input[type="text"]
+{
+    padding: 0 5px;
 }

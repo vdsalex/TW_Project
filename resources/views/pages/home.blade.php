@@ -19,8 +19,6 @@
             <img class="modal-content" id="img2">
             <div id="caption2"></div>
         </div>
-
-
     </div>
 </body>
 </html>

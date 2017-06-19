@@ -19,16 +19,16 @@
 
         <p id="question">What do you want to upload?</p>
         <div class="tab">
-            <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artefact</button>
+            <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artifact</button>
             <button class="tablinks" onclick="openObject(event, 'Document')">Document</button>
             <button class="tablinks" onclick="openObject(event, 'Letter')">Letter</button>
-            <button class="tablinks" onclick="openObject(event, 'Picture')">Picture</button>
+            <button class="tablinks" onclick="openObject(event, 'Picture')">Photo</button>
             <button class="tablinks" onclick="openObject(event, 'Video')">Video</button>
         </div>
 
 
         <div id="Artefact" class="tabcontent">
-            <h3>Artefact</h3>
+            <h3>Artifact</h3>
             <div class="contentObj">
                 <form action="{{route('upload.artefact')}}" method="POST" enctype="multipart/form-data">
                     Name:<br>
@@ -99,7 +99,7 @@
         </div>
 
         <div id="Picture" class="tabcontent">
-            <h3>Picture</h3>
+            <h3>Photo</h3>
             <div class="contentObj">
                 <form action="{{route('upload.photo')}}" method="POST" enctype="multipart/form-data">
                     Description:<br>

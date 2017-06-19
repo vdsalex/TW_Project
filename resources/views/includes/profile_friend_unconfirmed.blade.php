@@ -1,5 +1,5 @@
 @foreach ($unconfirmedFriends as $unconfirmedFriend)
-<form class="friendUnconfirmed" method="post" onmouseover="displayRemove(this.firstElementChild)" onmouseout="hideRemove(this.firstElementChild)">
+<form action="{{route('friend.remove')}}" class="friendUnconfirmed" method="post" onmouseover="displayRemove(this.firstElementChild)" onmouseout="hideRemove(this.firstElementChild)">
     <button type="submit" class="glyphicon glyphicon-remove removeIcon"></button>
     <input type="hidden" value="{{ Session::token() }}" name="_token">
     <input type="hidden" value="{{ $unconfirmedFriend->username }}" name="username">

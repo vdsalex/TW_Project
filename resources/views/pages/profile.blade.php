@@ -32,8 +32,8 @@
         </div>
         <div id="friendsDiv">
             <span id="5Friends">Friends:</span>
+            @include ('includes.profile_friend_accepted')
         </div>
-        @include ('includes.profile_friend_accepted')
     </div>
 
     <div id="requestsReceivedDiv">
@@ -243,13 +243,6 @@
             action="{{route('friend.send')}}" method="post">
             <div class="modal-header">
                 <span>ADD A NEW FRIEND</span>
-            </div>
-            <div class="container" id="dgTitle5">
-                <span>Gender</span>
-            </div>
-            <div class="container" id="dgContainer5">
-                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Male" aria-label="Male" checked> Male &nbsp</label>
-                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Female" aria-label="Female"> Female &nbsp</label>
             </div>
             <div class="container" id="nameTitle5">
                 <span>Username</span>

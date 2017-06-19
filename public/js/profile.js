@@ -199,23 +199,12 @@ function createMember(cBtn)
         newMember.className = "friendUnconfirmed";
         newMember.style.width = "290px";
 
-        radioButtonCheckedValue = getCheckedValue(document.getElementsByName(index + "DgOpts"));
-
-        if(radioButtonCheckedValue === "Male")
-        {
-            photoSrc = "icons/male_icon.png";
-        }
-        else photoSrc = "icons/female_icon.png";
-
         plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 300) + "px";
 
         newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"friendsPhoto\"><p class=\"memName\">" + nameTextfieldValue + "</p><p class='memName' style='font-style: italic'>Request Sent</p>";
     }
     else
     {
-        newMember.setAttribute("onmouseover", "displayEditAndRemove(this)");
-        newMember.setAttribute("onmouseout", "hideEditAndRemove(this)");
-
         newMember.className = "member";
         plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 350) + "px";
         photoSrc = document.getElementById("photoImg" + index).getAttribute("src");
@@ -229,7 +218,7 @@ function createMember(cBtn)
         else newMember.innerHTML = "<img src=\"" + photoSrc + "\" alt=\"Member\'s Photo\" class=\"membersPhoto\"><p class=\"memName\">"+ radioButtonCheckedValue + " " + nameTextfieldValue + "</p> <p class=\"lived\">" + birthYearValue + " - " + deathYearValue + "</p>";
     }
 
-    plusSpan.parentElement.insertBefore(newMember, plusSpan);
+
 
     setNewMembersPosition(newMember, plusSpan);
     setNameFontSize(newMember.firstElementChild.nextElementSibling, radioButtonCheckedValue);
@@ -280,12 +269,10 @@ function setNewMembersPosition(newMember, plusSpan)
 
     switch(spanID)
     {
-        case "1stDegree": newMember.style.top = "170px"; break;
-        case "2ndDegree": newMember.style.top = "250px"; break;
-        case "3rdDegree": newMember.style.top = "330px"; break;
-        case "4thDegree": newMember.style.top = "410px"; break;
-        case "5Friends": newMember.style.top = "535px"; break;
-        case "requestsSent": newMember.style.top = "720px"; break;
+        case "1stDegree": newMember.style.top = "250px"; break;
+        case "2ndDegree": newMember.style.top = "330px"; break;
+        case "3rdDegree": newMember.style.top = "410px"; break;
+        case "4thDegree": newMember.style.top = "490px"; break;
     }
 
     //Set distance between elements of class member.
@@ -366,8 +353,6 @@ function setInput1Max(input2)
     input1.setAttribute("max", input2.value);
 }
 
-
-// FOR UNCONFIRMED FRIENDS AND ACCEPTED FRIENDS
 function displayRemove(btn)
 {
     btn.setAttribute("style", "display: inline !important;");
@@ -412,6 +397,7 @@ function removeMember(modal)
 
     return false;
 }
+
 function moveToFriends(request)
 {
     var friendsDiv = document.getElementById("friendsDiv");
