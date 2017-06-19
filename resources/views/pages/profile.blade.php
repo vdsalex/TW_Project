@@ -31,9 +31,7 @@
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan4"></span>
         </div>
         <div id="friendsDiv">
-
             <span id="5Friends">Friends:</span>
-
         </div>
         @include ('includes.profile_friend_accepted')
     </div>

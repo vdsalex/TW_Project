@@ -368,96 +368,16 @@ function setInput1Max(input2)
 
 
 // FOR UNCONFIRMED FRIENDS AND ACCEPTED FRIENDS
-function displayRemove(member)
+function displayRemove(btn)
 {
-    if(member.firstElementChild.tagName !== "SPAN")createRemove(member);
-    else
-    {
-        var removeSpan = member.firstElementChild;
-
-        removeSpan.style.display = "inline";
-    }
+    btn.setAttribute("style", "display: inline !important;");
 }
 
-function hideRemove(member)
+function hideRemove(btn)
 {
-    if(member.firstElementChild.tagName === "SPAN")
-    {
-        var removeSpan = member.firstElementChild;
-
-        removeSpan.style.display = "none";
-    }
+    btn.setAttribute("style", "display: none !important;");
 }
 
-function createRemove(member)
-{
-    var removeSpan = document.createElement("SPAN");
-
-    removeSpan.className = "glyphicon glyphicon-remove removeIcon";
-    removeSpan.setAttribute("onclick", "displayAreYouSure(this.parentElement)");
-    removeSpan.style.display = "inline";
-    removeSpan.style.position = "absolute";
-    removeSpan.style.right = "-10px";
-    removeSpan.style.top = "-15px";
-
-    member.insertBefore(removeSpan, member.firstElementChild);
-}
-
-function displayEditAndRemove(member)
-{
-    if(member.firstElementChild.tagName !== "SPAN")createEditAndRemove(member);
-    else
-    {
-        var removeSpan = member.firstElementChild;
-        var pencilSpan = removeSpan.nextElementSibling;
-
-        pencilSpan.style.display = "inline";
-        removeSpan.style.display = "inline";
-    }
-}
-
-function hideEditAndRemove(member)
-{
-    if(member.firstElementChild.tagName === "SPAN")
-    {
-        var removeSpan = member.firstElementChild;
-        var pencilSpan = removeSpan.nextElementSibling;
-
-        pencilSpan.style.display = "none";
-        removeSpan.style.display = "none";
-    }
-}
-
-function createEditAndRemove(member)
-{
-    var removeSpan = document.createElement("SPAN");
-
-    removeSpan.className = "glyphicon glyphicon-remove removeIcon";
-    removeSpan.setAttribute("onclick", "displayAreYouSure(this.parentElement)");
-    removeSpan.style.display = "inline";
-    removeSpan.style.position = "absolute";
-    removeSpan.style.right = "-10px";
-    removeSpan.style.top = "-15px";
-
-    var pencilSpan = document.createElement("SPAN");
-
-    pencilSpan.className = "glyphicon glyphicon-pencil pencilIcon";
-    pencilSpan.style.display = "inline";
-    pencilSpan.style.position = "absolute";
-    pencilSpan.style.right = "25px";
-    pencilSpan.style.top = "-15px";
-
-    member.insertBefore(pencilSpan, member.firstElementChild);
-    member.insertBefore(removeSpan, member.firstElementChild);
-}
-
-function displayAreYouSure(member)
-{
-    memberWantedToBeRemoved = member;
-
-    var modal = document.getElementById("modal6");
-    modal.style.display = "block";
-}
 
 function removeMember(modal)
 {
