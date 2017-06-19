@@ -32,13 +32,17 @@
 </div>
 
 <script>
-    var page = 1;
+    var page = 2;
+    var processing=false;
+    var done=false;
     var search_text = '{{ $text }}';
 
     $(window).scroll(function() {
         if($(window).scrollTop() + $(window).height() >= $(document).height()) {
-            page++;
-            loadMoreData(page,search_text);
+            if (processing===false && done===false) {
+                loadMoreData(page,search_text);
+                page++;
+            }
         }
     });
 
@@ -50,6 +54,7 @@
                 beforeSend: function()
                 {
                     $('.ajax-load').show();
+                    processing=true;
                 }
             })
             .done(function(data)
@@ -57,10 +62,12 @@
                 if(data.html == ""){
 
                     $('.ajax-load').html("No more records found");
+                    done=true;
                     return;
                 }
                 $('.ajax-load').hide();
                 $("#content-data").append(data.html);
+                processing=false;
             })
             .fail(function(jqXHR, ajaxOptions, thrownError)
             {

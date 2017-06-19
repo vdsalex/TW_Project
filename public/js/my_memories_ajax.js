@@ -1,19 +1,25 @@
-var page = 1;
+var page = 2;
+var processing=false;
+var done=false;
+
 var currentContent="photo";
 
 $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() >= $(document).height()) {
-        page++;
+        if (processing===false && done===false) {
         loadMoreData(page,currentContent);
+        page++;
+        }
     }
 });
 
 function displayContent(button)
 {
     jQuery('#content-data').html('');
-    page=1;
+    page=2;
+    done=false;
     currentContent=button.id;
-    loadMoreData(page,currentContent);
+    loadMoreData(1,currentContent);
 }
 
 function loadMoreData(page,content_type){
@@ -24,6 +30,7 @@ function loadMoreData(page,content_type){
             beforeSend: function()
             {
                 $('.ajax-load').show();
+                processing=true;
             }
         })
         .done(function(data)
@@ -31,10 +38,12 @@ function loadMoreData(page,content_type){
             if(data.html == ""){
 
                 $('.ajax-load').html("No more records found");
+                done=true;
                 return;
             }
             $('.ajax-load').hide();
             $("#content-data").append(data.html);
+            processing=false;
         })
         .fail(function(jqXHR, ajaxOptions, thrownError)
         {

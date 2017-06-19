@@ -1,4 +1,4 @@
-var page = 1;
+/*var page = 1;
 var currentContent="photo";
 
 $(window).scroll(function() {
@@ -44,3 +44,4 @@ function loadMoreData(page,content_type){
 
 $('document').ready(loadMoreData(1,currentContent));
 
+   */

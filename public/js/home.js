@@ -46,12 +46,16 @@ function hideF(btn)
     else btn.nextElementSibling.style.display = "none";
 }
 
-var page = 1;
+var page = 2;
+var processing=false;
+var done=false;
 
 $(window).scroll(function() {
     if($(window).scrollTop() + $(window).height() >= $(document).height()) {
-        page++;
-        loadMoreData(page);
+        if (processing===false && done===false) {
+            loadMoreData(page);
+            page++;
+        }
     }
 });
 
@@ -63,6 +67,7 @@ function loadMoreData(page){
             beforeSend: function()
             {
                 $('.ajax-load').show();
+                processing=true;
             }
         })
         .done(function(data)
@@ -70,10 +75,12 @@ function loadMoreData(page){
             if(data.html == ""){
 
                 $('.ajax-load').html("No more records found");
+                done=true;
                 return;
             }
             $('.ajax-load').hide();
             $("#mainContainer").append(data.html);
+            processing=false;
         })
         .fail(function(jqXHR, ajaxOptions, thrownError)
         {
