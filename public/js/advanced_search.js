@@ -1,40 +1,39 @@
-/**
- * Created by Alina Coca on 11.06.2017.
- */
-function openNav1() {
-    closeNav2();
-    document.getElementById("mySidenav1").style.width = "250px";
-    document.getElementById("advanced_search_obj").style.marginLeft = "250px";
-    document.getElementById("advanced_search_rr").style.marginLeft = "250px";
-    document.getElementById("search").style.marginLeft = "250px";
+var memParamsDiv;
 
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+function displayDocumentOptions()
+{
+    memParamsDiv.style.display = "none";
+    document.getElementById("documentOptions").style.display = "inline";
+    memParamsDiv = document.getElementById("documentOptions");
 }
 
-function closeNav1() {
-    document.getElementById("mySidenav1").style.width = "0";
-    document.getElementById("advanced_search_obj").style.marginLeft= "0";
-    document.getElementById("advanced_search_rr").style.marginLeft= "0";
-    document.getElementById("search").style.marginLeft= "0";
-
-    document.body.style.backgroundColor = "white";
+function displayArtifactOptions()
+{
+    memParamsDiv.style.display = "none";
+    document.getElementById("artifactOptions").style.display = "inline";
+    memParamsDiv = document.getElementById("artifactOptions");
 }
 
-function openNav2() {
-    closeNav1();
-    document.getElementById("mySidenav2").style.width = "250px";
-    document.getElementById("advanced_search_obj").style.marginLeft = "250px";
-    document.getElementById("advanced_search_rr").style.marginLeft = "250px";
-    document.getElementById("search").style.marginLeft = "250px";
-
-    document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+function displayPhotoOptions()
+{
+    memParamsDiv.style.display = "none";
+    document.getElementById("photoOptions").style.display = "inline";
+    memParamsDiv = document.getElementById("photoOptions");
 }
 
-function closeNav2() {
-    document.getElementById("mySidenav2").style.width = "0";
-    document.getElementById("advanced_search_obj").style.marginLeft = "0";
-    document.getElementById("advanced_search_rr").style.marginLeft= "0";
-    document.getElementById("search").style.marginLeft= "0";
-
-    document.body.style.backgroundColor = "white";
+function displayVideoOptions()
+{
+    memParamsDiv.style.display = "none";
+    document.getElementById("videoOptions").style.display = "inline";
+    memParamsDiv = document.getElementById("videoOptions");
 }
+
+function displayLetterOptions()
+{
+    memParamsDiv.style.display = "none";
+    document.getElementById("letterOptions").style.display = "inline";
+    memParamsDiv = document.getElementById("letterOptions");
+}
+
+memParamsDiv = document.getElementById("documentOptions");
+displayDocumentOptions();
