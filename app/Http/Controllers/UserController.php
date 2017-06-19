@@ -25,7 +25,9 @@ class UserController extends Controller
     public function getHome()
     {
         if (Auth::user()->username)
-        return view('pages/home',['user'=> Auth::user()]);
+        {
+            return view('pages/home',['user'=> Auth::user()]);
+        }
         else return $this->getMyMemories();
     }
 
@@ -605,21 +607,6 @@ class UserController extends Controller
         //SEND successfull message
     }
 
-    public function postSimpleSearchResults($search_text)
-    {
-        $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
-        $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
-        $letters=Letter::where('user_id','=',Auth::user()->id) ->where('sender','LIKE','%'.$search_text.'%') ->orWhere('receiver','LIKE','%'.$search_text.'%')
-            ->orWhere('message','LIKE','%'.$search_text.'%')->get();
-        $documents=Video::where('user_id','=',Auth::user()->id) ->where('name','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
-        $artefacts=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
-
-        $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
-        dd($allMemories);
-    }
-
-
-
     /*
      * DELETE CONTENT API
      */
@@ -778,35 +765,67 @@ class UserController extends Controller
             array_push($friendsIds,$friend['id']);
 
         $photos=Photo::whereIn('user_id',$friendsIds)->get();
+
+        //get first_name, last_name and username for each memory
         foreach ($photos as $photo)
-            $contentCollection->push($photo);
+        {
+            $photoUser=User:: where('id',$photo['user_id'])->first();
+            $userInfo=collect(['username'=>$photoUser->username, 'first_name'=>$photoUser->first_name,'last_name'=>$photoUser->last_name,'memory_type'=>'photo']);
+            $photoWithUser=$userInfo->merge($photo);
+
+            $contentCollection->push($photoWithUser);
+        }
 
         $videos=Video::whereIn('user_id',$friendsIds)->get();
 
         foreach ($videos as $video)
-            $contentCollection->push($video);
+        {
+            $videoUser=User:: where('id',$video['user_id'])->first();
+            $userInfo=collect(['username'=>$videoUser->username, 'first_name'=>$videoUser->first_name,'last_name'=>$videoUser->last_name,'memory_type'=>'video']);
+            $videoWithUser=$userInfo->merge($video);
+
+            $contentCollection->push($videoWithUser);
+        }
 
         $letters=Letter::whereIn('user_id',$friendsIds) ->get();
 
         foreach ($letters as $letter)
-            $contentCollection->push($letter);
+        {
+            $letterUser=User:: where('id',$letter['user_id'])->first();
+            $userInfo=collect(['username'=>$letterUser->username, 'first_name'=>$letterUser->first_name,'last_name'=>$letterUser->last_name,'memory_type'=>'letter']);
+            $letterWithUser=$userInfo->merge($letter);
+
+            $contentCollection->push($letterWithUser);
+        }
 
         $documents=Document::whereIn('user_id',$friendsIds)->get();
 
         foreach ($documents as $document)
-            $contentCollection->push($document);
+        {
+            $documentUser=User:: where('id',$document['user_id'])->first();
+            $userInfo=collect(['username'=>$documentUser->username, 'first_name'=>$documentUser->first_name,'last_name'=>$documentUser->last_name,'memory_type'=>'document']);
+            $documentWithUser=$userInfo->merge($document);
+
+            $contentCollection->push($documentWithUser);
+        }
 
         $artefacts=Artefact::whereIn('user_id',$friendsIds)->get();
 
         foreach ($artefacts as $artefact)
-            $contentCollection->push($artefact);
+        {
+            $artefactUser=User:: where('id',$artefact['user_id'])->first();
+            $userInfo=collect(['username'=>$artefactUser->username, 'first_name'=>$artefactUser->first_name,'last_name'=>$artefactUser->last_name,'memory_type'=>'artefact']);
+            $artefactWithUser=$userInfo->merge($artefact);
+
+            $contentCollection->push($artefactWithUser);
+        }
 
         $sortedMemories=$contentCollection->sortByDesc(function($memory, $key)
         {
             return $memory['updated_at'];
         });
 
-        $perPage = 10;
+        $perPage = 6;
 
         $currentPageSearchResults = $sortedMemories->slice(($currentPage - 1) * $perPage, $perPage)->all();
 
@@ -817,5 +836,25 @@ class UserController extends Controller
 
     }
 
+    /*
+     *  SEARCH API
+     */
+
+    public function postSimpleSearchResults($search_text)
+    {
+        $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+        $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
+        $letters=Letter::where('user_id','=',Auth::user()->id) ->where('sender','LIKE','%'.$search_text.'%') ->orWhere('receiver','LIKE','%'.$search_text.'%')
+            ->orWhere('message','LIKE','%'.$search_text.'%')->get();
+        $documents=Video::where('user_id','=',Auth::user()->id) ->where('name','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+        $artefacts=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
+
+        $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
+        dd($allMemories);
+    }
+
+    /*
+     *  END OF SEARCH API
+     */
 
 }

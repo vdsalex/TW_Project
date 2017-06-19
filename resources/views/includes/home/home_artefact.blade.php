@@ -12,9 +12,11 @@
     <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="poster">
             <div class="profile-photo">
-                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href=http://localhost:8000/profile>
+                    <img src="{{route('account.image',['userId'=>$entry['user_id'],'username'=>$entry['username']])}}"
+                                                                                           alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added an artefact.</p>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; {{$entry['first_name'] . ' ' . $entry['last_name']}} </a> added an artefact.</p>
         </div>
         <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded"><br><br>
         <div class="rightContainer" style="height: 53%;">

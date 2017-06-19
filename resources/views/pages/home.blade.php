@@ -12,7 +12,6 @@
     <img id="bg-img" src="content/blue-gradient.png" alt="Blue Gradient">
     <header></header>
     @include ('includes.header')
-
     <div class="container" id="mainContainer">
         <div id="modal_id" class="modal">
             <span class="close" onclick="document.getElementById('modal_id').style.display='none'">&times;</span>

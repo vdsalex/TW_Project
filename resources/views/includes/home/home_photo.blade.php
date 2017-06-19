@@ -8,9 +8,10 @@
     <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="poster">
             <div class="profile-photo">
-                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href=http://localhost:8000/profile><img src="{{route('account.image',['userId'=>$entry['user_id'],'username'=>$entry['username']])}}"
+                                                           alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p  align="left"><a href=http://localhost:8000/profile> &nbsp; You </a> added a photo.</p>
+            <p  align="left"><a href=http://localhost:8000/profile> &nbsp;{{$entry['first_name'] . ' ' . $entry['last_name']}} </a> added a photo.</p>
         </div>
 
         <img  src={{route('user.photo',$entry['id'])}} alt="{{$entry['id']}}" class="img-rounded"><br><br>
