@@ -59,9 +59,24 @@ class UserController extends Controller
         return view('pages/profile_settings',['user'=> Auth::user()]);
     }
 
+    public function getFriendsArrayForView()
+    {
+        $user=Auth::user();
+        $acceptedFriends=$user->friends();
+        $receivedFriends=$user->incoming_friends();
+
+        $allFriends=$user->any_friends();
+        $withoutAccepted=$allFriends->diff($acceptedFriends);
+        $sentFriends=$withoutAccepted->diff($receivedFriends);
+
+        return ['acceptedFriends'=>$acceptedFriends,'unconfirmedFriends'=>$sentFriends,'receivedFriends'=>$receivedFriends];
+    }
+
     public function getProfile()
     {
-        return view('pages/profile',['user'=> Auth::user()]);
+        $userArray=array('user'=> Auth::user());
+        $friendsArray=$this->getFriendsArrayForView();
+        return view('pages/profile',array_merge($userArray,$friendsArray));
     }
 
     public function getAdvancedSearch()
@@ -159,10 +174,18 @@ class UserController extends Controller
         //SEND successfull message
     }
 
-    public function getUserImage($filename)
+    public function getUserImage($userId, $username)
     {
-        $file=Storage::disk('local')->get($filename);
-        return Response($file, 200);
+        if (Storage::disk('local')->has($username . '-'.$userId.'\\'.'profile.jpg'))
+        {
+            $file=Storage::disk('local')->get($username . '-'.$userId.'\\'.'profile.jpg');
+            return Response($file, 200);
+        }
+        else
+        {
+            $file=Storage::disk('local')->get('default_profile_img.jpg');
+            return Response($file, 200);
+        }
     }
 
     public function postUploadDocument(Request $request)
@@ -186,10 +209,12 @@ class UserController extends Controller
         $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.doc';
+
         if(Storage::disk('local')->put($filePath, File::get($request['document'])))
             $message = "Upload successful!";
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadArtefact(Request $request)
@@ -213,10 +238,12 @@ class UserController extends Controller
         $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . '.jpg';
+
         if(Storage::disk('local')->put($filePath, File::get($request['artefact'])))
             $message = "Upload successful!";
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadLetter(Request $request)
@@ -245,6 +272,7 @@ class UserController extends Controller
 
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadPhoto(Request $request)
@@ -273,6 +301,7 @@ class UserController extends Controller
 
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadVideo(Request $request)
@@ -301,6 +330,7 @@ class UserController extends Controller
 
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function getFacebookContent($currentPage)
@@ -559,7 +589,7 @@ class UserController extends Controller
         $artefacts=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
 
         $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
-        dd($photos);
+        dd($allMemories);
     }
 
 
@@ -639,6 +669,62 @@ class UserController extends Controller
     }
     /*
      * END OF DELETE API
+     */
+
+    /*
+     * FRIENDSHIP API
+     */
+
+    public function postSendFriendRequest(Request $request)
+    {
+        $sendingUser=Auth::user();
+        $receivingUser=User::where('username','=',$request['username'])->first();
+
+        if (!$receivingUser)
+        {
+            //did not find the user with username
+        }
+
+        $sendingUser->sendFriendRequestTo($receivingUser);
+
+        return redirect()->route('profile');
+
+    }
+
+    public function postAcceptFriendRequest(Request $request)
+    {
+        $sendingUser=User::where('username','=',$request['username'])->first();
+
+        $receivingUser=Auth::user();
+        $receivingUser->acceptFriendRequestFrom($sendingUser);
+
+        return redirect()->route('profile');
+    }
+
+    public function postDenyFriendRequest(Request $request)
+    {
+        $sendingUser=User::where('username','=',$request['username'])->first();
+
+        $receivingUser=Auth::user();
+        $receivingUser->denyFriendRequestFrom($sendingUser);
+
+        return redirect()->route('profile');
+
+    }
+
+    public function postRemoveFriend(Request $request)
+    {
+        $selectedUser=User::where('username','=',$request['username'])->first();
+
+        $loggedUser=Auth::user();
+        $loggedUser->deleteFriend($selectedUser);
+
+        return redirect()->route('profile');
+
+    }
+
+    /*
+     * END OF FRIENDSHIP API
      */
 
 

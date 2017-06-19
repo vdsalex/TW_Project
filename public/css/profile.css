@@ -99,7 +99,8 @@ div.modal > form.container
 #dgTitle1,
 #dgTitle2,
 #dgTitle3,
-#dgTitle4
+#dgTitle4,
+#dgTitle5
 {
     font-family: "Comic Sans MS", sans-serif;
     font-size: 14pt;
@@ -116,7 +117,8 @@ div.modal > form.container
 #dgTitle1 > span,
 #dgTitle2 > span,
 #dgTitle3 > span,
-#dgTitle4 > span
+#dgTitle4 > span,
+#dgTitle5 > span
 {
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -127,7 +129,8 @@ div.modal > form.container
 #dgContainer1,
 #dgContainer2,
 #dgContainer3,
-#dgContainer4
+#dgContainer4,
+#dgContainer5
 {
     text-align: center;
 
@@ -465,6 +468,7 @@ h2 span
     height: 530px;
 }
 
+#friendsDiv,
 .relDegree
 {
     display: block;
@@ -473,9 +477,12 @@ h2 span
     width: 210px;
 
     margin-left: 80px;
+    margin-top: 10px;
 }
 
-.relDegree .member
+#friendsDiv .member,
+.relDegree .member,
+.relDegree .friendUnconfirmed
 {
     position: absolute;
 }
@@ -506,22 +513,18 @@ h2 span
     background-color: rgba(255,255,255, 0.2);
 }
 
-.relDegree
-{
-    margin-top: 10px;
-}
-
 .relDegree:first-of-type
 {
     margin-top: 80px !important;
 }
 
-.relDegree:last-of-type
+#friendsDiv
 {
-    margin-top: 40px !important;
+    margin-top: 55px !important;
     padding-left: 29px;
 }
 
+#friendsDiv span:first-child,
 .relDegree span:first-child
 {
     position: relative;
@@ -539,27 +542,18 @@ h2 span
     font-weight: bold;
 }
 
-.relDegree button:hover
-{
-    background-color: #2d2d2d;
-    color: white;
-
-    box-shadow: 0 0 8px black;
-}
-
-.relDegree button:focus,
-.relDegree button:active:focus
-{
-    background-color: #2d2d2d;
-    color: white;
-}
-
 .membersPhoto
 {
     width: 70px;
     height: 70px;
 
     background-color: rgba(0, 23, 255, 0.35);
+}
+
+.friendsPhoto
+{
+    width: 70px;
+    height: 70px;
 }
 
 .member
@@ -570,6 +564,42 @@ h2 span
     background-color: rgba(0, 23, 255, 0.35);
 }
 
+.friendUnconfirmed
+{
+    width: 290px;
+    height: 70px;
+
+    position: absolute;
+    top: 720px;
+    /*left: 270px !important;*/
+
+    background-color: rgba(81, 81, 81, 0.73);
+}
+
+.friendAccepted
+{
+    width: 290px;
+    height: 70px;
+
+    position: absolute;
+    top: 535px;
+
+    background-color: rgba(0, 23, 255, 0.35);
+}
+
+.friendAccepted img
+{
+    float: left;
+    background-color: rgba(0, 23, 255, 0.25);
+}
+
+.friendUnconfirmed .memName
+{
+    color: #bdbdbd;
+}
+
+.friendAccepted:hover,
+.friendUnconfirmed:hover,
 .member:hover
 {
     cursor: pointer;
@@ -582,6 +612,13 @@ h2 span
     float: left;
     background-color: rgba(0, 23, 255, 0.25);
 }
+
+.friendUnconfirmed img
+{
+    float: left;
+    background-color: rgba(37, 37, 37, 0.45);
+}
+
 
 .lived, .memName
 {
@@ -629,7 +666,6 @@ span.pencilIcon:hover
 
 span.removeIcon
 {
-
     border-style: solid !important;
     border-width: 1px !important;
     border-radius: 15px !important;
@@ -652,4 +688,147 @@ span.removeIcon:hover
 
     background-color: #191919;
     color: #9b352b;
+}
+
+#requestsSentDiv,
+#requestsReceivedDiv
+{
+    height: 70px;
+    width: 240px !important;
+
+    margin-left: 96px;
+    padding-top: 23px;
+
+    margin-bottom: 30px;
+}
+
+#requestsSentDiv span,
+#requestsReceivedDiv span
+{
+    font-family: "Courier New", Courier, monospace;
+    color: #2d2d2d;
+    font-size: 14pt;
+    font-weight: bold;
+}
+
+.request
+{
+    height: 70px;
+    width: 410px;
+
+    position: absolute;
+
+    top: 620px;
+
+    background-color: rgba(0, 119, 118, 0.66);
+
+    margin-right: 10px;
+}
+
+.request:first-of-type
+{
+    left: 310px;
+}
+
+.request:nth-of-type(2)
+{
+    left: 730px;
+}
+
+.requesterPhoto
+{
+    width: 70px;
+    height: 70px;
+
+    float: left;
+}
+
+div.requestDiv
+{
+    display: table;
+    width: 340px;
+
+    text-align: center;
+}
+
+div.requestDiv p
+{
+    display: inline;
+}
+
+p.requesterName
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 11pt;
+}
+
+p.requestMessage
+{
+    font-family: "Courier New", Courier, monospace;
+    font-size: 11pt;
+}
+
+div.responseBtns
+{
+    display: table;
+
+    height: 40px;
+    width: 340px;
+
+    padding-top: 6px;
+
+    text-align: center;
+
+    margin-top: 4px;
+}
+
+div.responseBtns button
+{
+    margin: 0 5px;
+
+    border-radius: 0 !important;
+
+    font-family: "Courier New", Courier, monospace;
+
+    height: 27px;
+
+    padding-top: 2px !important;
+}
+
+div.responseBtns button:first-child:hover
+{
+    background-color: darkgreen;
+    color: white;
+}
+
+div.responseBtns button:last-child:hover
+{
+    background-color: darkred;
+    color: white;
+}
+
+#plusSpan5
+{
+    display: inline-block !important;
+
+    float: right !important;
+
+    width: 70px;
+    height: 70px;
+
+    text-align: center !important;
+
+    position: relative;
+    top: -23px !important;
+
+    padding-top: 20px !important;
+
+    font-size: 20pt !important;
+}
+
+#plusSpan5:hover
+{
+    cursor: pointer;
+
+    background-color: rgba(255,255,255, 0.2);
 }

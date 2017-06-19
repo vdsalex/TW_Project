@@ -36,3 +36,12 @@ function openCol(evt, colName) {
     document.getElementById(colName).style.display = "block";
     evt.currentTarget.className += " active";
 }
+
+function hideF(btn)
+{
+    if(btn.nextElementSibling.style.display === "none")
+    {
+        btn.nextElementSibling.style.display = "block";
+    }
+    else btn.nextElementSibling.style.display = "none";
+}
