@@ -24,7 +24,9 @@ class UserController extends Controller
 
     public function getHome()
     {
+        if (Auth::user()->username)
         return view('pages/home',['user'=> Auth::user()]);
+        else return $this->getMyMemories();
     }
 
     public function getLogin()
@@ -179,6 +181,20 @@ class UserController extends Controller
         if (Storage::disk('local')->has($username . '-'.$userId.'\\'.'profile.jpg'))
         {
             $file=Storage::disk('local')->get($username . '-'.$userId.'\\'.'profile.jpg');
+            return Response($file, 200);
+        }
+        else
+        {
+            $file=Storage::disk('local')->get('default_profile_img.jpg');
+            return Response($file, 200);
+        }
+    }
+
+    public function getUserImageNoUsername($userId)
+    {
+        if (Storage::disk('local')->has('-'.$userId.'\\'.'profile.jpg'))
+        {
+            $file=Storage::disk('local')->get('-'.$userId.'\\'.'profile.jpg');
             return Response($file, 200);
         }
         else
@@ -686,16 +702,24 @@ class UserController extends Controller
     public function postSendFriendRequest(Request $request)
     {
         $sendingUser=Auth::user();
+
+        if (!$sendingUser->username)
+        {
+            $message='You must setup a username in order to make friends.';
+            return redirect()->route('profile')->with(['message' => $message]);
+        }
+
         $receivingUser=User::where('username','=',$request['username'])->first();
-        $message = 'Request error!';
+
         if (!$receivingUser)
         {
-            //did not find the user with username
-            //change message to something else - optional
+           $message='Username does not exist!';
+            return redirect()->route('profile')->with(['message' => $message]);
         }
 
         if($sendingUser->sendFriendRequestTo($receivingUser))
             $message = 'Request sent!';
+        else $message='Request error!';
 
         return redirect()->route('profile')->with(['message' => $message]);
 

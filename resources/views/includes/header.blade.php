@@ -70,11 +70,7 @@
 
     <div id="myModal" class="modal">
         <span class="close">×</span>
-		@if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
         <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
-		@else
-			<img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
-		@endif
         <div id="caption"></div>
     </div>
 </body>

@@ -30,7 +30,7 @@
     </div>
 
 </div>
-{!! Html::script('js/my_memories.js') !!}
+{!! Html::script('my_memories_ajax.jsax.js') !!}
 
 </body>
 </html>

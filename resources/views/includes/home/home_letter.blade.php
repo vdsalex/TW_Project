@@ -5,10 +5,7 @@
                 <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a letter.</p>
-            <form action="{{route('delete.letter',['id'=>$entry['id']])}}" method="post">
-                <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
-                <input type="hidden" name="_token" value="{{Session::token()}}">
-            </form>
+
         </div>
         <object data="{{route('user.letter',$entry['id'])}}" type="text/plain"  class="let">
             <a href="{{route('user.letter',$entry['id'])}}"></a>

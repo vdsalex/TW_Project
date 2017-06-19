@@ -116,6 +116,11 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'account.image'
     ]);
 
+    Route::get('userimage/{userId}',[
+        'uses' => 'UserController@getUserImageNoUsername',
+        'as' => 'account.image'
+    ]);
+
     //
     // UPLOAD
     //
