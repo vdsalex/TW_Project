@@ -118,12 +118,14 @@ class UserController extends Controller
 
         $remember=$request->has('rememberMeCBox');
 
+        $message = 'Username or password is wrong!';
+
         if (Auth::attempt(['username'=>$request['username'],'password'=>$request['password']],$remember))
         {
             return redirect()->route('home');
         }
         else
-            return redirect()->back();
+            return redirect()->back()->with(['message' => $message]);
     }
 
     public function getLogout()
