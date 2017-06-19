@@ -15,18 +15,7 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
-        @if (count($errors)>0)
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 erori">
-                    <ul>
-                        @foreach($errors->all() as $error)
-                            <li class="text-danger">{{$error}}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        @endif
-
+        @include ('includes.errors_success')
         <div class="changes" id="changes1">
             <div class="caption" id="caption1">
                 <p><span class="border">YOU CAN CHOOSE</span></p>
@@ -88,9 +77,9 @@
                 <section class="row new-post">
                     <div class="col-md-6 col-md-offset-3">
                         @if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
-                            <img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" alt="Profile image" class="img-responsive">
+                            <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" alt="Profile image" class="img-responsive">
                         @else
-                            <img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" alt="Profile image" class="img-responsive">
+                            <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" alt="Profile image" class="img-responsive">
                         @endif
                     </div>
                 </section>

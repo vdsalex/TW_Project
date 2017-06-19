@@ -14,30 +14,47 @@
 
     <div class="container" id="h1AndBtns">
         <h2>Your Relatives<span class="glyphicon glyphicon-leaf"></span></h2>
-        <div class="relDegree">
+        <div class="relDegree" id="1DegreeDiv">
             <span id="1stDegree">1st Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan1"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="2DegreeDiv">
             <span id="2ndDegree">2nd Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan2"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="3DegreeDiv">
             <span id="3rdDegree">3rd Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan3"></span>
         </div>
-        <div class="relDegree">
+        <div class="relDegree" id="4DegreeDiv">
             <span id="4thDegree">4th Degree:</span>
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan4"></span>
         </div>
-        <div class="relDegree">
+        <div id="friendsDiv">
+
             <span id="5Friends">Friends:</span>
-            <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan5"></span>
+
         </div>
+        @include ('includes.profile_friend_accepted')
     </div>
 
+    <div id="requestsReceivedDiv">
+
+        <span id="requestsReceivedSpan">Requests Received: </span>
+        @include ('includes.profile_request_received')
+
+    </div>
+
+
+    <div id="requestsSentDiv">
+        <span id="requestsSentSpan">Requests Sent:</span>
+        <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(document.getElementById('friendsDiv').lastElementChild)" id="plusSpan5"></span>
+
+    </div>
+    @include ('includes.profile_friend_unconfirmed')
+
     <div class="modal" id="modal1">
-        <form class="container" id="memOptionsContent1" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent1" >
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -81,7 +98,7 @@
     </div>
 
     <div class="modal" id="modal2">
-        <form class="container" id="memOptionsContent2" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent2" onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -127,7 +144,7 @@
     </div>
 
     <div class="modal" id="modal3">
-        <form class="container" id="memOptionsContent3" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent3" onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -175,7 +192,7 @@
     </div>
 
     <div class="modal" id="modal4">
-        <form class="container" id="memOptionsContent4"  onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent4"  onsubmit="createMember(this.lastElementChild.firstElementChild)">
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -225,36 +242,37 @@
     </div>
 
     <div class="modal" id="modal5">
-        <form class="container" id="memOptionsContent5" onsubmit="return createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent5" onsubmit="createMember(this.lastElementChild.firstElementChild)"
+            action="{{route('friend.send')}}" method="post">
             <div class="modal-header">
-                <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
+                <span>ADD A NEW FRIEND</span>
             </div>
             <div class="container" id="dgTitle5">
-                <span>Relative Type</span>
+                <span>Gender</span>
             </div>
             <div class="container" id="dgContainer5">
-                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Male" aria-label="Male" onclick="displayDefaultPhotoAndSetMaxLength(this)" checked> Male &nbsp</label>
-                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Female" aria-label="Female" onclick="displayDefaultPhotoAndSetMaxLength(this)"> Female &nbsp</label><br>
+                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Male" aria-label="Male" checked> Male &nbsp</label>
+                <label class="radio-inline"><input name="5DgOpts" type="radio" value="Female" aria-label="Female"> Female &nbsp</label>
             </div>
             <div class="container" id="nameTitle5">
                 <span>Username</span>
             </div>
             <div class="container" id="nameContainer5">
-                <label><input type="text" id="nameTextfield5" maxlength="" required></label>
-            </div>
-            <div class="container" id="photoTitle5">
-                <span>Photo</span>
-            </div>
-            <div class="container" id="photoMainContainer5">
-                <label id="photoBtn5" class="btn btn-default btn-file">Choose Photo<input type="file" id="photoInput5" style="display: none;"></label>
-                <div class="container" id="photoContainer5">
-                    <img src="" alt="Member Photo" class="membersPhoto" id="photoImg5">
-                </div>
+                <label><input type="text" name="username" id="nameTextfield5" maxlength="100" required></label>
             </div>
             <div class="container" id="btnsContainer5">
-                <button type="submit" class="btn btn-default">Confirm</button>
+                <button type="submit" class="btn btn-default">Send Request</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
+            <input type="hidden" value="{{ Session::token() }}" name="_token">
+        </form>
+    </div>
+
+    <div class="modal" id="modal6">
+        <form class="container">
+            <span>Are you sure you want to remove this member?</span><br>
+            <button type="submit" class="btn btn-default" id="yesBtn" onclick="return removeMember(this.parentElement.parentElement)">Yes</button>
+            <button type="submit" class="btn btn-default" id="noBtn" onclick="return closeModal(this.parentElement.parentElement)">No</button>
         </form>
     </div>
 
