@@ -18,9 +18,7 @@
         @include ('includes.errors_success')
         <div class="changes" id="changes1">
             <div class="caption" id="caption1">
-                <p><span class="border">YOU CAN CHOOSE</span></p>
-                <p><span class="border">TO CHANGE YOUR PROFILE SETTINGS</span></p>
-
+                <p><span class="border">CHANGE PROFILE SETTINGS</span></p>
             </div>
         </div>
         <br>
