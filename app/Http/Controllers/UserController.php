@@ -687,47 +687,52 @@ class UserController extends Controller
     {
         $sendingUser=Auth::user();
         $receivingUser=User::where('username','=',$request['username'])->first();
-
+        $message = 'Request error!';
         if (!$receivingUser)
         {
             //did not find the user with username
+            //change message to something else - optional
         }
 
-        $sendingUser->sendFriendRequestTo($receivingUser);
+        if($sendingUser->sendFriendRequestTo($receivingUser))
+            $message = 'Request sent!';
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with(['message' => $message]);
 
     }
 
     public function postAcceptFriendRequest(Request $request)
     {
         $sendingUser=User::where('username','=',$request['username'])->first();
-
+        $message = 'Something went wrong...';
         $receivingUser=Auth::user();
-        $receivingUser->acceptFriendRequestFrom($sendingUser);
+        if($receivingUser->acceptFriendRequestFrom($sendingUser))
+            $message = 'Request accepted!';
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with(['message' => $message]);
     }
 
     public function postDenyFriendRequest(Request $request)
     {
         $sendingUser=User::where('username','=',$request['username'])->first();
-
+        $message = 'Something went wrong...';
         $receivingUser=Auth::user();
-        $receivingUser->denyFriendRequestFrom($sendingUser);
+        if($receivingUser->denyFriendRequestFrom($sendingUser))
+            $message = 'Request denied!';
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with(['message' => $message]);
 
     }
 
     public function postRemoveFriend(Request $request)
     {
         $selectedUser=User::where('username','=',$request['username'])->first();
-
+        $message = 'Something went wrong...';
         $loggedUser=Auth::user();
-        $loggedUser->deleteFriend($selectedUser);
+        if($loggedUser->deleteFriend($selectedUser))
+            $message = 'Unfriended!';
 
-        return redirect()->route('profile');
+        return redirect()->route('profile')->with(['message' => $message]);
 
     }
 

@@ -11,7 +11,7 @@
     <img id="bg-img" src="content/blue-gradient.png" alt="Blue Gradient">
 
     @include ('includes.header')
-
+    <br><br><br><br>@include ('includes.errors_success')
     <div class="container" id="h1AndBtns">
         <h2>Your Relatives<span class="glyphicon glyphicon-leaf"></span></h2>
         <div class="relDegree" id="1DegreeDiv">
