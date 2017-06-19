@@ -26,15 +26,14 @@
 						<li role="separator" class="divider"></li>
 						<li><a href="{{route('memories')}}">MY MEMORIES</a></li>
 						<li role="separator" class="divider"></li>
-						<li><a href="{{route('search')}}">ADVANCED SEARCH</a></li>
+						<li><a href="{{route('advanced.search')}}">ADVANCED SEARCH</a></li>
 						<li role="separator" class="divider"></li>
 						<li>
 							<form class="input-group" action="{{route('simple.search')}}" method="post">
-								<input spellcheck="false" name="search_text" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
+								<input spellcheck="false" name="text" type="text" id="searchDropdwn" class="form-control" placeholder="Search for..">
 								<button class="btn btn-default" type="submit">
 									<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 								</button>
-								<input type="hidden" name="_token" value="{{Session::token()}}">
 								</form>
 							</form>
 						</li>
@@ -44,14 +43,14 @@
 					<li><a href={{route('upload')}} id="uploadText">UPLOAD</a></li>
 					<li><a href={{route('memories')}} id="MyMemText">MY MEMORIES</a></li>
 					<li>
-						<form class="input-group">
-							<input spellcheck="false" type="text" id="search" class="form-control" placeholder="Search for..">
+						<form class="input-group" action="{{route('simple.search')}}" method="get">
+							<input spellcheck="false" type="text" id="search" name="text" class="form-control" placeholder="Search for..">
 							<button class="btn btn-default" type="submit">
 								<span class="glyphicon glyphicon-search form-control-feedback" aria-hidden="true"></span>
 							</button>
 						</form>
 					</li>
-					<li><a href={{route('search')}} id="advSearchText">ADVANCED SEARCH</a></li>
+					<li><a href={{route('advanced.search')}} id="advSearchText">ADVANCED SEARCH</a></li>
 				</ul>
 			</div>
 			<form class="navbar-form navbar-right">

@@ -15,6 +15,7 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -840,17 +841,94 @@ class UserController extends Controller
      *  SEARCH API
      */
 
-    public function postSimpleSearchResults($search_text)
+    public function getSimpleSearchResults()
     {
-        $photos=Photo::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
-        $videos=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
-        $letters=Letter::where('user_id','=',Auth::user()->id) ->where('sender','LIKE','%'.$search_text.'%') ->orWhere('receiver','LIKE','%'.$search_text.'%')
-            ->orWhere('message','LIKE','%'.$search_text.'%')->get();
-        $documents=Video::where('user_id','=',Auth::user()->id) ->where('name','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
-        $artefacts=Video::where('user_id','=',Auth::user()->id) ->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
+        return view('pages/search_results',['user'=> Auth::user(),'text'=>Input::get('text')]);
+    }
+    public function getSearchContent($search_text)
+    {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $contentCollection=new Collection();
 
-        $allMemories=$photos->merge($videos)->merge($letters)->merge($documents)->merge($artefacts);
-        dd($allMemories);
+        //get user friends id's
+        $friends=Auth::user()->friends();
+        $friendsIds=array();
+        foreach ($friends as $friend)
+            array_push($friendsIds,$friend['id']);
+
+        // also include user's id
+        array_push($friendsIds,Auth::user()->id);
+
+        $photos=Photo::whereIn('user_id',$friendsIds)->where('description','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+
+        //get first_name, last_name and username for each memory
+        foreach ($photos as $photo)
+        {
+            $photoUser=User:: where('id',$photo['user_id'])->first();
+            $userInfo=collect(['username'=>$photoUser->username, 'first_name'=>$photoUser->first_name,'last_name'=>$photoUser->last_name,'memory_type'=>'photo']);
+            $photoWithUser=$userInfo->merge($photo);
+
+            $contentCollection->push($photoWithUser);
+        }
+
+        $videos=Video::whereIn('user_id',$friendsIds)->where('description','LIKE','%'.$search_text.'%') ->orWhere('title','LIKE','%'.$search_text.'%')->get();
+
+        foreach ($videos as $video)
+        {
+            $videoUser=User:: where('id',$video['user_id'])->first();
+            $userInfo=collect(['username'=>$videoUser->username, 'first_name'=>$videoUser->first_name,'last_name'=>$videoUser->last_name,'memory_type'=>'video']);
+            $videoWithUser=$userInfo->merge($video);
+
+            $contentCollection->push($videoWithUser);
+        }
+
+        $letters=Letter::whereIn('user_id',$friendsIds)->where('sender','LIKE','%'.$search_text.'%') ->orWhere('receiver','LIKE','%'.$search_text.'%')
+                ->orWhere('message','LIKE','%'.$search_text.'%')->get();
+
+        foreach ($letters as $letter)
+        {
+            $letterUser=User:: where('id',$letter['user_id'])->first();
+            $userInfo=collect(['username'=>$letterUser->username, 'first_name'=>$letterUser->first_name,'last_name'=>$letterUser->last_name,'memory_type'=>'letter']);
+            $letterWithUser=$userInfo->merge($letter);
+
+            $contentCollection->push($letterWithUser);
+        }
+
+        $documents=Document::whereIn('user_id',$friendsIds)->where('name','LIKE','%'.$search_text.'%') ->orWhere('location','LIKE','%'.$search_text.'%')->get();
+
+        foreach ($documents as $document)
+        {
+            $documentUser=User:: where('id',$document['user_id'])->first();
+            $userInfo=collect(['username'=>$documentUser->username, 'first_name'=>$documentUser->first_name,'last_name'=>$documentUser->last_name,'memory_type'=>'document']);
+            $documentWithUser=$userInfo->merge($document);
+
+            $contentCollection->push($documentWithUser);
+        }
+
+        $artefacts=Artefact::whereIn('user_id',$friendsIds)->where('description','LIKE','%'.$search_text.'%') ->orWhere('name','LIKE','%'.$search_text.'%')->get();
+
+        foreach ($artefacts as $artefact)
+        {
+            $artefactUser=User:: where('id',$artefact['user_id'])->first();
+            $userInfo=collect(['username'=>$artefactUser->username, 'first_name'=>$artefactUser->first_name,'last_name'=>$artefactUser->last_name,'memory_type'=>'artefact']);
+            $artefactWithUser=$userInfo->merge($artefact);
+
+            $contentCollection->push($artefactWithUser);
+        }
+
+        $sortedMemories=$contentCollection->sortByDesc(function($memory, $key)
+        {
+            return $memory['updated_at'];
+        });
+
+        $perPage = 6;
+
+        $currentPageSearchResults = $sortedMemories->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+        $entries = new LengthAwarePaginator($currentPageSearchResults, count($sortedMemories), $perPage);
+
+        $view = view('layouts/home_content', compact('entries'))->render();
+        return response()->json(['html' => $view]);
     }
 
     /*

@@ -27,6 +27,5 @@
                 <p>Receiving date: {{$entry['receive_date']}}</p>
             </div>
         </div>
-
     </div>
 @endforeach
