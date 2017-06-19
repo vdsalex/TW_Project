@@ -66,7 +66,7 @@
                     <span id="documentOptionsSpanEmissionLocation" class="documentOptionsSpan">Emission Location: &nbsp</span>
                     <label id="documentOptionsLabelEmissionLocation" class="documentOptionsLabel"><input name="documentsEmissionLocation" type="text"></label><br>
                     <span id="documentOptionsSpanEmissionDate" class="documentOptionsSpan">Emission Date: &nbsp</span>
-                    <label id="documentOptionsLabelEmissionDate" class="documentOptionsLabel"><input name="documentsEmissionDate" type="text"></label>
+                    <label id="documentOptionsLabelEmissionDate" class="documentOptionsLabel"><input name="documentsEmissionDate" type="date"></label>
                 </div>
                 <div id="artifactOptions">
                     <span id="artifactOptionsSpanName" class="artifactOptionsSpan">Name: &nbsp</span>
