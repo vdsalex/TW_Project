@@ -694,7 +694,7 @@ span.removeIcon:hover
 #requestsReceivedDiv
 {
     height: 70px;
-    width: 240px !important;
+    width: 240px;
 
     margin-left: 96px;
     padding-top: 23px;

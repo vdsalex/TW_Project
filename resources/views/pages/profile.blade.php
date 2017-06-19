@@ -49,7 +49,6 @@
     <div id="requestsSentDiv">
         <span id="requestsSentSpan">Requests Sent:</span>
         <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(document.getElementById('friendsDiv').lastElementChild)" id="plusSpan5"></span>
-
     </div>
     @include ('includes.profile_friend_unconfirmed')
 
@@ -271,8 +270,8 @@
     <div class="modal" id="modal6">
         <form class="container">
             <span>Are you sure you want to remove this member?</span><br>
-            <button type="submit" class="btn btn-default" id="yesBtn" onclick="return removeMember(this.parentElement.parentElement)">Yes</button>
-            <button type="submit" class="btn btn-default" id="noBtn" onclick="return closeModal(this.parentElement.parentElement)">No</button>
+            <button type="submit" class="btn btn-default" id="yesBtn" onclick="removeMember(this.parentElement.parentElement)">Yes</button>
+            <button role="button" class="btn btn-default" id="noBtn" onclick="return closeModal(this.parentElement.parentElement)">No</button>
         </form>
     </div>
 
@@ -280,3 +279,5 @@
 </html>
 
 {!! Html::script('js/profile.js') !!}
+{!! Html::script('js/profile_arrange_friendAccepted.js') !!}
+{!! Html::script('js/profile_arrange_requestsReceived.js') !!}
