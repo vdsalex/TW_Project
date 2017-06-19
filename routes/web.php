@@ -111,7 +111,7 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'account.save'
     ]);
 
-    Route::get('userimage/{filename}',[
+    Route::get('userimage/{userId}/{username}',[
         'uses' => 'UserController@getUserImage',
         'as' => 'account.image'
     ]);
@@ -233,5 +233,42 @@ Route::group(['middleware'=> ['web']],function(){
         'as' => 'delete.artefact',
         'middleware' => 'auth'
     ]);
+
+    /*
+     * END OF DELETE USER MEMORIES
+     */
+
+    /*
+     * FRIENDSHIP ROUTES
+     */
+
+    Route::post('friend/request/send',[
+        'uses'=> 'UserController@postSendFriendRequest',
+        'as' => 'friend.send',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('friend/request/accept',[
+        'uses'=> 'UserController@postAcceptFriendRequest',
+        'as' => 'friend.accept',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('friend/request/deny',[
+        'uses'=> 'UserController@postDenyFriendRequest',
+        'as' => 'friend.deny',
+        'middleware' => 'auth'
+    ]);
+
+    Route::post('friend/remove',[
+        'uses'=> 'UserController@postRemoveFriend',
+        'as' => 'friend.remove',
+        'middleware' => 'auth'
+    ]);
+
+    /*
+     * END OF FRIENDSHIP ROUTES
+     */
+
 });
 

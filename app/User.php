@@ -2,12 +2,14 @@
 
 namespace App;
 
+use Arubacao\Friends\Traits\Friendable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model implements Authenticatable
 {
     use \Illuminate\Auth\Authenticatable;
+    use Friendable;
 
     protected $fillable = ['username','password','first_name','last_name','email','address','gender'];
 

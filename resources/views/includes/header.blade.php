@@ -55,11 +55,8 @@
 				</ul>
 			</div>
 			<form class="navbar-form navbar-right">
-				@if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
-					<img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" alt="Profile image" id="pf-photo">
-				@else
-					<img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" alt="Profile image" id="pf-photo">
-				@endif
+
+				<img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" alt="Profile image" id="pf-photo">
 
 				<span>
 					Welcome, <a href={{route('profile')}}>{{$user->first_name}}</a>
@@ -74,9 +71,9 @@
     <div id="myModal" class="modal">
         <span class="close">×</span>
 		@if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
-        <img src="{{ route('account.image', ['filename' => $user->username . '-'.$user->id.'\\'.'profile.jpg']) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
+        <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
 		@else
-			<img src="{{ route('account.image', ['filename' => 'default_profile_img.jpg']) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
+			<img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
 		@endif
         <div id="caption"></div>
     </div>

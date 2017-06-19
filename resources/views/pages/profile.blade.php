@@ -31,21 +31,30 @@
             <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(this)" id="plusSpan4"></span>
         </div>
         <div id="friendsDiv">
+
             <span id="5Friends">Friends:</span>
+
         </div>
+        @include ('includes.profile_friend_accepted')
     </div>
 
     <div id="requestsReceivedDiv">
-        <span id="requestsReceivedSpan">Requests Received:</span>
+
+        <span id="requestsReceivedSpan">Requests Received: </span>
+        @include ('includes.profile_request_received')
+
     </div>
+
 
     <div id="requestsSentDiv">
         <span id="requestsSentSpan">Requests Sent:</span>
         <span class="glyphicon glyphicon-plus" onclick="displayModalWithOpts(document.getElementById('friendsDiv').lastElementChild)" id="plusSpan5"></span>
+
     </div>
+    @include ('includes.profile_friend_unconfirmed')
 
     <div class="modal" id="modal1">
-        <form class="container" id="memOptionsContent1" onsubmit="createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent1" >
             <div class="modal-header">
                 <span>SET THE PARAMETERS FOR THE NEW MEMBER</span>
             </div>
@@ -233,7 +242,8 @@
     </div>
 
     <div class="modal" id="modal5">
-        <form class="container" id="memOptionsContent5" onsubmit="createMember(this.lastElementChild.firstElementChild)">
+        <form class="container" id="memOptionsContent5" onsubmit="createMember(this.lastElementChild.firstElementChild)"
+            action="{{route('friend.send')}}" method="post">
             <div class="modal-header">
                 <span>ADD A NEW FRIEND</span>
             </div>
@@ -248,12 +258,13 @@
                 <span>Username</span>
             </div>
             <div class="container" id="nameContainer5">
-                <label><input type="text" id="nameTextfield5" maxlength="100" required></label>
+                <label><input type="text" name="username" id="nameTextfield5" maxlength="100" required></label>
             </div>
             <div class="container" id="btnsContainer5">
                 <button type="submit" class="btn btn-default">Send Request</button>
                 <span class="btn btn-default" onclick="closeModal(this.parentElement.parentElement.parentElement)">Cancel</span>
             </div>
+            <input type="hidden" value="{{ Session::token() }}" name="_token">
         </form>
     </div>
 

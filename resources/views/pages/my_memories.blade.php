@@ -9,12 +9,14 @@
 </head>
 <body>
 
-    <div class="bladeContainer"> 
-    
-    @include ('includes.header')
+    <div class="bladeContainer">
+
+        @include ('includes.header')
 
 	<img id="bg-img" src="content/blue-gradient.png" alt="Blue Gradient">
+
         @include ('includes.errors_success')
+
     <div id="categorySidenav" class="sidenav">
         <a href="#" id="all" onclick="displayContent(this)">All Memories</a>
         <a href="#" id="letter" onclick="displayContent(this)">Letters</a>
