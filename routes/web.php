@@ -80,9 +80,9 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
-    Route::get('/search',[
+    Route::get('/advanced_search',[
         'uses' => 'UserController@getAdvancedSearch',
-        'as' => 'search',
+        'as' => 'advanced.search',
         'middleware' => 'auth'
     ]);
 
@@ -113,6 +113,11 @@ Route::group(['middleware'=> ['web']],function(){
 
     Route::get('userimage/{userId}/{username}',[
         'uses' => 'UserController@getUserImage',
+        'as' => 'account.image'
+    ]);
+
+    Route::get('userimage/{userId}',[
+        'uses' => 'UserController@getUserImageNoUsername',
         'as' => 'account.image'
     ]);
 
@@ -194,11 +199,18 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
-    Route::post('search/results',[
-        'uses' => 'UserController@postSimpleSearchResults',
+    Route::get('search/',[
+        'uses' => 'UserController@getSimpleSearchResults',
         'as' => 'simple.search',
         'middleware' => 'auth'
     ]);
+
+    Route::get('getSearchContent/{search_text}',[
+        'uses'=> 'UserController@getSearchContent',
+        'as' => 'get.content',
+        'middleware' => 'auth'
+    ]);
+
 
     /*
      * DELETE USER MEMORIES
