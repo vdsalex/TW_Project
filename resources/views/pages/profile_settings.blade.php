@@ -77,9 +77,9 @@
                 <section class="row new-post">
                     <div class="col-md-6 col-md-offset-3">
                         @if (Storage::disk('local')->has($user->username . '-'.$user->id.'\\'.'profile.jpg'))
-                            <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" alt="Profile image" class="img-responsive">
+                            <img src="{{ url('userimage/' . $user->id . '/'. $user->username) }}" alt="Profile image" class="img-responsive">
                         @else
-                            <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" alt="Profile image" class="img-responsive">
+                            <img src="{{ url('userimage/' . $user->id . '/'. $user->username) }}" alt="Profile image" class="img-responsive">
                         @endif
                     </div>
                 </section>

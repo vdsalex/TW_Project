@@ -55,7 +55,7 @@
 			</div>
 			<form class="navbar-form navbar-right">
 
-				<img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" alt="Profile image" id="pf-photo">
+				<img src="{{ url('userimage/' . $user->id . '/'. $user->username) }}" alt="Profile image" id="pf-photo">
 
 				<span>
 					Welcome, <a href={{route('profile')}}>{{$user->first_name}}</a>
@@ -69,7 +69,7 @@
 
     <div id="myModal" class="modal">
         <span class="close">×</span>
-        <img src="{{ route('account.image', ['userId'=>$user->id,'username'=>$user->username]) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
+        <img src="{{ url('userimage/' . $user->id . '/'. $user->username) }}" class="modal-content" id="pf-pht" alt="Profile Photo">
         <div id="caption"></div>
     </div>
 </body>

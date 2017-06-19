@@ -185,6 +185,7 @@ class UserController extends Controller
     {
         if (Storage::disk('local')->has($username . '-'.$userId.'\\'.'profile.jpg'))
         {
+
             $file=Storage::disk('local')->get($username . '-'.$userId.'\\'.'profile.jpg');
             return Response($file, 200);
         }
