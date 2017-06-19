@@ -523,7 +523,9 @@ class UserController extends Controller
 
     public function getUserVideo($video_id)
     {
-        $user=Auth::user();
+        $video=Video::where('id','=',$video_id)->get()->first();
+        $user=User::where('id','=',$video->user_id)->get()->first();
+
         $filename=$user->username . '-'.$user->id.'\\video\\'.$video_id. '.mp4';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
@@ -531,7 +533,9 @@ class UserController extends Controller
 
     public function getUserDocument($document_id)
     {
-        $user=Auth::user();
+        $document=Document::where('id','=',$document_id)->get()->first();
+        $user=User::where('id','=',$document->user_id)->get()->first();
+
         $filename=$user->username . '-'.$user->id.'\\document\\'.$document_id. '.doc';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
@@ -539,7 +543,9 @@ class UserController extends Controller
 
     public function getUserLetter($letter_id)
     {
-        $user=Auth::user();
+        $letter=Letter::where('id','=',$letter_id)->get()->first();
+        $user=User::where('id','=',$letter->user_id)->get()->first();
+
         $filename=$user->username . '-'.$user->id.'\\letter\\'.$letter_id. '.txt';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
@@ -547,7 +553,9 @@ class UserController extends Controller
     
     public function getUserArtefact($artefact_id)
     {
-        $user=Auth::user();
+        $artefact=Artefact::where('id','=',$artefact_id)->get()->first();
+        $user=User::where('id','=',$artefact->user_id)->get()->first();
+
         $filename=$user->username . '-'.$user->id.'\\artefact\\'.$artefact_id. '.jpg';
         $file=Storage::disk('local')->get($filename);
         return Response($file, 200);
@@ -726,6 +734,57 @@ class UserController extends Controller
     /*
      * END OF FRIENDSHIP API
      */
+
+    public function getAllHomeContent()
+    {
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $contentCollection=new Collection();
+
+        //get user friends id's
+        $friends=Auth::user()->friends();
+        $friendsIds=array();
+        foreach ($friends as $friend)
+            array_push($friendsIds,$friend['id']);
+
+        $photos=Photo::whereIn('user_id',$friendsIds)->get();
+        foreach ($photos as $photo)
+            $contentCollection->push($photo);
+
+        $videos=Video::whereIn('user_id',$friendsIds)->get();
+
+        foreach ($videos as $video)
+            $contentCollection->push($video);
+
+        $letters=Letter::whereIn('user_id',$friendsIds) ->get();
+
+        foreach ($letters as $letter)
+            $contentCollection->push($letter);
+
+        $documents=Document::whereIn('user_id',$friendsIds)->get();
+
+        foreach ($documents as $document)
+            $contentCollection->push($document);
+
+        $artefacts=Artefact::whereIn('user_id',$friendsIds)->get();
+
+        foreach ($artefacts as $artefact)
+            $contentCollection->push($artefact);
+
+        $sortedMemories=$contentCollection->sortByDesc(function($memory, $key)
+        {
+            return $memory['updated_at'];
+        });
+
+        $perPage = 10;
+
+        $currentPageSearchResults = $sortedMemories->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+        $entries = new LengthAwarePaginator($currentPageSearchResults, count($sortedMemories), $perPage);
+
+        $view = view('layouts/home_content', compact('entries'))->render();
+        return response()->json(['html' => $view]);
+
+    }
 
 
 }

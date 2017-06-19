@@ -270,5 +270,11 @@ Route::group(['middleware'=> ['web']],function(){
      * END OF FRIENDSHIP ROUTES
      */
 
+    Route::get('getHomeContent',[
+        'uses'=> 'UserController@getAllHomeContent',
+        'as' => 'get.content',
+        'middleware' => 'auth'
+    ]);
+
 });
 
