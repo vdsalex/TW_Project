@@ -14,7 +14,9 @@
 
     <div class="container" id="mainContainer">
     @include ('includes.header')
+
         @include('includes.errors_success')
+
         <p id="question">What do you want to upload?</p>
         <div class="tab">
             <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artefact</button>
@@ -23,6 +25,7 @@
             <button class="tablinks" onclick="openObject(event, 'Picture')">Picture</button>
             <button class="tablinks" onclick="openObject(event, 'Video')">Video</button>
         </div>
+
 
         <div id="Artefact" class="tabcontent">
             <h3>Artefact</h3>
@@ -62,7 +65,7 @@
                     Emission date:<br>
                     <input type="text" name="emission_date">
                     <br><br>
-                    <input type="file" name="document" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc">
+                    <input type="file" name="document" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc, .docx">
                     <br>
                     <input type="submit" value="Submit">
                     <input type="hidden" name="_token" value="{{Session::token()}}">

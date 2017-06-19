@@ -209,10 +209,12 @@ class UserController extends Controller
         $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.doc';
+
         if(Storage::disk('local')->put($filePath, File::get($request['document'])))
             $message = "Upload successful!";
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadArtefact(Request $request)
@@ -236,10 +238,12 @@ class UserController extends Controller
         $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$date]);
 
         $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . '.jpg';
+
         if(Storage::disk('local')->put($filePath, File::get($request['artefact'])))
             $message = "Upload successful!";
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadLetter(Request $request)
@@ -268,6 +272,7 @@ class UserController extends Controller
 
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadPhoto(Request $request)
@@ -296,6 +301,7 @@ class UserController extends Controller
 
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function postUploadVideo(Request $request)
@@ -324,6 +330,7 @@ class UserController extends Controller
 
         return redirect()->route('upload')->with(['message' => $message]);
         //SEND successfull message
+
     }
 
     public function getFacebookContent($currentPage)
