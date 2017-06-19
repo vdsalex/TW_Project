@@ -12,7 +12,7 @@
     <div class="bladeContainer"> 
     
     @include ('includes.header')
-<br><br><br><br> @include ('includes.errors_success')
+    <br><br><br><br> @include ('includes.errors_success')
 	<img id="bg-img" src="content/blue-gradient.png" alt="Blue Gradient">
 
     <div id="categorySidenav" class="sidenav">

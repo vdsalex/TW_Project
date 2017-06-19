@@ -501,7 +501,7 @@ class UserController extends Controller
         {
             return $this->getArtefactContent($currentPage);
         }
-        if ($content_type='facebook')
+        if ($content_type=='facebook')
         {
             return $this->getFacebookContent($currentPage);
         }

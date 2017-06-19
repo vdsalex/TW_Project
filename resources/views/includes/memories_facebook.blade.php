@@ -8,10 +8,9 @@
     <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="poster">
             <div class="profile-photo">
-                <a href=http://localhost:8000/profile><img src="content/fat-frumos.jpg" alt="Profile Photo" width=50" height="46" ></a>
+                <a href="{{route('profile')}}"><img src="{{route('account.image',['userId'=>Auth::user()->id,'username'=>Auth::user()->username])}}" alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p  align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a photo.</p>
-            <button class="btn btn-default deleteBtn">Delete This Memory</button>
+            <p  align="left"><a href={{route('profile')}}> &nbsp; You </a> added a photo.</p>
         </div>
         <form action="{{route('facebook.import',['URL'=>$entry['URL'],'name'=>$entry['name'],'location'=>$entry['location']])}}" method="post">
             <input type="submit" class="button" value="Import into account" style="background-color: #4CAF52;
@@ -23,9 +22,8 @@
         <div class="rightContainer">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p>Description: {{$entry['description']}}</p>
+                <p>Description: {{$entry['name']}}</p>
                 <p>Location: {{$entry['location']}}</p>
-                <p>Creation date: {{$entry['snap_date']}}</p>
             </div>
         </div>
     </div>
