@@ -927,10 +927,6 @@ input[type="text"], input[type="password"]
 {
 	align:center;
 	text-align:center;
-}
-
-.erori
-{
 	border: 1px solid red;
 	background-color: pink;
 	color:red;
@@ -940,11 +936,4 @@ input[type="text"], input[type="password"]
 	list-style:none;
 	padding:0;
 	margin:0;
-}
-
-.succesuri
-{
-	border: 1px solid green;
-	background-color:lawngreen;
-	color:green;
 }

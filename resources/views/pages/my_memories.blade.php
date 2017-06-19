@@ -1,11 +1,13 @@
 {!! Html::style('css/my_memories.css') !!}
 {!! Html::style('css/home.css') !!}
+{!! Html::script('js/my_memories_style.js') !!}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
 	
 	<title>DiLy</title>
+
 </head>
 <body>
 
@@ -49,8 +51,8 @@
         </div>
 
     </div>
-    {!! Html::script('js/my_memories.js') !!}
-    {!! Html::script('js/home.js') !!}
+    {!! Html::script('js/my_memories_ajax.js') !!}
+
 
 </body>
 </html>
