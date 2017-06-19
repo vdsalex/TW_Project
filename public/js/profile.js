@@ -185,9 +185,6 @@ function createMember(cBtn)
 {
     var newMember = document.createElement("DIV");
 
-    newMember.setAttribute("onmouseover", "displayEditAndRemove(this)");
-    newMember.setAttribute("onmouseout", "hideEditAndRemove(this)");
-
     var id = cBtn.parentElement.getAttribute("id");
     var index = id.substring(id.length - 1, id.length);
     var plusSpan = document.getElementById("plusSpan" + index);
@@ -216,6 +213,9 @@ function createMember(cBtn)
     }
     else
     {
+        newMember.setAttribute("onmouseover", "displayEditAndRemove(this)");
+        newMember.setAttribute("onmouseout", "hideEditAndRemove(this)");
+
         newMember.className = "member";
         plusSpan.parentElement.style.width = String(plusSpan.parentElement.offsetWidth + 350) + "px";
         photoSrc = document.getElementById("photoImg" + index).getAttribute("src");
@@ -366,61 +366,18 @@ function setInput1Max(input2)
     input1.setAttribute("max", input2.value);
 }
 
-function displayEditAndRemove(member)
-{
-    if(member.firstElementChild.tagName !== "SPAN")createEditAndRemove(member);
-    else
-    {
-        var removeSpan = member.firstElementChild;
-        var pencilSpan = removeSpan.nextElementSibling;
 
-        pencilSpan.style.display = "inline";
-        removeSpan.style.display = "inline";
-    }
+// FOR UNCONFIRMED FRIENDS AND ACCEPTED FRIENDS
+function displayRemove(btn)
+{
+    btn.setAttribute("style", "display: inline !important;");
 }
 
-function hideEditAndRemove(member)
+function hideRemove(btn)
 {
-    if(member.firstElementChild.tagName === "SPAN")
-    {
-        var removeSpan = member.firstElementChild;
-        var pencilSpan = removeSpan.nextElementSibling;
-
-        pencilSpan.style.display = "none";
-        removeSpan.style.display = "none";
-    }
+    btn.setAttribute("style", "display: none !important;");
 }
 
-function createEditAndRemove(member)
-{
-    var removeSpan = document.createElement("SPAN");
-
-    removeSpan.className = "glyphicon glyphicon-remove removeIcon";
-    removeSpan.setAttribute("onclick", "displayAreYouSure(this.parentElement)");
-    removeSpan.style.display = "inline";
-    removeSpan.style.position = "absolute";
-    removeSpan.style.right = "-10px";
-    removeSpan.style.top = "-15px";
-
-    var pencilSpan = document.createElement("SPAN");
-
-    pencilSpan.className = "glyphicon glyphicon-pencil pencilIcon";
-    pencilSpan.style.display = "inline";
-    pencilSpan.style.position = "absolute";
-    pencilSpan.style.right = "25px";
-    pencilSpan.style.top = "-15px";
-
-    member.insertBefore(pencilSpan, member.firstElementChild);
-    member.insertBefore(removeSpan, member.firstElementChild);
-}
-
-function displayAreYouSure(member)
-{
-    memberWantedToBeRemoved = member;
-
-    var modal = document.getElementById("modal6");
-    modal.style.display = "block";
-}
 
 function removeMember(modal)
 {
@@ -490,35 +447,14 @@ var requestsSent = document.getElementsByClassName("friendUnconfirmed");
 var i;
 var parentDiv = document.getElementById("requestsSentDiv");
 
-parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
-requestsSent[0].style.left = "270px";
-
-for(i = 1; i < requestsSent.length; i++)
+if(requestsSent.length !== 0)
 {
-    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
-    requestsSent[i].style.left = String(parseInt(requestsSent[i-1].style.left) + 300) + "px";
-}
+    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth) + 300) + "px";
+    requestsSent[0].style.left = "270px";
 
-parentDiv = document.getElementById("friendsDiv");
-var acceptedFriends = document.getElementsByClassName("friendAccepted");
-
-parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
-acceptedFriends[0].style.left = "240px";
-
-for(i = 1; i < requestsSent.length; i++)
-{
-    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 300)) + "px";
-    acceptedFriends[i].style.left = String(parseInt(acceptedFriends[i-1].style.left) + 300) + "px";
-}
-
-parentDiv = document.getElementById("requestsReceivedDiv");
-var requestsReceived = document.getElementsByClassName("request");
-
-parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 420)) + "px";
-requestsReceived[0].style.left = "310px";
-
-for(i = 1; i < requestsSent.length; i++)
-{
-    parentDiv.style.width = String(parseInt(parentDiv.offsetWidth + 420)) + "px";
-    requestsReceived[i].style.left = String(parseInt(requestsReceived[i-1].style.left) + 420) + "px";
+    for(i = 1; i < requestsSent.length; i++)
+    {
+        parentDiv.style.width = String(parseInt(parentDiv.style.width) + 300) + "px";
+        requestsSent[i].style.left = String(parseInt(requestsSent[i-1].style.left) + 300) + "px";
+    }
 }

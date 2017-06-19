@@ -664,25 +664,31 @@ span.pencilIcon:hover
     color: #9b8a30;
 }
 
-span.removeIcon
+button.removeIcon
 {
     border-style: solid !important;
     border-width: 1px !important;
     border-radius: 15px !important;
+    border-color: black;
 
     font-size: 14pt !important;
 
     width: 30px;
     height: 30px;
 
-    text-align: center;
-
-    padding-top: 5px;
+    padding-top: 1px;
+    padding-left: 5px !important;
 
     background-color: #7aaeff;
+
+    position: absolute !important;
+    top: -15px !important;
+    right: -5px;
+
+    display: none !important;
 }
 
-span.removeIcon:hover
+button.removeIcon:hover
 {
     cursor: pointer;
 
@@ -694,7 +700,7 @@ span.removeIcon:hover
 #requestsReceivedDiv
 {
     height: 70px;
-    width: 240px !important;
+    width: 240px;
 
     margin-left: 96px;
     padding-top: 23px;
@@ -768,18 +774,17 @@ p.requestMessage
     font-size: 11pt;
 }
 
-div.responseBtns
+.responseBtns
 {
-    display: table;
+    display: flex;
 
-    height: 40px;
+    height: 40px !important;
     width: 340px;
 
     padding-top: 6px;
-
-    text-align: center;
-
     margin-top: 4px;
+
+    padding-left: 80px;
 }
 
 div.responseBtns button
@@ -795,13 +800,13 @@ div.responseBtns button
     padding-top: 2px !important;
 }
 
-div.responseBtns button:first-child:hover
+div.responseBtns > form > button:last-child:hover
 {
     background-color: darkgreen;
     color: white;
 }
 
-div.responseBtns button:last-child:hover
+div.responseBtns >form > button:first-child:hover
 {
     background-color: darkred;
     color: white;
