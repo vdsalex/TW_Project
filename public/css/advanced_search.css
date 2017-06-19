@@ -32,8 +32,12 @@
 .formHeader
 {
     margin-bottom: 30px;
-
     text-align: center;
+
+    border-bottom-style: solid;
+    border-width: 2px;
+
+    padding-top: 20px;
 }
 
 .headerSpan
@@ -142,17 +146,25 @@
     display: inline-table;
 
     width: 40%;
+
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+
+    padding-bottom: 20px;
 }
 
 #firstForm
 {
-    height: 86%;
+    height: 87%;
 }
 
 #secondForm
 {
     margin-left: 222px;
     height: 100%;
+
+
 }
 
 #documentOptions,
