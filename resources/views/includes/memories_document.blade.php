@@ -4,7 +4,7 @@
             <div class="profile-photo">
                 <a href="{{route('profile')}}"><img src="{{route('account.image',['userId'=>Auth::user()->id,'username'=>Auth::user()->username])}}" alt="Profile Photo" width=50" height="46" ></a>
             </div>
-            <p align="left"><a href=http://localhost:8000/profile> &nbsp; FirstName LastName </a> added a document.</p>
+            <p align="left"><a href=http://localhost:8000/profile> &nbsp; You </a> added a document.</p>
             <form action="{{route('delete.document',['id'=>$entry['id']])}}" method="post">
                 <button type="submit" class="btn btn-default deleteBtn">Delete This Memory</button>
                 <input type="hidden" name="_token" value="{{Session::token()}}">
