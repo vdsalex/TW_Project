@@ -12,7 +12,7 @@
     <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="poster">
             <div class="profile-photo">
-                <a href="{{route('profile')}}"><img src="{{route('account.image',['userId'=>Auth::user()->id,'username'=>Auth::user()->username])}}" alt="Profile Photo" width=70" height="66" ></a>
+                <a href="{{route('profile')}}"><img src="{{  url('userimage/' . Auth::user()->id . '/'. Auth::user()->username) }}" alt="Profile Photo" width=70" height="66" ></a>
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; You </a> added an artefact.</p>
             <form action="{{route('delete.artefact',['id'=>$entry['id']])}}" method="post">

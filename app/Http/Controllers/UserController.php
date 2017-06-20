@@ -932,6 +932,11 @@ class UserController extends Controller
         return response()->json(['html' => $view]);
     }
 
+    public function postAdvancedSearch(Request $request)
+    {
+
+    }
+
     /*
      *  END OF SEARCH API
      */

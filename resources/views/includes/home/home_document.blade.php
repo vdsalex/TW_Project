@@ -2,7 +2,7 @@
     <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="poster">
             <div class="profile-photo">
-                <a href=http://localhost:8000/profile><img src="{{route('account.image',['userId'=>$entry['user_id'],'username'=>$entry['username']])}}"
+                <a href=http://localhost:8000/profile><img src="{{url('userimage/' . $entry['user_id'] . '/'. $entry['username'])}}"
                                                            alt="Profile Photo" width=70" height="66" ></a>
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp;{{$entry['first_name'] . ' ' . $entry['last_name']}} </a> added a document.</p>

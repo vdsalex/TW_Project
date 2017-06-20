@@ -8,9 +8,9 @@
     <div class="jumbotron" style="margin-top: 80px !important;">
         <div class="poster">
             <div class="profile-photo">
-                <a href="{{route('profile')}}"><img src="{{route('account.image',['userId'=>Auth::user()->id,'username'=>Auth::user()->username])}}" alt="Profile Photo" width=70" height="66" ></a>
+                <a href="{{route('profile')}}"><img src="{{ url('userimage/' . Auth::user()->id . '/'. Auth::user()->username) }}" alt="Profile Photo" width=70" height="66" ></a>
             </div>
-            <p  align="left"><a href={{route('profile')}}> &nbsp; You </a> added a photo.</p>
+            <p  align="left"><a href={{route('profile')}}> &nbsp; You </a> have a photo.</p>
         </div>
         <form action="{{route('facebook.import',['URL'=>$entry['URL'],'name'=>$entry['name'],'location'=>$entry['location']])}}" method="post">
             <input type="submit" class="button" value="Import into account" style="background-color: #4CAF52;

@@ -211,6 +211,12 @@ Route::group(['middleware'=> ['web']],function(){
         'middleware' => 'auth'
     ]);
 
+    Route::post('advanced_search',[
+        'uses'=> 'UserController@postAdvancedSearch',
+        'as' => 'advanced.search',
+        'middleware' => 'auth'
+    ]);
+
 
     /*
      * DELETE USER MEMORIES
