@@ -934,7 +934,410 @@ class UserController extends Controller
 
     public function postAdvancedSearch(Request $request)
     {
+        if ($request['memory_type_radio']=='Photo')
+        {
+            $friends=Auth::user()->friends();
+            $friendsIds=array();
 
+            if ($request['friend_username'])
+            {
+                //check if is friend
+                $isFriend=false;
+                foreach ($friends as $friend)
+                {
+                    if ($friend['username'] == $request['friend_username'])
+                    {
+                        $inputFriend=$friend;
+                        $isFriend = true;
+                    }
+                }
+                if ($isFriend==false)
+                {
+                    return redirect()->route('home');
+                }
+                else array_push($friendsIds,$inputFriend['id']);
+                //username is friend
+
+            }
+            else //get all id's (friends + user)
+            {
+                foreach ($friends as $friend)
+                    array_push($friendsIds,$friend['id']);
+
+                // also include user's id
+                array_push($friendsIds,Auth::user()->id);
+            }
+
+            $photos=Photo::whereIn('user_id',$friendsIds);
+
+            //take location if set
+            if ($request['photosLocation'])
+            {
+                $photos=$photos->where('location','LIKE', '%'. $request['photosLocation'] .'%');
+            }
+
+            if ($request['photosDescription'])
+            {
+                $photos=$photos->where('description','LIKE', '%'. $request['photosDescription'] .'%');
+            }
+
+            if ($request['photosCreationDate'])
+            {
+                $photos=$photos->whereDate('snap_date','=',$request['photosCreationDate']);
+            }
+
+            if ($request['between_one'])
+            {
+                $photos=$photos->whereDate('snap_date','>=',$request['between_one']);
+            }
+
+            if ($request['between_two'])
+            {
+                $photos=$photos->whereDate('snap_date','<=',$request['between_two']);
+            }
+
+            $photos=$photos->get();
+
+            $entries=new Collection();
+            //get first_name, last_name and username for each memory
+            foreach ($photos as $photo)
+            {
+                $photoUser=User:: where('id',$photo['user_id'])->first();
+                $userInfo=collect(['username'=>$photoUser->username, 'first_name'=>$photoUser->first_name,'last_name'=>$photoUser->last_name,'memory_type'=>'photo']);
+                $photoWithUser=$userInfo->merge($photo);
+
+                $entries->push($photoWithUser);
+            }
+
+            $user=Auth::user();
+            return view('pages/advanced_search_results',compact('entries','user'));
+
+        }
+
+        if ($request['memory_type_radio']=='Video')
+        {
+            $friends=Auth::user()->friends();
+            $friendsIds=array();
+
+            if ($request['friend_username'])
+            {
+                //check if is friend
+                $isFriend=false;
+                foreach ($friends as $friend)
+                {
+                    if ($friend['username'] == $request['friend_username'])
+                    {
+                        $inputFriend=$friend;
+                        $isFriend = true;
+                    }
+                }
+                if ($isFriend==false)
+                {
+                    return redirect()->route('home');
+                }
+                else array_push($friendsIds,$inputFriend['id']);
+                //username is friend
+
+            }
+            else //get all id's (friends + user)
+            {
+                foreach ($friends as $friend)
+                    array_push($friendsIds,$friend['id']);
+
+                // also include user's id
+                array_push($friendsIds,Auth::user()->id);
+            }
+
+            $videos=Video::whereIn('user_id',$friendsIds);
+
+            //take location if set
+            if ($request['videosTitle'])
+            {
+                $videos=$videos->where('title','LIKE', '%'. $request['videosTitle'] .'%');
+            }
+
+            if ($request['videosDescription'])
+            {
+                $videos=$videos->where('description','LIKE', '%'. $request['videosDescription'] .'%');
+            }
+
+            if ($request['videosRecordDate'])
+            {
+                $videos=$videos->whereDate('record_date','=',$request['videosRecordDate']);
+            }
+
+            if ($request['between_one'])
+            {
+                $videos=$videos->whereDate('record_date','>=',$request['between_one']);
+            }
+
+            if ($request['between_two'])
+            {
+                $videos=$videos->whereDate('record_date','<=',$request['between_two']);
+            }
+
+            $videos=$videos->get();
+
+            $entries=new Collection();
+            //get first_name, last_name and username for each memory
+            foreach ($videos as $video)
+            {
+                $videoUser=User:: where('id',$video['user_id'])->first();
+                $userInfo=collect(['username'=>$videoUser->username, 'first_name'=>$videoUser->first_name,'last_name'=>$videoUser->last_name,'memory_type'=>'video']);
+                $videoWithUser=$userInfo->merge($video);
+
+                $entries->push($videoWithUser);
+            }
+
+            $user=Auth::user();
+
+            return view('pages/advanced_search_results',compact('entries','user'));
+        }
+
+        if ($request['memory_type_radio']=='Document')
+        {
+            $friends=Auth::user()->friends();
+            $friendsIds=array();
+
+            if ($request['friend_username'])
+            {
+                //check if is friend
+                $isFriend=false;
+                foreach ($friends as $friend)
+                {
+                    if ($friend['username'] == $request['friend_username'])
+                    {
+                        $inputFriend=$friend;
+                        $isFriend = true;
+                    }
+                }
+                if ($isFriend==false)
+                {
+                    return redirect()->route('home');
+                }
+                else array_push($friendsIds,$inputFriend['id']);
+                //username is friend
+
+            }
+            else //get all id's (friends + user)
+            {
+                foreach ($friends as $friend)
+                    array_push($friendsIds,$friend['id']);
+
+                // also include user's id
+                array_push($friendsIds,Auth::user()->id);
+            }
+
+            $documents=Document::whereIn('user_id',$friendsIds);
+
+            //take location if set
+            if ($request['documentsEmissionLocation'])
+            {
+                $documents=$documents->where('location','LIKE', '%'. $request['documentsEmissionLocation'] .'%');
+            }
+
+            if ($request['documentsName'])
+            {
+                $documents=$documents->where('name','LIKE', '%'. $request['documentsName'] .'%');
+            }
+
+            if ($request['documentsEmissionDate'])
+            {
+                $documents=$documents->whereDate('emission_date','=',$request['documentsEmissionDate']);
+            }
+
+            if ($request['between_one'])
+            {
+                $documents=$documents->whereDate('emission_date','>=',$request['between_one']);
+            }
+
+            if ($request['between_two'])
+            {
+                $documents=$documents->whereDate('emission_date','<=',$request['between_two']);
+            }
+
+            $documents=$documents->get();
+
+            $entries=new Collection();
+            //get first_name, last_name and username for each memory
+            foreach ($documents as $document)
+            {
+                $documentUser=User:: where('id',$document['user_id'])->first();
+                $userInfo=collect(['username'=> $documentUser->username, 'first_name'=> $documentUser->first_name,'last_name'=> $documentUser->last_name,'memory_type'=>'document']);
+                $documentWithUser=$userInfo->merge($document);
+
+                $entries->push( $documentWithUser);
+            }
+
+            $user=Auth::user();
+            return view('pages/advanced_search_results',compact('entries','user'));
+
+        }
+
+        if ($request['memory_type_radio']=='Letter')
+        {
+            $friends=Auth::user()->friends();
+            $friendsIds=array();
+
+            if ($request['friend_username'])
+            {
+                //check if is friend
+                $isFriend=false;
+                foreach ($friends as $friend)
+                {
+                    if ($friend['username'] == $request['friend_username'])
+                    {
+                        $inputFriend=$friend;
+                        $isFriend = true;
+                    }
+                }
+                if ($isFriend==false)
+                {
+                    return redirect()->route('home');
+                }
+                else array_push($friendsIds,$inputFriend['id']);
+                //username is friend
+
+            }
+            else //get all id's (friends + user)
+            {
+                foreach ($friends as $friend)
+                    array_push($friendsIds,$friend['id']);
+
+                // also include user's id
+                array_push($friendsIds,Auth::user()->id);
+            }
+
+            $letters=Letter::whereIn('user_id',$friendsIds);
+
+            //take location if set
+            if ($request['lettersSender'])
+            {
+                $letters=$letters->where('sender','LIKE', '%'. $request['lettersSender'] .'%');
+            }
+
+            if ($request['lettersReceiver'])
+            {
+                $letters=$letters->where('receiver','LIKE', '%'. $request['lettersReceiver'] .'%');
+            }
+
+            if ($request['lettersMessage'])
+            {
+                $letters=$letters->where('message','LIKE', '%' . $request['lettersMessage'] . '%');
+            }
+
+            if ($request['lettersWritingDate'])
+            {
+                $letters=$letters->whereDate('write_date','=',$request['lettersWritingDate']);
+            }
+
+            if ($request['between_one'])
+            {
+                $letters=$letters->whereDate('write_date','>=',$request['between_one']);
+            }
+
+            if ($request['between_two'])
+            {
+                $letters=$letters->whereDate('write_date','<=',$request['between_two']);
+            }
+
+            $letters=$letters->get();
+
+            $entries=new Collection();
+            //get first_name, last_name and username for each memory
+            foreach ($letters as $letter)
+            {
+                $letterUser=User:: where('id',$letter['user_id'])->first();
+                $userInfo=collect(['username'=> $letterUser->username, 'first_name'=>$letterUser->first_name,'last_name'=>$letterUser->last_name,'memory_type'=>'letter']);
+                $letterWithUser=$userInfo->merge($letter);
+
+                $entries->push( $letterWithUser);
+            }
+
+            $user=Auth::user();
+            return view('pages/advanced_search_results',compact('entries','user'));
+
+        }
+
+        if ($request['memory_type_radio']=='Artefact')
+        {
+            $friends=Auth::user()->friends();
+            $friendsIds=array();
+
+            if ($request['friend_username'])
+            {
+                //check if is friend
+                $isFriend=false;
+                foreach ($friends as $friend)
+                {
+                    if ($friend['username'] == $request['friend_username'])
+                    {
+                        $inputFriend=$friend;
+                        $isFriend = true;
+                    }
+                }
+                if ($isFriend==false)
+                {
+                    return redirect()->route('home');
+                }
+                else array_push($friendsIds,$inputFriend['id']);
+                //username is friend
+
+            }
+            else //get all id's (friends + user)
+            {
+                foreach ($friends as $friend)
+                    array_push($friendsIds,$friend['id']);
+
+                // also include user's id
+                array_push($friendsIds,Auth::user()->id);
+            }
+
+            $artefacts=Artefact::whereIn('user_id',$friendsIds);
+
+            //take location if set
+            if ($request['artifactsName'])
+            {
+                $artefacts=$artefacts->where('name','LIKE', '%'. $request['artifactsName'] .'%');
+            }
+
+            if ($request['artifactsDescription'])
+            {
+                $artefacts=$artefacts->where('description','LIKE', '%'. $request['artifactsDescription'] .'%');
+            }
+
+            if ($request['artifactsRecDate'])
+            {
+                $artefacts=$artefacts->whereDate('receive_date','=',$request['artifactsRecDate']);
+            }
+
+            if ($request['between_one'])
+            {
+                $artefacts=$artefacts->whereDate('write_date','>=',$request['between_one']);
+            }
+
+            if ($request['between_two'])
+            {
+                $artefacts=$artefacts->whereDate('write_date','<=',$request['between_two']);
+            }
+
+            $artefacts=$artefacts->get();
+
+            $entries=new Collection();
+            //get first_name, last_name and username for each memory
+            foreach ($artefacts as $artefact)
+            {
+                $artefactUser=User:: where('id',$artefact['user_id'])->first();
+                $userInfo=collect(['username'=>  $artefactUser->username, 'first_name'=> $artefactUser->first_name,'last_name'=> $artefactUser->last_name,'memory_type'=>'artefact']);
+                $artefactWithUser=$userInfo->merge($artefact);
+
+                $entries->push(  $artefactWithUser);
+            }
+
+            $user=Auth::user();
+            return view('pages/advanced_search_results',compact('entries','user'));
+
+        }
     }
 
     /*

@@ -13,7 +13,7 @@
     <header>@include ('includes.header')</header>
 
     <div class="container" id="mainContainer">
-        <form id="secondForm" class="searchType">
+        <form id="secondForm" class="searchType" action="{{route('advanced.search')}}" method="post">
             <div class="memType">
                 <span id="chooseMemTypeSpan">Choose Memory Type</span>
                 <br><br>
@@ -65,7 +65,7 @@
                     <span id="letterOptionsSpanReceiver" class="letterOptionsSpan">Receiver: &nbsp</span>
                     <label id="letterOptionsLabelReceiver" class="letterOptionsLabel"><input name="lettersReceiver" type="text"></label><br>
                     <span id="letterOptionsSpanMessage" class="letterOptionsSpan">Message: &nbsp</span>
-                    <label id="letterOptionsLabelMessage" class="letterOptionsLabel"><input name="lettersMessage" type="date"></label><br>
+                    <label id="letterOptionsLabelMessage" class="letterOptionsLabel"><input name="lettersMessage" type="text"></label><br>
                     <span id="letterOptionsSpanWritingDate" class="letterOptionsSpan">Writing Date: &nbsp</span>
                     <label id="letterOptionsLabeWritingDate" class="letterOptionsLabel"><input name="lettersWritingDate" type="date"></label>
                 </div>
@@ -74,18 +74,19 @@
                 <span id="enterUsername">Friend's Username</span>
                 <br>
                 <br>
-                <label><input type="text" maxlength="100"></label>
+                <label><input type="text" maxlength="100" name="friend_username"></label>
             </div>
             <div class="createdDateDiv">
                 <span id="createdDateSpan">Created Date</span>
                 <br>
                 <br>
                 <span id="betweenSpan" class="createdBetweenSpans">Between &nbsp</span>
-                <label><input type="date"></label>
+                <label><input type="date" name="between_one"></label>
                 <span class="createdBetweenSpans">&nbsp And &nbsp</span>
-                <label><input type="date"></label>
+                <label><input type="date" name="between_two"></label>
             </div>
             <input type="submit" class="btn btn-default" id="searchBtn">
+            <input type="hidden" value="{{ Session::token() }}" name="_token">
         </form>
     </div>
 
