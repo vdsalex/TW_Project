@@ -19,7 +19,7 @@
 
         <p id="question">What do you want to upload?</p>
         <div class="tab">
-            <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artifact</button>
+            <button class="tablinks" onclick="openObject(event, 'Artefact')" id="defaultOpen">Artefact</button>
             <button class="tablinks" onclick="openObject(event, 'Document')">Document</button>
             <button class="tablinks" onclick="openObject(event, 'Letter')">Letter</button>
             <button class="tablinks" onclick="openObject(event, 'Picture')">Photo</button>
@@ -28,7 +28,7 @@
 
 
         <div id="Artefact" class="tabcontent">
-            <h3>Artifact</h3>
+            <h3>Artefact</h3>
             <div class="contentObj">
                 <form action="{{route('upload.artefact')}}" method="POST" enctype="multipart/form-data">
                     Name:<br>

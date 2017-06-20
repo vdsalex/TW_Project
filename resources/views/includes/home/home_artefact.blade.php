@@ -14,7 +14,7 @@
             <div class="profile-photo">
                 <a href=http://localhost:8000/profile>
                     <img src="{{route('account.image',['userId'=>$entry['user_id'],'username'=>$entry['username']])}}"
-                                                                                           alt="Profile Photo" width=50" height="46" ></a>
+                                                                                           alt="Profile Photo" width=70" height="66" ></a>
             </div>
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; {{$entry['first_name'] . ' ' . $entry['last_name']}} </a> added an artefact.</p>
         </div>
@@ -22,9 +22,9 @@
         <div class="rightContainer" style="height: 53%;">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p>Name: {{$entry['name']}}</p>
-                <p>Description: {{$entry['description']}}</p>
-                <p>Receiving date: {{$entry['receive_date']}}</p>
+                <p class="memAttribute">Name: &nbsp</p><p class="memLocation">{{$entry['name']}}</p>
+                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p>
+                <p class="memAttribute">Receiving date: &nbsp</p><p class="memCreationDate">{{$entry['receive_date']}}</p>
             </div>
         </div>
     </div>

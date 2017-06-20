@@ -13,46 +13,13 @@
     <header>@include ('includes.header')</header>
 
     <div class="container" id="mainContainer">
-        <div id="firstForm" class="searchType">
-            <div class="formHeader">
-                <span class="headerSpan">Multiple Memories Search</span>
-            </div>
-            <div class="memType">
-                <span id="chooseMemTypeSpan">Choose Memory Types</span>
-                <br><br>
-                <label><input class="memTypeInput" type="checkbox" name="memory_type_checkbox" value="Document">Document &nbsp</label>
-                <label><input class="memTypeInput" type="checkbox" name="memory_type_checkbox" value="Artifact">Artifact &nbsp</label>
-                <label><input class="memTypeInput" type="checkbox" name="memory_type_checkbox" value="Video">Video &nbsp</label><br>
-                <label><input class="memTypeInput" type="checkbox" name="memory_type_checkbox" value="Photo">Photo &nbsp</label>
-                <label><input class="memTypeInput" type="checkbox" name="memory_type_checkbox" value="Letter">Letter &nbsp</label>
-            </div>
-            <div class="enterUsernameDiv">
-                <span id="enterUsername">Friend's Username</span>
-                <br>
-                <br>
-                <label><input type="text" maxlength="100" name="username"></label>
-            </div>
-            <div class="createdDateDiv">
-                <span id="createdDateSpan">Created Date</span>
-                <br>
-                <br>
-                <span id="betweenSpan" class="createdBetweenSpans">Between</span><br><br>
-                <label><input type="date" name="createdDateMin"></label>
-                <span class="createdBetweenSpans">&nbsp And &nbsp</span>
-                <label><input type="date" name="createdDateMax"></label>
-            </div>
-            <input type="submit" class="btn btn-default" id="searchBtn">
-        </div>
-        <div id="secondForm" class="searchType">
-            <div class="formHeader">
-                <span class="headerSpan">Single Memory Search</span>
-            </div>
+        <form id="secondForm" class="searchType">
             <div class="memType">
                 <span id="chooseMemTypeSpan">Choose Memory Type</span>
                 <br><br>
                 <label><input id="documentOptionsInput1" class="memTypeInput" type="radio" name="memory_type_radio" value="Document" onclick="displayDocumentOptions()" checked>Document &nbsp</label>
-                <label><input class="memTypeInput" type="radio" name="memory_type_radio" value="Artifact" onclick="displayArtifactOptions()">Artifact &nbsp</label>
-                <label><input class="memTypeInput" type="radio" name="memory_type_radio" value="Video" onclick="displayVideoOptions()">Video &nbsp</label><br>
+                <label><input class="memTypeInput" type="radio" name="memory_type_radio" value="Artefact" onclick="displayArtifactOptions()">Artefact &nbsp</label>
+                <label><input class="memTypeInput" type="radio" name="memory_type_radio" value="Video" onclick="displayVideoOptions()">Video &nbsp</label>
                 <label><input class="memTypeInput" type="radio" name="memory_type_radio" value="Photo" onclick="displayPhotoOptions()">Photo &nbsp</label>
                 <label><input class="memTypeInput" type="radio" name="memory_type_radio" value="Letter" onclick="displayLetterOptions()">Letter &nbsp</label>
             </div>
@@ -113,13 +80,13 @@
                 <span id="createdDateSpan">Created Date</span>
                 <br>
                 <br>
-                <span id="betweenSpan" class="createdBetweenSpans">Between</span><br><br>
+                <span id="betweenSpan" class="createdBetweenSpans">Between &nbsp</span>
                 <label><input type="date"></label>
                 <span class="createdBetweenSpans">&nbsp And &nbsp</span>
                 <label><input type="date"></label>
             </div>
             <input type="submit" class="btn btn-default" id="searchBtn">
-        </div>
+        </form>
     </div>
 
 
