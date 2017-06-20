@@ -1,6 +1,6 @@
 @foreach ($receivedFriends as $receivedFriend)
     <div class="request">
-        <img src="{{route('account.image',['userId'=>$receivedFriend->id,'username'=>$receivedFriend->username])}}" alt="Requester's Photo" class="requesterPhoto">
+        <img src="{{url('userimage/' . $receivedFriend['id'] . '/'. $receivedFriend['username'])}}" alt="Requester's Photo" class="requesterPhoto">
         <div class="requestDiv">
             <p class="requesterName">{{$receivedFriend->first_name . ' ' .$receivedFriend ->last_name}}</p>
             <p class="requestMessage"> sent you a request.</p>
