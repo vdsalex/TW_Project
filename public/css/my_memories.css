@@ -192,7 +192,6 @@ button.deleteBtn
 
 .erori, .succesuri
 {
-    align:center;
     text-align:center;
 }
 
@@ -216,8 +215,58 @@ button.deleteBtn
     color:green;
 }
 
-div.btnsContainerz
+div.rightContainer
 {
-    text-align: center !important;
-    background-color: red !important;
+    display: table;
+
+    width: 350px;
+    height: 295px;
+}
+
+div.rightContainer button
+{
+    border-radius: 0 !important;
+
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+
+    font-size: 15px;
+
+    background-color: white;
+    color: black;
+
+    margin-left: 35px;
+}
+
+div.rightContainer button:hover
+{
+    background-color: rgb(224, 224, 224);
+}
+
+
+.hideBut
+{
+    width: 100%;
+    height: 83%;
+    padding: 10px 20px;
+    text-align: left;
+    margin-top: 15px;
+    display: none;
+    overflow: auto;
+}
+
+.hideBut p
+{
+    font-family: "Times New Roman", sans-serif;
+
+    color: white;
+
+    display: inline;
+}
+
+p.memDescription,
+p.memLocation,
+p.memCreationDate
+{
+    font-style: italic;
 }

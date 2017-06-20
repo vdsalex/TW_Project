@@ -2,7 +2,7 @@
 {
     margin-top: 80px;
 
-    width: 800px;
+    width: 1050px;
 }
 
 #bg-img
@@ -181,25 +181,58 @@
     }
 }
 
+div.rightContainer
+{
+    display: table;
 
-.btn {
-    border: none;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #2196F3;
-    float: right;
+    width: 350px;
+    height: 295px;
 }
+
+div.rightContainer button
+{
+    border-radius: 0 !important;
+
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+
+    font-size: 15px;
+
+    background-color: white;
+    color: black;
+
+    margin-left: 35px;
+}
+
+div.rightContainer button:hover
+{
+    background-color: rgb(224, 224, 224);
+}
+
 
 .hideBut
 {
     width: 100%;
-    height: 100%;
-    padding: 50px 0 ;
-    text-align: center;
-    background-color: #a9acb7;
-    margin-top:45px;
+    height: 83%;
+    padding: 10px 20px;
+    text-align: left;
+    margin-top: 15px;
     display: none;
     overflow: auto;
+}
 
+.hideBut p
+{
+    font-family: "Times New Roman", sans-serif;
+
+    color: white;
+
+    display: inline;
+}
+
+p.memDescription,
+p.memLocation,
+p.memCreationDate
+{
+    font-style: italic;
 }

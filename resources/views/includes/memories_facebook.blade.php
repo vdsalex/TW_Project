@@ -18,11 +18,13 @@
                 <input type="hidden" name="_token" value="{{Session::token()}}">
         </form>
         <img  src="{{$entry['URL']}}" alt="Photo" class="img-rounded"><br><br>
-
-        <div class="btnsContainerz">
-            <button class="btn info" onclick="hideF(this)">Description</button>
-            <button class="btn info" onclick="hideF(this)">Location</button>
-            <button class="btn info" onclick="hideF(this)">Receiving Date</button>
+        <div class="rightContainer">
+            <button class="btn info" onclick="hideF(this)">Information</button>
+            <div class="hideBut">
+                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p><br><br>
+                <p class="memAttribute">Location: &nbsp</p><p class="memLocation">{{$entry['location']}}</p><br><br>
+                <p class="memAttribute">Creation date: &nbsp</p><p class="memCreationDate">{{$entry['snap_date']}}</p>
+            </div>
         </div>
     </div>
 @endforeach
