@@ -40,7 +40,7 @@
 
                     <br>
                     Date of receiving:<br>
-                    <input type="text" name="receive_date">
+                    <input type="date" name="receive_date">
                     <br><br>
 
                     <input type="file" name="artefact" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
@@ -63,7 +63,7 @@
                     <input type="text" name="location">
                     <br>
                     Emission date:<br>
-                    <input type="text" name="emission_date">
+                    <input type="date" name="emission_date">
                     <br><br>
                     <input type="file" name="document" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".doc, .docx">
                     <br>
@@ -88,7 +88,7 @@
                     <textarea rows="5" cols="50" name="message"></textarea>
                     <br>
                     Date of writing<br>
-                    <input type="text" name="write_date">
+                    <input type="date" name="write_date">
                     <br><br>
                     <input type="file" name="letter" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".txt" >
                     <br>
@@ -111,7 +111,7 @@
                     <input type="text" name="location">
                     <br>
                     Creation date:<br>
-                    <input type="text" name="snap_date">
+                    <input type="date" name="snap_date">
                     <br><br>
                     <input type="file" name="photo" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".jpg,.jpeg,.png">
                     <br>
@@ -132,7 +132,7 @@
                     <textarea rows="4" cols="50" name="description" ></textarea>
                     <br>
                     Record date:<br>
-                    <input type="text" name="record_date">
+                    <input type="date" name="record_date">
                     <br><br>
                     <input type="file" name="video" class="form-control"  style="width:300px; background: rgba(75,195,230,0.45)" accept=".mp4,.mpg4">
                     <br>

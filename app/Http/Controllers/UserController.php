@@ -224,11 +224,9 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        $date = DateTime::createFromFormat('d-m-Y',$request['emission_date']);
-
         $user=Auth::user();
 
-        $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$date]);
+        $newDocument=Document::create(['user_id'=>$user->id, 'name'=>$request['name'],'location'=>$request['location'],'emission_date'=>$request['emission_date']]);
 
         $filePath=$user->username . '-'.$user->id.'\\document\\'.$newDocument->id . '.doc';
 
@@ -253,11 +251,9 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        $date = DateTime::createFromFormat('d-m-Y',$request['receive_date']);
-
         $user=Auth::user();
 
-        $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$date]);
+        $newArtefact=Artefact::create(['user_id'=>$user->id, 'name'=>$request['name'],'description'=>$request['description'],'receive_date'=>$request['receive_date']]);
 
         $filePath=$user->username . '-'.$user->id.'\\artefact\\'.$newArtefact->id . '.jpg';
 
@@ -282,11 +278,9 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        $date = DateTime::createFromFormat('d-m-Y',$request['write_date']);
-
         $user = Auth::user();
 
-        $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $date]);
+        $newLetter = Letter::create(['user_id'=>$user->id, 'sender'=>$request['sender'],'receiver'=>$request['receiver'], 'message' => $request['message'], 'write_date' => $request['write_date']]);
 
         $filePath=$user -> username . '-'.$user->id . '\\letter\\'.$newLetter->id . '.txt';
         if(Storage::disk('local')->put($filePath, File::get($request['letter'])))
@@ -311,11 +305,9 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        $date = DateTime::createFromFormat('d-m-Y',$request['snap_date']);
-
         $user=Auth::user();
 
-        $newPhoto=Photo::create(['user_id'=>$user->id, 'description'=>$request['description'], 'location'=>$request['location'],'snap_date'=>$date]);
+        $newPhoto=Photo::create(['user_id'=>$user->id, 'description'=>$request['description'], 'location'=>$request['location'],'snap_date'=>$request['snap_date']]);
 
         $filePath=$user->username . '-'.$user->id.'\\photo\\'.$newPhoto->id . '.png';
         if(Storage::disk('local')->put($filePath, File::get($request['photo'])))
@@ -340,11 +332,9 @@ class UserController extends Controller
             return redirect()->route('home');
         }
 
-        $date = DateTime::createFromFormat('d-m-Y',$request['record_date']);
-
         $user=Auth::user();
 
-        $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$date]);
+        $newVideo=Video::create(['user_id'=>$user->id, 'title'=>$request['title'],'description'=>$request['description'],'record_date'=>$request['record_date']]);
 
         $filePath=$user->username . '-'.$user->id.'\\video\\'.$newVideo->id . '.mp4';
         if(Storage::disk('local')->put($filePath, File::get($request['video'])))
