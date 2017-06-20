@@ -19,11 +19,11 @@
             <p align="left"><a href=http://localhost:8000/profile> &nbsp; {{$entry['first_name'] . ' ' . $entry['last_name']}} </a> added an artefact.</p>
         </div>
         <img src="{{route('user.artefact',$entry['id'])}}" alt="Photo" class="img-rounded"><br><br>
-        <div class="rightContainer" style="height: 53%;">
+        <div class="rightContainer">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p class="memAttribute">Name: &nbsp</p><p class="memLocation">{{$entry['name']}}</p>
-                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p>
+                <p class="memAttribute">Name: &nbsp</p><p class="memLocation">{{$entry['name']}}</p><br><br>
+                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p><br><br>
                 <p class="memAttribute">Receiving date: &nbsp</p><p class="memCreationDate">{{$entry['receive_date']}}</p>
             </div>
         </div>

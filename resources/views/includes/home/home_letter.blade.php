@@ -11,12 +11,12 @@
         <object data="{{route('user.letter',$entry['id'])}}" type="text/plain"  class="let">
             <a href="{{route('user.letter',$entry['id'])}}"></a>
         </object><br><br>
-        <div class="rightContainer" style="height: 53%">
+        <div class="rightContainer">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p class="memAttribute">Sender: &nbsp</p><p class="memLocation">{{$entry['sender']}}</p>
-                <p class="memAttribute">Receiver: &nbsp</p><p class="memLocation">{{$entry['receiver']}}</p>
-                <p class="memAttribute">Message: &nbsp</p><p class="memDescription">{{$entry['message']}}</p>
+                <p class="memAttribute">Sender: &nbsp</p><p class="memLocation">{{$entry['sender']}}</p><br><br>
+                <p class="memAttribute">Receiver: &nbsp</p><p class="memLocation">{{$entry['receiver']}}</p><br><br>
+                <p class="memAttribute">Message: &nbsp</p><p class="memDescription">{{$entry['message']}}</p><br><br>
                 <p class="memAttribute">Writing date: &nbsp</p><p class="memCreationDate">{{$entry['write_date']}}</p>
             </div>
         </div>

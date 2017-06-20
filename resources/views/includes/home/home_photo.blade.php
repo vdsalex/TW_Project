@@ -15,11 +15,11 @@
         </div>
 
         <img  src={{route('user.photo',$entry['id'])}} alt="{{$entry['id']}}" class="img-rounded"><br><br>
-        <div class="rightContainer" style="height: 53%;">
+        <div class="rightContainer">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p>
-                <p class="memAttribute">Location: &nbsp</p><p class="memLocation">{{$entry['location']}}</p>
+                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p><br><br>
+                <p class="memAttribute">Location: &nbsp</p><p class="memLocation">{{$entry['location']}}</p><br><br>
                 <p class="memAttribute">Creation date: &nbsp</p><p class="memCreationDate">{{$entry['snap_date']}}</p>
             </div>
         </div>

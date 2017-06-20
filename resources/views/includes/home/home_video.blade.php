@@ -10,11 +10,11 @@
         <video class="video" controls>
             <source src="{{route('user.video',$entry['id'])}}"  type="video/mp4" >
         </video><br><br>
-        <div class="rightContainer" style="height: 43%">
+        <div class="rightContainer">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p class="memAttribute">Title: &nbsp</p><p class="memLocation">{{$entry['title']}}</p>
-                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p>
+                <p class="memAttribute">Title: &nbsp</p><p class="memLocation">{{$entry['title']}}</p><br><br>
+                <p class="memAttribute">Description: &nbsp</p><p class="memDescription">{{$entry['description']}}</p><br><br>
                 <p class="memAttribute">Record date: &nbsp</p><p class="memCreationDate">{{$entry['record_date']}}</p>
             </div>
         </div>

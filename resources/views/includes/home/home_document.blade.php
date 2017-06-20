@@ -10,11 +10,11 @@
         <object data="{{route('user.document',$entry['id'])}}" type="text/plain"  class="let">
             <a href="{{route('user.document',$entry['id'])}}"></a>
         </object><br><br>
-        <div class="rightContainer" style="height: 53%">
+        <div class="rightContainer">
             <button class="btn info" onclick="hideF(this)">Information</button>
             <div class="hideBut">
-                <p class="memAttribute">Name: &nbsp</p><p class="memLocation">{{$entry['name']}}</p>
-                <p class="memAttribute">Location: &nbsp</p><p class="memDescription">{{$entry['location']}}</p>
+                <p class="memAttribute">Name: &nbsp</p><p class="memLocation">{{$entry['name']}}</p><br><br>
+                <p class="memAttribute">Location: &nbsp</p><p class="memDescription">{{$entry['location']}}</p><br><br>
                 <p class="memAttribute">Emission date: &nbsp</p><p class="memCreationDate">{{$entry['emission_date']}}</p>
             </div>
         </div>

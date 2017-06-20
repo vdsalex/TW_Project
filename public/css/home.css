@@ -2,7 +2,7 @@
 {
     margin-top: 80px;
 
-    width: 800px;
+    width: 1050px;
 }
 
 #bg-img
@@ -179,6 +179,14 @@
     .modal-content {
         width: 100%;
     }
+}
+
+div.rightContainer
+{
+    display: table;
+
+    width: 350px;
+    height: 295px;
 }
 
 div.rightContainer button
